@@ -37,7 +37,7 @@ class WechatPayDocFetcher:
         }
     }
     
-    def __init__(self, doc_type: str = 'merchant', base_dir: str = "wechatpay_docs"):
+    def __init__(self, doc_type: str = 'merchant', base_dir: str = "docs"):
         """
         初始化抓取器
         
@@ -64,8 +64,7 @@ class WechatPayDocFetcher:
         self.reports_dir.mkdir(parents=True, exist_ok=True)
         
         # 索引文件路径
-        self.index_file = self.index_dir / "leaf_nodes_index.json"
-        self.prev_index_file = self.index_dir / "leaf_nodes_index_prev.json"
+        self.index_file = self.index_dir / "latest.json"
     
     def fetch_page(self, url: str, max_retries: int = 3) -> Optional[str]:
         """获取页面HTML内容"""
@@ -164,12 +163,7 @@ class WechatPayDocFetcher:
         return any(self.reports_dir.glob("*.md"))
     
     def save_index(self, nodes: List[Dict], run_time: str):
-        """保存索引文件"""
-        # 先备份旧索引
-        if self.index_file.exists():
-            self.index_file.rename(self.prev_index_file)
-        
-        # 保存新索引
+        """保存索引文件（带时间戳版本 + latest.json）"""
         index_data = {
             'runTime': run_time,
             'totalNodes': len(nodes),
@@ -177,7 +171,13 @@ class WechatPayDocFetcher:
             'docTypeName': self.doc_config['name'],
             'nodes': nodes
         }
-        
+
+        # 保存带时间戳的版本
+        timestamped_file = self.index_dir / f"index_{run_time}.json"
+        with open(timestamped_file, 'w', encoding='utf-8') as f:
+            json.dump(index_data, f, ensure_ascii=False, indent=2)
+
+        # 保存/覆盖 latest.json
         with open(self.index_file, 'w', encoding='utf-8') as f:
             json.dump(index_data, f, ensure_ascii=False, indent=2)
     
@@ -498,8 +498,11 @@ class WechatPayDocFetcher:
         with open(report_file, 'w', encoding='utf-8') as f:
             f.write(report_content)
 
+        # 显示带时间戳的索引文件路径
+        timestamped_index = self.index_dir / f"index_{run_time}.json"
         print(f"\n✅ 完成!")
-        print(f"   索引文件: {self.index_file}")
+        print(f"   索引文件: {timestamped_index}")
+        print(f"   最新索引: {self.index_file}")
         print(f"   页面目录: {self.pages_dir}")
         print(f"   报告文件: {report_file}")
 
@@ -532,8 +535,8 @@ def main():
                        help='文档类型：merchant(直连商户) 或 partner(合作伙伴)，默认: merchant')
     parser.add_argument('--limit', '-l', type=int, default=None,
                        help='限制处理的页面数量（用于测试）')
-    parser.add_argument('--output', '-o', type=str, default='wechatpay_docs',
-                       help='输出目录（默认: wechatpay_docs）')
+    parser.add_argument('--output', '-o', type=str, default='docs',
+                       help='输出目录（默认: docs）')
     
     args = parser.parse_args()
     
