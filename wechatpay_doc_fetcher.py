@@ -219,10 +219,96 @@ class WechatPayDocFetcher:
     
     @staticmethod
     def clean_html(html: str) -> str:
-        """移除 HTML 中的 JSON 数据包以减小文件大小"""
-        # 匹配 vike_pageContext 脚本标签（使用非贪婪匹配）
-        pattern = r'<script id="vike_pageContext" type="application/json">.*?</script>'
-        return re.sub(pattern, '', html, flags=re.DOTALL)
+        """
+        激进模式清理 HTML：提取主要内容，重建最简页面结构
+        大幅减小文件大小同时保留文档可读性
+        """
+        # 1. 移除 JSON 数据包
+        html = re.sub(r'<script id="vike_pageContext" type="application/json">.*?</script>',
+                      '', html, flags=re.DOTALL)
+
+        # 2. 提取标题
+        title_match = re.search(r'<title>(.*?)</title>', html)
+        title = title_match.group(1) if title_match else "文档"
+
+        # 3. 提取主要内容区域
+        content = html
+        main_match = re.search(r'<main[^>]*>(.*?)</main>', html, re.DOTALL)
+        if main_match:
+            content = main_match.group(1)
+        else:
+            article_match = re.search(r'<article[^>]*>(.*?)</article>', html, re.DOTALL)
+            if article_match:
+                content = article_match.group(1)
+
+        # 4. 移除 Vue data-v 属性
+        content = re.sub(r'\s*data-v-[a-z0-9]+="[^"]*"', '', content)
+
+        # 5. 移除 style 属性
+        content = re.sub(r'\s*style="[^"]*"', '', content)
+
+        # 6. 移除 Vue 渲染注释
+        content = re.sub(r'<!--\[.*?\]-->', '', content)
+        content = re.sub(r'<!--\s*-->', '', content)
+
+        # 7. 压缩空白字符（保护代码块）
+        placeholders = []
+
+        def protect_pre(match):
+            placeholders.append(match.group(0))
+            return f"__PRE_PLACEHOLDER_{len(placeholders)-1}__"
+        content = re.sub(r'<pre[^>]*>.*?</pre>', protect_pre, content, flags=re.DOTALL)
+
+        def protect_code(match):
+            placeholders.append(match.group(0))
+            return f"__CODE_PLACEHOLDER_{len(placeholders)-1}__"
+        content = re.sub(r'<code[^>]*>.*?</code>', protect_code, content, flags=re.DOTALL)
+
+        def protect_script(match):
+            placeholders.append(match.group(0))
+            return f"__SCRIPT_PLACEHOLDER_{len(placeholders)-1}__"
+        content = re.sub(r'<script[^>]*>.*?</script>', protect_script, content, flags=re.DOTALL)
+
+        def protect_style(match):
+            placeholders.append(match.group(0))
+            return f"__STYLE_PLACEHOLDER_{len(placeholders)-1}__"
+        content = re.sub(r'<style[^>]*>.*?</style>', protect_style, content, flags=re.DOTALL)
+
+        content = re.sub(r'>\s+<', '><', content)
+        content = re.sub(r'\s{2,}', ' ', content)
+        content = content.strip()
+
+        # 恢复被保护的内容
+        for i, placeholder in enumerate(reversed(placeholders)):
+            idx = len(placeholders) - 1 - i
+            content = content.replace(f"__PRE_PLACEHOLDER_{idx}__", placeholder)
+            content = content.replace(f"__CODE_PLACEHOLDER_{idx}__", placeholder)
+            content = content.replace(f"__SCRIPT_PLACEHOLDER_{idx}__", placeholder)
+            content = content.replace(f"__STYLE_PLACEHOLDER_{idx}__", placeholder)
+
+        # 8. 重建最简 HTML 模板
+        return f'''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 20px; color: #333; }}
+        h1, h2, h3 {{ color: #1a1a1a; }}
+        code {{ background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: Consolas, monospace; }}
+        pre {{ background: #f8f8f8; padding: 16px; overflow-x: auto; border-radius: 6px; }}
+        table {{ border-collapse: collapse; width: 100%; }}
+        th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+        th {{ background: #f4f4f4; }}
+        img {{ max-width: 100%; }}
+        a {{ color: #0066cc; text-decoration: none; }}
+        a:hover {{ text-decoration: underline; }}
+    </style>
+</head>
+<body>
+{content}
+</body>
+</html>'''
 
     def save_page(self, node: Dict) -> Tuple[bool, bool]:
         """
