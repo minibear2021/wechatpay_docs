@@ -210,37 +210,42 @@ class WechatPayDocFetcher:
         
         return added, removed, modified
     
-    def save_page(self, node: Dict) -> bool:
-        """保存页面内容到本地（如果已存在则跳过）"""
+    def save_page(self, node: Dict) -> Tuple[bool, bool]:
+        """
+        保存页面内容到本地（如果已存在则跳过）
+
+        Returns:
+            Tuple[bool, bool]: (是否成功, 是否实际执行了网络请求)
+        """
         doc_id = node['docId']
         update_time = node['updateTime']
         url = self.base_url + node['url'] if not node['url'].startswith('http') else node['url']
-        
+
         # 创建页面目录（按docId分类）
         page_dir = self.pages_dir / doc_id
         page_dir.mkdir(exist_ok=True)
-        
+
         # 使用 docId_updateTime 命名文件
         html_filename = f"{doc_id}_{update_time}.html"
         json_filename = f"{doc_id}_{update_time}.json"
         html_path = page_dir / html_filename
         json_path = page_dir / json_filename
-        
+
         # 检查文件是否已存在（HTML和JSON都存在才跳过）
         if html_path.exists() and json_path.exists():
             print(f"  跳过: {node['title']} ({doc_id}) - 已存在")
-            return True
-        
+            return True, False  # 成功，但未执行网络请求
+
         print(f"  拉取: {node['title']} ({doc_id})")
-        
+
         html = self.fetch_page(url)
         if html is None:
-            return False
-        
+            return False, True  # 失败，但执行了网络请求
+
         # 保存页面内容
         with open(html_path, 'w', encoding='utf-8') as f:
             f.write(html)
-        
+
         # 保存元数据
         fetch_time = datetime.now().strftime('%Y%m%d_%H%M%S')
         meta_data = {
@@ -253,8 +258,8 @@ class WechatPayDocFetcher:
         }
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(meta_data, f, ensure_ascii=False, indent=2)
-        
-        return True
+
+        return True, True  # 成功，且执行了网络请求
     
     def generate_report(self, run_time: str, total_nodes: int, 
                        added: List[Dict], removed: List[Dict], modified: List[Dict],
@@ -436,15 +441,16 @@ class WechatPayDocFetcher:
         
         fetch_success = []
         fetch_failed = []
-        
+
         for i, node in enumerate(nodes_to_fetch, 1):
             print(f"  [{i}/{len(nodes_to_fetch)}] ", end='')
-            if self.save_page(node):
+            success, was_fetched = self.save_page(node)
+            if success:
                 fetch_success.append(node['docId'])
             else:
                 fetch_failed.append(node['docId'])
-            # 添加延迟避免请求过快
-            if i < len(nodes_to_fetch):
+            # 只有实际执行了网络请求才添加延迟
+            if was_fetched and i < len(nodes_to_fetch):
                 time.sleep(0.5)
         
         print(f"\n  成功: {len(fetch_success)} 个")
