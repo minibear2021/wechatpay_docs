@@ -369,8 +369,8 @@ class WechatPayDocFetcher:
             "<details>",
             "<summary>点击查看全部 {total_nodes} 个页面</summary>",
             "",
-            "| 序号 | 标题 | ID | 更新时间 | 路径 |",
-            "|------|------|-----|----------|------|",
+            "| 序号 | 标题（链接） | ID | 更新时间 | 完整路径 |",
+            "|------|-------------|-----|----------|----------|",
         ])
         
         return '\n'.join(report_lines)
@@ -484,11 +484,16 @@ class WechatPayDocFetcher:
                 lines[i] = line.replace('{total_nodes}', str(len(leaf_nodes)))
         report_content = '\n'.join(lines)
         
-        # 添加页面清单表格
+        # 添加页面清单表格（包含完整路径和HTML文件链接）
         table_lines = []
         for idx, node in enumerate(leaf_nodes, 1):
-            path = ' > '.join(node['pathArray'][-3:]) if len(node['pathArray']) > 3 else node['fullPath']
-            table_lines.append(f"| {idx} | {node['title']} | `{node['docId']}` | {self.format_timestamp(node['updateTime'])} | {path} |")
+            doc_id = node['docId']
+            update_time = node['updateTime']
+            # 构建HTML文件的相对路径
+            html_rel_path = f"../pages/{doc_id}/{doc_id}_{update_time}.html"
+            # 使用完整层级路径
+            full_path = node['fullPath']
+            table_lines.append(f"| {idx} | [{node['title']}]({html_rel_path}) | `{doc_id}` | {self.format_timestamp(update_time)} | {full_path} |")
         
         report_content += '\n' + '\n'.join(table_lines)
         report_content += "\n\n</details>\n"
