@@ -146,7 +146,7 @@ class WechatPayDocFetcher:
         """加载索引文件"""
         if not self.index_file.exists():
             return {}
-        
+
         try:
             with open(self.index_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
@@ -155,6 +155,13 @@ class WechatPayDocFetcher:
         except Exception as e:
             print(f"  警告: 加载索引失败: {e}")
             return {}
+
+    def _has_reports(self) -> bool:
+        """检查reports目录是否存在报告文件"""
+        if not self.reports_dir.exists():
+            return False
+        # 检查是否存在.md文件
+        return any(self.reports_dir.glob("*.md"))
     
     def save_index(self, nodes: List[Dict], run_time: str):
         """保存索引文件"""
@@ -415,8 +422,11 @@ class WechatPayDocFetcher:
         # 4. 加载旧索引并检测变更
         print("\n[4/5] 检测变更...")
         old_index = self.load_index()
-        
-        if not old_index:
+
+        # 检查是否首次运行：无索引文件 或 reports目录为空
+        is_first_run = not old_index or not self._has_reports()
+
+        if is_first_run:
             print("  首次运行：将抓取所有页面")
             added = leaf_nodes
             removed = []
@@ -487,18 +497,11 @@ class WechatPayDocFetcher:
         report_file = self.reports_dir / f"report_{run_time}.md"
         with open(report_file, 'w', encoding='utf-8') as f:
             f.write(report_content)
-        
-        # 更新最新报告链接
-        latest_report = self.reports_dir / "latest.md"
-        if latest_report.exists():
-            latest_report.unlink()
-        latest_report.symlink_to(report_file.name)
-        
+
         print(f"\n✅ 完成!")
         print(f"   索引文件: {self.index_file}")
         print(f"   页面目录: {self.pages_dir}")
         print(f"   报告文件: {report_file}")
-        print(f"   最新报告: {latest_report}")
 
 
 def main():
