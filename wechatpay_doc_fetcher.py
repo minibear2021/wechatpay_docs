@@ -217,6 +217,13 @@ class WechatPayDocFetcher:
         
         return added, removed, modified
     
+    @staticmethod
+    def clean_html(html: str) -> str:
+        """移除 HTML 中的 JSON 数据包以减小文件大小"""
+        # 匹配 vike_pageContext 脚本标签（使用非贪婪匹配）
+        pattern = r'<script id="vike_pageContext" type="application/json">.*?</script>'
+        return re.sub(pattern, '', html, flags=re.DOTALL)
+
     def save_page(self, node: Dict) -> Tuple[bool, bool]:
         """
         保存页面内容到本地（如果已存在则跳过）
@@ -248,6 +255,9 @@ class WechatPayDocFetcher:
         html = self.fetch_page(url)
         if html is None:
             return False, True  # 失败，但执行了网络请求
+
+        # 清理 JSON 数据包以减小文件大小
+        html = self.clean_html(html)
 
         # 保存页面内容
         with open(html_path, 'w', encoding='utf-8') as f:
