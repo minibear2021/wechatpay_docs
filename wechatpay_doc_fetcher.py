@@ -103,22 +103,28 @@ class WechatPayDocFetcher:
             return None
     
     def extract_leaf_nodes(self, data: Dict) -> List[Dict]:
-        """递归提取所有叶子节点"""
+        """递归提取所有叶子节点（只处理 state 为 0 的页面）"""
         leaf_nodes = []
-        
+
         def traverse(node: Dict, path: List[str] = None):
             if path is None:
                 path = []
-            
+
             # 获取当前节点信息
             doc_id = node.get('docId', '')
             title = node.get('title', '')
             update_time = node.get('updateTime', '')
             url = node.get('url', '')
             children = node.get('childrenList', [])
-            
+            state = node.get('state', 0)
+
+            # 跳过 state 为 1 的页面（页面不存在，会跳转到 404）
+            if state == 1:
+                print(f"  跳过无效页面: {title} ({doc_id}) - state=1")
+                return
+
             current_path = path + [title]
-            
+
             # 如果是叶子节点（无子节点）
             if not children:
                 leaf_nodes.append({
@@ -133,12 +139,12 @@ class WechatPayDocFetcher:
                 # 递归遍历子节点
                 for child in children:
                     traverse(child, current_path)
-        
+
         # 从 menuData 开始遍历
         menu_data = data.get('data', {}).get('menuData', [])
         for root_node in menu_data:
             traverse(root_node)
-        
+
         return leaf_nodes
     
     def load_index(self) -> Dict[str, Dict]:
