@@ -567,51 +567,57 @@ class WechatPayDocFetcher:
         
         print(f"\n  成功: {len(fetch_success)} 个")
         print(f"  失败: {len(fetch_failed)} 个")
-        
-        # 6. 保存新索引
-        self.save_index(leaf_nodes, run_time)
-        
-        # 7. 生成报告
-        print("\n[6/6] 生成差异报告...")
-        report_content = self.generate_report(
-            run_time, len(leaf_nodes),
-            added, removed, modified,
-            fetch_success, fetch_failed
-        )
-        
-        # 添加完整清单到报告
-        lines = report_content.split('\n')
-        for i, line in enumerate(lines):
-            if '{total_nodes}' in line:
-                lines[i] = line.replace('{total_nodes}', str(len(leaf_nodes)))
-        report_content = '\n'.join(lines)
-        
-        # 添加页面清单表格（包含完整路径和HTML文件链接）
-        table_lines = []
-        for idx, node in enumerate(leaf_nodes, 1):
-            doc_id = node['docId']
-            update_time = node['updateTime']
-            # 构建HTML文件的相对路径
-            html_rel_path = f"../pages/{doc_id}/{doc_id}_{update_time}.html"
-            # 使用完整层级路径
-            full_path = node['fullPath']
-            table_lines.append(f"| {idx} | [{node['title']}]({html_rel_path}) | `{doc_id}` | {self.format_timestamp(update_time)} | {full_path} |")
-        
-        report_content += '\n' + '\n'.join(table_lines)
-        report_content += "\n\n</details>\n"
-        
-        # 保存报告
-        report_file = self.reports_dir / f"report_{run_time}.md"
-        with open(report_file, 'w', encoding='utf-8') as f:
-            f.write(report_content)
 
-        # 显示带时间戳的索引文件路径
-        timestamped_index = self.index_dir / f"index_{run_time}.json"
-        print(f"\n✅ 完成!")
-        print(f"   索引文件: {timestamped_index}")
-        print(f"   最新索引: {self.index_file}")
-        print(f"   页面目录: {self.pages_dir}")
-        print(f"   报告文件: {report_file}")
+        # 6. 保存新索引和生成报告（仅首次运行或有变更时）
+        has_changes = len(added) > 0 or len(removed) > 0 or len(modified) > 0
+
+        if is_first_run or has_changes:
+            # 保存新索引
+            self.save_index(leaf_nodes, run_time)
+
+            # 生成报告
+            print("\n[6/6] 生成差异报告...")
+            report_content = self.generate_report(
+                run_time, len(leaf_nodes),
+                added, removed, modified,
+                fetch_success, fetch_failed
+            )
+
+            # 添加完整清单到报告
+            lines = report_content.split('\n')
+            for i, line in enumerate(lines):
+                if '{total_nodes}' in line:
+                    lines[i] = line.replace('{total_nodes}', str(len(leaf_nodes)))
+            report_content = '\n'.join(lines)
+
+            # 添加页面清单表格（包含完整路径和HTML文件链接）
+            table_lines = []
+            for idx, node in enumerate(leaf_nodes, 1):
+                doc_id = node['docId']
+                update_time = node['updateTime']
+                # 构建HTML文件的相对路径
+                html_rel_path = f"../pages/{doc_id}/{doc_id}_{update_time}.html"
+                # 使用完整层级路径
+                full_path = node['fullPath']
+                table_lines.append(f"| {idx} | [{node['title']}]({html_rel_path}) | `{doc_id}` | {self.format_timestamp(update_time)} | {full_path} |")
+
+            report_content += '\n' + '\n'.join(table_lines)
+            report_content += "\n\n</details>\n"
+
+            # 保存报告
+            report_file = self.reports_dir / f"report_{run_time}.md"
+            with open(report_file, 'w', encoding='utf-8') as f:
+                f.write(report_content)
+
+            # 显示带时间戳的索引文件路径
+            timestamped_index = self.index_dir / f"index_{run_time}.json"
+            print(f"\n✅ 完成!")
+            print(f"   索引文件: {timestamped_index}")
+            print(f"   最新索引: {self.index_file}")
+            print(f"   页面目录: {self.pages_dir}")
+            print(f"   报告文件: {report_file}")
+        else:
+            print("\n✅ 完成! 无变更，跳过保存索引和报告")
 
 
 def main():
