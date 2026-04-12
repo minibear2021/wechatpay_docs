@@ -39,6 +39,7 @@ python wechatpay_doc_fetcher.py --type merchant && python wechatpay_doc_fetcher.
 All functionality is in [`wechatpay_doc_fetcher.py`](wechatpay_doc_fetcher.py) - a self-contained Python script using only standard library modules:
 - `urllib.request` for HTTP requests
 - `json`/`re` for data parsing
+- `difflib` for report diffs
 - `pathlib` for directory management
 
 ### Data flow
@@ -46,8 +47,8 @@ All functionality is in [`wechatpay_doc_fetcher.py`](wechatpay_doc_fetcher.py) -
 1. **Fetch index page** → Extract embedded JSON from `vike_pageContext` script tag
 2. **Parse menu structure** → Recursively traverse `menuData` to find leaf nodes
 3. **Detect changes** → Compare `updateTime` fields against previous index
-4. **Fetch changed pages** → Save HTML + metadata to disk (skips if already exists)
-5. **Generate report** → Markdown diff report with all changes
+4. **Fetch changed pages** → Request the official `.md` URL for each page and save Markdown to disk (skips if already exists)
+5. **Generate report** → Markdown report with add/remove/modify sections and unified diff for modified pages
 
 ### Directory structure (output)
 
@@ -55,12 +56,11 @@ All functionality is in [`wechatpay_doc_fetcher.py`](wechatpay_doc_fetcher.py) -
 wechatpay_docs/
 ├── merchant/                 # or partner/
 │   ├── index/
-│   │   ├── leaf_nodes_index.json       # current index
-│   │   └── leaf_nodes_index_prev.json  # backup of previous
+│   │   ├── index_{timestamp}.json      # timestamped index snapshot
+│   │   └── latest.json                 # latest index
 │   ├── pages/
 │   │   └── {docId}/
-│   │       ├── {docId}_{updateTime}.html  # page content
-│   │       └── {docId}_{updateTime}.json  # metadata
+│   │       └── {docId}_{updateTime}.md    # page content
 │   └── reports/
 │       ├── report_{timestamp}.md        # each run's report
 │       └── latest.md -> report_*.md     # symlink to latest
@@ -71,11 +71,12 @@ Files are named `{docId}_{updateTime}.{ext}` - if a file with that updateTime ex
 ### Key class: WechatPayDocFetcher
 
 - [`DOC_TYPES`](wechatpay_doc_fetcher.py:27-38): Configuration for merchant/partner endpoints
-- [`extract_json_data()`](wechatpay_doc_fetcher.py:89-104): Parses JSON from HTML script tag
-- [`extract_leaf_nodes()`](wechatpay_doc_fetcher.py:106-143): Recursively finds all document pages
-- [`detect_changes()`](wechatpay_doc_fetcher.py:177-211): Compares old vs new index for added/removed/modified
-- [`save_page()`](wechatpay_doc_fetcher.py:213-257): Fetches and saves individual page (with existence check)
-- [`generate_report()`](wechatpay_doc_fetcher.py:259-364): Creates Markdown diff report
+- `extract_json_data()`: Parses JSON from HTML script tag
+- `extract_leaf_nodes()`: Recursively finds all document pages
+- `detect_changes()`: Compares old vs new index for added/removed/modified
+- `save_markdown()`: Fetches and saves individual Markdown page (with existence check)
+- `build_diff()`: Generates unified diff for modified pages
+- `generate_report()`: Creates Markdown diff report
 
 ### Rate limiting
 
