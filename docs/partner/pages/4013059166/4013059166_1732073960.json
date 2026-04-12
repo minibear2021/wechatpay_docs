@@ -1,8 +1,0 @@
-{
-  "docId": "4013059166",
-  "title": "为什么微信支付的回调缺少签名的几个HTTP头？",
-  "url": "https://pay.weixin.qq.com/doc/v3/partner/4013059166",
-  "fetchTime": "20260402_184804",
-  "updateTime": "1732073960",
-  "fullPath": "通用规则 > 开发须知 > 常见问题 > 为什么微信支付的回调缺少签名的几个HTTP头？"
-}
