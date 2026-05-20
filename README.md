@@ -1,27 +1,28 @@
 # 微信支付文档抓取工具
 
-一个基于官方 Markdown 输出的微信支付文档抓取工具，支持直连商户和合作伙伴两种文档类型，支持增量更新检测，并在报告中直接输出变更页的 diff。
+从微信支付官方 `llms.txt` 获取 Markdown 文档列表，结合 HTML 页面的 `updateTime` 变更信息，直接下载官方 `.md` 格式文档。支持直连商户和合作伙伴两种文档类型、增量更新检测和 diff 报告。
 
 ## 支持的文档类型
 
-| 类型 | 说明 | 入口地址 | 文档数量 |
-|-----|------|---------|---------|
-| `merchant` | 直连商户 | https://pay.weixin.qq.com/doc/v3/merchant/4012062524 | ~528 个页面 |
-| `partner` | 合作伙伴 | https://pay.weixin.qq.com/doc/v3/partner/4012069852 | ~897 个页面 |
+| 类型 | 说明 | llms.txt | 首页入口 | 文档数量 |
+|-----|------|---------|---------|---------|
+| `merchant` | 直连商户 | [llms.txt](https://pay.weixin.qq.com/doc/v3/merchant/llms.txt) | [首页](https://pay.weixin.qq.com/doc/v3/merchant/4012062524) | ~522 个页面 |
+| `partner` | 合作伙伴 | [llms.txt](https://pay.weixin.qq.com/doc/v3/partner/llms.txt) | [首页](https://pay.weixin.qq.com/doc/v3/partner/4012069852) | ~897 个页面 |
 
-## 核心变化
+## 核心设计
 
-- 首页索引从 HTML 中提取 `vike_pageContext` JSON。
-- 具体文档直接访问官方 `.md` 地址，例如 `https://pay.weixin.qq.com/doc/v3/merchant/4012062524.md`。
-- 本地页面仅保存 Markdown 版本文件：`{docId}_{updateTime}.md`。
-- 对于修改页面，报告直接写入旧版和新版 Markdown 的 unified diff。
+- **文档列表**：从官方 `llms.txt` 获取，包含完整的 `.md` URL 和 heading 层级结构。
+- **变更检测**：仍从首页 HTML 的 `vike_pageContext` JSON 提取 `updateTime`，与 llms.txt 按 `docId` 匹配合并。
+- **文档下载**：直接拉取官方 `.md` 地址（如 `https://pay.weixin.qq.com/doc/v3/merchant/4012062524.md`），不做任何格式转换。
+- **版本管理**：本地文件命名 `{docId}_{updateTime}.md`，同一 docId 可保留多个版本。
+- **差异报告**：修改页面直接生成新旧 Markdown 的 unified diff。
 
 ## 功能特性
 
-- 解析微信支付首页中的 JSON 文档树。
-- 递归提取所有叶子节点。
+- 解析 `llms.txt` 获取文档 URL 列表和层级结构。
+- 从 HTML JSON 提取 `updateTime` 并与 llms.txt 按 `docId` 合并。
 - 通过 `updateTime` 检测新增、删除、修改。
-- 只在本地不存在对应版本 Markdown 时才落盘。
+- 只在本地不存在对应版本 Markdown 时才下载。
 - 自动为修改页生成 diff 并写入报告。
 - 为每次运行保存时间戳索引和报告，同时维护 `latest.md`。
 
@@ -81,11 +82,11 @@ python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
 
 ## 工作流程
 
-1. 获取入口页 HTML。
-2. 提取 `vike_pageContext` JSON 并解析文档树。
-3. 提取所有叶子节点。
+1. 获取 `llms.txt`，解析获取所有文档的 `.md` URL 和 heading 层级。
+2. 获取首页 HTML，从 `vike_pageContext` JSON 提取 `updateTime`。
+3. 按 `docId` 匹配合并：URL 以 llms.txt 为准，updateTime 以 JSON 为准。
 4. 对比本地 `latest.json`，识别新增、删除、修改。
-5. 对新增和修改页面直接抓取官方 `.md` 文本。
+5. 对新增和修改页面直接下载官方 `.md` 文件。
 6. 对修改页使用 unified diff 比较本地上一版和新版本 Markdown。
 7. 写入时间戳索引、更新报告，并维护最新报告链接。
 
@@ -115,42 +116,45 @@ python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
 | `docId` | 文档唯一标识 |
 | `title` | 文档标题 |
 | `updateTime` | Unix 时间戳，用于检测版本变化 |
-| `url` | 相对路径，完整 URL 为 `https://pay.weixin.qq.com{url}` |
+| `url` | 完整 `.md` URL，来自 llms.txt（如 `https://pay.weixin.qq.com/doc/v3/merchant/4012062524.md`） |
 | `fullPath` | 页面完整层级路径 |
 | `pathArray` | 路径数组 |
 
 ## 示例输出
 
 ```text
-[20260412_101530] 开始抓取微信支付文档 - 直连商户
+[20260520_094246] 开始抓取微信支付文档 - 直连商户
+  llms.txt: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
   首页: https://pay.weixin.qq.com/doc/v3/merchant/4012062524
 
-[1/5] 获取首页数据...
+[1/6] 获取 llms.txt 文档列表...
 
-[2/5] 解析 JSON 数据包...
+[2/6] 解析 llms.txt 获取文档 URL 和层级...
+  从 llms.txt 提取到 522 个文档
 
-[3/5] 提取叶子节点...
-  共找到 528 个叶子节点
-  测试模式：仅处理前 10 个节点
+[3/6] 获取首页 JSON 数据（用于 updateTime）...
+  从 JSON 提取到 543 个节点（含 updateTime）
+  成功匹配 updateTime: 522/522 个文档
 
-[4/5] 检测变更...
-  新增: 0 个
+[4/6] 检测变更...
+  新增: 2 个
   删除: 0 个
-  修改: 2 个
+  修改: 1 个
 
-[5/5] 拉取变更页面...
-  [1/2]   拉取: 产品介绍 (4012062524)
-  [2/2]   拉取: 开发指引 (4012791870)
-  成功: 2 个
+[5/6] 拉取变更页面...
+  [1/3]   拉取: 产品介绍 (4012062524)
+  [2/3]   拉取: 开发指引 (4012791870)
+  [3/3]   拉取: JSAPI/小程序下单 (4012791856)
+  成功: 3 个
   失败: 0 个
 
 [6/6] 生成差异报告...
 
-✅ 完成!
-   索引文件: docs/merchant/index/index_20260412_101530.json
+[OK] 完成!
+   索引文件: docs/merchant/index/index_20260520_094246.json
    最新索引: docs/merchant/index/latest.json
    Markdown 目录: docs/merchant/pages
-   报告文件: docs/merchant/reports/report_20260412_101530.md
+   报告文件: docs/merchant/reports/report_20260520_094246.md
    最新报告: docs/merchant/reports/latest.md
 ```
 
@@ -164,4 +168,4 @@ python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
 1. 工具内置 0.5 秒请求间隔，避免请求过快。
 2. 请求失败会自动重试 3 次，并使用指数退避。
 3. 若某个修改页本地不存在旧版 Markdown，报告会提示无法生成 diff。
-4. 现有历史 `.html` 文件不会被自动删除，但后续新版本只会保存 `.md` 文件。
+4. 若某文档在 llms.txt 中存在但 JSON 中找不到对应 updateTime，将以空 updateTime 保存。
