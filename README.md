@@ -19,7 +19,8 @@
 
 ## 功能特性
 
-- 解析 `llms.txt` 获取文档 URL 列表和层级结构。
+- 解析 `llms.txt` 获取文档 URL 列表和层级结构，每次运行保存带时间戳的快照。
+- 对比本地 `latest.txt`，检测 llms.txt 自身的结构变动并生成 diff。
 - 从 HTML JSON 提取 `updateTime` 并与 llms.txt 按 `docId` 合并。
 - 通过 `updateTime` 检测新增、删除、修改。
 - 只在本地不存在对应版本 Markdown 时才下载。
@@ -32,6 +33,9 @@
 wechatpay_docs/
 ├── docs/
 │   ├── merchant/
+│   │   ├── llms/
+│   │   │   ├── llms_YYYYMMDD_HHMMSS.txt
+│   │   │   └── latest.txt
 │   │   ├── index/
 │   │   │   ├── index_YYYYMMDD_HHMMSS.json
 │   │   │   └── latest.json
@@ -42,6 +46,7 @@ wechatpay_docs/
 │   │       ├── report_YYYYMMDD_HHMMSS.md
 │   │       └── latest.md
 │   └── partner/
+│       ├── llms/
 │       ├── index/
 │       ├── pages/
 │       └── reports/
@@ -102,11 +107,12 @@ python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
 
 报告包含以下内容：
 
-- 变更概览统计。
+- 变更概览统计（含 llms.txt 自身是否变更）。
 - 新增页面信息。
 - 删除页面信息。
 - 修改页面的更新时间变化和 unified diff。
 - 拉取失败页面清单。
+- llms.txt 结构变更 diff（如有）。
 - 全量页面清单和本地 Markdown 链接。
 
 ## 索引字段说明

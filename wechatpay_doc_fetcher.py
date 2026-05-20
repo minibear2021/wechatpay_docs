@@ -51,10 +51,12 @@ class WechatPayDocFetcher:
         self.index_dir = self.base_dir / "index"
         self.pages_dir = self.base_dir / "pages"
         self.reports_dir = self.base_dir / "reports"
+        self.llms_dir = self.base_dir / "llms"
 
         self.index_dir.mkdir(parents=True, exist_ok=True)
         self.pages_dir.mkdir(parents=True, exist_ok=True)
         self.reports_dir.mkdir(parents=True, exist_ok=True)
+        self.llms_dir.mkdir(parents=True, exist_ok=True)
 
         self.index_file = self.index_dir / "latest.json"
 
@@ -219,6 +221,49 @@ class WechatPayDocFetcher:
         with open(self.index_file, "w", encoding="utf-8") as file_obj:
             json.dump(index_data, file_obj, ensure_ascii=False, indent=2)
 
+    def save_llms_txt(self, content: str, run_time: str) -> Tuple[Optional[str], str]:
+        """保存带时间戳的 llms.txt 和 latest.txt，如有变动返回 unified diff 和时间戳"""
+        latest_file = self.llms_dir / "latest.txt"
+        previous_content = None
+        if latest_file.exists():
+            try:
+                with open(latest_file, "r", encoding="utf-8") as file_obj:
+                    previous_content = file_obj.read()
+            except Exception:
+                pass
+
+        timestamped_file = self.llms_dir / f"llms_{run_time}.txt"
+        with open(timestamped_file, "w", encoding="utf-8") as file_obj:
+            file_obj.write(content)
+
+        if latest_file.exists() or latest_file.is_symlink():
+            latest_file.unlink()
+        try:
+            os.symlink(timestamped_file.name, latest_file)
+        except OSError:
+            with open(timestamped_file, "r", encoding="utf-8") as src:
+                latest_content = src.read()
+            with open(latest_file, "w", encoding="utf-8") as dst:
+                dst.write(latest_content)
+
+        if previous_content is not None and previous_content != content:
+            old_lines = previous_content.splitlines()
+            new_lines = content.splitlines()
+            diff_lines = list(
+                difflib.unified_diff(
+                    old_lines,
+                    new_lines,
+                    fromfile="llms_previous.txt",
+                    tofile=f"llms_{run_time}.txt",
+                    lineterm="",
+                    n=3,
+                )
+            )
+            if diff_lines:
+                return "\n".join(diff_lines), run_time
+
+        return None, run_time
+
     def detect_changes(
         self, new_nodes: List[Dict], old_index: Dict[str, Dict]
     ) -> Tuple[List[Dict], List[Dict], List[Dict]]:
@@ -367,6 +412,7 @@ class WechatPayDocFetcher:
         fetch_failed: List[str],
         diff_details: Dict[str, Optional[str]],
         all_nodes: List[Dict],
+        llms_diff: Optional[str] = None,
     ) -> str:
         """生成 Markdown 差异报告"""
         report_lines = [
@@ -384,8 +430,19 @@ class WechatPayDocFetcher:
             f"- 修改: {len(modified)} 个页面",
             f"- 成功拉取: {len(fetch_success)} 个页面",
             f"- 拉取失败: {len(fetch_failed)} 个页面",
+            f"- llms.txt 变更: {'是' if llms_diff else '否'}",
             "",
         ]
+
+        if llms_diff:
+            report_lines.extend([
+                "## llms.txt 变更",
+                "",
+                "```diff",
+                llms_diff,
+                "```",
+                "",
+            ])
 
         if added:
             report_lines.extend(["## 新增页面", ""])
@@ -487,6 +544,10 @@ class WechatPayDocFetcher:
             print("  错误: 无法获取 llms.txt")
             return
 
+        llms_diff, llms_ts = self.save_llms_txt(llms_content, run_time)
+        if llms_diff:
+            print("  llms.txt 有变更")
+
         print("\n[2/6] 解析 llms.txt 获取文档 URL 和层级...")
         leaf_nodes = self.parse_llms_txt(llms_content)
         print(f"  从 llms.txt 提取到 {len(leaf_nodes)} 个文档")
@@ -550,9 +611,10 @@ class WechatPayDocFetcher:
         print(f"\n  成功: {len(fetch_success)} 个")
         print(f"  失败: {len(fetch_failed)} 个")
 
-        has_changes = bool(added or removed or modified)
+        has_changes = bool(added or removed or modified or llms_diff)
         if not is_first_run and not has_changes:
-            print("\n[OK] 完成! 无变更，跳过保存索引和报告")
+            print(f"\n[OK] 完成! 无变更，跳过保存索引和报告")
+            print(f"   llms.txt: {self.llms_dir / f'llms_{llms_ts}.txt'}")
             return
 
         self.save_index(leaf_nodes, run_time)
@@ -576,6 +638,7 @@ class WechatPayDocFetcher:
             fetch_failed=fetch_failed,
             diff_details=diff_details,
             all_nodes=leaf_nodes,
+            llms_diff=llms_diff,
         )
 
         report_file = self.reports_dir / f"report_{run_time}.md"
@@ -585,7 +648,9 @@ class WechatPayDocFetcher:
         self.create_latest_report_link(report_file)
 
         timestamped_index = self.index_dir / f"index_{run_time}.json"
+        llms_file = self.llms_dir / f"llms_{llms_ts}.txt"
         print("\n[OK] 完成!")
+        print(f"   llms.txt: {llms_file}")
         print(f"   索引文件: {timestamped_index}")
         print(f"   最新索引: {self.index_file}")
         print(f"   Markdown 目录: {self.pages_dir}")
