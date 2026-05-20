@@ -1,0 +1,47 @@
+name: Fetch WeChat Pay Docs
+
+on:
+  # 每天北京时间早上 9 点运行 (UTC 1:00)
+  schedule:
+    - cron: '0 1 * * *'
+  # 允许手动触发
+  workflow_dispatch:
+
+jobs:
+  fetch-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run fetcher for merchant docs
+        run: python wechatpay_doc_fetcher.py --type merchant
+
+      - name: Run fetcher for partner docs
+        run: python wechatpay_doc_fetcher.py --type partner
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/
+          git commit -m "docs: auto-update WeChat Pay docs ($(date +'%Y-%m-%d'))"
+          git push
