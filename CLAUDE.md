@@ -44,11 +44,12 @@ All functionality is in [`wechatpay_doc_fetcher.py`](wechatpay_doc_fetcher.py) -
 
 ### Data flow
 
-1. **Fetch index page** → Extract embedded JSON from `vike_pageContext` script tag
-2. **Parse menu structure** → Recursively traverse `menuData` to find leaf nodes
-3. **Detect changes** → Compare `updateTime` fields against previous index
-4. **Fetch changed pages** → Request the official `.md` URL for each page and save Markdown to disk (skips if already exists)
-5. **Generate report** → Markdown report with add/remove/modify sections and unified diff for modified pages
+1. **Fetch llms.txt** → Get the official document list with `.md` URLs and hierarchy from `llms.txt`
+2. **Fetch index page** → Extract embedded JSON from `vike_pageContext` script tag for `updateTime` metadata
+3. **Merge data** → Match documents by `docId`: URLs from llms.txt, updateTime from JSON
+4. **Detect changes** → Compare `updateTime` fields against previous index
+5. **Fetch changed pages** → Download Markdown directly from the official `.md` URLs listed in llms.txt (skips if already exists locally)
+6. **Generate report** → Markdown report with add/remove/modify sections and unified diff for modified pages
 
 ### Directory structure (output)
 
@@ -70,11 +71,13 @@ Files are named `{docId}_{updateTime}.{ext}` - if a file with that updateTime ex
 
 ### Key class: WechatPayDocFetcher
 
-- [`DOC_TYPES`](wechatpay_doc_fetcher.py:27-38): Configuration for merchant/partner endpoints
+- [`DOC_TYPES`](wechatpay_doc_fetcher.py:27-38): Configuration for merchant/partner endpoints (index_url + llms_url)
+- `parse_llms_txt()`: Parses llms.txt markdown to extract doc URLs and heading hierarchy
 - `extract_json_data()`: Parses JSON from HTML script tag
-- `extract_leaf_nodes()`: Recursively finds all document pages
+- `extract_leaf_nodes()`: Recursively finds all document pages with updateTime
+- `merge_with_update_time()`: Merges llms.txt URLs with JSON updateTime by docId
 - `detect_changes()`: Compares old vs new index for added/removed/modified
-- `save_markdown()`: Fetches and saves individual Markdown page (with existence check)
+- `save_markdown()`: Fetches and saves individual Markdown page from official .md URL (with existence check)
 - `build_diff()`: Generates unified diff for modified pages
 - `generate_report()`: Creates Markdown diff report
 
