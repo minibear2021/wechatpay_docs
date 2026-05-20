@@ -2,8 +2,9 @@
 """
 微信支付文档抓取工具
 - 支持直连商户(merchant)和合作伙伴(partner)两种文档类型
-- 从首页 HTML 中提取 JSON 索引数据
-- 直接抓取官方 Markdown 文档
+- 从官方 llms.txt 获取 Markdown 文档 URL 列表和层级结构
+- 从首页 HTML JSON 中提取 updateTime 变更信息
+- 直接从官方 .md 路径下载 Markdown 文档
 - 支持增量更新检测与 diff 报告生成
 """
 
@@ -25,11 +26,13 @@ class WechatPayDocFetcher:
         "merchant": {
             "name": "直连商户",
             "index_url": "https://pay.weixin.qq.com/doc/v3/merchant/4012062524",
+            "llms_url": "https://pay.weixin.qq.com/doc/v3/merchant/llms.txt",
             "subdir": "merchant",
         },
         "partner": {
             "name": "合作伙伴",
             "index_url": "https://pay.weixin.qq.com/doc/v3/partner/4012069852",
+            "llms_url": "https://pay.weixin.qq.com/doc/v3/partner/llms.txt",
             "subdir": "partner",
         },
     }
@@ -41,8 +44,8 @@ class WechatPayDocFetcher:
         self.doc_type = doc_type
         self.doc_config = self.DOC_TYPES[doc_type]
         self.base_dir = Path(base_dir) / self.doc_config["subdir"]
-        self.base_url = "https://pay.weixin.qq.com"
         self.index_url = self.doc_config["index_url"]
+        self.llms_url = self.doc_config["llms_url"]
         self.diff_preview_lines = 200
 
         self.index_dir = self.base_dir / "index"
@@ -75,6 +78,54 @@ class WechatPayDocFetcher:
                     return None
         return None
 
+    def parse_llms_txt(self, content: str) -> List[Dict]:
+        """解析 llms.txt 获取文档列表和层级结构"""
+        nodes: List[Dict] = []
+        heading_stack: List[Tuple[int, str]] = []  # [(level, title), ...]
+
+        for line in content.splitlines():
+            # 解析标题层级
+            heading_match = re.match(r'^(#{1,6})\s+(.*)', line)
+            if heading_match:
+                level = len(heading_match.group(1))
+                title = heading_match.group(2).strip()
+                # 保持 heading 栈: 移除所有 >= 当前层级的标题
+                while heading_stack and heading_stack[-1][0] >= level:
+                    heading_stack.pop()
+                heading_stack.append((level, title))
+                continue
+
+            # 解析 Markdown 链接行: - [title](url)
+            link_match = re.match(r'^-\s+\[([^\]]+)\]\(([^)]+\.md)\)', line)
+            if link_match:
+                title = link_match.group(1).strip()
+                url = link_match.group(2).strip()
+                # 如果 URL 是相对路径，补全为绝对路径
+                if url.startswith("/"):
+                    url = f"https://pay.weixin.qq.com{url}"
+
+                # 从 URL 提取 docId
+                doc_id_match = re.search(r'/(\d+)\.md$', url)
+                doc_id = doc_id_match.group(1) if doc_id_match else ""
+
+                # 构建完整路径: 跳过第一个标题（文档总标题）和 "Skills"、"示例代码" 等非 API 章节
+                path_parts = []
+                for h_level, h_title in heading_stack:
+                    if h_level >= 2:  # 从 ## 开始作为路径
+                        path_parts.append(h_title)
+
+                full_path = " > ".join(path_parts) if path_parts else title
+
+                nodes.append({
+                    "docId": doc_id,
+                    "title": title,
+                    "url": url,
+                    "updateTime": "",
+                    "fullPath": full_path,
+                })
+
+        return nodes
+
     def extract_json_data(self, html: str) -> Optional[Dict]:
         """从 HTML 中提取 vike_pageContext JSON 数据包"""
         pattern = r'<script id="vike_pageContext" type="application/json">(.*?)</script>'
@@ -100,7 +151,6 @@ class WechatPayDocFetcher:
             state = node.get("state", 0)
 
             if state == 1:
-                print(f"  跳过无效页面: {node.get('title', '')} ({node.get('docId', '')}) - state=1")
                 return
 
             if not children:
@@ -123,6 +173,20 @@ class WechatPayDocFetcher:
             traverse(root_node)
 
         return leaf_nodes
+
+    def merge_with_update_time(self, llms_nodes: List[Dict], json_nodes: List[Dict]) -> List[Dict]:
+        """将 llms.txt 的 URL 信息与 JSON 的 updateTime 合并"""
+        json_map = {node["docId"]: node for node in json_nodes}
+        result: List[Dict] = []
+
+        for node in llms_nodes:
+            doc_id = node["docId"]
+            json_node = json_map.get(doc_id)
+            if json_node:
+                node["updateTime"] = json_node.get("updateTime", "")
+            result.append(node)
+
+        return result
 
     def load_index(self) -> Dict[str, Dict]:
         """加载索引文件并按 docId 返回"""
@@ -176,7 +240,7 @@ class WechatPayDocFetcher:
             old_node = old_index.get(doc_id)
             if not old_node:
                 continue
-            if str(new_node["updateTime"]) != str(old_node.get("updateTime", "")):
+            if str(new_node.get("updateTime", "")) != str(old_node.get("updateTime", "")):
                 modified.append(
                     {
                         "docId": doc_id,
@@ -184,21 +248,11 @@ class WechatPayDocFetcher:
                         "url": new_node["url"],
                         "fullPath": new_node["fullPath"],
                         "oldUpdateTime": str(old_node.get("updateTime", "")),
-                        "newUpdateTime": str(new_node["updateTime"]),
+                        "newUpdateTime": str(new_node.get("updateTime", "")),
                     }
                 )
 
         return added, removed, modified
-
-    def build_source_url(self, node: Dict) -> str:
-        """构建源文档 URL"""
-        url = node["url"]
-        return url if url.startswith("http") else f"{self.base_url}{url}"
-
-    def build_markdown_url(self, node: Dict) -> str:
-        """构建官方 Markdown URL"""
-        source_url = self.build_source_url(node)
-        return source_url if source_url.endswith(".md") else f"{source_url}.md"
 
     def get_markdown_path(self, doc_id: str, update_time: str) -> Path:
         """返回单个版本 Markdown 文件路径"""
@@ -229,10 +283,10 @@ class WechatPayDocFetcher:
         return previous_versions[-1] if previous_versions else None
 
     def save_markdown(self, node: Dict) -> Tuple[bool, bool, Optional[Path]]:
-        """保存 Markdown 页面内容到本地"""
+        """保存 Markdown 页面内容到本地，使用 llms.txt 中的 .md URL"""
         doc_id = node["docId"]
-        update_time = str(node["updateTime"])
-        markdown_url = self.build_markdown_url(node)
+        update_time = str(node.get("updateTime", ""))
+        markdown_url = node["url"]  # 直接使用 llms.txt 中的 .md URL
         markdown_path = self.get_markdown_path(doc_id, update_time)
 
         if markdown_path.exists():
@@ -321,6 +375,7 @@ class WechatPayDocFetcher:
             f"**文档类型**: {self.doc_config['name']} ({self.doc_type})",
             f"**生成时间**: {run_time}",
             f"**文档总数**: {total_nodes}",
+            f"**数据来源**: {self.llms_url}",
             "",
             "## 变更概览",
             "",
@@ -335,14 +390,14 @@ class WechatPayDocFetcher:
         if added:
             report_lines.extend(["## 新增页面", ""])
             for node in added:
-                markdown_path = self.get_markdown_path(node["docId"], str(node["updateTime"]))
+                markdown_path = self.get_markdown_path(node["docId"], str(node.get("updateTime", "")))
                 report_lines.extend(
                     [
                         f"### {node['title']}",
                         f"- ID: `{node['docId']}`",
                         f"- 路径: {node['fullPath']}",
-                        f"- URL: {self.build_markdown_url(node)}",
-                        f"- 更新时间: {self.format_timestamp(str(node['updateTime']))}",
+                        f"- URL: {node['url']}",
+                        f"- 更新时间: {self.format_timestamp(str(node.get('updateTime', '')))}",
                         f"- 本地文件: `{markdown_path}`",
                         "",
                     ]
@@ -355,6 +410,7 @@ class WechatPayDocFetcher:
                     [
                         f"- **{node['title']}** (`{node['docId']}`)",
                         f"  - 原路径: {node.get('fullPath', '')}",
+                        f"  - 原 URL: {node.get('url', '')}",
                         f"  - 原更新时间: {self.format_timestamp(str(node.get('updateTime', '')))}",
                         "",
                     ]
@@ -369,7 +425,7 @@ class WechatPayDocFetcher:
                         f"### {node['title']}",
                         f"- ID: `{node['docId']}`",
                         f"- 路径: {node['fullPath']}",
-                        f"- URL: {self.build_markdown_url(node)}",
+                        f"- URL: {node['url']}",
                         f"- 更新时间变更: {self.format_timestamp(node['oldUpdateTime'])} -> {self.format_timestamp(node['newUpdateTime'])}",
                         f"- 新版本文件: `{new_markdown_path}`",
                         "",
@@ -390,7 +446,7 @@ class WechatPayDocFetcher:
                     continue
                 report_lines.extend(
                     [
-                        f"- {node['title']} (`{doc_id}`): {self.build_markdown_url(node)}",
+                        f"- {node['title']} (`{doc_id}`): {node['url']}",
                         "",
                     ]
                 )
@@ -408,9 +464,10 @@ class WechatPayDocFetcher:
         )
 
         for index, node in enumerate(all_nodes, start=1):
-            markdown_rel_path = f"../pages/{node['docId']}/{node['docId']}_{node['updateTime']}.md"
+            update_time = str(node.get("updateTime", ""))
+            markdown_rel_path = f"../pages/{node['docId']}/{node['docId']}_{update_time}.md"
             report_lines.append(
-                f"| {index} | [{node['title']}]({markdown_rel_path}) | `{node['docId']}` | {self.format_timestamp(str(node['updateTime']))} | {node['fullPath']} |"
+                f"| {index} | [{node['title']}]({markdown_rel_path}) | `{node['docId']}` | {self.format_timestamp(update_time)} | {node['fullPath']} |"
             )
 
         report_lines.extend(["", "</details>"])
@@ -421,29 +478,39 @@ class WechatPayDocFetcher:
         run_time = datetime.now().strftime("%Y%m%d_%H%M%S")
 
         print(f"[{run_time}] 开始抓取微信支付文档 - {self.doc_config['name']}")
+        print(f"  llms.txt: {self.llms_url}")
         print(f"  首页: {self.index_url}")
 
-        print("\n[1/5] 获取首页数据...")
-        html = self.fetch_text(self.index_url)
-        if not html:
-            print("  错误: 无法获取首页")
+        print("\n[1/6] 获取 llms.txt 文档列表...")
+        llms_content = self.fetch_text(self.llms_url)
+        if not llms_content:
+            print("  错误: 无法获取 llms.txt")
             return
 
-        print("\n[2/5] 解析 JSON 数据包...")
-        json_data = self.extract_json_data(html)
-        if not json_data:
-            print("  错误: 无法解析 JSON 数据")
-            return
-
-        print("\n[3/5] 提取叶子节点...")
-        leaf_nodes = self.extract_leaf_nodes(json_data)
-        print(f"  共找到 {len(leaf_nodes)} 个叶子节点")
+        print("\n[2/6] 解析 llms.txt 获取文档 URL 和层级...")
+        leaf_nodes = self.parse_llms_txt(llms_content)
+        print(f"  从 llms.txt 提取到 {len(leaf_nodes)} 个文档")
 
         if limit and limit > 0:
             leaf_nodes = leaf_nodes[:limit]
             print(f"  测试模式：仅处理前 {limit} 个节点")
 
-        print("\n[4/5] 检测变更...")
+        print("\n[3/6] 获取首页 JSON 数据（用于 updateTime）...")
+        html = self.fetch_text(self.index_url)
+        if html:
+            json_data = self.extract_json_data(html)
+            if json_data:
+                json_nodes = self.extract_leaf_nodes(json_data)
+                print(f"  从 JSON 提取到 {len(json_nodes)} 个节点（含 updateTime）")
+                leaf_nodes = self.merge_with_update_time(leaf_nodes, json_nodes)
+                matched = sum(1 for n in leaf_nodes if n.get("updateTime"))
+                print(f"  成功匹配 updateTime: {matched}/{len(leaf_nodes)} 个文档")
+            else:
+                print("  警告: 无法解析 JSON 数据，文档将缺少 updateTime")
+        else:
+            print("  警告: 无法获取首页，文档将缺少 updateTime")
+
+        print("\n[4/6] 检测变更...")
         old_index = self.load_index()
         is_first_run = not old_index
 
@@ -458,7 +525,7 @@ class WechatPayDocFetcher:
             print(f"  删除: {len(removed)} 个")
             print(f"  修改: {len(modified)} 个")
 
-        print("\n[5/5] 拉取变更页面...")
+        print("\n[5/6] 拉取变更页面...")
         nodes_to_fetch = list(added)
         modified_node_ids = {node["docId"] for node in modified}
         nodes_to_fetch.extend(node for node in leaf_nodes if node["docId"] in modified_node_ids)
@@ -485,7 +552,7 @@ class WechatPayDocFetcher:
 
         has_changes = bool(added or removed or modified)
         if not is_first_run and not has_changes:
-            print("\n✅ 完成! 无变更，跳过保存索引和报告")
+            print("\n[OK] 完成! 无变更，跳过保存索引和报告")
             return
 
         self.save_index(leaf_nodes, run_time)
@@ -518,7 +585,7 @@ class WechatPayDocFetcher:
         self.create_latest_report_link(report_file)
 
         timestamped_index = self.index_dir / f"index_{run_time}.json"
-        print("\n✅ 完成!")
+        print("\n[OK] 完成!")
         print(f"   索引文件: {timestamped_index}")
         print(f"   最新索引: {self.index_file}")
         print(f"   Markdown 目录: {self.pages_dir}")
@@ -536,16 +603,16 @@ def main():
         epilog="""
 示例:
   # 抓取直连商户文档（默认）
-  python3 wechatpay_doc_fetcher.py
+  python wechatpay_doc_fetcher.py
 
   # 抓取合作伙伴文档
-  python3 wechatpay_doc_fetcher.py --type partner
+  python wechatpay_doc_fetcher.py --type partner
 
   # 测试模式（仅前10个页面）
-  python3 wechatpay_doc_fetcher.py --type merchant --limit 10
+  python wechatpay_doc_fetcher.py --type merchant --limit 10
 
   # 指定输出目录
-  python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
+  python wechatpay_doc_fetcher.py --type partner --output ./my_docs
         """,
     )
 
