@@ -222,16 +222,39 @@ class WechatPayDocFetcher:
             json.dump(index_data, file_obj, ensure_ascii=False, indent=2)
 
     def save_llms_txt(self, content: str, run_time: str) -> Tuple[Optional[str], str]:
-        """保存带时间戳的 llms.txt 和 latest.txt，如有变动返回 unified diff 和时间戳"""
+        """保存带时间戳的 llms.txt 和 latest.txt，如有变动返回 unified diff 和时间戳。
+        如果内容未变化，不创建新的时间戳文件。"""
         latest_file = self.llms_dir / "latest.txt"
         previous_content = None
+        previous_ts = None
         if latest_file.exists():
             try:
                 with open(latest_file, "r", encoding="utf-8") as file_obj:
                     previous_content = file_obj.read()
+                # 从符号链接目标或目录中最近的 llms_*.txt 文件中提取时间戳
+                if latest_file.is_symlink():
+                    previous_ts = os.readlink(str(latest_file))
+                else:
+                    candidates = sorted(
+                        self.llms_dir.glob("llms_*.txt"),
+                        key=lambda p: p.stat().st_mtime,
+                    )
+                    if candidates:
+                        previous_ts = candidates[-1].name
             except Exception:
                 pass
 
+        # 内容未变化，不创建新文件，返回 None diff 和上次的时间戳
+        if previous_content is not None and previous_content == content:
+            ts = run_time
+            if previous_ts:
+                # 从 "llms_YYYYMMDD_HHMMSS.txt" 中提取时间戳
+                m = re.search(r'llms_(.+)\.txt', previous_ts)
+                if m:
+                    ts = m.group(1)
+            return None, ts
+
+        # 内容有变化或首次运行，创建新的时间戳文件
         timestamped_file = self.llms_dir / f"llms_{run_time}.txt"
         with open(timestamped_file, "w", encoding="utf-8") as file_obj:
             file_obj.write(content)
@@ -246,21 +269,25 @@ class WechatPayDocFetcher:
             with open(latest_file, "w", encoding="utf-8") as dst:
                 dst.write(latest_content)
 
-        if previous_content is not None and previous_content != content:
-            old_lines = previous_content.splitlines()
-            new_lines = content.splitlines()
-            diff_lines = list(
-                difflib.unified_diff(
-                    old_lines,
-                    new_lines,
-                    fromfile="llms_previous.txt",
-                    tofile=f"llms_{run_time}.txt",
-                    lineterm="",
-                    n=3,
-                )
+        # 首次运行，无历史可对比
+        if previous_content is None:
+            return None, run_time
+
+        # 内容有变化，生成 diff
+        old_lines = previous_content.splitlines()
+        new_lines = content.splitlines()
+        diff_lines = list(
+            difflib.unified_diff(
+                old_lines,
+                new_lines,
+                fromfile="llms_previous.txt",
+                tofile=f"llms_{run_time}.txt",
+                lineterm="",
+                n=3,
             )
-            if diff_lines:
-                return "\n".join(diff_lines), run_time
+        )
+        if diff_lines:
+            return "\n".join(diff_lines), run_time
 
         return None, run_time
 
