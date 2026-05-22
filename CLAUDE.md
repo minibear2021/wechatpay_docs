@@ -44,44 +44,37 @@ All functionality is in [`wechatpay_doc_fetcher.py`](wechatpay_doc_fetcher.py) -
 
 ### Data flow
 
-1. **Fetch llms.txt** → Get the official document list with `.md` URLs and hierarchy, compare with previous snapshot, save timestamped copy
+1. **Fetch llms.txt** → Get the official document list with `.md` URLs and hierarchy, compare with previous, save if changed
 2. **Fetch index page** → Extract embedded JSON from `vike_pageContext` script tag for `updateTime` metadata
 3. **Merge data** → Match documents by `docId`: URLs from llms.txt, updateTime from JSON
 4. **Detect changes** → Compare `updateTime` fields against previous index; also detect llms.txt structural changes
-5. **Fetch changed pages** → Download Markdown directly from the official `.md` URLs listed in llms.txt (skips if already exists locally)
+5. **Fetch changed pages** → Download Markdown directly from the official `.md` URLs listed in llms.txt
 6. **Generate report** → Markdown report with add/remove/modify sections, llms.txt diff, and unified diff for modified pages
 
 ### Directory structure (output)
 
-```
-wechatpay_docs/
-├── merchant/                 # or partner/
-│   ├── llms/
-│   │   ├── llms_YYYYMMDD_HHMMSS.txt          # timestamped llms.txt snapshot
-│   │   └── latest.txt                    # latest llms.txt
-│   ├── index/
-│   │   ├── index_YYYYMMDD_HHMMSS.json      # timestamped index snapshot
-│   │   └── latest.json                 # latest index
-│   ├── pages/
-│   │   └── {docId}/
-│   │       └── {docId}_{updateTime}.md    # page content
-│   └── reports/
-│       ├── report_YYYYMMDD_HHMMSS.md        # each run's report
-│       └── latest.md -> report_*.md     # symlink to latest
-```
+All files are kept as single latest versions — git tracks history, no timestamped copies.
 
-Files are named `{docId}_{updateTime}.{ext}` - if a file with that updateTime exists, it's skipped (incremental updates).
+```
+docs/
+├── merchant/                 # or partner/
+│   ├── llms.txt              # latest llms content
+│   ├── index.json            # latest document index
+│   ├── report.md             # latest change report
+│   └── pages/
+│       └── {docId}.md        # page content (single version per doc)
+```
 
 ### Key class: WechatPayDocFetcher
 
 - [`DOC_TYPES`](wechatpay_doc_fetcher.py:27-38): Configuration for merchant/partner endpoints (index_url + llms_url)
 - `parse_llms_txt()`: Parses llms.txt markdown to extract doc URLs and heading hierarchy
-- `save_llms_txt()`: Saves timestamped llms.txt snapshot, returns unified diff if changed from previous
+- `save_llms_txt()`: Saves llms.txt, returns unified diff if changed from previous
 - `extract_json_data()`: Parses JSON from HTML script tag
 - `extract_leaf_nodes()`: Recursively finds all document pages with updateTime
 - `merge_with_update_time()`: Merges llms.txt URLs with JSON updateTime by docId
 - `detect_changes()`: Compares old vs new index for added/removed/modified
-- `save_markdown()`: Fetches and saves individual Markdown page from official .md URL (with existence check)
+- `save_markdown()`: Fetches and saves individual Markdown page from official .md URL
 - `build_diff()`: Generates unified diff for modified pages
 - `generate_report()`: Creates Markdown diff report
 

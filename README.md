@@ -12,20 +12,20 @@
 ## 核心设计
 
 - **文档列表**：从官方 `llms.txt` 获取，包含完整的 `.md` URL 和 heading 层级结构。
-- **变更检测**：仍从首页 HTML 的 `vike_pageContext` JSON 提取 `updateTime`，与 llms.txt 按 `docId` 匹配合并。
+- **变更检测**：从首页 HTML 的 `vike_pageContext` JSON 提取 `updateTime`，与 llms.txt 按 `docId` 匹配合并。
 - **文档下载**：直接拉取官方 `.md` 地址（如 `https://pay.weixin.qq.com/doc/v3/merchant/4012062524.md`），不做任何格式转换。
-- **版本管理**：本地文件命名 `{docId}_{updateTime}.md`，同一 docId 可保留多个版本。
-- **差异报告**：修改页面直接生成新旧 Markdown 的 unified diff。
+- **版本管理**：所有文件只保留最新版本（`pages/{docId}.md`），历史变更由 git 跟踪。
+- **差异报告**：修改页面和 llms.txt 的变更内容直接输出 unified diff。
 
 ## 功能特性
 
-- 解析 `llms.txt` 获取文档 URL 列表和层级结构，每次运行保存带时间戳的快照。
-- 对比本地 `latest.txt`，检测 llms.txt 自身的结构变动并生成 diff。
+- 解析 `llms.txt` 获取文档 URL 列表和层级结构，仅内容变化时更新本地文件。
+- 对比本地 llms.txt，检测自身结构变动并生成 diff。
 - 从 HTML JSON 提取 `updateTime` 并与 llms.txt 按 `docId` 合并。
 - 通过 `updateTime` 检测新增、删除、修改。
-- 只在本地不存在对应版本 Markdown 时才下载。
+- 内容未变化时跳过写入，避免无意义的文件变更。
 - 自动为修改页生成 diff 并写入报告。
-- 为每次运行保存时间戳索引和报告，同时维护 `latest.md`。
+- 所有文件只保留最新版本，变更历史由 git 管理。
 
 ## 目录结构
 
@@ -33,23 +33,16 @@
 wechatpay_docs/
 ├── docs/
 │   ├── merchant/
-│   │   ├── llms/
-│   │   │   ├── llms_YYYYMMDD_HHMMSS.txt
-│   │   │   └── latest.txt
-│   │   ├── index/
-│   │   │   ├── index_YYYYMMDD_HHMMSS.json
-│   │   │   └── latest.json
-│   │   ├── pages/
-│   │   │   └── {docId}/
-│   │   │       └── {docId}_{updateTime}.md
-│   │   └── reports/
-│   │       ├── report_YYYYMMDD_HHMMSS.md
-│   │       └── latest.md
+│   │   ├── llms.txt          # 最新 llms 内容
+│   │   ├── index.json        # 最新文档索引
+│   │   ├── report.md          # 最新变更报告
+│   │   └── pages/
+│   │       └── {docId}.md     # 各页面最新版本
 │   └── partner/
-│       ├── llms/
-│       ├── index/
-│       ├── pages/
-│       └── reports/
+│       ├── llms.txt
+│       ├── index.json
+│       ├── report.md
+│       └── pages/
 ├── README.md
 └── wechatpay_doc_fetcher.py
 ```
@@ -92,8 +85,8 @@ python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
 3. 按 `docId` 匹配合并：URL 以 llms.txt 为准，updateTime 以 JSON 为准。
 4. 对比本地 `latest.json`，识别新增、删除、修改。
 5. 对新增和修改页面直接下载官方 `.md` 文件。
-6. 对修改页使用 unified diff 比较本地上一版和新版本 Markdown。
-7. 写入时间戳索引、更新报告，并维护最新报告链接。
+6. 对修改页对比本地旧内容生成 unified diff。
+7. 覆盖写入 index.json 和 report.md，由 git 跟踪变更历史。
 
 ## 增量更新规则
 
@@ -157,11 +150,10 @@ python3 wechatpay_doc_fetcher.py --type partner --output ./my_docs
 [6/6] 生成差异报告...
 
 [OK] 完成!
-   索引文件: docs/merchant/index/index_20260520_094246.json
-   最新索引: docs/merchant/index/latest.json
-   Markdown 目录: docs/merchant/pages
-   报告文件: docs/merchant/reports/report_20260520_094246.md
-   最新报告: docs/merchant/reports/latest.md
+   llms.txt:  docs/merchant/llms.txt
+   index.json: docs/merchant/index.json
+   pages/:     docs/merchant/pages
+   report.md:  docs/merchant/report.md
 ```
 
 ## 依赖

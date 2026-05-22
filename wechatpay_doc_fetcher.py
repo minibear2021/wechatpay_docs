@@ -5,7 +5,7 @@
 - 从官方 llms.txt 获取 Markdown 文档 URL 列表和层级结构
 - 从首页 HTML JSON 中提取 updateTime 变更信息
 - 直接从官方 .md 路径下载 Markdown 文档
-- 支持增量更新检测与 diff 报告生成
+- 通过 git 跟踪所有文件变更，不再保留时间戳副本
 """
 
 import difflib
@@ -48,17 +48,13 @@ class WechatPayDocFetcher:
         self.llms_url = self.doc_config["llms_url"]
         self.diff_preview_lines = 200
 
-        self.index_dir = self.base_dir / "index"
         self.pages_dir = self.base_dir / "pages"
-        self.reports_dir = self.base_dir / "reports"
-        self.llms_dir = self.base_dir / "llms"
-
-        self.index_dir.mkdir(parents=True, exist_ok=True)
         self.pages_dir.mkdir(parents=True, exist_ok=True)
-        self.reports_dir.mkdir(parents=True, exist_ok=True)
-        self.llms_dir.mkdir(parents=True, exist_ok=True)
 
-        self.index_file = self.index_dir / "latest.json"
+        # 单一文件路径，git 负责跟踪历史
+        self.llms_file = self.base_dir / "llms.txt"
+        self.index_file = self.base_dir / "index.json"
+        self.report_file = self.base_dir / "report.md"
 
     def fetch_text(self, url: str, max_retries: int = 3) -> Optional[str]:
         """获取远端文本内容"""
@@ -83,39 +79,29 @@ class WechatPayDocFetcher:
     def parse_llms_txt(self, content: str) -> List[Dict]:
         """解析 llms.txt 获取文档列表和层级结构"""
         nodes: List[Dict] = []
-        heading_stack: List[Tuple[int, str]] = []  # [(level, title), ...]
+        heading_stack: List[Tuple[int, str]] = []
 
         for line in content.splitlines():
-            # 解析标题层级
             heading_match = re.match(r'^(#{1,6})\s+(.*)', line)
             if heading_match:
                 level = len(heading_match.group(1))
                 title = heading_match.group(2).strip()
-                # 保持 heading 栈: 移除所有 >= 当前层级的标题
                 while heading_stack and heading_stack[-1][0] >= level:
                     heading_stack.pop()
                 heading_stack.append((level, title))
                 continue
 
-            # 解析 Markdown 链接行: - [title](url)
             link_match = re.match(r'^-\s+\[([^\]]+)\]\(([^)]+\.md)\)', line)
             if link_match:
                 title = link_match.group(1).strip()
                 url = link_match.group(2).strip()
-                # 如果 URL 是相对路径，补全为绝对路径
                 if url.startswith("/"):
                     url = f"https://pay.weixin.qq.com{url}"
 
-                # 从 URL 提取 docId
                 doc_id_match = re.search(r'/(\d+)\.md$', url)
                 doc_id = doc_id_match.group(1) if doc_id_match else ""
 
-                # 构建完整路径: 跳过第一个标题（文档总标题）和 "Skills"、"示例代码" 等非 API 章节
-                path_parts = []
-                for h_level, h_title in heading_stack:
-                    if h_level >= 2:  # 从 ## 开始作为路径
-                        path_parts.append(h_title)
-
+                path_parts = [h_title for h_level, h_title in heading_stack if h_level >= 2]
                 full_path = " > ".join(path_parts) if path_parts else title
 
                 nodes.append({
@@ -132,11 +118,9 @@ class WechatPayDocFetcher:
         """从 HTML 中提取 vike_pageContext JSON 数据包"""
         pattern = r'<script id="vike_pageContext" type="application/json">(.*?)</script>'
         match = re.search(pattern, html, re.DOTALL)
-
         if not match:
             print("  错误: 未找到 vike_pageContext 数据包")
             return None
-
         try:
             return json.loads(match.group(1))
         except json.JSONDecodeError as exc:
@@ -144,68 +128,57 @@ class WechatPayDocFetcher:
             return None
 
     def extract_leaf_nodes(self, data: Dict) -> List[Dict]:
-        """递归提取所有叶子节点（只处理 state 为 0 的页面）"""
+        """递归提取所有叶子节点（state 为 0 的有效页面）"""
         leaf_nodes: List[Dict] = []
 
         def traverse(node: Dict, path: Optional[List[str]] = None):
             current_path = (path or []) + [node.get("title", "")]
             children = node.get("childrenList", []) or []
             state = node.get("state", 0)
-
             if state == 1:
                 return
-
             if not children:
-                leaf_nodes.append(
-                    {
-                        "docId": node.get("docId", ""),
-                        "title": node.get("title", ""),
-                        "updateTime": str(node.get("updateTime", "")),
-                        "url": node.get("url", ""),
-                        "fullPath": " > ".join(filter(None, current_path)),
-                        "pathArray": [item["title"] for item in node.get("pathArray", []) if item.get("title")],
-                    }
-                )
+                leaf_nodes.append({
+                    "docId": node.get("docId", ""),
+                    "title": node.get("title", ""),
+                    "updateTime": str(node.get("updateTime", "")),
+                    "url": node.get("url", ""),
+                    "fullPath": " > ".join(filter(None, current_path)),
+                    "pathArray": [item["title"] for item in node.get("pathArray", []) if item.get("title")],
+                })
                 return
-
             for child in children:
                 traverse(child, current_path)
 
         for root_node in data.get("data", {}).get("menuData", []):
             traverse(root_node)
-
         return leaf_nodes
 
     def merge_with_update_time(self, llms_nodes: List[Dict], json_nodes: List[Dict]) -> List[Dict]:
         """将 llms.txt 的 URL 信息与 JSON 的 updateTime 合并"""
         json_map = {node["docId"]: node for node in json_nodes}
         result: List[Dict] = []
-
         for node in llms_nodes:
-            doc_id = node["docId"]
-            json_node = json_map.get(doc_id)
+            json_node = json_map.get(node["docId"])
             if json_node:
                 node["updateTime"] = json_node.get("updateTime", "")
             result.append(node)
-
         return result
 
     def load_index(self) -> Dict[str, Dict]:
-        """加载索引文件并按 docId 返回"""
+        """加载本地 index.json 并按 docId 返回"""
         if not self.index_file.exists():
             return {}
-
         try:
             with open(self.index_file, "r", encoding="utf-8") as file_obj:
                 data = json.load(file_obj)
         except Exception as exc:
             print(f"  警告: 加载索引失败: {exc}")
             return {}
-
         return {node["docId"]: node for node in data.get("nodes", [])}
 
     def save_index(self, nodes: List[Dict], run_time: str):
-        """保存带时间戳索引和 latest.json"""
+        """覆盖写入 index.json"""
         index_data = {
             "runTime": run_time,
             "totalNodes": len(nodes),
@@ -213,83 +186,36 @@ class WechatPayDocFetcher:
             "docTypeName": self.doc_config["name"],
             "nodes": nodes,
         }
-
-        timestamped_file = self.index_dir / f"index_{run_time}.json"
-        with open(timestamped_file, "w", encoding="utf-8") as file_obj:
-            json.dump(index_data, file_obj, ensure_ascii=False, indent=2)
-
         with open(self.index_file, "w", encoding="utf-8") as file_obj:
             json.dump(index_data, file_obj, ensure_ascii=False, indent=2)
 
-    def save_llms_txt(self, content: str, run_time: str) -> Tuple[Optional[str], str]:
-        """保存带时间戳的 llms.txt 和 latest.txt，如有变动返回 unified diff 和时间戳。
-        如果内容未变化，不创建新的时间戳文件。"""
-        latest_file = self.llms_dir / "latest.txt"
+    def save_llms_txt(self, content: str, run_time: str) -> Optional[str]:
+        """覆盖写入 llms.txt，内容有变更时返回 unified diff"""
         previous_content = None
-        previous_ts = None
-        if latest_file.exists():
+        if self.llms_file.exists():
             try:
-                with open(latest_file, "r", encoding="utf-8") as file_obj:
+                with open(self.llms_file, "r", encoding="utf-8") as file_obj:
                     previous_content = file_obj.read()
-                # 从符号链接目标或目录中最近的 llms_*.txt 文件中提取时间戳
-                if latest_file.is_symlink():
-                    previous_ts = os.readlink(str(latest_file))
-                else:
-                    candidates = sorted(
-                        self.llms_dir.glob("llms_*.txt"),
-                        key=lambda p: p.stat().st_mtime,
-                    )
-                    if candidates:
-                        previous_ts = candidates[-1].name
             except Exception:
                 pass
 
-        # 内容未变化，不创建新文件，返回 None diff 和上次的时间戳
         if previous_content is not None and previous_content == content:
-            ts = run_time
-            if previous_ts:
-                # 从 "llms_YYYYMMDD_HHMMSS.txt" 中提取时间戳
-                m = re.search(r'llms_(.+)\.txt', previous_ts)
-                if m:
-                    ts = m.group(1)
-            return None, ts
+            return None
 
-        # 内容有变化或首次运行，创建新的时间戳文件
-        timestamped_file = self.llms_dir / f"llms_{run_time}.txt"
-        with open(timestamped_file, "w", encoding="utf-8") as file_obj:
+        with open(self.llms_file, "w", encoding="utf-8") as file_obj:
             file_obj.write(content)
 
-        if latest_file.exists() or latest_file.is_symlink():
-            latest_file.unlink()
-        try:
-            os.symlink(timestamped_file.name, latest_file)
-        except OSError:
-            with open(timestamped_file, "r", encoding="utf-8") as src:
-                latest_content = src.read()
-            with open(latest_file, "w", encoding="utf-8") as dst:
-                dst.write(latest_content)
-
-        # 首次运行，无历史可对比
         if previous_content is None:
-            return None, run_time
+            return None
 
-        # 内容有变化，生成 diff
         old_lines = previous_content.splitlines()
         new_lines = content.splitlines()
-        diff_lines = list(
-            difflib.unified_diff(
-                old_lines,
-                new_lines,
-                fromfile="llms_previous.txt",
-                tofile=f"llms_{run_time}.txt",
-                lineterm="",
-                n=3,
-            )
-        )
-        if diff_lines:
-            return "\n".join(diff_lines), run_time
-
-        return None, run_time
+        diff_lines = list(difflib.unified_diff(
+            old_lines, new_lines,
+            fromfile="llms_old.txt", tofile="llms.txt",
+            lineterm="", n=3,
+        ))
+        return "\n".join(diff_lines) if diff_lines else None
 
     def detect_changes(
         self, new_nodes: List[Dict], old_index: Dict[str, Dict]
@@ -313,113 +239,72 @@ class WechatPayDocFetcher:
             if not old_node:
                 continue
             if str(new_node.get("updateTime", "")) != str(old_node.get("updateTime", "")):
-                modified.append(
-                    {
-                        "docId": doc_id,
-                        "title": new_node["title"],
-                        "url": new_node["url"],
-                        "fullPath": new_node["fullPath"],
-                        "oldUpdateTime": str(old_node.get("updateTime", "")),
-                        "newUpdateTime": str(new_node.get("updateTime", "")),
-                    }
-                )
+                modified.append({
+                    "docId": doc_id,
+                    "title": new_node["title"],
+                    "url": new_node["url"],
+                    "fullPath": new_node["fullPath"],
+                    "oldUpdateTime": str(old_node.get("updateTime", "")),
+                    "newUpdateTime": str(new_node.get("updateTime", "")),
+                })
 
         return added, removed, modified
 
-    def get_markdown_path(self, doc_id: str, update_time: str) -> Path:
-        """返回单个版本 Markdown 文件路径"""
-        page_dir = self.pages_dir / doc_id
-        page_dir.mkdir(parents=True, exist_ok=True)
-        return page_dir / f"{doc_id}_{update_time}.md"
+    def get_markdown_path(self, doc_id: str) -> Path:
+        """返回 Markdown 文件路径: pages/{docId}.md"""
+        return self.pages_dir / f"{doc_id}.md"
 
-    def get_existing_markdown_versions(self, doc_id: str) -> List[Path]:
-        """获取本地已保存的 Markdown 版本"""
-        page_dir = self.pages_dir / doc_id
-        if not page_dir.exists():
-            return []
+    def read_markdown(self, doc_id: str) -> Optional[str]:
+        """读取本地 Markdown 文件"""
+        path = self.get_markdown_path(doc_id)
+        if not path.exists():
+            return None
+        with open(path, "r", encoding="utf-8") as file_obj:
+            return file_obj.read()
 
-        def sort_key(path: Path) -> Tuple[int, str]:
-            match = re.search(r"_(\d+)\.md$", path.name)
-            version = int(match.group(1)) if match else -1
-            return version, path.name
-
-        return sorted(page_dir.glob(f"{doc_id}_*.md"), key=sort_key)
-
-    def get_previous_markdown_path(self, doc_id: str, update_time: str) -> Optional[Path]:
-        """获取当前版本之前的最近一个本地 Markdown 版本"""
-        previous_versions = [
-            path
-            for path in self.get_existing_markdown_versions(doc_id)
-            if path.name != f"{doc_id}_{update_time}.md"
-        ]
-        return previous_versions[-1] if previous_versions else None
-
-    def save_markdown(self, node: Dict) -> Tuple[bool, bool, Optional[Path]]:
-        """保存 Markdown 页面内容到本地，使用 llms.txt 中的 .md URL"""
+    def save_markdown(self, node: Dict) -> Tuple[bool, bool, Optional[str]]:
+        """下载并保存 Markdown 文件为 pages/{docId}.md。
+        返回 (success, was_fetched, old_content_or_none)。
+        old_content 用于后续 diff 生成。"""
         doc_id = node["docId"]
-        update_time = str(node.get("updateTime", ""))
-        markdown_url = node["url"]  # 直接使用 llms.txt 中的 .md URL
-        markdown_path = self.get_markdown_path(doc_id, update_time)
+        markdown_url = node["url"]
+        markdown_path = self.get_markdown_path(doc_id)
 
-        if markdown_path.exists():
-            print(f"  跳过: {node['title']} ({doc_id}) - Markdown 已存在")
-            return True, False, markdown_path
+        old_content = self.read_markdown(doc_id)
 
         print(f"  拉取: {node['title']} ({doc_id})")
         markdown_content = self.fetch_text(markdown_url)
         if markdown_content is None:
             return False, True, None
 
+        # 内容完全一致则跳过写入
+        if old_content is not None and old_content == markdown_content:
+            print(f"    (内容未变化，跳过写入)")
+            return True, False, old_content
+
         with open(markdown_path, "w", encoding="utf-8") as file_obj:
             file_obj.write(markdown_content)
 
-        return True, True, markdown_path
+        return True, True, old_content
 
-    def read_markdown(self, path: Path) -> str:
-        """读取 Markdown 文本"""
-        with open(path, "r", encoding="utf-8") as file_obj:
-            return file_obj.read()
-
-    def build_diff(self, old_path: Optional[Path], new_path: Optional[Path]) -> Optional[str]:
-        """生成 unified diff 文本"""
-        if not old_path or not new_path or not old_path.exists() or not new_path.exists():
+    def build_diff(self, old_content: Optional[str], new_content: str) -> Optional[str]:
+        """生成 unified diff"""
+        if old_content is None:
             return None
-
-        old_lines = self.read_markdown(old_path).splitlines()
-        new_lines = self.read_markdown(new_path).splitlines()
-        diff_lines = list(
-            difflib.unified_diff(
-                old_lines,
-                new_lines,
-                fromfile=old_path.name,
-                tofile=new_path.name,
-                lineterm="",
-                n=3,
-            )
-        )
+        old_lines = old_content.splitlines()
+        new_lines = new_content.splitlines()
+        diff_lines = list(difflib.unified_diff(
+            old_lines, new_lines,
+            fromfile="old.md", tofile="new.md",
+            lineterm="", n=3,
+        ))
         if not diff_lines:
             return "无正文差异，可能仅更新时间发生变化。"
-
         if len(diff_lines) > self.diff_preview_lines:
             remaining = len(diff_lines) - self.diff_preview_lines
-            diff_lines = diff_lines[: self.diff_preview_lines]
+            diff_lines = diff_lines[:self.diff_preview_lines]
             diff_lines.append(f"... 已截断其余 {remaining} 行 diff")
-
         return "\n".join(diff_lines)
-
-    def create_latest_report_link(self, report_file: Path):
-        """创建或覆盖最新报告链接"""
-        latest_file = self.reports_dir / "latest.md"
-        if latest_file.exists() or latest_file.is_symlink():
-            latest_file.unlink()
-
-        try:
-            os.symlink(report_file.name, latest_file)
-        except OSError:
-            with open(report_file, "r", encoding="utf-8") as source_obj:
-                content = source_obj.read()
-            with open(latest_file, "w", encoding="utf-8") as latest_obj:
-                latest_obj.write(content)
 
     def format_timestamp(self, timestamp: str) -> str:
         """格式化 Unix 时间戳"""
@@ -474,51 +359,43 @@ class WechatPayDocFetcher:
         if added:
             report_lines.extend(["## 新增页面", ""])
             for node in added:
-                markdown_path = self.get_markdown_path(node["docId"], str(node.get("updateTime", "")))
-                report_lines.extend(
-                    [
-                        f"### {node['title']}",
-                        f"- ID: `{node['docId']}`",
-                        f"- 路径: {node['fullPath']}",
-                        f"- URL: {node['url']}",
-                        f"- 更新时间: {self.format_timestamp(str(node.get('updateTime', '')))}",
-                        f"- 本地文件: `{markdown_path}`",
-                        "",
-                    ]
-                )
+                report_lines.extend([
+                    f"### {node['title']}",
+                    f"- ID: `{node['docId']}`",
+                    f"- 路径: {node['fullPath']}",
+                    f"- URL: {node['url']}",
+                    f"- 更新时间: {self.format_timestamp(str(node.get('updateTime', '')))}",
+                    f"- 本地文件: `pages/{node['docId']}.md`",
+                    "",
+                ])
 
         if removed:
             report_lines.extend(["## 删除页面", ""])
             for node in removed:
-                report_lines.extend(
-                    [
-                        f"- **{node['title']}** (`{node['docId']}`)",
-                        f"  - 原路径: {node.get('fullPath', '')}",
-                        f"  - 原 URL: {node.get('url', '')}",
-                        f"  - 原更新时间: {self.format_timestamp(str(node.get('updateTime', '')))}",
-                        "",
-                    ]
-                )
+                report_lines.extend([
+                    f"- **{node['title']}** (`{node['docId']}`)",
+                    f"  - 原路径: {node.get('fullPath', '')}",
+                    f"  - 原 URL: {node.get('url', '')}",
+                    f"  - 原更新时间: {self.format_timestamp(str(node.get('updateTime', '')))}",
+                    "",
+                ])
 
         if modified:
             report_lines.extend(["## 修改页面", ""])
             for node in modified:
-                new_markdown_path = self.get_markdown_path(node["docId"], node["newUpdateTime"])
-                report_lines.extend(
-                    [
-                        f"### {node['title']}",
-                        f"- ID: `{node['docId']}`",
-                        f"- 路径: {node['fullPath']}",
-                        f"- URL: {node['url']}",
-                        f"- 更新时间变更: {self.format_timestamp(node['oldUpdateTime'])} -> {self.format_timestamp(node['newUpdateTime'])}",
-                        f"- 新版本文件: `{new_markdown_path}`",
-                        "",
-                        "```diff",
-                        diff_details.get(node["docId"]) or "无法生成 diff：缺少本地旧版本或新版本文件。",
-                        "```",
-                        "",
-                    ]
-                )
+                report_lines.extend([
+                    f"### {node['title']}",
+                    f"- ID: `{node['docId']}`",
+                    f"- 路径: {node['fullPath']}",
+                    f"- URL: {node['url']}",
+                    f"- 更新时间变更: {self.format_timestamp(node['oldUpdateTime'])} -> {self.format_timestamp(node['newUpdateTime'])}",
+                    f"- 本地文件: `pages/{node['docId']}.md`",
+                    "",
+                    "```diff",
+                    diff_details.get(node["docId"]) or "无法生成 diff：缺少本地旧版本。",
+                    "```",
+                    "",
+                ])
 
         if fetch_failed:
             report_lines.extend(["## 拉取失败", ""])
@@ -526,32 +403,25 @@ class WechatPayDocFetcher:
             failed_lookup.update({node["docId"]: node for node in modified})
             for doc_id in fetch_failed:
                 node = failed_lookup.get(doc_id)
-                if not node:
-                    continue
-                report_lines.extend(
-                    [
-                        f"- {node['title']} (`{doc_id}`): {node['url']}",
-                        "",
-                    ]
-                )
+                if node:
+                    report_lines.append(f"- {node['title']} (`{doc_id}`): {node['url']}")
+                    report_lines.append("")
 
-        report_lines.extend(
-            [
-                "## 附录：所有页面清单",
-                "",
-                f"<details>",
-                f"<summary>点击查看全部 {total_nodes} 个页面</summary>",
-                "",
-                "| 序号 | 标题（链接） | ID | 更新时间 | 完整路径 |",
-                "|------|-------------|----|----------|----------|",
-            ]
-        )
+        report_lines.extend([
+            "## 附录：所有页面清单",
+            "",
+            f"<details>",
+            f"<summary>点击查看全部 {total_nodes} 个页面</summary>",
+            "",
+            "| 序号 | 标题（链接） | ID | 更新时间 | 完整路径 |",
+            "|------|-------------|----|----------|----------|",
+        ])
 
         for index, node in enumerate(all_nodes, start=1):
             update_time = str(node.get("updateTime", ""))
-            markdown_rel_path = f"../pages/{node['docId']}/{node['docId']}_{update_time}.md"
             report_lines.append(
-                f"| {index} | [{node['title']}]({markdown_rel_path}) | `{node['docId']}` | {self.format_timestamp(update_time)} | {node['fullPath']} |"
+                f"| {index} | [{node['title']}](pages/{node['docId']}.md) | "
+                f"`{node['docId']}` | {self.format_timestamp(update_time)} | {node['fullPath']} |"
             )
 
         report_lines.extend(["", "</details>"])
@@ -565,25 +435,26 @@ class WechatPayDocFetcher:
         print(f"  llms.txt: {self.llms_url}")
         print(f"  首页: {self.index_url}")
 
-        print("\n[1/6] 获取 llms.txt 文档列表...")
+        # Step 1: Fetch llms.txt
+        print("\n[1/6] 获取 llms.txt...")
         llms_content = self.fetch_text(self.llms_url)
         if not llms_content:
             print("  错误: 无法获取 llms.txt")
             return
-
-        llms_diff, llms_ts = self.save_llms_txt(llms_content, run_time)
+        llms_diff = self.save_llms_txt(llms_content, run_time)
         if llms_diff:
             print("  llms.txt 有变更")
 
+        # Step 2: Parse llms.txt
         print("\n[2/6] 解析 llms.txt 获取文档 URL 和层级...")
         leaf_nodes = self.parse_llms_txt(llms_content)
         print(f"  从 llms.txt 提取到 {len(leaf_nodes)} 个文档")
-
         if limit and limit > 0:
             leaf_nodes = leaf_nodes[:limit]
             print(f"  测试模式：仅处理前 {limit} 个节点")
 
-        print("\n[3/6] 获取首页 JSON 数据（用于 updateTime）...")
+        # Step 3: Fetch JSON for updateTime
+        print("\n[3/6] 获取首页 JSON（用于 updateTime）...")
         html = self.fetch_text(self.index_url)
         if html:
             json_data = self.extract_json_data(html)
@@ -594,16 +465,16 @@ class WechatPayDocFetcher:
                 matched = sum(1 for n in leaf_nodes if n.get("updateTime"))
                 print(f"  成功匹配 updateTime: {matched}/{len(leaf_nodes)} 个文档")
             else:
-                print("  警告: 无法解析 JSON 数据，文档将缺少 updateTime")
+                print("  警告: 无法解析 JSON，文档将缺少 updateTime")
         else:
             print("  警告: 无法获取首页，文档将缺少 updateTime")
 
+        # Step 4: Detect changes
         print("\n[4/6] 检测变更...")
         old_index = self.load_index()
         is_first_run = not old_index
-
         if is_first_run:
-            print("  首次运行：将抓取所有页面")
+            print("  首次运行：将拉取所有页面")
             added = leaf_nodes
             removed = []
             modified = []
@@ -613,25 +484,29 @@ class WechatPayDocFetcher:
             print(f"  删除: {len(removed)} 个")
             print(f"  修改: {len(modified)} 个")
 
-        print("\n[5/6] 拉取变更页面...")
+        # Step 5: Fetch changed pages
         nodes_to_fetch = list(added)
         modified_node_ids = {node["docId"] for node in modified}
         nodes_to_fetch.extend(node for node in leaf_nodes if node["docId"] in modified_node_ids)
 
+        if nodes_to_fetch:
+            print(f"\n[5/6] 拉取变更页面（共 {len(nodes_to_fetch)} 个）...")
+        else:
+            print(f"\n[5/6] 拉取变更页面...")
+            print("  无页面需要拉取")
+
         fetch_success: List[str] = []
         fetch_failed: List[str] = []
-        fetched_paths: Dict[str, Path] = {}
+        old_contents: Dict[str, Optional[str]] = {}
 
         for index, node in enumerate(nodes_to_fetch, start=1):
             print(f"  [{index}/{len(nodes_to_fetch)}] ", end="")
-            success, was_fetched, markdown_path = self.save_markdown(node)
+            success, was_fetched, old_content = self.save_markdown(node)
             if success:
                 fetch_success.append(node["docId"])
-                if markdown_path:
-                    fetched_paths[node["docId"]] = markdown_path
+                old_contents[node["docId"]] = old_content
             else:
                 fetch_failed.append(node["docId"])
-
             if was_fetched and index < len(nodes_to_fetch):
                 time.sleep(0.5)
 
@@ -640,21 +515,23 @@ class WechatPayDocFetcher:
 
         has_changes = bool(added or removed or modified or llms_diff)
         if not is_first_run and not has_changes:
-            print(f"\n[OK] 完成! 无变更，跳过保存索引和报告")
-            print(f"   llms.txt: {self.llms_dir / f'llms_{llms_ts}.txt'}")
+            print("\n[OK] 完成! 无变更，跳过保存索引和报告")
             return
 
+        # Step 6: Generate diff for modified pages
+        print("\n[6/6] 生成报告...")
         self.save_index(leaf_nodes, run_time)
 
         diff_details: Dict[str, Optional[str]] = {}
         for node in modified:
-            old_markdown_path = self.get_previous_markdown_path(node["docId"], node["newUpdateTime"])
-            new_markdown_path = fetched_paths.get(node["docId"]) or self.get_markdown_path(
-                node["docId"], node["newUpdateTime"]
-            )
-            diff_details[node["docId"]] = self.build_diff(old_markdown_path, new_markdown_path)
+            doc_id = node["docId"]
+            old_content = old_contents.get(doc_id) or self.read_markdown(doc_id)
+            new_content = self.read_markdown(doc_id)
+            if old_content and new_content:
+                diff_details[doc_id] = self.build_diff(old_content, new_content)
+            else:
+                diff_details[doc_id] = None
 
-        print("\n[6/6] 生成差异报告...")
         report_content = self.generate_report(
             run_time=run_time,
             total_nodes=len(leaf_nodes),
@@ -668,21 +545,14 @@ class WechatPayDocFetcher:
             llms_diff=llms_diff,
         )
 
-        report_file = self.reports_dir / f"report_{run_time}.md"
-        with open(report_file, "w", encoding="utf-8") as file_obj:
+        with open(self.report_file, "w", encoding="utf-8") as file_obj:
             file_obj.write(report_content)
 
-        self.create_latest_report_link(report_file)
-
-        timestamped_index = self.index_dir / f"index_{run_time}.json"
-        llms_file = self.llms_dir / f"llms_{llms_ts}.txt"
         print("\n[OK] 完成!")
-        print(f"   llms.txt: {llms_file}")
-        print(f"   索引文件: {timestamped_index}")
-        print(f"   最新索引: {self.index_file}")
-        print(f"   Markdown 目录: {self.pages_dir}")
-        print(f"   报告文件: {report_file}")
-        print(f"   最新报告: {self.reports_dir / 'latest.md'}")
+        print(f"   llms.txt:  {self.llms_file}")
+        print(f"   index.json: {self.index_file}")
+        print(f"   pages/:     {self.pages_dir}")
+        print(f"   report.md:  {self.report_file}")
 
 
 def main():
@@ -709,30 +579,23 @@ def main():
     )
 
     parser.add_argument(
-        "--type",
-        "-t",
-        type=str,
-        default="merchant",
+        "--type", "-t",
+        type=str, default="merchant",
         choices=["merchant", "partner"],
         help="文档类型：merchant(直连商户) 或 partner(合作伙伴)，默认: merchant",
     )
     parser.add_argument(
-        "--limit",
-        "-l",
-        type=int,
-        default=None,
+        "--limit", "-l",
+        type=int, default=None,
         help="限制处理的页面数量（用于测试）",
     )
     parser.add_argument(
-        "--output",
-        "-o",
-        type=str,
-        default="docs",
+        "--output", "-o",
+        type=str, default="docs",
         help="输出目录（默认: docs）",
     )
 
     args = parser.parse_args()
-
     fetcher = WechatPayDocFetcher(doc_type=args.type, base_dir=args.output)
     fetcher.run(limit=args.limit)
 
