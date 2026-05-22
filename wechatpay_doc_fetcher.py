@@ -177,10 +177,9 @@ class WechatPayDocFetcher:
             return {}
         return {node["docId"]: node for node in data.get("nodes", [])}
 
-    def save_index(self, nodes: List[Dict], run_time: str):
+    def save_index(self, nodes: List[Dict]):
         """覆盖写入 index.json"""
         index_data = {
-            "runTime": run_time,
             "totalNodes": len(nodes),
             "docType": self.doc_type,
             "docTypeName": self.doc_config["name"],
@@ -189,7 +188,7 @@ class WechatPayDocFetcher:
         with open(self.index_file, "w", encoding="utf-8") as file_obj:
             json.dump(index_data, file_obj, ensure_ascii=False, indent=2)
 
-    def save_llms_txt(self, content: str, run_time: str) -> Optional[str]:
+    def save_llms_txt(self, content: str) -> Optional[str]:
         """覆盖写入 llms.txt，内容有变更时返回 unified diff"""
         previous_content = None
         if self.llms_file.exists():
@@ -441,7 +440,7 @@ class WechatPayDocFetcher:
         if not llms_content:
             print("  错误: 无法获取 llms.txt")
             return
-        llms_diff = self.save_llms_txt(llms_content, run_time)
+        llms_diff = self.save_llms_txt(llms_content)
         if llms_diff:
             print("  llms.txt 有变更")
 
@@ -520,7 +519,7 @@ class WechatPayDocFetcher:
 
         # Step 6: Generate diff for modified pages
         print("\n[6/6] 生成报告...")
-        self.save_index(leaf_nodes, run_time)
+        self.save_index(leaf_nodes)
 
         diff_details: Dict[str, Optional[str]] = {}
         for node in modified:
