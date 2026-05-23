@@ -142,50 +142,12 @@
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012085803.md)
 ### 附录
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013352070.md)
-## 合单支付
-> 合单支付支持将多个子商户订单合并为一笔支付，用户一次性完成付款，资金按规则分入对应商户账户，适用于电商购物车、多商家联合订单等场景，简化支付流程，提升平台与商户结算效率。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079378.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013461849.md)
-### APP合单支付
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079331.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166832.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013461863.md)
-#### API列表
-- [APP合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758021.md)
-- [APP调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166845.md)
-- [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4012761057.md)
-- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/partner/4012761079.md)
-- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012231898.md)
-- [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4012760207.md)
-- [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4012760226.md)
-- [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4013461907.md)
-- [退款结果回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012231901.md)
-- [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4012760228.md)
-- [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760229.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012231933.md)
-### H5合单支付
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013462080.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166833.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462145.md)
-#### API列表
-- [H5合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758208.md)
-- [H5调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166846.md)
-- [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462099.md)
-- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462102.md)
-- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4013462105.md)
-- [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013462113.md)
-- [查询单笔退款（按商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4013462116.md)
-- [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4013462123.md)
-- [退款结果通知](https://pay.weixin.qq.com/doc/v3/partner/4013462126.md)
-- [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462129.md)
-- [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462134.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462137.md)
-### JSAPI合单支付
+## JSAPI合单支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079332.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166834.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013461849.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462212.md)
-#### API列表
+### API列表
 - [JSAPI合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012757938.md)
 - [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166844.md)
 - [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462164.md)
@@ -198,11 +160,47 @@
 - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462197.md)
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462202.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462207.md)
-### Native合单支付
+### 附录
+- [合单支付-商户号绑定APPID操作说明](https://pay.weixin.qq.com/doc/v3/partner/4013462628.md)
+## APP合单支付
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079331.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166832.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013461863.md)
+### API列表
+- [APP合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758021.md)
+- [APP调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166845.md)
+- [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4012761057.md)
+- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/partner/4012761079.md)
+- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012231898.md)
+- [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4012760207.md)
+- [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4012760226.md)
+- [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4013461907.md)
+- [退款结果回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012231901.md)
+- [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4012760228.md)
+- [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760229.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012231933.md)
+## H5合单支付
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013462080.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166833.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462145.md)
+### API列表
+- [H5合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758208.md)
+- [H5调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166846.md)
+- [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462099.md)
+- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462102.md)
+- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4013462105.md)
+- [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013462113.md)
+- [查询单笔退款（按商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4013462116.md)
+- [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4013462123.md)
+- [退款结果通知](https://pay.weixin.qq.com/doc/v3/partner/4013462126.md)
+- [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462129.md)
+- [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462134.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462137.md)
+## Native合单支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079333.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166835.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462413.md)
-#### API列表
+### API列表
 - [Native合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758240.md)
 - [Native调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166843.md)
 - [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462240.md)
@@ -215,11 +213,11 @@
 - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462343.md)
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462358.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462389.md)
-### 小程序合单支付
+## 小程序合单支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079334.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166836.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462619.md)
-#### API列表
+### API列表
 - [小程序合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758246.md)
 - [小程序调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012166847.md)
 - [查询合单订单](https://pay.weixin.qq.com/doc/v3/partner/4013462520.md)
@@ -232,8 +230,6 @@
 - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462604.md)
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462607.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462614.md)
-### 附录
-- [合单支付-商户号绑定APPID操作说明](https://pay.weixin.qq.com/doc/v3/partner/4013462628.md)
 ## 医保支付（服务商模式）
 > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
 
@@ -309,10 +305,28 @@
 - [交易账单详细说明](https://pay.weixin.qq.com/doc/v3/partner/4013080599.md)
 - [资金账单详细说明](https://pay.weixin.qq.com/doc/v3/partner/4013080600.md)
 - [平台下载账单操作指引](https://pay.weixin.qq.com/doc/v3/partner/4013080601.md)
-## 现金红包（V2）
-> 现金红包是微信支付提供的营销工具，商户可以通过公众号或者服务通知向用户发放现金红包。用户领取红包后，资金到达用户微信支付零钱账户；若用户未领取， 资金将会在24小时后退回商户的微信支付账户中。适用于拉新、促活、福利发放等场景。
+## 分账
+> 分账是商户用于交易资金分配的工具，支持将资金分给合作伙伴、员工、用户等分润方。资金先冻结，可实时或延时分账，单笔最多分 50 次、每次可分 50 方，支持商户或个人账户接收，需设置最大分账比例，全程免手续费。
 
-- [现金红包（V2）](https://pay.weixin.qq.com/doc/v3/partner/4012851209.md)
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072582.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072589.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072601.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4014547107.md)
+### API列表
+- [请求分账](https://pay.weixin.qq.com/doc/v3/partner/4012690683.md)
+- [查询分账结果](https://pay.weixin.qq.com/doc/v3/partner/4012466850.md)
+- [请求分账回退](https://pay.weixin.qq.com/doc/v3/partner/4012466854.md)
+- [查询分账回退结果](https://pay.weixin.qq.com/doc/v3/partner/4012466858.md)
+- [解冻剩余资金](https://pay.weixin.qq.com/doc/v3/partner/4012466860.md)
+- [查询剩余待分金额](https://pay.weixin.qq.com/doc/v3/partner/4012457927.md)
+- [查询最大分账比例](https://pay.weixin.qq.com/doc/v3/partner/4012466864.md)
+- [添加分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012690944.md)
+- [删除分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012466868.md)
+- [分账动账通知](https://pay.weixin.qq.com/doc/v3/partner/4012075216.md)
+- [申请分账账单](https://pay.weixin.qq.com/doc/v3/partner/4012761140.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012075366.md)
+### 附录
+- [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/partner/4015504885.md)
 ## 微信支付分
 > 微信支付分是基于用户身份、支付行为等综合评估的信用分值，支持免押租借、先享后付等场景。支持先免、先享两种模式，帮助商户降低门槛、提升转化，订单资金可通过分账完成分配。
 
@@ -391,6 +405,10 @@
 - [退款申请](https://pay.weixin.qq.com/doc/v3/partner/4012760545.md)
 - [退款结果通知](https://pay.weixin.qq.com/doc/v3/partner/4012086319.md)
 - [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4012760554.md)
+## 现金红包（V2）
+> 现金红包是微信支付提供的营销工具，商户可以通过公众号或者服务通知向用户发放现金红包。用户领取红包后，资金到达用户微信支付零钱账户；若用户未领取， 资金将会在24小时后退回商户的微信支付账户中。适用于拉新、促活、福利发放等场景。
+
+- [现金红包（V2）](https://pay.weixin.qq.com/doc/v3/partner/4012851209.md)
 ## 代金券
 > 微信支付官方营销工具，支持商户配置满减、折扣等券型，可在支付前发放、支付中自动核销。支持线上线下多场景投放，数据实时可查，助力商户拉新、复购与客流提升，适配多行业营销需求。
 
@@ -490,39 +508,6 @@
 - [服务人员称谓申请指引](https://pay.weixin.qq.com/doc/v3/partner/4012076039.md)
 - [免开发版本操作指引](https://pay.weixin.qq.com/doc/v3/partner/4012076040.md)
 - [个人微信服务人员注册](https://pay.weixin.qq.com/doc/v3/partner/4012076041.md)
-## 微信电子发票
-> 提供从开票、接收、报销到归档的全流程电子化方案，支持支付后一键开票、批量开票、抬头管理，发票自动存入微信卡包。简化商户开票流程，降低纸质发票成本，提升用户报销与财务管理效率。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4015792553.md)
-- [权限申请](https://pay.weixin.qq.com/doc/v3/partner/4015792554.md)
-- [快速开始](https://pay.weixin.qq.com/doc/v3/partner/4015942799.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4015792556.md)
-- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4016078358.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016960715.md)
-### API列表
-- [获取开通服务商电子发票能力邀请链接](https://pay.weixin.qq.com/doc/v3/partner/4015941495.md)
-- [获取邀请开通的商户信息](https://pay.weixin.qq.com/doc/v3/partner/4015941524.md)
-- [检查子商户开票功能状态](https://pay.weixin.qq.com/doc/v3/partner/4015792561.md)
-- [创建电子发票卡券模板](https://pay.weixin.qq.com/doc/v3/partner/4015792562.md)
-- [配置开发选项](https://pay.weixin.qq.com/doc/v3/partner/4015792563.md)
-- [获取用户抬头填写链接](https://pay.weixin.qq.com/doc/v3/partner/4015770776.md)
-- [获取用户填写抬头信息](https://pay.weixin.qq.com/doc/v3/partner/4015784260.md)
-- [开具通用行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792574.md)
-- [开具不动产租赁行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015941740.md)
-- [开具成品油行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4016760559.md)
-- [冲红电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792575.md)
-- [查询电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792567.md)
-- [获取发票下载信息](https://pay.weixin.qq.com/doc/v3/partner/4015792576.md)
-- [下载发票文件](https://pay.weixin.qq.com/doc/v3/partner/4015792569.md)
-- [上传电子发票文件](https://pay.weixin.qq.com/doc/v3/partner/4015792580.md)
-- [将电子发票插入微信用户卡包](https://pay.weixin.qq.com/doc/v3/partner/4015792579.md)
-- [用户发票抬头填写完成通知](https://pay.weixin.qq.com/doc/v3/partner/4015792559.md)
-- [发票开具成功通知](https://pay.weixin.qq.com/doc/v3/partner/4015792570.md)
-- [发票插入用户卡包成功通知](https://pay.weixin.qq.com/doc/v3/partner/4015792578.md)
-- [发票冲红成功通知](https://pay.weixin.qq.com/doc/v3/partner/4015792571.md)
-- [发票卡券作废通知](https://pay.weixin.qq.com/doc/v3/partner/4015792560.md)
-### 附录
-- [成品油单位转换公式](https://pay.weixin.qq.com/doc/v3/partner/4016730844.md)
 ## 点金计划
 > 帮助商户在支付完成页自动展示官方广告，获取广告分成收入。无需额外开发，接入即可变现，支持合规展示与数据透明，在不影响用户体验的前提下，为商户增加额外收益，提升经营附加值。
 
@@ -537,168 +522,6 @@
 - [开通广告展示](https://pay.weixin.qq.com/doc/v3/partner/4012473794.md)
 - [关闭广告展示](https://pay.weixin.qq.com/doc/v3/partner/4012473781.md)
 - [小程序左上角返回键管理](https://pay.weixin.qq.com/doc/v3/partner/4012072514.md)
-## 合作伙伴订阅
-> 合作伙伴订阅功能为微信支付服务商专属消息推送服务，支持自主订阅商户进件、交易流水、状态变更等各类业务通知，配置接收地址即可实时推送消息，方便服务商及时掌握商户动态，高效开展商户运营与日常管理工作。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4016022264.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016550707.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4016022266.md)
-## 清关报关（V2）
-> 清关报关是微信支付面向跨境商户的自助清关工具，商户可在商户平台开通并配置海关信息，通过接口将支付单推送至海关电子口岸，完成 “三单合一” 申报，助力跨境订单合规通关，提升清关效率，免费使用。
-
-- [清关报关（V2）](https://pay.weixin.qq.com/doc/v3/partner/4012851220.md)
-## 分账
-> 分账是商户用于交易资金分配的工具，支持将资金分给合作伙伴、员工、用户等分润方。资金先冻结，可实时或延时分账，单笔最多分 50 次、每次可分 50 方，支持商户或个人账户接收，需设置最大分账比例，全程免手续费。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072582.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072589.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072601.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4014547107.md)
-### API列表
-- [请求分账](https://pay.weixin.qq.com/doc/v3/partner/4012690683.md)
-- [查询分账结果](https://pay.weixin.qq.com/doc/v3/partner/4012466850.md)
-- [请求分账回退](https://pay.weixin.qq.com/doc/v3/partner/4012466854.md)
-- [查询分账回退结果](https://pay.weixin.qq.com/doc/v3/partner/4012466858.md)
-- [解冻剩余资金](https://pay.weixin.qq.com/doc/v3/partner/4012466860.md)
-- [查询剩余待分金额](https://pay.weixin.qq.com/doc/v3/partner/4012457927.md)
-- [查询最大分账比例](https://pay.weixin.qq.com/doc/v3/partner/4012466864.md)
-- [添加分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012690944.md)
-- [删除分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012466868.md)
-- [分账动账通知](https://pay.weixin.qq.com/doc/v3/partner/4012075216.md)
-- [申请分账账单](https://pay.weixin.qq.com/doc/v3/partner/4012761140.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012075366.md)
-### 附录
-- [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/partner/4015504885.md)
-## 连锁品牌分账
-> 连锁品牌分账面向品牌总部与门店的资金拆分需求，支持总部统一抽佣、跨门店分润、营收自动归集与结算，按规则自动完成品牌方、门店、服务商多方分配，简化连锁经营对账流程，提升资金管理效率与结算规范性。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072620.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072625.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072637.md)
-- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015871675.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4015981574.md)
-### API列表
-- [请求分账](https://pay.weixin.qq.com/doc/v3/partner/4012692975.md)
-- [查询分账结果](https://pay.weixin.qq.com/doc/v3/partner/4012467002.md)
-- [请求分账回退](https://pay.weixin.qq.com/doc/v3/partner/4012467097.md)
-- [查询分账回退结果](https://pay.weixin.qq.com/doc/v3/partner/4012467011.md)
-- [解冻剩余资金](https://pay.weixin.qq.com/doc/v3/partner/4012467016.md)
-- [查询订单剩余待分金额](https://pay.weixin.qq.com/doc/v3/partner/4012467021.md)
-- [查询最大分账比例](https://pay.weixin.qq.com/doc/v3/partner/4012467022.md)
-- [添加分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012467100.md)
-- [删除分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012467103.md)
-- [分账动账通知](https://pay.weixin.qq.com/doc/v3/partner/4012075400.md)
-- [申请分账账单](https://pay.weixin.qq.com/doc/v3/partner/4012715572.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012076073.md)
-### 附录
-- [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/partner/4015504918.md)
-## 消费者投诉2.0
-> 消费者投诉 2.0 提供商户端线上投诉协同处理能力，支持实时获取投诉信息、在线协商、上传凭证、反馈处理结果，全流程可追溯。帮助商户高效处理交易纠纷，提升用户体验，降低合规与经营风险，适配多行业售后管理。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072827.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072844.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072858.md)
-- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015933338.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016111688.md)
-### API列表
-#### 主动查询投诉信息
-- [查询投诉单列表](https://pay.weixin.qq.com/doc/v3/partner/4012691285.md)
-- [查询投诉单详情](https://pay.weixin.qq.com/doc/v3/partner/4012691648.md)
-- [查询投诉单协商历史](https://pay.weixin.qq.com/doc/v3/partner/4012691802.md)
-#### 实时获取投诉信息
-- [投诉通知回调](https://pay.weixin.qq.com/doc/v3/partner/4012076174.md)
-- [创建投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012458106.md)
-- [查询投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012459065.md)
-- [更新投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012459287.md)
-- [删除投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012460474.md)
-#### 商户处理用户投诉
-- [回复用户](https://pay.weixin.qq.com/doc/v3/partner/4012467213.md)
-- [反馈处理完成](https://pay.weixin.qq.com/doc/v3/partner/4012467217.md)
-- [更新退款审批结果](https://pay.weixin.qq.com/doc/v3/partner/4012467218.md)
-- [回复需要即时服务的投诉单](https://pay.weixin.qq.com/doc/v3/partner/4017151726.md)
-#### 商户反馈图片
-- [图片上传接口](https://pay.weixin.qq.com/doc/v3/partner/4012467222.md)
-- [图片请求接口](https://pay.weixin.qq.com/doc/v3/partner/4012467223.md)
-## 微信支付公钥
-> 微信支付公钥是用于保障交易通信安全的基础安全工具，商户可通过它验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加密传输。商户在 API 安全页面申请下载，用于验签与敏感字段加解密，保障交易与数据安全。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)
-- [如何从平台证书切换成微信支付公钥](https://pay.weixin.qq.com/doc/v3/partner/4012925289.md)
-- [如何从微信支付公钥切换成平台证书](https://pay.weixin.qq.com/doc/v3/partner/4015419376.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013038589.md)
-### API列表
-- [商户签名验签／加解密测试](https://pay.weixin.qq.com/doc/v3/partner/4015139289.md)
-- [回调接口](https://pay.weixin.qq.com/doc/v3/partner/4019605946.md)
-## 平台证书
-> 平台证书是微信支付传统 API 对接的安全凭证，用于接口交互中的身份校验与数据加密验签，保障商户与微信支付间通信安全。商户通过商户平台获取与更新，支持请求应答、回调通知等场景验签，是系统对接的核心安全组件，可与微信支付公钥兼容或切换使用。
-
-- [平台证书简介及使用说明](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md)
-- [平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/partner/4012073146.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012073263.md)
-### API列表
-- [下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)
-## 特约商户进件
-> 面向普通服务商的高效进件接口，支持个体户、企业、机关事业单位及其他组织快速接入，可对接自有系统提升效率，入驻后自动绑定 AppID 快速交易，支持优惠费率与灵活验证，还可协助修改结算账户，大幅降低人工录入成本，规范商户准入流程。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012062365.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012062375.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012062379.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016058480.md)
-### API列表
-- [提交申请单](https://pay.weixin.qq.com/doc/v3/partner/4012719997.md)
-- [申请单号查询申请状态](https://pay.weixin.qq.com/doc/v3/partner/4012697052.md)
-- [业务申请编号查询申请状态](https://pay.weixin.qq.com/doc/v3/partner/4012697168.md)
-- [修改结算账户](https://pay.weixin.qq.com/doc/v3/partner/4012761102.md)
-- [查询结算账户](https://pay.weixin.qq.com/doc/v3/partner/4012761113.md)
-- [查询结算账户修改申请状态](https://pay.weixin.qq.com/doc/v3/partner/4012761120.md)
-- [文件上传](https://pay.weixin.qq.com/doc/v3/partner/4012760490.md)
-- [视频上传](https://pay.weixin.qq.com/doc/v3/partner/4012761084.md)
-## 商户开户意愿确认
-> 商户开通微信支付的合规确认环节，用于核验商户真实开户意愿与主体身份，通过线上授权、扫码验证等方式完成确认，保障开户合规安全，是商户正常使用支付、结算等功能的必要前提，有效防范虚假开户与冒用开户风险。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012064820.md)
-- [流程指引](https://pay.weixin.qq.com/doc/v3/partner/4012064824.md)
-- [接入前准备](https://pay.weixin.qq.com/doc/v3/partner/4012064828.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012064832.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016644196.md)
-### API列表
-- [提交申请单](https://pay.weixin.qq.com/doc/v3/partner/4012722388.md)
-- [撤销申请单](https://pay.weixin.qq.com/doc/v3/partner/4012697627.md)
-- [查询申请单审核结果](https://pay.weixin.qq.com/doc/v3/partner/4012697715.md)
-- [获取商户开户意愿确认状态](https://pay.weixin.qq.com/doc/v3/partner/4012467549.md)
-- [图片上传](https://pay.weixin.qq.com/doc/v3/partner/4012760509.md)
-## 商户平台处置通知
-> 为服务商提供商户风险处置实时推送服务，覆盖调单、整改、警告、限制措施等通知类型，支持多渠道及时触达，便于服务商快速响应处理，避免因逾期处置导致商户功能受限，提升商户风控管理与合规运营效率。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012064844.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012064851.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012064853.md)
-- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015949382.md)
-### API列表
-#### 商户违规通知回调
-- [查询商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471327.md)
-- [修改商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471330.md)
-- [创建商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471333.md)
-- [删除商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471334.md)
-- [商户平台处置记录回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012079216.md)
-## 不活跃商户身份核实
-> 针对长期无交易的不活跃商户开展的合规身份核验，用于确认商户经营状态与身份信息有效性，商户按指引完成资料更新与身份验证后可恢复正常功能，满足监管要求，降低沉睡商户带来的合规与资金风险。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012064898.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012064902.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012064909.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012064915.md)
-### API列表
-- [发起不活跃商户身份核实](https://pay.weixin.qq.com/doc/v3/partner/4012471357.md)
-- [查询不活跃商户身份核实结果](https://pay.weixin.qq.com/doc/v3/partner/4012471359.md)
-### 附录
-- [关键概念](https://pay.weixin.qq.com/doc/v3/partner/4012064904.md)
-## 商户被管控能力及原因查询
-> 服务商可查询子商户支付、提现、退款、分账等功能管控状态，同步获取管控原因、解脱路径与处理指引，快速定位问题并协助商户提交材料办理解除管控，提升商户异常处理效率，保障正常经营与资金流转。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012165270.md)
-### API列表
-- [查询子商户管控情况 ](https://pay.weixin.qq.com/doc/v3/partner/4012803072.md)
 ## 品牌入驻
 > 品牌入驻是商户开通微信支付品牌经营能力的前提，商户提交资质经审核通过后，即可获得品牌账号，开展品牌门店、营销活动及商家名片会员管理等相关工作。
 
@@ -782,11 +605,9 @@
 ## 摇一摇有优惠
 > 摇一摇有优惠是微信支付的支付后互动营销功能，依据用户消费偏好在支付完成页快速发放优惠，简化领券与核销链路，帮助商户提升复购、实现精细化运营，使用前需完成商家名片配置或品牌门店创建。
 
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4016060552.md)
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4015782374.md)
-- [权限申请](https://pay.weixin.qq.com/doc/v3/partner/4015788437.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4016060552.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4016110225.md)
-- [运营规则](https://pay.weixin.qq.com/doc/v3/partner/4017294537.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4017418618.md)
 ### API列表
 #### 投放计划
@@ -800,6 +621,8 @@
 - [投放计划功能介绍](https://pay.weixin.qq.com/doc/v3/partner/4016402231.md)
 - [投放计划配置指引](https://pay.weixin.qq.com/doc/v3/partner/4016111064.md)
 - [品牌信息用户端展示规则](https://pay.weixin.qq.com/doc/v3/partner/4016110939.md)
+- [权限申请](https://pay.weixin.qq.com/doc/v3/partner/4015788437.md)
+- [运营规则](https://pay.weixin.qq.com/doc/v3/partner/4017294537.md)
 ## 商品券（单券）
 > 商品券（单券）是标准化一次性优惠券，支持满减、折扣、兑换等类型，可设置全场或单品可用，统一管理发放、核销等，适合短期促销、新人礼、单品特惠等场景。
 
@@ -942,6 +765,179 @@
 
 ### API列表
 - [获得品牌已授权且在生效中的产品权限信息](https://pay.weixin.qq.com/doc/v3/partner/4017410365.md)
+## 连锁品牌分账
+> 连锁品牌分账面向品牌总部与门店的资金拆分需求，支持总部统一抽佣、跨门店分润、营收自动归集与结算，按规则自动完成品牌方、门店、服务商多方分配，简化连锁经营对账流程，提升资金管理效率与结算规范性。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072620.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072625.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072637.md)
+- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015871675.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4015981574.md)
+### API列表
+- [请求分账](https://pay.weixin.qq.com/doc/v3/partner/4012692975.md)
+- [查询分账结果](https://pay.weixin.qq.com/doc/v3/partner/4012467002.md)
+- [请求分账回退](https://pay.weixin.qq.com/doc/v3/partner/4012467097.md)
+- [查询分账回退结果](https://pay.weixin.qq.com/doc/v3/partner/4012467011.md)
+- [解冻剩余资金](https://pay.weixin.qq.com/doc/v3/partner/4012467016.md)
+- [查询订单剩余待分金额](https://pay.weixin.qq.com/doc/v3/partner/4012467021.md)
+- [查询最大分账比例](https://pay.weixin.qq.com/doc/v3/partner/4012467022.md)
+- [添加分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012467100.md)
+- [删除分账接收方](https://pay.weixin.qq.com/doc/v3/partner/4012467103.md)
+- [分账动账通知](https://pay.weixin.qq.com/doc/v3/partner/4012075400.md)
+- [申请分账账单](https://pay.weixin.qq.com/doc/v3/partner/4012715572.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012076073.md)
+### 附录
+- [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/partner/4015504918.md)
+## 清关报关（V2）
+> 清关报关是微信支付面向跨境商户的自助清关工具，商户可在商户平台开通并配置海关信息，通过接口将支付单推送至海关电子口岸，完成 “三单合一” 申报，助力跨境订单合规通关，提升清关效率，免费使用。
+
+- [清关报关（V2）](https://pay.weixin.qq.com/doc/v3/partner/4012851220.md)
+## 消费者投诉2.0
+> 消费者投诉 2.0 提供商户端线上投诉协同处理能力，支持实时获取投诉信息、在线协商、上传凭证、反馈处理结果，全流程可追溯。帮助商户高效处理交易纠纷，提升用户体验，降低合规与经营风险，适配多行业售后管理。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072827.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072844.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072858.md)
+- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015933338.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016111688.md)
+### API列表
+#### 主动查询投诉信息
+- [查询投诉单列表](https://pay.weixin.qq.com/doc/v3/partner/4012691285.md)
+- [查询投诉单详情](https://pay.weixin.qq.com/doc/v3/partner/4012691648.md)
+- [查询投诉单协商历史](https://pay.weixin.qq.com/doc/v3/partner/4012691802.md)
+#### 实时获取投诉信息
+- [投诉通知回调](https://pay.weixin.qq.com/doc/v3/partner/4012076174.md)
+- [创建投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012458106.md)
+- [查询投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012459065.md)
+- [更新投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012459287.md)
+- [删除投诉通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012460474.md)
+#### 商户处理用户投诉
+- [回复用户](https://pay.weixin.qq.com/doc/v3/partner/4012467213.md)
+- [反馈处理完成](https://pay.weixin.qq.com/doc/v3/partner/4012467217.md)
+- [更新退款审批结果](https://pay.weixin.qq.com/doc/v3/partner/4012467218.md)
+- [回复需要即时服务的投诉单](https://pay.weixin.qq.com/doc/v3/partner/4017151726.md)
+#### 商户反馈图片
+- [图片上传接口](https://pay.weixin.qq.com/doc/v3/partner/4012467222.md)
+- [图片请求接口](https://pay.weixin.qq.com/doc/v3/partner/4012467223.md)
+## 微信电子发票
+> 提供从开票、接收、报销到归档的全流程电子化方案，支持支付后一键开票、批量开票、抬头管理，发票自动存入微信卡包。简化商户开票流程，降低纸质发票成本，提升用户报销与财务管理效率。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4015792553.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4015792554.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4015792556.md)
+- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4016078358.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016960715.md)
+### API列表
+- [获取开通服务商电子发票能力邀请链接](https://pay.weixin.qq.com/doc/v3/partner/4015941495.md)
+- [获取邀请开通的商户信息](https://pay.weixin.qq.com/doc/v3/partner/4015941524.md)
+- [检查子商户开票功能状态](https://pay.weixin.qq.com/doc/v3/partner/4015792561.md)
+- [创建电子发票卡券模板](https://pay.weixin.qq.com/doc/v3/partner/4015792562.md)
+- [配置开发选项](https://pay.weixin.qq.com/doc/v3/partner/4015792563.md)
+- [获取用户抬头填写链接](https://pay.weixin.qq.com/doc/v3/partner/4015770776.md)
+- [获取用户填写抬头信息](https://pay.weixin.qq.com/doc/v3/partner/4015784260.md)
+- [开具通用行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792574.md)
+- [开具不动产租赁行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015941740.md)
+- [开具成品油行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4016760559.md)
+- [冲红电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792575.md)
+- [查询电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792567.md)
+- [获取发票下载信息](https://pay.weixin.qq.com/doc/v3/partner/4015792576.md)
+- [下载发票文件](https://pay.weixin.qq.com/doc/v3/partner/4015792569.md)
+- [上传电子发票文件](https://pay.weixin.qq.com/doc/v3/partner/4015792580.md)
+- [将电子发票插入微信用户卡包](https://pay.weixin.qq.com/doc/v3/partner/4015792579.md)
+- [用户发票抬头填写完成通知](https://pay.weixin.qq.com/doc/v3/partner/4015792559.md)
+- [发票开具成功通知](https://pay.weixin.qq.com/doc/v3/partner/4015792570.md)
+- [发票插入用户卡包成功通知](https://pay.weixin.qq.com/doc/v3/partner/4015792578.md)
+- [发票冲红成功通知](https://pay.weixin.qq.com/doc/v3/partner/4015792571.md)
+- [发票卡券作废通知](https://pay.weixin.qq.com/doc/v3/partner/4015792560.md)
+### 附录
+- [成品油单位转换公式](https://pay.weixin.qq.com/doc/v3/partner/4016730844.md)
+## 特约商户进件
+> 面向普通服务商的高效进件接口，支持个体户、企业、机关事业单位及其他组织快速接入，可对接自有系统提升效率，入驻后自动绑定 AppID 快速交易，支持优惠费率与灵活验证，还可协助修改结算账户，大幅降低人工录入成本，规范商户准入流程。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012062365.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012062375.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012062379.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016058480.md)
+### API列表
+- [提交申请单](https://pay.weixin.qq.com/doc/v3/partner/4012719997.md)
+- [申请单号查询申请状态](https://pay.weixin.qq.com/doc/v3/partner/4012697052.md)
+- [业务申请编号查询申请状态](https://pay.weixin.qq.com/doc/v3/partner/4012697168.md)
+- [修改结算账户](https://pay.weixin.qq.com/doc/v3/partner/4012761102.md)
+- [查询结算账户](https://pay.weixin.qq.com/doc/v3/partner/4012761113.md)
+- [查询结算账户修改申请状态](https://pay.weixin.qq.com/doc/v3/partner/4012761120.md)
+- [文件上传](https://pay.weixin.qq.com/doc/v3/partner/4012760490.md)
+- [视频上传](https://pay.weixin.qq.com/doc/v3/partner/4012761084.md)
+## 商户开户意愿确认
+> 商户开通微信支付的合规确认环节，用于核验商户真实开户意愿与主体身份，通过线上授权、扫码验证等方式完成确认，保障开户合规安全，是商户正常使用支付、结算等功能的必要前提，有效防范虚假开户与冒用开户风险。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012064820.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012064824.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012064832.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016644196.md)
+### API列表
+- [提交申请单](https://pay.weixin.qq.com/doc/v3/partner/4012722388.md)
+- [撤销申请单](https://pay.weixin.qq.com/doc/v3/partner/4012697627.md)
+- [查询申请单审核结果](https://pay.weixin.qq.com/doc/v3/partner/4012697715.md)
+- [获取商户开户意愿确认状态](https://pay.weixin.qq.com/doc/v3/partner/4012467549.md)
+- [图片上传](https://pay.weixin.qq.com/doc/v3/partner/4012760509.md)
+## 商户平台处置通知
+> 为服务商提供商户风险处置实时推送服务，覆盖调单、整改、警告、限制措施等通知类型，支持多渠道及时触达，便于服务商快速响应处理，避免因逾期处置导致商户功能受限，提升商户风控管理与合规运营效率。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012064844.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012064851.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012064853.md)
+- [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015949382.md)
+### API列表
+#### 商户违规通知回调
+- [查询商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471327.md)
+- [修改商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471330.md)
+- [创建商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471333.md)
+- [删除商户违规通知回调地址](https://pay.weixin.qq.com/doc/v3/partner/4012471334.md)
+- [商户平台处置记录回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012079216.md)
+## 不活跃商户身份核实
+> 针对长期无交易的不活跃商户开展的合规身份核验，用于确认商户经营状态与身份信息有效性，商户按指引完成资料更新与身份验证后可恢复正常功能，满足监管要求，降低沉睡商户带来的合规与资金风险。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012064898.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012064902.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012064909.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012064915.md)
+### API列表
+- [发起不活跃商户身份核实](https://pay.weixin.qq.com/doc/v3/partner/4012471357.md)
+- [查询不活跃商户身份核实结果](https://pay.weixin.qq.com/doc/v3/partner/4012471359.md)
+### 附录
+- [关键概念](https://pay.weixin.qq.com/doc/v3/partner/4012064904.md)
+## 商户被管控能力及原因查询
+> 服务商可查询子商户支付、提现、退款、分账等功能管控状态，同步获取管控原因、解脱路径与处理指引，快速定位问题并协助商户提交材料办理解除管控，提升商户异常处理效率，保障正常经营与资金流转。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012165270.md)
+### API列表
+- [查询子商户管控情况 ](https://pay.weixin.qq.com/doc/v3/partner/4012803072.md)
+## 合作伙伴订阅
+> 合作伙伴订阅功能为微信支付服务商专属消息推送服务，支持自主订阅商户进件、交易流水、状态变更等各类业务通知，配置接收地址即可实时推送消息，方便服务商及时掌握商户动态，高效开展商户运营与日常管理工作。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4016022264.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4016022266.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016550707.md)
+## 微信支付公钥
+> 微信支付公钥是用于保障交易通信安全的基础安全工具，商户可通过它验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加密传输。商户在 API 安全页面申请下载，用于验签与敏感字段加解密，保障交易与数据安全。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013038589.md)
+### API列表
+- [商户签名验签／加解密测试](https://pay.weixin.qq.com/doc/v3/partner/4015139289.md)
+- [回调接口](https://pay.weixin.qq.com/doc/v3/partner/4019605946.md)
+### 附录
+- [如何从平台证书切换成微信支付公钥](https://pay.weixin.qq.com/doc/v3/partner/4012925289.md)
+- [如何从微信支付公钥切换成平台证书](https://pay.weixin.qq.com/doc/v3/partner/4015419376.md)
+## 平台证书
+> 平台证书是微信支付传统 API 对接的安全凭证，用于接口交互中的身份校验与数据加密验签，保障商户与微信支付间通信安全。商户通过商户平台获取与更新，支持请求应答、回调通知等场景验签，是系统对接的核心安全组件，可与微信支付公钥兼容或切换使用。
+
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012073263.md)
+### API列表
+- [下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)
+### 附录
+- [平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/partner/4012073146.md)
 ## 平台收付通-电商交易解决方案
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012086891.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012086921.md)
@@ -1037,7 +1033,7 @@
 #### 分账
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012087888.md)
 - [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015870957.md)
-- [分账常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012525463.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012525463.md)
 ##### API列表
 - [请求分账](https://pay.weixin.qq.com/doc/v3/partner/4012691594.md)
 - [查询分账结果](https://pay.weixin.qq.com/doc/v3/partner/4012477734.md)
