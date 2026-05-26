@@ -151,52 +151,12 @@
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013287504.md)
 - [申请JSAPI支付权限指引(小程序支付场景)](https://pay.weixin.qq.com/doc/v3/merchant/4012791895.md)
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015459054.md)
-## 合单支付
-> 合单支付支持将多个子商户订单合并为一笔支付，用户一次性完成付款，资金按规则分入对应商户账户，适用于电商购物车、多商家联合订单等场景，简化支付流程，提升平台与商户结算效率。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077203.md)
-### APP合单支付
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077215.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4013420660.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013420906.md)
-#### API列表
-- [App合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md)
-- [App调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266043.md)
-- [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4012557006.md)
-- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4012577452.md)
-- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012158598.md)
-- [退款申请](https://pay.weixin.qq.com/doc/v3/merchant/4012556524.md)
-- [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4012556587.md)
-- [发起异常退款](https://pay.weixin.qq.com/doc/v3/merchant/4013420988.md)
-- [退款结果回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012085921.md)
-- [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556692.md)
-- [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556748.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md)
-### H5合单支付
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4013421104.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764448.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013421196.md)
-#### API列表
-- [H5合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556961.md)
-- [H5调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266131.md)
-- [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421126.md)
-- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421130.md)
-- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4013421143.md)
-- [退款申请](https://pay.weixin.qq.com/doc/v3/merchant/4013421148.md)
-- [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4013421156.md)
-- [发起异常退款](https://pay.weixin.qq.com/doc/v3/merchant/4013421164.md)
-- [退款结果回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4013421172.md)
-- [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421176.md)
-- [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421185.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421189.md)
-### JSAPI合单支付
+## JSAPI合单支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077221.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764634.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013421298.md)
-#### API列表
+### API列表
 - [JSAPI合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556926.md)
 - [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266069.md)
 - [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421222.md)
@@ -209,12 +169,50 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421277.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421284.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421294.md)
-### Native合单支付
+### 附录
+- [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013426141.md)
+## APP合单支付
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077215.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4013420660.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013420906.md)
+### API列表
+- [App合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md)
+- [App调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266043.md)
+- [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4012557006.md)
+- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4012577452.md)
+- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012158598.md)
+- [退款申请](https://pay.weixin.qq.com/doc/v3/merchant/4012556524.md)
+- [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4012556587.md)
+- [发起异常退款](https://pay.weixin.qq.com/doc/v3/merchant/4013420988.md)
+- [退款结果回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012085921.md)
+- [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556692.md)
+- [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556748.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md)
+## H5合单支付
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4013421104.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764448.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013421196.md)
+### API列表
+- [H5合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556961.md)
+- [H5调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266131.md)
+- [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421126.md)
+- [关闭合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421130.md)
+- [合单订单支付成功回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4013421143.md)
+- [退款申请](https://pay.weixin.qq.com/doc/v3/merchant/4013421148.md)
+- [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4013421156.md)
+- [发起异常退款](https://pay.weixin.qq.com/doc/v3/merchant/4013421164.md)
+- [退款结果回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4013421172.md)
+- [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421176.md)
+- [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421185.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421189.md)
+## Native合单支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077545.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764779.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078926.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013421369.md)
-#### API列表
+### API列表
 - [Native合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556982.md)
 - [Native调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266088.md)
 - [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421316.md)
@@ -227,12 +225,12 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421361.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421365.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421368.md)
-### 小程序合单支付
+## 小程序合单支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077589.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015765029.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012079115.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013421468.md)
-#### API列表
+### API列表
 - [小程序合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556931.md)
 - [小程序调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266109.md)
 - [查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421401.md)
@@ -245,8 +243,6 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421450.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421456.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md)
-### 附录
-- [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013426141.md)
 ## 医保支付
 > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
 
@@ -298,10 +294,27 @@
 - [交易账单详细说明](https://pay.weixin.qq.com/doc/v3/merchant/4013071246.md)
 - [资金账单详细说明](https://pay.weixin.qq.com/doc/v3/merchant/4013071249.md)
 - [下载账单操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071252.md)
-## 现金红包（V2）
-> 现金红包是微信支付提供的营销工具，商户可以通过公众号或者服务通知向用户发放现金红包。用户领取红包后，资金到达用户微信支付零钱账户；若用户未领取， 资金将会在24小时后退回商户的微信支付账户中。适用于拉新、促活、福利发放等场景。
+## 分账
+> 分账是商户用于交易资金分配的工具，支持将资金分给合作伙伴、员工、用户等分润方。资金先冻结，可实时或延时分账，单笔最多分 50 次、每次可分 50 方，支持商户或个人账户接收，需设置最大分账比例，全程免手续费。
 
-- [现金红包（V2）](https://pay.weixin.qq.com/doc/v3/merchant/4012647471.md)
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012067962.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4012067989.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4014547102.md)
+### API列表
+- [请求分账](https://pay.weixin.qq.com/doc/v3/merchant/4012524936.md)
+- [查询分账结果](https://pay.weixin.qq.com/doc/v3/merchant/4012525210.md)
+- [请求分账回退](https://pay.weixin.qq.com/doc/v3/merchant/4012525287.md)
+- [查询分账回退结果](https://pay.weixin.qq.com/doc/v3/merchant/4012526279.md)
+- [解冻剩余资金](https://pay.weixin.qq.com/doc/v3/merchant/4012526374.md)
+- [查询剩余待分金额](https://pay.weixin.qq.com/doc/v3/merchant/4012457939.md)
+- [添加分账接收方](https://pay.weixin.qq.com/doc/v3/merchant/4012528995.md)
+- [删除分账接收方](https://pay.weixin.qq.com/doc/v3/merchant/4012529590.md)
+- [分账动态通知](https://pay.weixin.qq.com/doc/v3/merchant/4012289679.md)
+- [申请分账账单](https://pay.weixin.qq.com/doc/v3/merchant/4012529628.md)
+- [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4012289690.md)
+### 附录
+- [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/merchant/4015505684.md)
 ## 商家转账
 > 商家转账是微信支付面向商户推出的免费转账产品，仅支持商户向用户微信零钱转账，资金实时到账且成功后不可退回。需用户在微信官方页面确认收款，支持营销奖励、佣金、赔付、货款、报销等多场景，可实名验权、查询记录并获取电子回单，安全高效。
 
@@ -431,6 +444,10 @@
 - [退款申请](https://pay.weixin.qq.com/doc/v3/merchant/4012557131.md)
 - [退款结果通知](https://pay.weixin.qq.com/doc/v3/merchant/4012083103.md)
 - [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4012557161.md)
+## 现金红包（V2）
+> 现金红包是微信支付提供的营销工具，商户可以通过公众号或者服务通知向用户发放现金红包。用户领取红包后，资金到达用户微信支付零钱账户；若用户未领取， 资金将会在24小时后退回商户的微信支付账户中。适用于拉新、促活、福利发放等场景。
+
+- [现金红包（V2）](https://pay.weixin.qq.com/doc/v3/merchant/4012647471.md)
 ## 代金券
 > 微信支付官方营销工具，支持商户配置满减、折扣等券型，可在支付前发放、支付中自动核销。支持线上线下多场景投放，数据实时可查，助力商户拉新、复购与客流提升，适配多行业营销需求。
 
@@ -438,6 +455,7 @@
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4012084133.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4015880636.md)
+- [业务示例代码](https://pay.weixin.qq.com/doc/v3/merchant/4015894256.md)
 ### API列表
 - [核销事件回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012285250.md)
 - [图片上传（营销专用）](https://pay.weixin.qq.com/doc/v3/merchant/4012557233.md)
@@ -534,27 +552,6 @@
 > 清关报关是微信支付面向跨境商户的自助清关工具，商户可在商户平台开通并配置海关信息，通过接口将支付单推送至海关电子口岸，完成 “三单合一” 申报，助力跨境订单合规通关，提升清关效率，免费使用。
 
 - [清关报关（V2）](https://pay.weixin.qq.com/doc/v3/merchant/4012647500.md)
-## 分账
-> 分账是商户用于交易资金分配的工具，支持将资金分给合作伙伴、员工、用户等分润方。资金先冻结，可实时或延时分账，单笔最多分 50 次、每次可分 50 方，支持商户或个人账户接收，需设置最大分账比例，全程免手续费。
-
-- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012067962.md)
-- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4012067989.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md)
-- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4014547102.md)
-### API列表
-- [请求分账](https://pay.weixin.qq.com/doc/v3/merchant/4012524936.md)
-- [查询分账结果](https://pay.weixin.qq.com/doc/v3/merchant/4012525210.md)
-- [请求分账回退](https://pay.weixin.qq.com/doc/v3/merchant/4012525287.md)
-- [查询分账回退结果](https://pay.weixin.qq.com/doc/v3/merchant/4012526279.md)
-- [解冻剩余资金](https://pay.weixin.qq.com/doc/v3/merchant/4012526374.md)
-- [查询剩余待分金额](https://pay.weixin.qq.com/doc/v3/merchant/4012457939.md)
-- [添加分账接收方](https://pay.weixin.qq.com/doc/v3/merchant/4012528995.md)
-- [删除分账接收方](https://pay.weixin.qq.com/doc/v3/merchant/4012529590.md)
-- [分账动态通知](https://pay.weixin.qq.com/doc/v3/merchant/4012289679.md)
-- [申请分账账单](https://pay.weixin.qq.com/doc/v3/merchant/4012529628.md)
-- [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4012289690.md)
-### 附录
-- [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/merchant/4015505684.md)
 ## 消费者投诉2.0
 > 消费者投诉 2.0 提供商户端线上投诉协同处理能力，支持实时获取投诉信息、在线协商、上传凭证、反馈处理结果，全流程可追溯。帮助商户高效处理交易纠纷，提升用户体验，降低合规与经营风险，适配多行业售后管理。
 

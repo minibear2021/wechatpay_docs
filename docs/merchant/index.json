@@ -49,7 +49,7 @@
       "docId": "4015423216",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015423216.md",
-      "updateTime": "1763623601",
+      "updateTime": "1779347021",
       "fullPath": "JSAPI支付"
     },
     {
@@ -196,7 +196,7 @@
       "docId": "4015478291",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015478291.md",
-      "updateTime": "1763623582",
+      "updateTime": "1779177037",
       "fullPath": "APP支付"
     },
     {
@@ -343,7 +343,7 @@
       "docId": "4015614193",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015614193.md",
-      "updateTime": "1763623565",
+      "updateTime": "1779177105",
       "fullPath": "H5支付"
     },
     {
@@ -504,7 +504,7 @@
       "docId": "4015614538",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015614538.md",
-      "updateTime": "1763623541",
+      "updateTime": "1779177120",
       "fullPath": "Native支付"
     },
     {
@@ -518,7 +518,7 @@
       "docId": "4012791890",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791890.md",
-      "updateTime": "1764901184",
+      "updateTime": "1779176366",
       "fullPath": "Native支付"
     },
     {
@@ -644,7 +644,7 @@
       "docId": "4015459512",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015459512.md",
-      "updateTime": "1765180209",
+      "updateTime": "1779177138",
       "fullPath": "小程序支付"
     },
     {
@@ -774,578 +774,571 @@
       "fullPath": "小程序支付 > 附录"
     },
     {
-      "docId": "4012077203",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077203.md",
-      "updateTime": "1754016263",
-      "fullPath": "合单支付"
-    },
-    {
-      "docId": "4012077215",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077215.md",
-      "updateTime": "1754444210",
-      "fullPath": "合单支付 > APP合单支付"
-    },
-    {
-      "docId": "4013420660",
-      "title": "开发接入准备",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420660.md",
-      "updateTime": "1754444210",
-      "fullPath": "合单支付 > APP合单支付"
-    },
-    {
-      "docId": "4012077667",
-      "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md",
-      "updateTime": "1754444210",
-      "fullPath": "合单支付 > APP合单支付"
-    },
-    {
-      "docId": "4013420906",
-      "title": "常见问题",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420906.md",
-      "updateTime": "1754444210",
-      "fullPath": "合单支付 > APP合单支付"
-    },
-    {
-      "docId": "4012556944",
-      "title": "App合单下单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md",
-      "updateTime": "1736822498",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012266043",
-      "title": "App调起支付",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266043.md",
-      "updateTime": "1739937279",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012557006",
-      "title": "查询合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012557006.md",
-      "updateTime": "1736822382",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012577452",
-      "title": "关闭合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012577452.md",
-      "updateTime": "1736821628",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012158598",
-      "title": "合单订单支付成功回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012158598.md",
-      "updateTime": "1736822406",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012556524",
-      "title": "退款申请",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556524.md",
-      "updateTime": "1736392706",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012556587",
-      "title": "查询单笔退款（通过商户退款单号）",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556587.md",
-      "updateTime": "1736392787",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4013420988",
-      "title": "发起异常退款",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420988.md",
-      "updateTime": "1736305178",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012085921",
-      "title": "退款结果回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012085921.md",
-      "updateTime": "1736305222",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012556692",
-      "title": "申请交易账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556692.md",
-      "updateTime": "1736472994",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012556748",
-      "title": "申请资金账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556748.md",
-      "updateTime": "1736393655",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4012085923",
-      "title": "下载账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md",
-      "updateTime": "1734507743",
-      "fullPath": "合单支付 > APP合单支付 > API列表"
-    },
-    {
-      "docId": "4013421104",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421104.md",
-      "updateTime": "1754444208",
-      "fullPath": "合单支付 > H5合单支付"
-    },
-    {
-      "docId": "4015764448",
-      "title": "开发接入准备",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764448.md",
-      "updateTime": "1754444208",
-      "fullPath": "合单支付 > H5合单支付"
-    },
-    {
-      "docId": "4012078230",
-      "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md",
-      "updateTime": "1754444208",
-      "fullPath": "合单支付 > H5合单支付"
-    },
-    {
-      "docId": "4013421196",
-      "title": "常见问题",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421196.md",
-      "updateTime": "1754444208",
-      "fullPath": "合单支付 > H5合单支付"
-    },
-    {
-      "docId": "4012556961",
-      "title": "H5合单下单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556961.md",
-      "updateTime": "1736822423",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4012266131",
-      "title": "H5调起支付",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266131.md",
-      "updateTime": "1736392815",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421126",
-      "title": "查询合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421126.md",
-      "updateTime": "1736822382",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421130",
-      "title": "关闭合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421130.md",
-      "updateTime": "1736821628",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421143",
-      "title": "合单订单支付成功回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421143.md",
-      "updateTime": "1736822406",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421148",
-      "title": "退款申请",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421148.md",
-      "updateTime": "1736392810",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421156",
-      "title": "查询单笔退款（通过商户退款单号）",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421156.md",
-      "updateTime": "1736392809",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421164",
-      "title": "发起异常退款",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421164.md",
-      "updateTime": "1736392808",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421172",
-      "title": "退款结果回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421172.md",
-      "updateTime": "1736392806",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421176",
-      "title": "申请交易账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421176.md",
-      "updateTime": "1736392805",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421185",
-      "title": "申请资金账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421185.md",
-      "updateTime": "1736392804",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
-      "docId": "4013421189",
-      "title": "下载账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421189.md",
-      "updateTime": "1736392803",
-      "fullPath": "合单支付 > H5合单支付 > API列表"
-    },
-    {
       "docId": "4012077221",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077221.md",
       "updateTime": "1754444206",
-      "fullPath": "合单支付 > JSAPI合单支付"
+      "fullPath": "JSAPI合单支付"
     },
     {
       "docId": "4015764634",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764634.md",
-      "updateTime": "1754444206",
-      "fullPath": "合单支付 > JSAPI合单支付"
+      "updateTime": "1779351861",
+      "fullPath": "JSAPI合单支付"
     },
     {
       "docId": "4012078634",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md",
-      "updateTime": "1754444206",
-      "fullPath": "合单支付 > JSAPI合单支付"
+      "updateTime": "1779351861",
+      "fullPath": "JSAPI合单支付"
     },
     {
       "docId": "4013421298",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421298.md",
-      "updateTime": "1754444206",
-      "fullPath": "合单支付 > JSAPI合单支付"
+      "updateTime": "1779351861",
+      "fullPath": "JSAPI合单支付"
     },
     {
       "docId": "4012556926",
       "title": "JSAPI合单下单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556926.md",
       "updateTime": "1736822518",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4012266069",
       "title": "JSAPI调起支付",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266069.md",
       "updateTime": "1739937333",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421222",
       "title": "查询合单订单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421222.md",
       "updateTime": "1736822382",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421225",
       "title": "关闭合单订单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421225.md",
       "updateTime": "1736821628",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421231",
       "title": "合单订单支付成功回调通知",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421231.md",
       "updateTime": "1736822406",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421249",
       "title": "退款申请",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421249.md",
       "updateTime": "1736392791",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421261",
       "title": "查询单笔退款（通过商户退款单号）",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421261.md",
       "updateTime": "1736392790",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421269",
       "title": "发起异常退款",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421269.md",
       "updateTime": "1736392789",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421273",
       "title": "退款结果回调通知",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421273.md",
       "updateTime": "1736392788",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421277",
       "title": "申请交易账单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421277.md",
       "updateTime": "1736392787",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421284",
       "title": "申请资金账单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421284.md",
       "updateTime": "1736392785",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013421294",
       "title": "下载账单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421294.md",
       "updateTime": "1736392784",
-      "fullPath": "合单支付 > JSAPI合单支付 > API列表"
-    },
-    {
-      "docId": "4012077545",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077545.md",
-      "updateTime": "1754444204",
-      "fullPath": "合单支付 > Native合单支付"
-    },
-    {
-      "docId": "4015764779",
-      "title": "开发接入准备",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764779.md",
-      "updateTime": "1754444204",
-      "fullPath": "合单支付 > Native合单支付"
-    },
-    {
-      "docId": "4012078926",
-      "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078926.md",
-      "updateTime": "1754444204",
-      "fullPath": "合单支付 > Native合单支付"
-    },
-    {
-      "docId": "4013421369",
-      "title": "常见问题",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421369.md",
-      "updateTime": "1754444204",
-      "fullPath": "合单支付 > Native合单支付"
-    },
-    {
-      "docId": "4012556982",
-      "title": "Native合单下单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556982.md",
-      "updateTime": "1736822450",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4012266088",
-      "title": "Native调起支付",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266088.md",
-      "updateTime": "1742542683",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421316",
-      "title": "查询合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421316.md",
-      "updateTime": "1736822382",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421330",
-      "title": "关闭合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421330.md",
-      "updateTime": "1736821628",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421336",
-      "title": "合单订单支付成功回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421336.md",
-      "updateTime": "1736822406",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421340",
-      "title": "退款申请",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421340.md",
-      "updateTime": "1736392774",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421346",
-      "title": "查询单笔退款（按商户退款单号）",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421346.md",
-      "updateTime": "1736392773",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421352",
-      "title": "发起异常退款",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421352.md",
-      "updateTime": "1736392772",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421356",
-      "title": "退款结果回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421356.md",
-      "updateTime": "1736392771",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421361",
-      "title": "申请交易账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421361.md",
-      "updateTime": "1736392769",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421365",
-      "title": "申请资金账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421365.md",
-      "updateTime": "1736392768",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4013421368",
-      "title": "下载账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421368.md",
-      "updateTime": "1736392777",
-      "fullPath": "合单支付 > Native合单支付 > API列表"
-    },
-    {
-      "docId": "4012077589",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077589.md",
-      "updateTime": "1754444202",
-      "fullPath": "合单支付 > 小程序合单支付"
-    },
-    {
-      "docId": "4015765029",
-      "title": "开发接入准备",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015765029.md",
-      "updateTime": "1754444202",
-      "fullPath": "合单支付 > 小程序合单支付"
-    },
-    {
-      "docId": "4012079115",
-      "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012079115.md",
-      "updateTime": "1754444202",
-      "fullPath": "合单支付 > 小程序合单支付"
-    },
-    {
-      "docId": "4013421468",
-      "title": "常见问题",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421468.md",
-      "updateTime": "1754444202",
-      "fullPath": "合单支付 > 小程序合单支付"
-    },
-    {
-      "docId": "4012556931",
-      "title": "小程序合单下单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556931.md",
-      "updateTime": "1736822518",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4012266109",
-      "title": "小程序调起支付",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266109.md",
-      "updateTime": "1736393252",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421401",
-      "title": "查询合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421401.md",
-      "updateTime": "1736822382",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421404",
-      "title": "关闭合单订单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421404.md",
-      "updateTime": "1736821628",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421407",
-      "title": "合单订单支付成功回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421407.md",
-      "updateTime": "1736822406",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421410",
-      "title": "退款申请",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421410.md",
-      "updateTime": "1736393246",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421421",
-      "title": "查询单笔退款（通过商户退款单号）",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421421.md",
-      "updateTime": "1736393245",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421429",
-      "title": "发起异常退款",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421429.md",
-      "updateTime": "1736393244",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421448",
-      "title": "退款结果回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421448.md",
-      "updateTime": "1736393242",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421450",
-      "title": "申请交易账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421450.md",
-      "updateTime": "1736392766",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421456",
-      "title": "申请资金账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421456.md",
-      "updateTime": "1736392765",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
-    },
-    {
-      "docId": "4013421461",
-      "title": "下载账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md",
-      "updateTime": "1736392763",
-      "fullPath": "合单支付 > 小程序合单支付 > API列表"
+      "fullPath": "JSAPI合单支付 > API列表"
     },
     {
       "docId": "4013426141",
       "title": "管理商户号绑定的APPID账号",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013426141.md",
       "updateTime": "1753953817",
-      "fullPath": "合单支付 > 附录"
+      "fullPath": "JSAPI合单支付 > 附录"
+    },
+    {
+      "docId": "4012077215",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077215.md",
+      "updateTime": "1754444210",
+      "fullPath": "APP合单支付"
+    },
+    {
+      "docId": "4013420660",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420660.md",
+      "updateTime": "1779265566",
+      "fullPath": "APP合单支付"
+    },
+    {
+      "docId": "4012077667",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md",
+      "updateTime": "1779265871",
+      "fullPath": "APP合单支付"
+    },
+    {
+      "docId": "4013420906",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420906.md",
+      "updateTime": "1779265997",
+      "fullPath": "APP合单支付"
+    },
+    {
+      "docId": "4012556944",
+      "title": "App合单下单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md",
+      "updateTime": "1736822498",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012266043",
+      "title": "App调起支付",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266043.md",
+      "updateTime": "1739937279",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012557006",
+      "title": "查询合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012557006.md",
+      "updateTime": "1736822382",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012577452",
+      "title": "关闭合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012577452.md",
+      "updateTime": "1736821628",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012158598",
+      "title": "合单订单支付成功回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012158598.md",
+      "updateTime": "1736822406",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012556524",
+      "title": "退款申请",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556524.md",
+      "updateTime": "1736392706",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012556587",
+      "title": "查询单笔退款（通过商户退款单号）",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556587.md",
+      "updateTime": "1736392787",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4013420988",
+      "title": "发起异常退款",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420988.md",
+      "updateTime": "1736305178",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012085921",
+      "title": "退款结果回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012085921.md",
+      "updateTime": "1736305222",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012556692",
+      "title": "申请交易账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556692.md",
+      "updateTime": "1736472994",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012556748",
+      "title": "申请资金账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556748.md",
+      "updateTime": "1736393655",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4012085923",
+      "title": "下载账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md",
+      "updateTime": "1734507743",
+      "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4013421104",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421104.md",
+      "updateTime": "1754444208",
+      "fullPath": "H5合单支付"
+    },
+    {
+      "docId": "4015764448",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764448.md",
+      "updateTime": "1779265635",
+      "fullPath": "H5合单支付"
+    },
+    {
+      "docId": "4012078230",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md",
+      "updateTime": "1779269845",
+      "fullPath": "H5合单支付"
+    },
+    {
+      "docId": "4013421196",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421196.md",
+      "updateTime": "1754444208",
+      "fullPath": "H5合单支付"
+    },
+    {
+      "docId": "4012556961",
+      "title": "H5合单下单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556961.md",
+      "updateTime": "1736822423",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4012266131",
+      "title": "H5调起支付",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266131.md",
+      "updateTime": "1736392815",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421126",
+      "title": "查询合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421126.md",
+      "updateTime": "1736822382",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421130",
+      "title": "关闭合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421130.md",
+      "updateTime": "1736821628",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421143",
+      "title": "合单订单支付成功回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421143.md",
+      "updateTime": "1736822406",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421148",
+      "title": "退款申请",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421148.md",
+      "updateTime": "1736392810",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421156",
+      "title": "查询单笔退款（通过商户退款单号）",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421156.md",
+      "updateTime": "1736392809",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421164",
+      "title": "发起异常退款",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421164.md",
+      "updateTime": "1736392808",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421172",
+      "title": "退款结果回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421172.md",
+      "updateTime": "1736392806",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421176",
+      "title": "申请交易账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421176.md",
+      "updateTime": "1736392805",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421185",
+      "title": "申请资金账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421185.md",
+      "updateTime": "1736392804",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4013421189",
+      "title": "下载账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421189.md",
+      "updateTime": "1736392803",
+      "fullPath": "H5合单支付 > API列表"
+    },
+    {
+      "docId": "4012077545",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077545.md",
+      "updateTime": "1754444204",
+      "fullPath": "Native合单支付"
+    },
+    {
+      "docId": "4015764779",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764779.md",
+      "updateTime": "1779265687",
+      "fullPath": "Native合单支付"
+    },
+    {
+      "docId": "4012078926",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078926.md",
+      "updateTime": "1779270744",
+      "fullPath": "Native合单支付"
+    },
+    {
+      "docId": "4013421369",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421369.md",
+      "updateTime": "1779270927",
+      "fullPath": "Native合单支付"
+    },
+    {
+      "docId": "4012556982",
+      "title": "Native合单下单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556982.md",
+      "updateTime": "1736822450",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4012266088",
+      "title": "Native调起支付",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266088.md",
+      "updateTime": "1742542683",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421316",
+      "title": "查询合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421316.md",
+      "updateTime": "1736822382",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421330",
+      "title": "关闭合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421330.md",
+      "updateTime": "1736821628",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421336",
+      "title": "合单订单支付成功回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421336.md",
+      "updateTime": "1736822406",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421340",
+      "title": "退款申请",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421340.md",
+      "updateTime": "1736392774",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421346",
+      "title": "查询单笔退款（按商户退款单号）",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421346.md",
+      "updateTime": "1736392773",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421352",
+      "title": "发起异常退款",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421352.md",
+      "updateTime": "1736392772",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421356",
+      "title": "退款结果回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421356.md",
+      "updateTime": "1736392771",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421361",
+      "title": "申请交易账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421361.md",
+      "updateTime": "1736392769",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421365",
+      "title": "申请资金账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421365.md",
+      "updateTime": "1736392768",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4013421368",
+      "title": "下载账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421368.md",
+      "updateTime": "1736392777",
+      "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4012077589",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077589.md",
+      "updateTime": "1754444202",
+      "fullPath": "小程序合单支付"
+    },
+    {
+      "docId": "4015765029",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015765029.md",
+      "updateTime": "1779265738",
+      "fullPath": "小程序合单支付"
+    },
+    {
+      "docId": "4012079115",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012079115.md",
+      "updateTime": "1779271005",
+      "fullPath": "小程序合单支付"
+    },
+    {
+      "docId": "4013421468",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421468.md",
+      "updateTime": "1779271031",
+      "fullPath": "小程序合单支付"
+    },
+    {
+      "docId": "4012556931",
+      "title": "小程序合单下单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012556931.md",
+      "updateTime": "1736822518",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4012266109",
+      "title": "小程序调起支付",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012266109.md",
+      "updateTime": "1736393252",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421401",
+      "title": "查询合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421401.md",
+      "updateTime": "1736822382",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421404",
+      "title": "关闭合单订单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421404.md",
+      "updateTime": "1736821628",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421407",
+      "title": "合单订单支付成功回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421407.md",
+      "updateTime": "1736822406",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421410",
+      "title": "退款申请",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421410.md",
+      "updateTime": "1736393246",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421421",
+      "title": "查询单笔退款（通过商户退款单号）",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421421.md",
+      "updateTime": "1736393245",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421429",
+      "title": "发起异常退款",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421429.md",
+      "updateTime": "1736393244",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421448",
+      "title": "退款结果回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421448.md",
+      "updateTime": "1736393242",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421450",
+      "title": "申请交易账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421450.md",
+      "updateTime": "1736392766",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421456",
+      "title": "申请资金账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421456.md",
+      "updateTime": "1736392765",
+      "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4013421461",
+      "title": "下载账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md",
+      "updateTime": "1736392763",
+      "fullPath": "小程序合单支付 > API列表"
     },
     {
       "docId": "4016824672",
@@ -1533,7 +1526,7 @@
       "docId": "4013071254",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071254.md",
-      "updateTime": "1778316974",
+      "updateTime": "1779176267",
       "fullPath": "下载账单"
     },
     {
@@ -1579,24 +1572,129 @@
       "fullPath": "下载账单 > 附录"
     },
     {
-      "docId": "4012647471",
-      "title": "现金红包（V2）",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012647471.md",
-      "updateTime": "1745568666",
-      "fullPath": "现金红包（V2）"
+      "docId": "4012067962",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012067962.md",
+      "updateTime": "1747102665",
+      "fullPath": "分账"
+    },
+    {
+      "docId": "4012067989",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012067989.md",
+      "updateTime": "1779179571",
+      "fullPath": "分账"
+    },
+    {
+      "docId": "4012068033",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md",
+      "updateTime": "1755138008",
+      "fullPath": "分账"
+    },
+    {
+      "docId": "4014547102",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4014547102.md",
+      "updateTime": "1779333293",
+      "fullPath": "分账"
+    },
+    {
+      "docId": "4012524936",
+      "title": "请求分账",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012524936.md",
+      "updateTime": "1759111026",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012525210",
+      "title": "查询分账结果",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012525210.md",
+      "updateTime": "1759111215",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012525287",
+      "title": "请求分账回退",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012525287.md",
+      "updateTime": "1759118535",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012526279",
+      "title": "查询分账回退结果",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012526279.md",
+      "updateTime": "1759118130",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012526374",
+      "title": "解冻剩余资金",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012526374.md",
+      "updateTime": "1759118105",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012457939",
+      "title": "查询剩余待分金额",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012457939.md",
+      "updateTime": "1759118073",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012528995",
+      "title": "添加分账接收方",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012528995.md",
+      "updateTime": "1759118037",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012529590",
+      "title": "删除分账接收方",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012529590.md",
+      "updateTime": "1759117955",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012289679",
+      "title": "分账动态通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012289679.md",
+      "updateTime": "1739937363",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012529628",
+      "title": "申请分账账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012529628.md",
+      "updateTime": "1759117925",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4012289690",
+      "title": "下载账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012289690.md",
+      "updateTime": "1734490953",
+      "fullPath": "分账 > API列表"
+    },
+    {
+      "docId": "4015505684",
+      "title": "分账失败处理指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015505684.md",
+      "updateTime": "1751600512",
+      "fullPath": "分账 > 附录"
     },
     {
       "docId": "4012711988",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012711988.md",
-      "updateTime": "1778553642",
+      "updateTime": "1779331506",
       "fullPath": "商家转账"
     },
     {
       "docId": "4013740645",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013740645.md",
-      "updateTime": "1777517257",
+      "updateTime": "1779244309",
       "fullPath": "商家转账"
     },
     {
@@ -1617,7 +1715,7 @@
       "docId": "4013778940",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013778940.md",
-      "updateTime": "1770348307",
+      "updateTime": "1779176540",
       "fullPath": "商家转账"
     },
     {
@@ -1897,7 +1995,7 @@
       "docId": "4012587112",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012587112.md",
-      "updateTime": "1733739248",
+      "updateTime": "1779177596",
       "fullPath": "微信支付分"
     },
     {
@@ -2170,7 +2268,7 @@
       "docId": "4012077356",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077356.md",
-      "updateTime": "1742542824",
+      "updateTime": "1779177639",
       "fullPath": "微信支付分停车服务"
     },
     {
@@ -2279,6 +2377,13 @@
       "fullPath": "微信支付分停车服务 > API列表 > 退款"
     },
     {
+      "docId": "4012647471",
+      "title": "现金红包（V2）",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012647471.md",
+      "updateTime": "1745568666",
+      "fullPath": "现金红包（V2）"
+    },
+    {
       "docId": "4012084079",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012084079.md",
@@ -2289,7 +2394,7 @@
       "docId": "4012084133",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012084133.md",
-      "updateTime": "1732155599",
+      "updateTime": "1779178021",
       "fullPath": "代金券"
     },
     {
@@ -2304,6 +2409,13 @@
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015880636.md",
       "updateTime": "1760424061",
+      "fullPath": "代金券"
+    },
+    {
+      "docId": "4015894256",
+      "title": "业务示例代码",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015894256.md",
+      "updateTime": "1779178021",
       "fullPath": "代金券"
     },
     {
@@ -2436,7 +2548,7 @@
       "docId": "4012063130",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012063130.md",
-      "updateTime": "1731921934",
+      "updateTime": "1779178242",
       "fullPath": "委托营销"
     },
     {
@@ -2471,7 +2583,7 @@
       "docId": "4012064330",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012064330.md",
-      "updateTime": "1729844430",
+      "updateTime": "1779178258",
       "fullPath": "支付有礼"
     },
     {
@@ -2555,7 +2667,7 @@
       "docId": "4012064734",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012064734.md",
-      "updateTime": "1729844430",
+      "updateTime": "1779178274",
       "fullPath": "小程序发券插件"
     },
     {
@@ -2576,7 +2688,7 @@
       "docId": "4012067883",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012067883.md",
-      "updateTime": "1729844430",
+      "updateTime": "1779178289",
       "fullPath": "H5发券"
     },
     {
@@ -2597,21 +2709,21 @@
       "docId": "4012068068",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068068.md",
-      "updateTime": "1729844430",
+      "updateTime": "1779178325",
       "fullPath": "智慧商圈"
     },
     {
       "docId": "4012068086",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068086.md",
-      "updateTime": "1742543064",
+      "updateTime": "1779332162",
       "fullPath": "智慧商圈"
     },
     {
       "docId": "4016111728",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016111728.md",
-      "updateTime": "1773825215",
+      "updateTime": "1779176524",
       "fullPath": "智慧商圈"
     },
     {
@@ -2667,14 +2779,14 @@
       "docId": "4012061135",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012061135.md",
-      "updateTime": "1727057879",
+      "updateTime": "1779332236",
       "fullPath": "支付即服务"
     },
     {
       "docId": "4012061536",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012061536.md",
-      "updateTime": "1742543171",
+      "updateTime": "1779178338",
       "fullPath": "支付即服务"
     },
     {
@@ -2748,118 +2860,6 @@
       "fullPath": "清关报关（V2）"
     },
     {
-      "docId": "4012067962",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012067962.md",
-      "updateTime": "1747102665",
-      "fullPath": "分账"
-    },
-    {
-      "docId": "4012067989",
-      "title": "开发接入准备",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012067989.md",
-      "updateTime": "1729844430",
-      "fullPath": "分账"
-    },
-    {
-      "docId": "4012068033",
-      "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md",
-      "updateTime": "1755138008",
-      "fullPath": "分账"
-    },
-    {
-      "docId": "4014547102",
-      "title": "常见问题",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4014547102.md",
-      "updateTime": "1777359373",
-      "fullPath": "分账"
-    },
-    {
-      "docId": "4012524936",
-      "title": "请求分账",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012524936.md",
-      "updateTime": "1759111026",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012525210",
-      "title": "查询分账结果",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012525210.md",
-      "updateTime": "1759111215",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012525287",
-      "title": "请求分账回退",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012525287.md",
-      "updateTime": "1759118535",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012526279",
-      "title": "查询分账回退结果",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012526279.md",
-      "updateTime": "1759118130",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012526374",
-      "title": "解冻剩余资金",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012526374.md",
-      "updateTime": "1759118105",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012457939",
-      "title": "查询剩余待分金额",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012457939.md",
-      "updateTime": "1759118073",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012528995",
-      "title": "添加分账接收方",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012528995.md",
-      "updateTime": "1759118037",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012529590",
-      "title": "删除分账接收方",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012529590.md",
-      "updateTime": "1759117955",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012289679",
-      "title": "分账动态通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012289679.md",
-      "updateTime": "1739937363",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012529628",
-      "title": "申请分账账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012529628.md",
-      "updateTime": "1759117925",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4012289690",
-      "title": "下载账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012289690.md",
-      "updateTime": "1734490953",
-      "fullPath": "分账 > API列表"
-    },
-    {
-      "docId": "4015505684",
-      "title": "分账失败处理指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015505684.md",
-      "updateTime": "1751600512",
-      "fullPath": "分账 > 附录"
-    },
-    {
       "docId": "4012068466",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068466.md",
@@ -2870,7 +2870,7 @@
       "docId": "4012068478",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068478.md",
-      "updateTime": "1729844430",
+      "updateTime": "1779179595",
       "fullPath": "消费者投诉2.0"
     },
     {
@@ -2891,7 +2891,7 @@
       "docId": "4016111664",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016111664.md",
-      "updateTime": "1778738799",
+      "updateTime": "1779176556",
       "fullPath": "消费者投诉2.0"
     },
     {
@@ -2996,7 +2996,7 @@
       "docId": "4012153196",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012153196.md",
-      "updateTime": "1732085576",
+      "updateTime": "1779244476",
       "fullPath": "微信支付公钥"
     },
     {
@@ -3038,7 +3038,7 @@
       "docId": "4012068814",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md",
-      "updateTime": "1732873483",
+      "updateTime": "1779247197",
       "fullPath": "平台证书"
     },
     {
