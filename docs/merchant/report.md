@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260602_014544
+**生成时间**: 20260603_015005
 **文档总数**: 520
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 2 个页面
-- 成功拉取: 2 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,8 +20,8 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.05.28
-+>更新时间：2026.06.01
+->更新时间：2026.06.01
++>更新时间：2026.06.02
  
  # 微信支付商户平台文档中心
  
@@ -29,84 +29,27 @@
 
 ## 修改页面
 
-### 开发接入准备
-- ID: `4013740645`
-- 路径: 商家转账
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4013740645.md
-- 更新时间变更: 2026-05-20 02:31:49 -> 2026-06-01 03:29:49
-- 本地文件: `pages/4013740645.md`
+### 开发必要参数说明
+- ID: `4013070756`
+- 路径: Optional > 开发须知 > 开发参数申请和配置
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4013070756.md
+- 更新时间变更: 2025-10-28 02:58:17 -> 2026-06-02 08:22:32
+- 本地文件: `pages/4013070756.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,3 +1,5 @@
-+>更新时间：2026.06.01
++>更新时间：2026.06.02
 +
- ## 1 申请条件
+ 普通商户模式开发前需要先准备以下开发必要参数：
  
- - 微信商户资质：良好的信用记录，商户号历史无风险行为。
-@@ -28,7 +30,7 @@
- 
- 步骤三：点击“申请开通”
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/d7fa79ab0cc27ea55247103bc9f4c114.png)
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/dce7719036ffb01fe65ea613d8c1c356.png)
- 
- 步骤四：点击“选择转账场景”
- 
-```
-
-### 接入模式
-- ID: `4012068443`
-- 路径: Optional > 名词表
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012068443.md
-- 更新时间变更: 2024-07-25 02:20:54 -> 2026-06-01 06:16:12
-- 本地文件: `pages/4012068443.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,3 +1,15 @@
-+>更新时间：2026.06.01
-+
-+## 模式对比总览
-+
-+|  | 商户模式（普通商户） | 服务商模式 |
-+| --- | --- | --- |
-+| 适用对象 | 有开发能力的商户，自行接入微信支付 | 系统开发商 / 解决方案提供商，代中小商户接入 |
-+| 入驻平台 | [商户平台](https://pay.weixin.qq.com/index.php/public) | [服务商平台](https://pay.weixin.qq.com/partner/public/home) |
-+| 资金流向 | 微信支付 → 商户结算账户 | 微信支付 → 子商户结算账户（服务商账户不直接收款） |
-+| 数据流向 | 商户系统 ↔ 微信支付 | 服务商系统 ↔ 微信支付（代子商户发起） |
-+| 收款主体 | 商户自己 | 子商户（特约商户） |
-+
- ## 普通商户模式
- 
- 普通商户模式是指商户自行开发系统来对接微信支付进行交易，微信支付将资金直接结算到商户的结算账户，商户给用户提供支付服务。该模式要求商户具备系统开发能力，商户可自行前往 [商户平台](https://pay.weixin.qq.com/index.php/public) 完成入驻。
-@@ -50,14 +62,14 @@
- | sub\_mchid | 子商户在服务商下开通的微信支付收款账户 |
- | sub\_openid | 用户在子商户sub\_appid下的OpenID |
- 
--## 银行服务商
-+## 核心参数差异
- 
--指自行拓展并管理商户，委托财付通通过微信支付代收商户交易款项的商业银行。从业机构应对商户进行有效管理，将交易款结算给商户，并与财付通签订《微信支付服务协议（银行受理机构）》及《补充协议》，或者与财付通签订从业机构《合作协议》。
--
--## 渠道商
--
--指从业机构负责管理的，为从业机构拓展商户并提供微信支付接入技术支持的企事业单位。
--
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b305b67e193f17330129373a70ae1510.png)
--
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/cc7fecb929a1875015753f3230c1fd38.png)
-+| 参数 | 商户模式 | 服务商模式 |
-+| --- | --- | --- |
-+| 商户号 | `mchid` | `sp_mchid`（服务商）+ `sub_mchid`（子商户） |
-+| 应用ID | `appid` | `sp_appid`（服务商）+ `sub_appid`（子商户，选填） |
-+| 用户标识 | `openid` | `sp_openid`（服务商应用下）或 `sub_openid`（子商户应用下） |
-+| API证书 | 商户平台申请；私钥用于 V3 请求签名 + 调起支付，不可外泄 | 服务商平台申请；仅服务商持有，子商户不需要；代调用时以服务商身份签名 |
-+| APIv3密钥 | 商户平台设置；只用于回调里 `resource` 解密，不参与请求签名 | 服务商平台设置；子商户不设；解密发到服务商的回调 |
-+| 微信支付平台证书(推荐切换成微信支付公钥，平台证书需要每五年更换一次) | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的验签和敏感信息加密参数。 | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的验签和敏感信息加密参数。 |
-+| 微信支付公钥ID | 商户平台获取；与平台证书二选一验签 | 服务商平台获取；二选一验签；进件/开户意愿等敏感字段加密见专项文档 |
+ | 参数名 | 用途 | 获取角色 | 获取方式 |
+@@ -11,3 +13,4 @@
+ | APIv3密钥 | 商户会在以下两种场景中使用APIv3密钥：<br>1、微信支付会使用APIv3密钥加密回调信息，然后将加密后的密文回调给商户，商户接收到APIv3回调通知的密文后，需使用该密钥进行[解密](https://pay.weixin.qq.com/doc/v3/merchant/4012071382.md)。<br>2、在[下载平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)公钥时，需要使用该密钥进行解密。 | 超级管理员、[技术负责人](https://pay.weixin.qq.com/doc/v3/merchant/4015423618.md) | 首次设置请登录[微信商户平台](https://pay.weixin.qq.com/)，参考[设置APIv3密钥流程](https://pay.weixin.qq.com/doc/v3/merchant/4012072195.md)，<br>设置后无法在商户平台查看，请商户妥善保管，若遗失或泄露须重新设置。 |
+ | 微信支付平台证书<br>(推荐切换成微信支付公钥，平台证书需要每五年更换一次) | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的[验签](https://pay.weixin.qq.com/doc/v3/merchant/4013053420.md)和[敏感信息加密](https://pay.weixin.qq.com/doc/v3/merchant/4013053264.md)参数。 | 开发人员通过调用接口下载 | 首次获取平台证书需通过Java命令行下载，后续则可以使用[微信支付平台证书下载](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)接口获取，详见：[平台证书简介及使用说明](https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md#4.-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B3%E5%8F%B0%E8%AF%81%E4%B9%A6)。<br>已经使用平台证书的服务商也可[参考指引切换为使用微信支付公钥](https://pay.weixin.qq.com/doc/v3/merchant/4012154180.md)。 |
+ | 平台证书序列号 | 商户会在以下两种场景中使用平台证书序列号( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带平台证书序列号，商户需使用对应的平台证书进行[验签](https://pay.weixin.qq.com/doc/v3/merchant/4013053420.md)；<br>2、当调用的接口带有使用平台证书[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/merchant/4013053264.md)参数时，需在请求头中传平台证书序列号参数。 | 开发人员通过调用接口获取 | 可通过以下三种方式查看平台证书序列号：<br>1、在调用接口[下载微信支付平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)时，接口会返回平台证书序列号( `serial_no`)参数。<br>2、可使用openssl命令行工具查看证书序列号，详见：[如何查看商户API证书或平台证书序列号](https://pay.weixin.qq.com/doc/v3/merchant/4013053294.md)<br>3、可使用第三方的证书[解析工具](https://myssl.com/cert_decode.html)，查看证书内容、 |
++| openid | 用户在公众号内的唯一身份标识，不同公众号类型对应不同的 OpenID，同一个用户在不同的公众号下也对应不同的openid，微信支付部分接口需要传递该参数。 | 开发人员通过调用接口获取 | 可通过以下四种方式获取：<br>H5获取openid详见[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)<br>小程序获取openid详见[小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)<br>JSAPI获取openid详见[公众号获取OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)<br>App获取openid详见[App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html) |
 ```
 
 ## 附录：所有页面清单
@@ -557,7 +500,7 @@
 | 439 | [总述-APIv3如何签名和验签](pages/4012365342.md) | `4012365342` | 2024-11-21 10:51:22 | Optional > 开发须知 |
 | 440 | [基本规则](pages/4012081709.md) | `4012081709` | 2024-07-25 02:05:20 | Optional > 开发须知 > 接口规则说明 |
 | 441 | [HTTP状态码](pages/4012081717.md) | `4012081717` | 2024-07-25 02:05:20 | Optional > 开发须知 > 接口规则说明 |
-| 442 | [开发必要参数说明](pages/4013070756.md) | `4013070756` | 2025-10-28 02:58:17 | Optional > 开发须知 > 开发参数申请和配置 |
+| 442 | [开发必要参数说明](pages/4013070756.md) | `4013070756` | 2026-06-02 08:22:32 | Optional > 开发须知 > 开发参数申请和配置 |
 | 443 | [mchid与appid申请](pages/4012071573.md) | `4012071573` | 2025-10-28 02:58:17 | Optional > 开发须知 > 开发参数申请和配置 |
 | 444 | [管理商户号绑定的APPID账号](pages/4016328613.md) | `4016328613` | 2025-10-28 02:58:17 | Optional > 开发须知 > 开发参数申请和配置 |
 | 445 | [管理经营场景](pages/4017312501.md) | `4017312501` | 2026-02-05 08:34:20 | Optional > 开发须知 > 开发参数申请和配置 |
