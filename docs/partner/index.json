@@ -1,5 +1,5 @@
 {
-  "totalNodes": 860,
+  "totalNodes": 862,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -1253,7 +1253,7 @@
       "docId": "4016824698",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824698.md",
-      "updateTime": "1772435714",
+      "updateTime": "1780911982",
       "fullPath": "医保支付（服务商模式）"
     },
     {
@@ -1348,10 +1348,17 @@
       "fullPath": "医保支付（服务商模式） > 附录"
     },
     {
+      "docId": "4021595914",
+      "title": "UI规范与页面说明",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4021595914.md",
+      "updateTime": "1780911987",
+      "fullPath": "医保支付（服务商模式） > 附录"
+    },
+    {
       "docId": "4018300086",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018300086.md",
-      "updateTime": "1778748913",
+      "updateTime": "1780911979",
       "fullPath": "医保支付（间连模式）"
     },
     {
@@ -1443,6 +1450,13 @@
       "title": "接入医保亲情付指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018300091.md",
       "updateTime": "1779259453",
+      "fullPath": "医保支付（间连模式） > 附录"
+    },
+    {
+      "docId": "4021595913",
+      "title": "UI规范与页面说明",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4021595913.md",
+      "updateTime": "1780911985",
       "fullPath": "医保支付（间连模式） > 附录"
     },
     {
