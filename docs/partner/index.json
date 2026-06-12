@@ -63,7 +63,7 @@
       "docId": "4012069859",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012069859.md",
-      "updateTime": "1772265840",
+      "updateTime": "1780998377",
       "fullPath": "JSAPI支付"
     },
     {
@@ -196,7 +196,7 @@
       "docId": "4013080246",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080246.md",
-      "updateTime": "1768529194",
+      "updateTime": "1780998374",
       "fullPath": "APP支付"
     },
     {
@@ -329,7 +329,7 @@
       "docId": "4012074915",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012074915.md",
-      "updateTime": "1763628286",
+      "updateTime": "1780998370",
       "fullPath": "H5支付"
     },
     {
@@ -476,7 +476,7 @@
       "docId": "4012076269",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076269.md",
-      "updateTime": "1763628269",
+      "updateTime": "1780998366",
       "fullPath": "Native支付"
     },
     {
@@ -602,7 +602,7 @@
       "docId": "4012076732",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076732.md",
-      "updateTime": "1772265910",
+      "updateTime": "1780998365",
       "fullPath": "小程序支付"
     },
     {
@@ -721,7 +721,7 @@
       "docId": "4012166834",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166834.md",
-      "updateTime": "1737009545",
+      "updateTime": "1780998362",
       "fullPath": "JSAPI合单支付"
     },
     {
@@ -840,7 +840,7 @@
       "docId": "4012166832",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166832.md",
-      "updateTime": "1750392699",
+      "updateTime": "1780998358",
       "fullPath": "APP合单支付"
     },
     {
@@ -945,7 +945,7 @@
       "docId": "4012166833",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166833.md",
-      "updateTime": "1737009592",
+      "updateTime": "1780998346",
       "fullPath": "H5合单支付"
     },
     {
@@ -1050,7 +1050,7 @@
       "docId": "4012166835",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166835.md",
-      "updateTime": "1750392695",
+      "updateTime": "1780998353",
       "fullPath": "Native合单支付"
     },
     {
@@ -1155,7 +1155,7 @@
       "docId": "4012166836",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166836.md",
-      "updateTime": "1750392691",
+      "updateTime": "1780998344",
       "fullPath": "小程序合单支付"
     },
     {
@@ -1477,14 +1477,14 @@
       "docId": "4013080623",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080623.md",
-      "updateTime": "1750392687",
+      "updateTime": "1781076519",
       "fullPath": "订单退款"
     },
     {
       "docId": "4015217325",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015217325.md",
-      "updateTime": "1756868520",
+      "updateTime": "1781076518",
       "fullPath": "订单退款"
     },
     {
@@ -1533,7 +1533,7 @@
       "docId": "4014960215",
       "title": "微信支付退款最佳实践",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4014960215.md",
-      "updateTime": "1758768628",
+      "updateTime": "1781076517",
       "fullPath": "订单退款 > 附录"
     },
     {
@@ -1547,7 +1547,7 @@
       "docId": "4013080593",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080593.md",
-      "updateTime": "1732524820",
+      "updateTime": "1780991904",
       "fullPath": "下载账单"
     },
     {
@@ -1624,7 +1624,7 @@
       "docId": "4012072601",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072601.md",
-      "updateTime": "1755080105",
+      "updateTime": "1780998375",
       "fullPath": "分账"
     },
     {
@@ -1743,7 +1743,7 @@
       "docId": "4012586134",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012586134.md",
-      "updateTime": "1739446699",
+      "updateTime": "1781076531",
       "fullPath": "微信支付分"
     },
     {
@@ -2023,7 +2023,7 @@
       "docId": "4012085711",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012085711.md",
-      "updateTime": "1742542687",
+      "updateTime": "1780991903",
       "fullPath": "微信支付分停车服务"
     },
     {
@@ -2149,7 +2149,7 @@
       "docId": "4012087802",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012087802.md",
-      "updateTime": "1755080473",
+      "updateTime": "1780991899",
       "fullPath": "代金券"
     },
     {
@@ -2296,7 +2296,7 @@
       "docId": "4012071998",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012071998.md",
-      "updateTime": "1755075391",
+      "updateTime": "1780998425",
       "fullPath": "委托营销"
     },
     {
@@ -2331,7 +2331,7 @@
       "docId": "4012072119",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072119.md",
-      "updateTime": "1743063109",
+      "updateTime": "1780998419",
       "fullPath": "支付有礼"
     },
     {
@@ -2457,7 +2457,7 @@
       "docId": "4012075386",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012075386.md",
-      "updateTime": "1779345910",
+      "updateTime": "1780991894",
       "fullPath": "智慧商圈"
     },
     {
@@ -2520,7 +2520,7 @@
       "docId": "4012076036",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076036.md",
-      "updateTime": "1779346399",
+      "updateTime": "1781076534",
       "fullPath": "支付即服务"
     },
     {
@@ -2534,7 +2534,7 @@
       "docId": "4012076038",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076038.md",
-      "updateTime": "1755079771",
+      "updateTime": "1780998416",
       "fullPath": "支付即服务"
     },
     {
@@ -2611,7 +2611,7 @@
       "docId": "4012072262",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072262.md",
-      "updateTime": "1755079895",
+      "updateTime": "1780998413",
       "fullPath": "点金计划"
     },
     {
@@ -2751,14 +2751,14 @@
       "docId": "4016914463",
       "title": "商家名片开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016914463.md",
-      "updateTime": "1775134481",
+      "updateTime": "1781076530",
       "fullPath": "商家名片 > 开发指引"
     },
     {
       "docId": "4016985845",
       "title": "交易连接名片开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016985845.md",
-      "updateTime": "1775134442",
+      "updateTime": "1781076527",
       "fullPath": "商家名片 > 开发指引"
     },
     {
@@ -2849,7 +2849,7 @@
       "docId": "4015274639",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015274639.md",
-      "updateTime": "1764051722",
+      "updateTime": "1781076521",
       "fullPath": "商家名片会员"
     },
     {
@@ -3122,14 +3122,14 @@
       "docId": "4016402231",
       "title": "投放计划功能介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016402231.md",
-      "updateTime": "1775133366",
+      "updateTime": "1781076494",
       "fullPath": "摇一摇有优惠 > 附录"
     },
     {
       "docId": "4016111064",
       "title": "投放计划配置指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016111064.md",
-      "updateTime": "1773282107",
+      "updateTime": "1781076492",
       "fullPath": "摇一摇有优惠 > 附录"
     },
     {
@@ -3164,7 +3164,7 @@
       "docId": "4015788446",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015788446.md",
-      "updateTime": "1774273574",
+      "updateTime": "1781076491",
       "fullPath": "商品券（单券）"
     },
     {
@@ -3395,7 +3395,7 @@
       "docId": "4016434329",
       "title": "小程序发券组件开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016434329.md",
-      "updateTime": "1775141054",
+      "updateTime": "1781076490",
       "fullPath": "商品券（单券） > 附录"
     },
     {
@@ -3479,7 +3479,7 @@
       "docId": "4016438816",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016438816.md",
-      "updateTime": "1769671692",
+      "updateTime": "1781076488",
       "fullPath": "商品券（多次优惠）"
     },
     {
@@ -3703,7 +3703,7 @@
       "docId": "4016435566",
       "title": "小程序发券组件开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016435566.md",
-      "updateTime": "1775141171",
+      "updateTime": "1781076487",
       "fullPath": "商品券（多次优惠） > 附录"
     },
     {
@@ -3787,7 +3787,7 @@
       "docId": "4016628135",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016628135.md",
-      "updateTime": "1764065052",
+      "updateTime": "1781076481",
       "fullPath": "品牌门店"
     },
     {
@@ -3892,14 +3892,14 @@
       "docId": "4012072637",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072637.md",
-      "updateTime": "1751610061",
+      "updateTime": "1780998367",
       "fullPath": "连锁品牌分账"
     },
     {
       "docId": "4015871675",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015871675.md",
-      "updateTime": "1756692241",
+      "updateTime": "1780998410",
       "fullPath": "连锁品牌分账"
     },
     {
@@ -4025,14 +4025,14 @@
       "docId": "4012072858",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072858.md",
-      "updateTime": "1774336287",
+      "updateTime": "1780998363",
       "fullPath": "消费者投诉2.0"
     },
     {
       "docId": "4015933338",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015933338.md",
-      "updateTime": "1757559711",
+      "updateTime": "1780998361",
       "fullPath": "消费者投诉2.0"
     },
     {
@@ -4158,14 +4158,14 @@
       "docId": "4015792556",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015792556.md",
-      "updateTime": "1779346561",
+      "updateTime": "1780998437",
       "fullPath": "微信电子发票"
     },
     {
       "docId": "4016078358",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016078358.md",
-      "updateTime": "1769064578",
+      "updateTime": "1781076482",
       "fullPath": "微信电子发票"
     },
     {
@@ -4347,7 +4347,7 @@
       "docId": "4012062379",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012062379.md",
-      "updateTime": "1752833114",
+      "updateTime": "1780998348",
       "fullPath": "特约商户进件"
     },
     {
@@ -4431,7 +4431,7 @@
       "docId": "4012064832",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064832.md",
-      "updateTime": "1755079993",
+      "updateTime": "1780998345",
       "fullPath": "商户开户意愿确认"
     },
     {
@@ -4494,7 +4494,7 @@
       "docId": "4012064853",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064853.md",
-      "updateTime": "1742543079",
+      "updateTime": "1780998342",
       "fullPath": "商户平台处置通知"
     },
     {
@@ -4557,7 +4557,7 @@
       "docId": "4012064909",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064909.md",
-      "updateTime": "1733124176",
+      "updateTime": "1780998341",
       "fullPath": "不活跃商户身份核实"
     },
     {
@@ -4781,7 +4781,7 @@
       "docId": "4018153750",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018153750.md",
-      "updateTime": "1770884707",
+      "updateTime": "1781162717",
       "fullPath": "平台收付通-电商交易解决方案 > 商户注销"
     },
     {
@@ -4865,7 +4865,7 @@
       "docId": "4012088031",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012088031.md",
-      "updateTime": "1773219614",
+      "updateTime": "1781076524",
       "fullPath": "平台收付通-电商交易解决方案 > 支付下单 > 普通支付"
     },
     {
@@ -4977,7 +4977,7 @@
       "docId": "4012089542",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012089542.md",
-      "updateTime": "1758857021",
+      "updateTime": "1781076523",
       "fullPath": "平台收付通-电商交易解决方案 > 支付下单 > 合单支付"
     },
     {
@@ -5082,14 +5082,14 @@
       "docId": "4012087888",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012087888.md",
-      "updateTime": "1758855959",
+      "updateTime": "1781076471",
       "fullPath": "平台收付通-电商交易解决方案 > 补差与分账 > 分账"
     },
     {
       "docId": "4015870957",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015870957.md",
-      "updateTime": "1758855959",
+      "updateTime": "1780998407",
       "fullPath": "平台收付通-电商交易解决方案 > 补差与分账 > 分账"
     },
     {
@@ -5173,7 +5173,7 @@
       "docId": "4015593692",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015593692.md",
-      "updateTime": "1761288553",
+      "updateTime": "1781076470",
       "fullPath": "平台收付通-电商交易解决方案 > 补差与分账 > 补差"
     },
     {
@@ -5208,7 +5208,7 @@
       "docId": "4015217874",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015217874.md",
-      "updateTime": "1760514749",
+      "updateTime": "1781076469",
       "fullPath": "平台收付通-电商交易解决方案 > 交易退款"
     },
     {
@@ -5299,7 +5299,7 @@
       "docId": "4019899593",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4019899593.md",
-      "updateTime": "1776926915",
+      "updateTime": "1781076465",
       "fullPath": "平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现"
     },
     {
@@ -5439,7 +5439,7 @@
       "docId": "4015593257",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015593257.md",
-      "updateTime": "1758856920",
+      "updateTime": "1781076464",
       "fullPath": "平台收付通-电商交易解决方案 > 跨境付款"
     },
     {

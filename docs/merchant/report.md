@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260611_014618
+**生成时间**: 20260612_014456
 **文档总数**: 521
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
 ## 变更概览
 
-- 新增: 1 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 2 个页面
-- 成功拉取: 3 个页面
+- 修改: 23 个页面
+- 成功拉取: 23 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,38 +20,21 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.06.09
-+>更新时间：2026.06.10
+->更新时间：2026.06.10
++>更新时间：2026.06.11
  
  # 微信支付商户平台文档中心
  
-@@ -267,6 +267,7 @@
- ### 附录
- - [申请医保支付权限](https://pay.weixin.qq.com/doc/v3/merchant/4016824675.md)
- - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/merchant/4016975471.md)
-+- [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/merchant/4021595091.md)
- ## 订单退款
- > 订单退款为商户提供交易逆向服务，支持全额与部分退款，可按订单发起退款申请，资金原路退回用户账户，支持状态查询与流程追溯，保障售后资金安全，提升消费体验与商户合规能力。
- 
 ```
-
-## 新增页面
-
-### UI规范与页面说明
-- ID: `4021595091`
-- 路径: 医保支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4021595091.md
-- 更新时间: 2026-06-08 09:46:28
-- 本地文件: `pages/4021595091.md`
 
 ## 修改页面
 
 ### 开发指引
-- ID: `4012791831`
-- 路径: H5支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791831.md
-- 更新时间变更: 2025-07-17 08:07:32 -> 2026-06-09 09:47:23
-- 本地文件: `pages/4012791831.md`
+- ID: `4012791870`
+- 路径: JSAPI支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md
+- 更新时间变更: 2026-02-28 03:34:36 -> 2026-06-09 07:58:04
+- 本地文件: `pages/4012791870.md`
 
 ```diff
 --- old.md
@@ -61,12 +44,808 @@
 +
  ## 1、整体业务开发流程概览
  
- - 商户通过调用[H5支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791834.md)接口获取H5支付链接（h5\_url），然后商户在已配置H5支付域名的前端网页跳转该支付链接（如需支付后返回指定页面，可在H5支付链接后拼接redirect\_url参数），并唤起微信支付收银台。
+ - 商户后端调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)接口获取预支付ID（prepay\_id）后，在微信客户端前端页面调用[WeixinJSBridge](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)对象方法调起微信支付界面。
+@@ -15,7 +17,22 @@
+ 
+ 商户通过调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)接口生成订单并获取预支付ID。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/26d9526b89fb47dcba8e9f47ac2c5f2a.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端页面(微信浏览器打开)
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用JSAPI/小程序下单接口
++        WxPay-->>Mch2: 下单成功返回prepay_id
++        Mch2-->>Mch: 返回JSAPI拉起支付所需参数
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -39,7 +56,19 @@
+ 
+ 商户调起支付前，请确保已在[商户平台](https://pay.weixin.qq.com/)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/merchant/4013287088.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a3e0f817286df82a42bfb831aca24e86.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端页面(微信浏览器打开)
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -55,7 +84,40 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791860.md)接口关单，关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/627e52a54b68e4228b1ee529543f420b.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端页面(微信浏览器打开)
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        WxPay-->>Mch: 用户返回商户前端页面(前端会有回调function)
++        Mch->>Mch2: 查单确认订单状态
++        Mch2->>WxPay: 调用微信查单接口
++        WxPay-->>Mch2: 返回订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch-->>User: 根据订单状态展示支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -67,7 +129,29 @@
+ 
+ ## 3、普通支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/0da6b88e698b773c9bf5368a0875ef5a.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "trade_state：NOTPAY（未支付）" as trade_state
++    state "trade_state：CLOSED（已关闭）" as Activity_230b0cda_df74_4b47_a196_a50ab1db73e3
++    state "trade_state：SUCCESS（支付成功）" as Activity_f88291a1_4607_4cab_aa4f_80a164315b90
++    state "trade_state：REFUND（转入退款）" as Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c
++
++
++    trade_state --> Activity_f88291a1_4607_4cab_aa4f_80a164315b90: 用户支付成功
++    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 订单超过7天未支付<br/>微信侧进行自动关单
++    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
++    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 7天内商户可对未支付的订单调用关闭订单接口
++    note right of trade_state
++    	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++
++    Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c --> [*]
++    Activity_230b0cda_df74_4b47_a196_a50ab1db73e3 --> [*]
++    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> [*]
++    [*] --> trade_state: 商户调用JSAPI/小程序下单接口生成订单
++```
+ 
+ 1、商户调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)接口下单成功后，商户可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4013070176`
+- 路径: APP支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4013070176.md
+- 更新时间变更: 2026-01-16 03:57:24 -> 2026-06-09 07:58:00
+- 本地文件: `pages/4013070176.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户后端调用[APP支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4013070347.md)接口获取预支付ID（prepay\_id）后，在商户APP中通过微信[OpenSDK](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html)提供的sendReq方法实现[APP调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4013070351.md)，跳转到微信，并唤起微信支付收银台。
+@@ -15,7 +17,22 @@
+ 
+ 商户需要通过调用[APP支付下单API](https://pay.weixin.qq.com/doc/v3/merchant/4013070347.md)接口进行下单，并获取预支付ID（prepay\_id）。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a6c4df99c059056d9bc844b7e49685a8.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户APP端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用APP支付下单接口
++        WxPay-->>Mch2: 下单成功返回prepay_id
++        Mch2-->>Mch: 返回APP拉起支付所需参数
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -47,7 +64,18 @@
+ </activity>
+ ```
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/7bdd7ef92c6b264ff087940235ca6a42.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户APP端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 通过opensdk方法拉起支付
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -63,7 +91,39 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013070356.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013070360.md)接口关单，关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/69026c781c3ebb9bfb71300fbcc6ea2d.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户APP端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        WxPay-->>Mch: 用户返回商户APP
++        Mch->>Mch2: 查单确认订单状态
++        Mch2->>WxPay: 调用微信查单接口
++        WxPay-->>Mch2: 返回订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch-->>User: 根据订单状态展示支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -75,7 +135,27 @@
+ 
+ ## 3、APP支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/24fcf8860260589bdba5ab7b6cd2ba7e.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "trade_state：NOTPAY（未支付）" as Activity_cf6ed7c5_91c4_4f93_bf5c_b83d06d9e8ac
++    state "trade_state：SUCCESS（支付成功）" as Activity_c33e834d_70f6_4929_99eb_e55880875369
++    state "trade_state：REFUND（转入退款）" as Activity_b89ad21c_4693_4618_9363_ec24f5f90ff8
++    state "trade_state：CLOSED（已关闭）" as Activity_a6aa464f_cac4_4252_8104_aa49a34ed8be
++
++    [*] --> Activity_cf6ed7c5_91c4_4f93_bf5c_b83d06d9e8ac: 商户调用APP支付下单接口生成订单
++    Activity_cf6ed7c5_91c4_4f93_bf5c_b83d06d9e8ac --> Activity_c33e834d_70f6_4929_99eb_e55880875369: 用户支付成功
++    Activity_c33e834d_70f6_4929_99eb_e55880875369 --> Activity_b89ad21c_4693_4618_9363_ec24f5f90ff8: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
++    Activity_cf6ed7c5_91c4_4f93_bf5c_b83d06d9e8ac --> Activity_a6aa464f_cac4_4252_8104_aa49a34ed8be: 订单超过7天未支付，微信侧进行自动关单
++    Activity_cf6ed7c5_91c4_4f93_bf5c_b83d06d9e8ac --> Activity_a6aa464f_cac4_4252_8104_aa49a34ed8be: 7天内商户可对未支付的订单 调用关闭订单接口
++    note right of Activity_cf6ed7c5_91c4_4f93_bf5c_b83d06d9e8ac
++    	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++    Activity_b89ad21c_4693_4618_9363_ec24f5f90ff8 --> [*]
++    Activity_a6aa464f_cac4_4252_8104_aa49a34ed8be --> [*]
++    Activity_c33e834d_70f6_4929_99eb_e55880875369 --> [*]
++```
+ 
+ 1、商户调用[APP支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4013070347.md)接口下单成功后，商户可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4013070356.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4012791891`
+- 路径: Native支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791891.md
+- 更新时间变更: 2025-07-17 08:07:28 -> 2026-06-09 09:47:19
+- 本地文件: `pages/4012791891.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户后端通过调用[Natvie支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791877.md)接口获取二维码code（code\_url）后，然后由商户侧前端将二维码code转换为二维码图片展示给用户，用户微信扫描二维码拉起支付收银台。
+@@ -15,7 +17,23 @@
+ 
+ 商户通过调用[Native支付下单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791877.md)接口生成订单并获取二维码 `code_url`，随后将该 `code_url` 传递至前端，由前端将其转换为二维码图片展示给用户。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/91e24798ae74f34045bff1c322731bdf.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用Native支付下单接口
++        WxPay-->>Mch2: 下单成功返回code_url
++        Mch2-->>Mch: 转换为二维码图片前端展示
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -31,7 +49,20 @@
+ 
+ 二维码不支持通过相册识别或长按识别二维码的方式完成支付
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/bb388334374a6c7d8dd3626c67fa90f1.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>WxPay: 用户打开微信扫一扫
++        WxPay->>Mch: 扫描商户前端展示的二维码图片
++        Mch->>WxPay: 拉起微信收银台
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -47,7 +78,36 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791880.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791881.md)接口关单，关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/86c63829ed63fd9be6afe21d3706a652.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>Mch2: 轮询获取订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch->>User: 给用户展示订单支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -59,7 +119,27 @@
+ 
+ ## 3、普通支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5a372b88926522816cf3b4069cb491da.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "trade_state：NOTPAY（未支付）" as Activity_c098838f_032c_4f0d_81be_12dd1594b444
++    state "trade_state：SUCCESS（支付成功）" as Activity_66d8b765_5929_4c2e_acf8_b5e40a04d16c
++    state "trade_state：REFUND（转入退款）" as Activity_7dc34d96_6b69_4668_9f34_339453581ec4
++    state "trade_state：CLOSED（已关闭）" as Activity_1688d90d_b09b_4db5_b884_8c20212b162b
++
++    [*] --> Activity_c098838f_032c_4f0d_81be_12dd1594b444: 商户调用Native支付下单接口生成订单
++    Activity_c098838f_032c_4f0d_81be_12dd1594b444 --> Activity_66d8b765_5929_4c2e_acf8_b5e40a04d16c: 用户支付成功
++    Activity_66d8b765_5929_4c2e_acf8_b5e40a04d16c --> Activity_7dc34d96_6b69_4668_9f34_339453581ec4: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
++    Activity_c098838f_032c_4f0d_81be_12dd1594b444 --> Activity_1688d90d_b09b_4db5_b884_8c20212b162b: 7天内商户可对未支付的订单调用关闭订单接口
++    Activity_c098838f_032c_4f0d_81be_12dd1594b444 --> Activity_1688d90d_b09b_4db5_b884_8c20212b162b: 订单超过7天未支付，微信侧进行自动关单
++    note right of Activity_c098838f_032c_4f0d_81be_12dd1594b444
++    	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++    Activity_7dc34d96_6b69_4668_9f34_339453581ec4 --> [*]
++    Activity_1688d90d_b09b_4db5_b884_8c20212b162b --> [*]
++    Activity_66d8b765_5929_4c2e_acf8_b5e40a04d16c --> [*]
++```
+ 
+ 1、商户调用[Native支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791877.md)接口下单成功后，商户可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791880.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4012791911`
+- 路径: 小程序支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791911.md
+- 更新时间变更: 2026-02-28 08:03:41 -> 2026-06-09 09:47:15
+- 本地文件: `pages/4012791911.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户通过调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791897.md)接口获取预支付交易会话标识(prepay\_id)，再通过小程序提供的[requestPayment](https://developers.weixin.qq.com/miniprogram/dev/api/payment/wx.requestPayment.html)方法，唤起微信支付收银台。
+@@ -15,7 +17,22 @@
+ 
+ 商户通过调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791897.md)接口生成订单并获取预支付交易会话标识(prepay\_id)。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/4a24554e437efa7d7ffc49162ff16686.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户小程序
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用JSAPI支付下单接口
++        WxPay-->>Mch2: 下单成功返回prepay_id
++        Mch2-->>Mch: 返回小程序拉起支付所需参数
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -39,7 +56,19 @@
+ 
+ 注意：若为交易类小程序，需要满足公众平台的[《交易类小程序运营规范》](https://developers.weixin.qq.com/miniprogram/product/jiaoyilei/yunyingguifan.html)，按照规范接入[订单发货管理功能](https://developers.weixin.qq.com/miniprogram/product/jiaoyilei/fahuoguanligongneng.html)，若不满足，可能被公众平台限制使用小程序进行支付的权限，无法在正式环境下调起小程序支付。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/cf97207743c79c82f00f824f0be24941.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户小程序
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 调用小程序方法拉起微信收银台
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -55,7 +84,40 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791900.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791901.md)接口关单，关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/2df819daf311d0cb94c66c0e471e8d82.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户小程序
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        WxPay-->>Mch: 用户返回商户小程序会有回调
++        Mch->>Mch2: 查单确认订单状态
++        Mch2->>WxPay: 调用微信查单接口
++        WxPay-->>Mch2: 返回订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch-->>User: 根据订单状态展示支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -67,7 +129,29 @@
+ 
+ ## 3、普通支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/561f77cf030446d55371cc4806a9429c.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "trade_state：NOTPAY（未支付）" as trade_state
++    state "trade_state：CLOSED（已关闭）" as Activity_230b0cda_df74_4b47_a196_a50ab1db73e3
++    state "trade_state：SUCCESS（支付成功）" as Activity_f88291a1_4607_4cab_aa4f_80a164315b90
++    state "trade_state：REFUND（转入退款）" as Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c
++
++
++    trade_state --> Activity_f88291a1_4607_4cab_aa4f_80a164315b90: 用户支付成功
++    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 订单超过7天未支付<br/>微信侧进行自动关单
++    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
++    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 7天内商户可对未支付的订单调用关闭订单接口
++    note right of trade_state
++    	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++
++    Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c --> [*]
++    Activity_230b0cda_df74_4b47_a196_a50ab1db73e3 --> [*]
++    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> [*]
++    [*] --> trade_state: 商户调用JSAPI/小程序下单接口生成订单
++```
+ 
+ 1、商户调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791897.md)接口下单成功后，商户可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791900.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4012078634`
+- 路径: JSAPI合单支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md
+- 更新时间变更: 2026-05-21 08:24:21 -> 2026-06-09 09:47:13
+- 本地文件: `pages/4012078634.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户通过调用[JSAPI合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556926.md)接口获取预支付ID `prepay_id`，商户前端页面再通过调用[WeixinJSBridge](https://pay.weixin.qq.com/doc/v3/merchant/4012266069.md)对象方法调起微信支付收银台。
+@@ -15,7 +17,23 @@
+ 
+ 商户通过调用[JSAPI合单下单API](https://pay.weixin.qq.com/doc/v3/merchant/4012556926.md)接口生成订单并获取预支付ID `prepay_id`。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/ab8b3454c6669a916e6cb07a4feb54f8.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端页面(微信浏览器打开)
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用JSAPI合单支付下单接口
++        WxPay-->>Mch2: 下单成功返回prepay_id
++        Mch2-->>Mch: 返回JSAPI拉起支付所需参数
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -37,7 +55,18 @@
+ 
+ 商户调起支付前，请确保合单发起方商户（combine\_mchid）已在[商户平台](https://pay.weixin.qq.com/)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/merchant/4013287088.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266069.md)
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a3e0f817286df82a42bfb831aca24e86.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端页面(微信浏览器打开)
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -53,7 +82,39 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421222.md)接口确认订单状态（请勿使用非合单支付的查单接口查询合单订单），若订单仍是未支付状态，商户可以调用[关闭合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421225.md)接口关单（关闭整个合单订单，而非关闭单个子单），关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/bb8bc675281312c5c6479bd180d02be0.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端页面(微信浏览器打开)
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        WxPay-->>Mch: 用户返回商户前端页面
++        Mch->>Mch2: 查单确认订单状态
++        Mch2->>WxPay: 调用微信合单查单接口
++        WxPay-->>Mch2: 返回订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch-->>User: 根据订单状态展示支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信合单查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信合单关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -65,7 +126,24 @@
+ 
+ ## 3、合单支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/09802022e2f46b6e6c090092c9852e14.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "sub_orders.trade_state：NOTPAY（未支付）" as S2
++    state "sub_orders.trade_state：SUCCESS（支付成功）" as S3
++    state "sub_orders.trade_state：CLOSED（已关闭）" as S4
++
++    [*] --> S2: 合单发起商户调用<br/>JSAPI合单支付下单接口生成订单
++    S2 --> S3: 用户支付成功
++    S2 --> S4: 订单超过7天未支付<br/>微信侧进行自动关单
++    S2 --> S4: 7天内合单发起商户可对未支付的订单调用关闭订单接口
++    S3 --> [*]
++    S4 --> [*]
++    note right of S2
++    	用户支付失败<br/>常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++```
+ 
+ 1、商户调用[JSAPI合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556926.md)接口下单成功后，商户可以调用[查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421222.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4012077667`
+- 路径: APP合单支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md
+- 更新时间变更: 2026-05-20 08:31:11 -> 2026-06-09 09:47:09
+- 本地文件: `pages/4012077667.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户后端调用[APP合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md)接口获取预支付ID（prepay\_id）后，在商户APP中调用微信[OpenSDK](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html)提供的sendReq方法实现[调起APP合单支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266043.md)，跳转到微信，并唤起微信支付收银台。
+@@ -15,7 +17,23 @@
+ 
+ 商户通过调用[APP合单支付下单API](https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md)接口下单并获取预支付ID（prepay\_id）。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5dde1b176fd209d9375a409e2054df90.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户APP端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用合单APP支付下单接口
++        WxPay-->>Mch2: 下单成功返回prepay_id
++        Mch2-->>Mch: 返回APP拉起支付所需参数
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -53,7 +71,18 @@
+ </activity>
+ ```
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/63350bc921e143f8447514c0fc32c3f6.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户APP端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 通过opensdk方法拉起支付
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -69,7 +98,39 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012557006.md)接口确认订单状态（请勿使用非合单支付的查单接口查询合单订单），若订单仍是未支付状态，商户可以调用[关闭合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012577452.md)接口关单（关闭整个合单订单，而非关闭单个子单），关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/bd5f20e5a86d5d62e502df7f6e3492b9.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户APP端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        WxPay-->>Mch: 用户返回商户APP
++        Mch->>Mch2: 查单确认订单状态
++        Mch2->>WxPay: 调用微信合单支付的查单接口
++        WxPay-->>Mch2: 返回订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch-->>User: 根据订单状态展示支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信合单支付查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信合单支付关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -81,7 +142,24 @@
+ 
+ ## 3、合单支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/57f3eceb1f2d1f1e09996a8eb3f0092a.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "sub_orders.trade_state：NOTPAY（未支付）" as S2
++    state "sub_orders.trade_state：SUCCESS（支付成功）" as S3
++    state "sub_orders.trade_state：CLOSED（已关闭）" as S4
++
++    [*] --> S2: 合单发起商户调用<br/>APP合单支付下单接口生成订单
++    S2 --> S3: 用户支付成功
++    S2 --> S4: 订单超过7天未支付<br/>微信侧进行自动关单
++    S2 --> S4: 7天内合单发起商户可对未支付的订单调用关闭订单接口
++    S3 --> [*]
++    S4 --> [*]
++    note right of S2
++    	用户支付失败<br/>常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++```
+ 
+ 1、商户调用[APP合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556944.md)接口下单成功后，商户可以调用[查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4012557006.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4012078230`
+- 路径: H5合单支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md
+- 更新时间变更: 2026-05-20 09:37:25 -> 2026-06-09 09:47:00
+- 本地文件: `pages/4012078230.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户通过调用[H5合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556961.md)接口获取支付中间页(h5\_url)，然后商户在已配置H5支付域名的前端网页跳转该支付链接（如需支付后返回指定页面，可在H5支付链接后拼接redirect\_url参数），并唤起微信支付收银台。
 @@ -22,7 +24,52 @@
  
  安全标准规范流程图：
  
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/cdeae96224134b85352abb3ecf752284.png)
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/19ebd3c960a4b353113582421933e6ba.png)
 +```mermaid
 +sequenceDiagram
 +    rect rgb(255,255,255)
@@ -103,7 +882,7 @@
 +
 +        alt api.third.com合法且用户登录态有效(是)
 +            Mch2->>Mch2: 保存订单
-+            Mch2->>WxPay: 用微信支付接口下单
++            Mch2->>WxPay: 调用微信合单支付接口下单
 +            WxPay-->>Mch2: 返回跳转URL
 +            Mch2-->>Mch: ：请求下单正常响应（）
 +            note right of Mch: Access-Control-Allow-Origin: https://api.third.com<br/>Access-Control-Allow-Credentials: true
@@ -116,11 +895,11 @@
  
  注意：
  
-@@ -41,7 +88,19 @@
+@@ -51,7 +98,19 @@
  
- 商户调起支付前，请确保已在[商户平台](https://pay.weixin.qq.com/)配置好H5支付域名，只有[配置了H5支付域名](https://pay.weixin.qq.com/doc/v3/merchant/4013287193.md)的网页才能跳转H5支付链接（如需在支付后返回至指定页面，可在h5支付链接后面拼接上redirect\_url参数），调起微信支付页面。
+ 商户调起支付前，请确保已在[商户平台](https://pay.weixin.qq.com/)配置好H5支付域名（只需合单发起方的商户号配置，合单参与方的商户号无需配置），只有[配置了H5支付域名](https://pay.weixin.qq.com/doc/v3/merchant/4013287193.md)的网页才能跳转H5支付链接（如需在支付后返回至指定页面，可在h5支付链接后面拼接上redirect\_url参数），调起微信支付页面。
  
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/9fd65044ee5e7701e6ed231c3c8888ae.png)
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/760a17e4933747571865a9478ab54e98.png)
 +```mermaid
 +%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
 +sequenceDiagram
@@ -137,11 +916,11 @@
  
  ### 2.3、用户支付
  
-@@ -57,7 +116,40 @@
+@@ -67,7 +126,40 @@
  
- 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791838.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791839.md)接口关单，关单后可以将订单当作失败终态处理。
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421126.md)接口确认订单状态（请勿使用非合单支付的查单接口查询合单订单），若订单仍是未支付状态，商户可以调用[关闭合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421130.md)接口关单（关闭整个合单订单，而非关闭单个子单），关单后可以将订单当作失败终态处理。
  
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/7440e2867b7441959b6a30933e4188f2.png)
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/286c498fd9404da35f680edddcec7891.png)
 +```mermaid
 +%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
 +sequenceDiagram
@@ -152,9 +931,9 @@
 +        participant Mch2 as 商户后端
 +        participant WxPay as 微信支付系统
 +
-+        WxPay-->>Mch: 用户返回商户拉起支付页面或redirect_url页面
++        WxPay-->>Mch: 用户返回商户拉起支付页面或redirect_url 页面
 +        Mch->>Mch2: 查单确认订单状态
-+        Mch2->>WxPay: 用微信查单接口
++        Mch2->>WxPay: 调用微信合单支付查单接口
 +        WxPay-->>Mch2: 返回订单状态
 +        Mch2-->>Mch: 返回订单状态
 +        Mch-->>User: 根据订单状态展示支付结果
@@ -164,11 +943,11 @@
 +        end
 +
 +        alt 未收到支付成功回调
-+            Mch2->>WxPay: 调用微信查单接口轮询查单
++            Mch2->>WxPay: 调用微信合单支付查单接口轮询查单
 +            WxPay-->>Mch2: 返回订单状态
 +
 +            alt 超过一定时间查单仍是未支付状态
-+                Mch2->>WxPay: 调用微信关单接口
++                Mch2->>WxPay: 调用微信合单支付关单接口
 +                WxPay-->>Mch2: 返回关单结果
 +                Mch2->>Mch2: 订单当作失败终态处理
 +            end
@@ -179,123 +958,1484 @@
  
  ### 2.4、商户对账
  
-@@ -69,7 +161,27 @@
+@@ -79,7 +171,24 @@
  
- ## 3、普通支付订单状态流转图
+ ## 3、合单支付订单状态流转图
  
--#### ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a1c3bdf5c28f2abf81fed37a53e0d189.png)
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/2828eb3c1861855b16c8f817d5ffc37a.png)
 +```mermaid
 +%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
 +stateDiagram-v2
 +    direction LR
-+    state "trade_state：NOTPAY（未支付）" as S2
-+    state "trade_state：SUCCESS（支付成功）" as S3
-+    state "trade_state：REFUND（转入退款）" as S4
-+    state "trade_state：CLOSED（已关闭）" as S5
++    state "sub_orders.trade_state：NOTPAY（未支付）" as S2
++    state "sub_orders.trade_state：SUCCESS（支付成功）" as S3
++    state "sub_orders.trade_state：CLOSED（已关闭）" as S4
 +
-+    [*] --> S2: 商户调用H5支付下单接口生成订单
++    [*] --> S2: 合单发起商户调用<br/>H5合单支付下单接口生成订单
++    S2 --> S3: 用户支付成功
++    S2 --> S4: 订单超过7天未支付<br/>微信侧进行自动关单
++    S2 --> S4: 7天内合单发起商户可对未支付的订单调用关闭订单接口
++    S3 --> [*]
++    S4 --> [*]
 +    note right of S2
 +    	用户支付失败<br/>常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
 +    end note
-+    S2 --> S3: 用户支付成功
-+    S2 --> S5: 7天内商户可对未支付的订单调用关闭订单接口
-+    S2 --> S5: 订单超过7天未支付，微信侧进行自动关单
-+    S3 --> S4: 调用申请退款接口申请成功<br/><br/>(支付成功后1年内可申请退款)
-+    S3 --> [*]
-+    S5 --> [*]
-+    S4 --> [*]
 +```
  
- 1、商户调用[H5支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791834.md)接口下单成功后，商户可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791838.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 1、商户调用[H5合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556961.md)接口下单成功后，商户可以调用[查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421126.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
  
 ```
 
-### 产品介绍
-- ID: `4016824672`
-- 路径: 医保支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4016824672.md
-- 更新时间变更: 2026-05-14 08:43:58 -> 2026-06-08 09:46:23
-- 本地文件: `pages/4016824672.md`
+### 开发指引
+- ID: `4012078926`
+- 路径: Native合单支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012078926.md
+- 更新时间变更: 2026-05-20 09:52:24 -> 2026-06-09 09:46:57
+- 本地文件: `pages/4012078926.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,3 +1,5 @@
-+>更新时间：2026.06.08
++>更新时间：2026.06.09
 +
- 注意
+ ## 1、整体业务开发流程概览
  
- 为进一步优化商户体验，提升移动医保支付效率及稳定性，微信支付已正式发布移动医保支付2.0接口。新版本在部署效率和运维能力上均有重要提升，支持直连与间连模式更新或接入。
-@@ -12,65 +14,12 @@
+ - 商户后端通过调用[Natvie合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556982.md)接口获取二维码code（code\_url）后，然后由商户侧前端将二维码code转换为二维码图片展示给用户，用户微信扫描二维码拉起支付收银台。
+@@ -15,7 +17,22 @@
  
- 该能力有效解决了传统就医流程中的“三长一短”（挂号排队长、缴费排队长、取药排队长，就诊时间短）的难题，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
+ 商户通过调用[Native合单支付下单API](https://pay.weixin.qq.com/doc/v3/merchant/4012556982.md)接口生成订单并获取二维码链接 `code_url`，随后将该 `code_url` 传递至前端，由前端将其转换为二维码图片展示给用户。
  
--## 2、适用范围
-+## 2、产品示例
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/521c9d27b6b884dd7ad7c89470298c0d.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用Native合单支付下单接口
++        WxPay-->>Mch2: 下单成功返回code_url
++        Mch2-->>Mch: 转换为二维码图片前端展示
++    end
++```
  
--直连模式：普通商户模式
--
--## 3、产品示例
--
--### 3.1 支付消息触达（公众号/小程序）
--
--医疗机构可通过公众号/小程序下发相应的模板消息，进行待支付提醒，引导用户支付。用户也可通过扫码等多种方式进入支付入口。
--
--| 渠道类型 | 说明 | 适用条件 |
--| --- | --- | --- |
--| 公众号模板消息 | 认证的服务号可以进行申请 | 用户已关注医院服务号 |
--| 小程序订阅消息 | 消息通过微信“服务通知”推送，用户点击可跳回小程序 | 用户已启用医院小程序并主动订阅授权 |
--
--![](https://docimg6.docs.qq.com/image/0qjT5qfVSxVntIqcMGcXWQ.png?w=1030&h=1028)
--
--配置指引
--
--- 开通功能：若公众号未设置过模板消息，首次设置需要开启模板消息功能。登录[微信公众号后台](https://mp/weixin.qq.com)，左侧导航栏底部进入「添加新的功能」，在「广告与服务」分类下找到并开通「模板消息」功能。
--
--- 选择行业：进入「模板消息」，选择所在行业，行业选择每月仅可修改一次。
--
--- 选用模板：在行业模板中选择合适的模板（可根据关键词搜索）。
--
--- 获取模板id：添加模板成功后，在「我的模板」中可查看模板详情，模板ID将在后端接口调用时使用。
--
--- 测试：调试前，可通过[微信公众号接口测试平台](https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login)，测试对应的目标消息推送。
--
--
--### 3.2 用户端支付流程示意
--
--#### 3.2.1 本人支付流程
--
--![](https://docimg3.docs.qq.com/image/AgAABTqGYN8n8-QS_L5M_64bvtPSDhQV.png?w=1890&h=1032)
--
--![](https://docimg3.docs.qq.com/image/AgAABTqGYN_uWRoHS1hMu6upF6KwvPGo.png?w=1894&h=1028)
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/2a8aa9c27f738230ea9572e7103feeb4.png)
+ 下单接口关键参数说明：
  
- 注意
+@@ -39,7 +56,20 @@
  
--从“患者授权”页跳转至“待结算详情”页的过程中，因涉及多个后台接口的连续调用，整体耗时可能较长。建议医院在跳转后的“待结算详情”页面顶部或中央设置明确的加载动画（Loading）​，示意加载过程。
-+1、从“医保电子凭证线上授权”页跳转至“待结算详情”页的过程中，因涉及多个后台接口的连续调用，整体耗时可能较长。建议医院在跳转后的“待结算详情”页面顶部或中央设置明确的加载动画（Loading）​，示意加载过程。
+ 二维码不支持通过相册识别或长按识别二维码的方式完成支付
  
--## 4、UI规范与页面说明
--
--在用户完成授权后，医院方提供的“待结算详情”页面需严格遵循国家医疗保障局的相关UI设计规范进行设计与实现。
--
--- 小程序和H5。医院可根据自己的应用渠道，选择使用小程序或者H5的页面。实账地区（如海南）详情页在最新版本有选择是否使用个人账户按钮，需要按照对应的示例进行更新。
--
--
--| 小程序/H5 | 加载示意 | 是否使用个账（实账地区） |
--| --- | --- | --- |
--| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/217788854e1688853776d17a2641f747.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/1a009b1f11c5fbcdd18fe87005c21c9d.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a4d84ff1fc327448e956aaa71f714495.png) |
--
--- 在“待结算列表详情页”中，医院可根据需要，选择展示“其他抵扣金额”等字段，并提供 ​​“查看明细”​​ 按钮。
--
--
--![](https://docimg4.docs.qq.com/image/HK1jyq8GBAwvrcPIJZAOGA.png?w=896&h=927)
--
--- 查看明细页面。目前查看明细页面是在待结算列表详情页点击按钮后弹出展示。医院可根据自身需求，在弹窗内灵活展示就诊信息、费用明细、诊断信息等内容。
--
--
--![](https://docimg8.docs.qq.com/image/9F2WlWckgmjIsoqaP7KKTw.png?w=1280&h=1144.200716845878)
-+2、在用户完成授权后，医院方提供的“待结算详情”页面需严格遵循国家医疗保障局的相关UI设计规范进行设计与实现，具体详见：[UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/merchant/4021595091.md)
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/df36075a15c53077c3ec524fe4c67d5f.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>WxPay: 用户打开微信扫一扫
++        WxPay->>Mch: 扫描商户前端展示的二维码图片
++        Mch->>WxPay: 拉起微信收银台
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -55,7 +85,37 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421316.md)接口确认订单状态（请勿使用非合单支付的查单接口查询合单订单），若订单仍是未支付状态，商户可以调用[关闭合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421330.md)接口关单（关闭整个合单订单，而非关闭单个子单），关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/3d533cb6369cccf601df58bd71683b9f.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户前端
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>Mch2: 轮询获取订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch->>User: 给用户展示订单支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用查询合单订单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用关闭合单订单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -67,7 +127,24 @@
+ 
+ ## 3、合单支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/4261644ab039bddf9c572c70934b81c1.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "sub_orders.trade_state：NOTPAY（未支付）" as S2
++    state "sub_orders.trade_state：SUCCESS（支付成功）" as S3
++    state "sub_orders.trade_state：CLOSED（已关闭）" as S4
++
++    [*] --> S2: 合单发起商户调用<br/>Native合单支付下单接口生成订单
++    S2 --> S3: 用户支付成功
++    S2 --> S4: 订单超过7天未支付<br/>微信侧进行自动关单
++    S2 --> S4: 7天内合单发起商户可对未支付的订单调用关闭订单接口
++    note right of S2
++    	用户支付失败<br/>常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++    S3 --> [*]
++    S4 --> [*]
++```
+ 
+ 1、商户调用[Native合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556982.md)接口下单成功后，商户可以调用[查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421316.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4012079115`
+- 路径: 小程序合单支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012079115.md
+- 更新时间变更: 2026-05-20 09:56:45 -> 2026-06-09 09:46:54
+- 本地文件: `pages/4012079115.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ - 商户通过调用[小程序合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556931.md)接口获取预支付交易会话标识(prepay\_id)，再通过小程序提供的[requestPayment](https://developers.weixin.qq.com/miniprogram/dev/api/payment/wx.requestPayment.html)方法，唤起微信支付收银台。
+@@ -15,7 +17,22 @@
+ 
+ 商户通过调用[小程序合单下单API](https://pay.weixin.qq.com/doc/v3/merchant/4012556931.md)接口生成订单并获取预支付交易会话标识(prepay\_id)。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/aab4edcff40f7d7422c3bb93de138152.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户小程序
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>Mch2: 发送下单请求
++        Mch2->>WxPay: 调用小程序合单支付下单接口
++        WxPay-->>Mch2: 下单成功返回prepay_id
++        Mch2-->>Mch: 返回小程序拉起支付所需参数
++    end
++```
+ 
+ 下单接口关键参数说明：
+ 
+@@ -35,7 +52,18 @@
+ 
+ 商户小程序通过调用小程序提供的[requestPayment](https://developers.weixin.qq.com/miniprogram/dev/api/payment/wx.requestPayment.html)方法来拉起微信收银台，详情参考[小程序调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012266109.md)
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5b1a03b528d2c21de58823823582531a.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户小程序
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 调用小程序方法拉起微信收银台
++    end
++```
+ 
+ ### 2.3、用户支付
+ 
+@@ -51,7 +79,40 @@
+ 
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421401.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭合单订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013421404.md)接口关单，关单后可以将订单当作失败终态处理。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/8e2e7a96d6b5084319ff414dbd31737b.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户小程序
++        participant Mch2 as 商户后端
++        participant WxPay as 微信支付系统
++
++        WxPay-->>Mch: 用户返回商户小程序会有回调
++        Mch->>Mch2: 查单确认订单状态
++        Mch2->>WxPay: 调用微信合单支付查单接口
++        WxPay-->>Mch2: 返回订单状态
++        Mch2-->>Mch: 返回订单状态
++        Mch-->>User: 根据订单状态展示支付结果
++
++        alt 支付成功
++            WxPay->>Mch2: 支付成功回调通知
++        end
++
++        alt 未收到支付成功回调
++            Mch2->>WxPay: 调用微信合单支付查单接口轮询查单
++            WxPay-->>Mch2: 返回订单状态
++
++            alt 超过一定时间查单仍是未支付状态
++                Mch2->>WxPay: 调用微信合单支付关单接口
++                WxPay-->>Mch2: 返回关单结果
++                Mch2->>Mch2: 订单当作失败终态处理
++            end
++
++        end
++    end
++```
+ 
+ ### 2.4、商户对账
+ 
+@@ -63,7 +124,24 @@
+ 
+ ## 3、合单支付订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/0717025df53ebb429345f21a14c40518.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "sub_orders.trade_state：NOTPAY（未支付）" as S2
++    state "sub_orders.trade_state：SUCCESS（支付成功）" as S3
++    state "sub_orders.trade_state：CLOSED（已关闭）" as S4
++
++    [*] --> S2: 合单发起商户调用<br/>小程序合单支付下单接口生成订单
++    S2 --> S3: 用户支付成功
++    S2 --> S4: 订单超过7天未支付<br/>微信侧进行自动关单
++    S2 --> S4: 7天内合单发起商户可对未支付的订单调用关闭订单接口
++    note right of S2
++    	用户支付失败<br/>常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
++    end note
++    S3 --> [*]
++    S4 --> [*]
++```
+ 
+ 1、商户调用[小程序合单支付下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556931.md)接口下单成功后，商户可以调用[查询合单订单](https://pay.weixin.qq.com/doc/v3/merchant/4013421401.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
+ 
+```
+
+### 开发指引
+- ID: `4013071031`
+- 路径: 订单退款
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4013071031.md
+- 更新时间变更: 2025-06-20 04:11:54 -> 2026-06-09 09:46:45
+- 本地文件: `pages/4013071031.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ 若存在退款需求，商户需先调用[查询订单状态](https://pay.weixin.qq.com/doc/v3/merchant/4013070356.md)接口以确认订单支付状态为已支付成功，随后调用[申请退款API](https://pay.weixin.qq.com/doc/v3/merchant/4013071036.md)创建退款单后，可通过[查询单笔退款信息](https://pay.weixin.qq.com/doc/v3/merchant/4013071041.md)或[退款回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4013071196.md)以确认最终的退款结果。若退款状态为退款异常，则需调用[发起异常退款API](https://pay.weixin.qq.com/doc/v3/merchant/4013071193.md)进行退款操作。
+@@ -10,7 +12,19 @@
+ 
+ 商户在退款之前调用[微信支付订单号查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013070354.md)或[商户订单号查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4013070356.md)，确认订单支付状态，支付成功才可进行退款。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/e57a54ee56f4e2770eb8e4a2c18a6718.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户申请退款
++        Mch->>WxPay: 查询订单信息
++        WxPay-->>Mch: 获取订单信息
++    end
++```
+ 
+ ### 2.2、申请退款
+ 
+@@ -23,7 +37,21 @@
+ - 若支付订单为分账订单，存在分账给其他商户号成功情况，退款不会自动回退分账金额，退款出资为商户基本账户可用余额。
+ 
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/80ebdb7cf038ab7c682f054dd6caa471.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付系统
++
++        User->>Mch: 用户申请退款
++        Mch->>Mch: 生成商户退款单号
++        Mch->>WxPay: 申请退款
++        WxPay->>WxPay: 生成微信支付退款单号
++        WxPay-->>Mch: 返回退款受理信息
++    end
++```
+ 
+ 申请退款接口需要注意的参数：
+ 
+@@ -39,7 +67,30 @@
+ 
+ 若未收到退款回调通知或商户希望主动获取退款状态时，可调用 [查询单笔退款（按商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4013071041.md)查询退款单信息，推荐申请退款后间隔1分钟调用该接口轮询一次退款状态，若超过5分钟仍是退款处理中状态，建议开始逐步衰减轮询频率(比如之后间隔5分钟、10分钟、20分钟、30分钟……轮询一次)。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/e954363fe18c1d7f5231692f8e305e08.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant P2 as 微信客户端
++        participant Mch as 商户系统
++        participant WxPay as 微信支付系统
++
++        alt 退款回调通知
++            WxPay->>Mch: 异步通知商户退款结果
++            Mch->>Mch: 保存退款通知
++            Mch-->>WxPay: 返回告知接收成功处理
++            WxPay-->>P2: 返回退款结果，并微信消息提醒
++        end
++
++        alt 查询退款单状态（未收到退款回调通知）
++            Mch->>WxPay: 调用查询单笔退款API接口，查询退款结果
++            WxPay-->>Mch: 返回退款结果
++        end
++
++        Mch-->>User: 展示退款结果
++    end
++```
+ 
+ 退款状态：
+ 
+@@ -63,7 +114,23 @@
+ 
+ 退款至用户时，仅支持以下银行的借记卡：招行、交通银行、农行、建行、工商、中行、平安、浦发、中信、光大、民生、兴业、广发、邮储、宁波银行。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/fb1309fc40b2318f4617afb617fdad0e.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付系统
++
++        alt 若需退款至用户其他银行卡
++            Mch->>User: 向用户收集接收退款的银行卡信息
++            User-->>Mch: 向商户提供接收退款的银行卡信息
++        end
++
++        Mch->>WxPay: 请求发起异常退款
++        WxPay-->>Mch: 返回受理退款信息
++    end
++```
+ 
+ 发起异常退款关键参数：
+ 
+@@ -73,7 +140,23 @@
+ 
+ ## 3、退款单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/68033f6bdfd70c58820f0ef27a569876.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "status:PROCESSING (退款处理中)" as S2
++    state "status:CLOSED(退款关闭)" as S3
++    state "status:SUCCESS(退款成功)" as S4
++    state "status:ABNORMAL (退款异常)" as S5
++
++    [*] --> S2: 支付成功，调用申请退款API
++    S2 --> S4: 退款成功
++    S2 --> S5: 支付账户异常导致无法正常退回
++    S2 --> S3: 退款受理超7天账户资金不足
++    S4 --> [*]
++    S5 --> S4: 调用发起异常退款API成功后或在商户平台手动处理退款成功后
++    S3 --> [*]
++```
+ 
+ 退款单状态流转说明
+ 
+```
+
+### 微信支付退款最佳实践
+- ID: `4014959631`
+- 路径: 订单退款 > 附录
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4014959631.md
+- 更新时间变更: 2025-09-25 02:50:06 -> 2026-06-10 07:28:35
+- 本地文件: `pages/4014959631.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.10
++
+ ## 一、概述
+ 
+ 对微信支付订单退款，需严格遵循官方文档规范，确保资金安全。商户需通过回调通知和查询单笔退款接口获取退款单的最新状态，再根据获取的状态来做不同的业务逻辑处理。
+@@ -48,7 +50,23 @@
+ 
+ 退款单状态，可以参考：
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/27ceb6b570c40005cfa31190d97d9b48.jpeg)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "status:PROCESSING (退款处理中)" as S2
++    state "status:CLOSED(退款关闭)" as S3
++    state "status:SUCCESS(退款成功)" as S4
++    state "status:ABNORMAL (退款异常)" as S5
++
++    [*] --> S2: 支付成功，调用申请退款API
++    S2 --> S4: 退款成功
++    S2 --> S5: 支付账户异常导致无法正常退回
++    S2 --> S3: 退款受理超7天账户资金不足
++    S4 --> [*]
++    S5 --> S4: 调用发起异常退款API成功后或在商户平台手动处理退款成功后
++    S3 --> [*]
++```
+ 
+ ## 三、 退款异常处理流程
+ 
+```
+
+### 开发指引
+- ID: `4013071218`
+- 路径: 下载账单
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4013071218.md
+- 更新时间变更: 2024-11-25 10:04:01 -> 2026-06-09 07:58:53
+- 本地文件: `pages/4013071218.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、整体业务开发流程概览
+ 
+ 商户如有对账需求，可在上午十点后可调用申请账单接口（[交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013071227.md)或[资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013071235.md)），获取前三个月内任一天的账单下载链接（download\_url），并通过该链接下载获取账单文件。
+@@ -19,7 +21,17 @@
+ 
+ 商户调用申请账单API（[申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013071227.md)/[申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013071235.md)）获取账单文件下载链接download\_url(5分钟内有效)。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/3d9960fe1bdd44847dc008e449aac603.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        participant Mch as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 调用微信申请账单接口
++        WxPay-->>Mch: 申请账单成功返回下载链接download_url与哈希值
++    end
++```
+ 
+ 申请账单关键参数说明：
+ 
+@@ -31,4 +43,15 @@
+ 
+ 商户获得5分钟有效期的下载链接（download\_url）后，需通过GET方式请求并按[apiv3标准生成签名](https://pay.weixin.qq.com/doc/v3/merchant/4012365342.md)来获取账单文件，不得直接在浏览器中访问。默认返回账单文件内容，商户需用utf-8编码读取；若申请账单时tar\_type指定了GZIP压缩类型，则返回.gzip格式压缩文件，需先解压再读取账单内容。账单文件下载后商户应计算哈希值，并与申请账单返回的哈希值对比，以确保账单完整性。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/02c97f57c663f08747dda068039e6ee0.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        participant Mch as 商户后端
++        participant WxPay as 微信支付系统
++
++        Mch->>WxPay: 按照apiv3标准生成签名放请求头，GET请求download_url(5分钟内有效)
++        WxPay-->>Mch: 返回账单文件内容或压缩文件(申请账单时指定GZIP压缩)
++        Mch->>Mch: 商户下载并校验哈希值
++    end
++```
+```
+
+### 开发指引
+- ID: `4012068033`
+- 路径: 分账
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md
+- 更新时间变更: 2025-08-14 02:20:08 -> 2026-06-09 07:58:27
+- 本地文件: `pages/4012068033.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -12,7 +14,34 @@
+ 
+ ### 3.1. 业务流程图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b44eadd582847ee8f44c8f6e562a5d50.png)
++```mermaid
++sequenceDiagram
++rect rgb(255,255,255)
++    autonumber
++    actor 用户
++    participant 商户系统-分账方
++    participant 微信支付系统
++    actor 分账接收方
++
++
++        用户->>商户系统-分账方: 用户在商户侧使用微信支付进行支付
++        商户系统-分账方->>微信支付系统: 待分账标识参数, 请求下单并支付（profit_sharing）
++        微信支付系统->>微信支付系统: 此次省去客户端校验支付流程
++        微信支付系统-->>商户系统-分账方: 回调支付结果给商户系统
++
++        商户系统-分账方->>微信支付系统: 调用接口添加分账接收方
++        note right of 商户系统-分账方: 添加分账接收方需要在申请分账前进行
++        微信支付系统-->>商户系统-分账方: 返回添加结果
++
++        商户系统-分账方->>微信支付系统: 添加分账方成功后请求申请分账
++        微信支付系统->>分账接收方: 按照商户需求分账给分账接收方
++        微信支付系统->>商户系统-分账方: 返回分账申请结果(非最终分账结果)
++
++        alt 查询分账结果（请求申请分账未收到返回或返回状态不明）
++            商户系统-分账方->>微信支付系统: 调用查询分账结果
++        end
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 开发指引
+- ID: `4012715211`
+- 路径: 商家转账
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012715211.md
+- 更新时间变更: 2026-05-07 08:19:54 -> 2026-06-09 09:46:27
+- 本地文件: `pages/4012715211.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、开发前配置
+ 
+ 开发前，开发者需要完成如下两个步骤：配置开发参数和配置产品功能。
+@@ -65,7 +67,22 @@
+ - [保险理赔](https://pay.weixin.qq.com/doc/v3/merchant/4013774595.md)
+ 
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/3fd5a6d9c281dc106a9d08c670dad62f.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付
++
++        User->>Mch: 申请提现
++        Mch->>WxPay: 发起商家转账
++
++        opt 受理转账成功
++            WxPay-->>Mch: 调起用户确认收款页的订单参数“package ”
++        end
++    end
++```
+ 
+ 注意：
+ 
+@@ -84,7 +101,33 @@
+ 
+ 商户调用[发起转账API](https://pay.weixin.qq.com/doc/v3/merchant/4012716434.md)接口创建转账单成功（订单状态为WAIT\_USER\_CONFIRM），会获取到用于拉起确认收款页面的关键参数"package\_info"，商户需根据自己使用商家转账的载体选择对应API接口拉起用户确认收款页，移动应用类型使用[APP调起用户确认收款](https://pay.weixin.qq.com/doc/v3/merchant/4012719576.md)，公众号及小程序类型使用[JSAPI调起用户确认收款](https://pay.weixin.qq.com/doc/v3/merchant/4012716430.md)
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/e1a8075b0713c7d5270d51a8134d6a17.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付
++
++        Mch->>WxPay: 展示用户确认收款页
++        WxPay->>User: 确认收款
++		Note right of WxPay: 用户微信账户存在异常需要处理时，<br>可闭环在微信内解脱、完成收款
++        opt 用户可收款
++            WxPay->>WxPay: 转账到用户零钱
++        end
++
++        WxPay-->>User: 收款结果
++		Note right of WxPay: 撤销接口返回成功仅表示撤销请求已<br>受理，系统会异步处理退款等操作，<br>以最终查询转账单接口返回的状态为准。
++        opt 用户已通过其他方式收款
++            Mch->>WxPay: 撤销商家转账
++            WxPay-->>Mch: 撤销转账结果
++        end
++
++
++
++
++    end
++```
+ 
+ 下面介绍在转账过程中的异常处理情况：
+ 
+@@ -101,7 +144,29 @@
+ 
+ 用户完成确认收款后，微信支付会向商户发送[商家转账回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012712115.md)，告知转账结果。为确保在未收到回调通知的情况下仍能及时、准确地获取转账单据状态，商户必须接入[商户单号查询转账单API](https://pay.weixin.qq.com/doc/v3/merchant/4012716437.md)接口或[微信单号查询转账单API](https://pay.weixin.qq.com/doc/v3/merchant/4012716457.md)接口兜底进行结果查询
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/2f317ce6698f6cb454f5a6169fc8081e.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付
++        participant P4 as 时间
++
++        opt 未收到商家转账成功回调通知，且查单结果还没有到达终态
++            Mch->>WxPay: 查询转账单
++            WxPay-->>Mch: 转账结果
++            Note over Mch,WxPay: 转账单状态为SUCCESS，才代表用户<br/>已实际领取了转账<br/><br/>转账单状态为FAIL 代表转账失败，<br/>为CANCELLED 代表已撤销。<br/><br/>以上三种为终态，说明转账单<br/>已处理完成，状态不会再变化。
++        end
++
++
++        opt 用户24小时未确认
++            P4->>WxPay: 退款用户未确认收款的转账单
++        end
++
++
++    end
++```
+ 
+ 注意：
+ 
+@@ -124,7 +189,43 @@
+ 
+ ### 2.3、订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/ff6f543e9aa7d659908fef44ceaf5902.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "state：ACCEPTED（转账已受理）" as S2
++    state "state：PROCESSING（转账锁定资金中）" as S3
++    state "state：WAIT_USER_CONFIRM（待收款用户确认）" as S4
++    state "state：TRANSFERING（转账中）" as S5
++    state "state：SUCCESS（转账成功）" as S6
++    state "state：CANCELING（撤销中）" as S7
++    state "state：CANCELLED:（转账撤销完成）" as S8
++    state "state：FAIL（转账失败）" as S9
++
++    [*] --> S2: 商户调用发起转账接口生成转账单
++    S2 --> S3: 受理成功
++    S3 --> S4: 锁定资金成功
++    S7 --> S8: 撤销成功
++
++    S4 --> S7: 用户确认收款前，商户可主动撤销
++    S3 --> S7: 用户确认收款前，商户可主动撤销
++    S2 --> S7: 用户确认收款前，商户可主动撤销
++
++    S5 --> S6: 转账成功
++
++    S2 --> S9: 网路抖动等内部系统异常
++    S3 --> S9: 出资账户余额不足，商户超过24小时未充值
++    S4 --> S9: 转账单创建成功后，用户未在24小时内确认收款
++
++    S4 --> S5: 用户确认收款
++    S7 --> S5
++
++
++
++    S9 --> [*]
++    S6 --> [*]
++    S8 --> [*]
++```
+ 
+ 1、从转账单据创建成功后开始计算，如果用户24h内未确认收款，系统会自动关单并退款至商户资金。系统关单时间可能超过24小时，商户需通过查询商家转账单接口核实转账单是否已成功关闭，若该笔转账单还未关闭，请勿换单发起转账，商户也可通过[撤销转账API](https://pay.weixin.qq.com/doc/v3/merchant/4012716458.md)接口主动撤销该订单。
+ 
+@@ -162,13 +263,52 @@
+ 
+ 商户系统同步调用[发起转账并完成免确认收款授权](https://pay.weixin.qq.com/doc/v3/merchant/4014399293.md)，在请求中指定免确认收款授权信息发起转账，并根据返回参数拉起用户确认收款页让用户确认收款，并获取用户授权。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/8248b8982eaff227d6a254e033838ab5.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付
++
++        Mch->>WxPay: 展示用户确认收款和授权页
++        WxPay->>User: 确认收款和授权
++
++        opt 用户可收款
++            WxPay->>WxPay: 转账到用户零钱
++        end
++
++        WxPay-->>User: 收款结果
++
++        opt 用户可授权成功
++            WxPay->>WxPay: 记录免确认收款授权
++            WxPay-->>User: 免确认收款授权结果
++        end
++    end
++```
+ 
+ 方式二：直接申请授权
+ 
+ 商户系统也可调用[发起免确认收款授权](https://pay.weixin.qq.com/doc/v3/merchant/4015901167.md)直接申请授权，并根据返回参数使用[JSAPI调起免确认收款授权](https://pay.weixin.qq.com/doc/v3/merchant/4015930512.md)来获取用户授权
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/267f6fc264769f37f6f16d4b8d3b13dd.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付
++
++        Mch->>WxPay: 展示免确认收款授权页
++        WxPay->>User: 确认授权
++
++        opt 用户可授权成功
++            WxPay->>WxPay: 记录免确认收款授权
++        end
++
++        WxPay-->>User: 免确认收款授权结果
++    end
++```
+ 
+ #### 3.2.3、用户确认授权
+ 
+@@ -184,7 +324,20 @@
+ 
+... 已截断其余 49 行 diff
+```
+
+### 开发指引
+- ID: `4012587166`
+- 路径: 微信支付分
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012587166.md
+- 更新时间变更: 2026-03-09 09:24:40 -> 2026-06-09 09:46:25
+- 本地文件: `pages/4012587166.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1、开发前配置
+ 
+ 开发前，开发者需要完成如下两个步骤：配置开发参数和配置产品功能。
+@@ -45,7 +47,20 @@
+ 
+ 当用户申请使用服务时，商户需调用[创建支付分订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012587900.md)接口创建订单。在接口参数中，商户需要通过post\_payments字段，上传本笔订单的预估费用或计费规则等信息，不同的场景有不同的传值要求，详见：[post\_payments(后付费项目)字段传参说明](https://pay.weixin.qq.com/doc/v3/merchant/4012587259.md)
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/dd30d6ccfc7221dd018af22175554950.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付分小程序
++        participant WxPay2 as 微信支付系统
++
++        User->>Mch: 用户下单
++        Mch->>WxPay2: 创建支付分订单
++        WxPay2-->>Mch: 返回用于拉起微信支付分小程确认订单参数“package”
++    end
++```
+ 
+ 下单接口需要注意的参数：
+ 
+@@ -73,7 +88,23 @@
+ 
+ 商户调用[创建支付分订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012587900.md)接口生成订单后，会获取到用于拉起支付分订单确认页面的关键参数"package"，商户根据自己使用支付分的载体选择对应API接口拉起支付分，移动应用类型使用[APP调起支付分订单确认页面](https://pay.weixin.qq.com/doc/v3/merchant/4012587909.md)，公众号类型使用[JSAPI调起支付分订单确认页面](https://pay.weixin.qq.com/doc/v3/merchant/4012587945.md)，小程序类型使用[小程序调起支付分订单确认页面](https://pay.weixin.qq.com/doc/v3/merchant/4012587949.md)。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/2c09e31fd947de49477e95d6c6f168eb.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付分小程序
++        participant WxPay2 as 微信支付系统
++
++        Mch->>WxPay: 跳转微信支付分小程序确认订单页
++        WxPay->>WxPay2: 判断用户是否有免押权益
++        WxPay2-->>WxPay: 获取综合评估结果
++        WxPay-->>User: 展示页面结果
++        User->>WxPay: 用户确认支付分订单
++        WxPay->>WxPay2: 发送确认请求
++    end
++```
+ 
+ #### 2.2.3、商户提供服务
+ 
+@@ -84,7 +115,35 @@
+ - 订单完结后，支付分会持续自动扣款，无需重复调用完结接口。
+ 
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c10446ac73b18062488b0d7a64e38c7d.png)
++```mermaid
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付分小程序
++        participant WxPay2 as 微信支付系统
++
++        WxPay2-)Mch: 异步通知商户确认订单回调结果
++        Mch->>Mch: 保存确认订单结果
++        Mch-->>WxPay2: 返回告知成功接收处理
++
++        alt 判断确认订单状态（未收到确认订单回调）
++            Mch->>WxPay2: 主动调用查询支付分订单接口，查询确认订单状态
++            WxPay2->>Mch: 返回确认订单状态结果
++            Mch->>Mch: 订单确认成功，为用户提供服务
++        end
++
++        opt 根据情况选择调用取消订单接口（服务过程中出现异常，商户主动终止服务）
++            Mch->>WxPay2: 调用取消订单接口
++            WxPay2-->>Mch: 返回取消订单结果
++        end
++
++        Mch->>WxPay2: 调用完结订单接口
++        WxPay2-->>Mch: 同步返回完结订单结果
++    end
++```
+ 
+ 完结订单接口需要注意的参数：
+ 
+@@ -119,7 +178,33 @@
+ - 如果订单在“待支付”状态下（collection.state: USER\_PAYING），用户通过其他方式完成支付，商户可调用[同步订单信息API](https://pay.weixin.qq.com/doc/v3/merchant/4012587962.md)将订单支付成功状态同步给微信支付，后续微信支付将不再发起扣款，支付分订单将变成已完成状态。
+ 
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/3e2f53af74cae05a787994dcc08d991f.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant Mch as 商户系统
++        participant WxPay as 微信支付分小程序
++        participant WxPay2 as 微信支付系统
++
++        WxPay2-)Mch: 订单完结成功，微信支付进行轮询扣款，并在扣款成功后将扣款信息回调通知给商户系统
++
++        alt 判断订单扣款状态（未收到支付回调通知）
++            Mch->>WxPay2: 主动调用查询支付分订单状态接口，查询订单支付状态
++            WxPay2-->>Mch: 返回支付结果
++        end
++
++        opt 根据情况选择调用修改订单金额接口（扣款过程中，发现扣款金额有误且当前订单状态为“待支付”）
++            Mch->>WxPay2: 调用修改订单金额接口
++            WxPay2-->>Mch: 返回修改订单金额结果
++        end
++
++        opt 根据情况选择调用同步订单接口（扣款过程中，用户通过其它方式完成了支付，希望微信支付分停止继续扣款）
++            Mch->>WxPay2: 调用同步订单接口
++            WxPay2-->>Mch: 返回同步订单结果
++        end
++    end
++```
+ 
+ #### 2.2.5、商户对账
+ 
+@@ -142,7 +227,32 @@
+ 
+ ### 2.3、订单状态流转图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/088656f110e5bff3b87de5d38e5a73bf.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "state:CREATED(已创建)" as S2
++    state "state:EXPIRED(服务订单已失效)" as S3
++    state "state:DOING (进行中)<br/>state_description:USER_CONFIRM(用户已确认订单)" as S4
++    state "state:REVOKED(商户取消服务订单)" as S5
++    state "state:DOING (进行中)state description:MCH COMPLETE(商户已完结订单)collection.state:USER PAYING (订单待支付)" as S6
++    state "state:DONE(已完成)collection.state:USER_PAID (订单已支付)collection.detail.paid_type:MCH(通过商户其他渠道收款)" as S7
++    state "state:DONE(已完成)collection.state:USER PAID (订单已支付)collection.detail.paid_type:NEWTON (通过微信支付分收款)" as S8
++
++    [*] --> S2: 创建支付分订单
++    S2 --> S3: 超过30天
++    S2 --> S4: 用户确认订单成功
++    S2 --> S5: 商户取消订单
++    S3 --> [*]
++    S4 --> S5: 商户取消订单
++    S4 --> S6: 服务结束商户完结订单
++    S5 --> [*]
++    S6 --> S5: 商户取消订单
++    S6 --> S7: 商户通过其他方式收款，调用同步订单接口扭转状态，<br/>collection.detail.paid_type=MCH
++    S6 --> S8: 微信扣款成功，<br/>collection.detail.paid_type=NEWTON
++    S7 --> [*]
++    S8 --> [*]
++```
+ 
+ 1、当支付分订单状态为待支付(collection.state: USER\_PAYING)时，微信侧会定期轮询扣款，扣款失败时状态不变，扣款成功时订单状态才改变。
+ 
+```
+
+### 开发指引
+- ID: `4012077649`
+- 路径: 微信支付分停车服务
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012077649.md
+- 更新时间变更: 2025-03-21 07:40:10 -> 2026-06-09 07:58:42
+- 本地文件: `pages/4012077649.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -12,17 +14,68 @@
+ 
+ ### 3.1. 业务流程图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/0b2779cfdc612eca9c921bd4d94d55b8.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        participant P2 as 刷码器（停车场）
++        participant Mch as 商户
++        participant WxPay as 微信支付分停车服务
++
++        User->>P2: 识别车牌
++        P2->>Mch: 提交车牌信息
++        Mch->>WxPay: 调用创建停车入场
++        WxPay->>WxPay: 检查车牌开通情况、用户欠款信息
++        WxPay->>WxPay: 查询用户当前分数是否可用无感
++        WxPay-->>Mch: 返回车牌状态和入场ID
++
++        alt 支付分停车服务（未开通服务）
++            User->>Mch: 开通无感支付
++            Mch->>WxPay: 跳转至微信支付分停车服务小程序开通页
++            WxPay->>WxPay: 支付分授权，平台代扣开通授权
++
++            alt 授权完成
++                WxPay->>User: 拉起开通成功页
++                WxPay->>Mch: 服务状态变更通知
++                WxPay->>User: 服务开通通知
++            else 授权失败
++                WxPay->>User: 拉起开通失败页
++            end
++
++        else 已开通服务
++            WxPay->>User: 入场通知
++        end
++
++        opt 车主入场后车牌状态发送变更
++            WxPay->>WxPay: 场内车牌状态变化
++            WxPay->>Mch: 处理车主场内状态变更通知
++        end
++
++        User->>P2: 识别车牌
++        P2->>Mch: 提交车牌信息
++        Mch->>WxPay: 申请扣款（车牌信息和入场ID）
++        WxPay->>WxPay: 验证请求，受理扣款请求
++        Mch->>Mch: 处理受理结果
++        Mch->>P2: 放行车辆（受理成功）
++
++        alt 受理失败
++            Mch-->>P2: 现场缴费（受理失败）
++        end
++
++        WxPay->>Mch: 异步通知扣费结果
++    end
++```
+ 
+ 重点步骤说明：
+ 
+ 步骤3 用户入场时，调用[创建停车入场](https://pay.weixin.qq.com/doc/v3/merchant/4012533937.md)接口创建停车入场信息。商户根据返回的车牌状态判断用户是否开通支付分停车服务。
+ 
+-步骤7.2 如果用户未开通支付分服务，可调用[调起微信支付分停车服务开通页](https://pay.weixin.qq.com/doc/v3/merchant/4012284186.md)接口为微信支付分开通小程序，引导用户进行服务开通。
++步骤7 如果用户未开通支付分服务，可调用[调起微信支付分停车服务开通页](https://pay.weixin.qq.com/doc/v3/merchant/4012284186.md)接口为微信支付分开通小程序，引导用户进行服务开通。
+ 
+-步骤10 场内车牌发送变化后，微信支付通过[停车入场状态变更通知](https://pay.weixin.qq.com/doc/v3/merchant/4012284177.md)接口将车主状态变化通知给商户。
++步骤16 场内车牌发送变化后，微信支付通过[停车入场状态变更通知](https://pay.weixin.qq.com/doc/v3/merchant/4012284177.md)接口将车主状态变化通知给商户。
+ 
+-步骤13 用户离场时，需调用[扣费受理](https://pay.weixin.qq.com/doc/v3/merchant/4012534352.md)接口完成订单受理，微信支付进行异步扣款，支付完成后，会将订单支付结果发送给商户。
++步骤19 用户离场时，需调用[扣费受理](https://pay.weixin.qq.com/doc/v3/merchant/4012534352.md)接口完成订单受理，微信支付进行异步扣款，支付完成后，会将订单支付结果发送给商户。
+ 
+ ## 4. 开发注意事项
+ 
+```
+
+### 开发指引
+- ID: `4012084207`
+- 路径: 代金券
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md
+- 更新时间变更: 2025-08-14 02:19:53 -> 2026-06-09 07:59:04
+- 本地文件: `pages/4012084207.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -14,7 +16,39 @@
+ 
+ #### 业务流程时序图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/f07e1981c994f035f83d12bb9c24eb49.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor Mch as 商户
++        participant Mch2 as 商户系统
++        participant WxPay as 微信支付
++
++        Mch->>Mch2: 1、请求创建代金券
++        Mch2->>WxPay: 2、调用创建代金券批次接口
++        WxPay->>WxPay: 3、校验并产生批次号
++        WxPay-->>Mch2: 4、返回代金券批次
++        Mch2-->>Mch: 5、获得代金券批次号
++        Mch->>Mch2: 6、确认并激活代金券批次
++        Mch2->>WxPay: 7、请求激活代金券批次接口
++        WxPay->>WxPay: 8、校验并更新批次状态
++        WxPay-->>Mch2: 9、返回代金券批次状态
++        Mch2-->>Mch: 10、获得代金券批次状态
++        Mch->>Mch2: 11、请求发放代金券
++        Mch2->>WxPay: 12、请求发放代金券批次接口
++        WxPay->>WxPay: 13、校验并发放代金券
++        WxPay-->>Mch2: 14、返回发放结果
++        Mch2-->>Mch: 15、获取代金券发放结果
++
++        alt 管理券
++            Mch->>Mch2: 16、查询代金券
++            Mch2->>WxPay: 17、调用相应接口
++            WxPay->>WxPay: 18、校验并查询
++            WxPay-->>Mch2: 19、返回结果
++            Mch2-->>Mch: 20、获取结果
++        end
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 开发指引
+- ID: `4012063233`
+- 路径: 委托营销
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012063233.md
+- 更新时间变更: 2025-08-13 08:51:18 -> 2026-06-09 07:59:03
+- 本地文件: `pages/4012063233.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -12,7 +14,26 @@
+ 
+ #### 3.1. 业务流程图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/img/202210/1e406e2687809c83fc7172c5a11c3771_800x617.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor User as 用户
++        actor P2 as 商家
++        participant P3 as 公众平台
++        participant WxPay as 微信支付
++
++        P2->>P3: 1、开通小程序直播插件()
++        P2->>WxPay: 2、创建商家券(商家券or支付券)
++        WxPay->>WxPay: 3、记录券批次信息()
++        P2->>WxPay: 4、完成批次号与appid之间的合作授权()
++        WxPay->>WxPay: 5、记录appid与批次号授权关系
++        P2->>P3: 6、配置直播间派发券信息(商家券or支付券)
++        User->>P3: 7、*进入指定商家直播间()
++        User->>P3: 8、领取券(商家券or支付券)
++        User->>WxPay: 9、进入卡包，查阅相关券信息()
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 开发指引
+- ID: `4012064366`
+- 路径: 支付有礼
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012064366.md
+- 更新时间变更: 2025-03-27 08:11:44 -> 2026-06-09 07:59:01
+- 本地文件: `pages/4012064366.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -14,7 +16,45 @@
+ 
+ #### 业务流程时序图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/3a39d6aeb5a45a126a7a57f269b5b877.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        participant Mch as 商户
++        participant WxPay as 微信支付
++        actor User as 用户
++
++        Mch->>WxPay: 1、创建商家券
++        WxPay-->>Mch: 2、返回批次号
++        Mch->>WxPay: 3、上传素材图片
++        WxPay-->>Mch: 4、返回图片CDN地址
++        Mch->>WxPay: 5、创建支付有礼活动
++        WxPay-->>Mch: 6、返回活动ID
++        Mch->>WxPay: 7、设置事件通知地址
++        WxPay-->>Mch: 8、返回结果
++        User->>Mch: 9、发起支付
++        Mch->>WxPay: 10、发起微信支付
++        User->>WxPay: 11、确认支付，输入密码
++
++        par 并行处理
++            WxPay-->>User: 12、展示支付结果
++            WxPay->>Mch: 13、通知支付结果
++            WxPay->>User: 14、发放优惠券
++        end
++
++        User->>WxPay: 15、领取优惠券
++
++        par 并行处理
++            WxPay->>Mch: 16、领券消息通知
++        end
++
++        WxPay-->>User: 16、返回领券结果
++        Mch->>WxPay: 18、查询支付有礼
++        WxPay-->>Mch: 19、返回支付有礼活动信息
++        Mch->>WxPay: 20、终止支付有礼活动
++        WxPay-->>Mch: 21、返回结果
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 开发指引
+- ID: `4012068086`
+- 路径: 智慧商圈
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012068086.md
+- 更新时间变更: 2026-05-21 02:56:02 -> 2026-06-09 07:59:00
+- 本地文件: `pages/4012068086.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,6 +1,8 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+-为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/docs/merchant/development/interface-rules/introduction.html)。
++为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+ 
+ ## 2. 开发准备
+ 
+@@ -12,7 +14,35 @@
+ 
+ ### 3.1. 业务流程图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/84d82d927c0736939f4979fd7309ca34.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        participant SP as 商圈OR服务商
++        participant MiniApp as 8、商圈自有小程序
++        participant WxPay as 微信支付智慧商圈运营
++        participant WxPay2 as 微信支付商家/服务商助手小程序
++        participant P5 as 微信开放平台
++        participant WxPay3 as 微信支付平台
++
++        SP->>WxPay: 1、提交邮件申请【智慧商圈】
++        WxPay->>WxPay: 2、审核
++        WxPay-->>SP: 3、审核通过，并成功开通智慧商圈
++        SP->>WxPay2: 4、添加圈内门店
++        SP->>P5: 5、开放平台、申请【商圈快速积分】插件
++        SP->>WxPay: 6、邮件申请【商圈快速积分】
++        P5->>WxPay: 7.1、运营审核
++        WxPay->>WxPay: 7.2、审核
++        WxPay-->>SP: 8、审核通过，成功开通【商圈快速积分】
++        SP->>MiniApp: 9、插件开发
++        WxPay3->>SP: 10、商圈支付结果通知【申请积分时提供回调地址】（将已开通积分消费者消费记录通知给商户）
++        SP-->>WxPay3: 11、返回通知接收情况
++        SP->>WxPay3: 12、商圈积分同步
++        WxPay3->>SP: 13、商圈退款通知【申请积分时提供回调地址】（将已开通积分消费者退款记录通知给商户）
++        SP->>WxPay3: 14、返回通知接收情况
++        WxPay3->>WxPay3: 15、监控30天内已同步积分是否发生退款
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 开发指引
+- ID: `4012062997`
+- 路径: 支付即服务
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012062997.md
+- 更新时间变更: 2025-08-13 08:51:10 -> 2026-06-09 07:58:58
+- 本地文件: `pages/4012062997.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -22,7 +24,39 @@
+ 
+ ### 3.1. 业务流程图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/f36f6c1c92d64f5c6b3bec940e8e7e50.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++        autonumber
++        actor SP as 服务商
++        actor P2 as 服务员
++        actor P3 as 商家
++        actor P4 as 顾客
++        participant P5 as 基础支付
++        participant P6 as 支付即服务系统
++
++        P3->>P6: 1、开通支付即服务产品功能
++        P3->>P6: 2、配置支付即服务产品模块及参数
++        SP->>P6: 3、邀请商家授权产品权限
++        P6->>P6: 4、生成授权单
++        P3->>P6: 5、查看授权单，完成授权
++        P3->>P6: 6、注册服务员信息
++        P6->>P6: 7、记录信息，生成并返回服务人员ID
++        P3->>P6: 8、查询服务人员信息
++        P4->>P3: 9、选购商品
++        P3->>P5: 10、下单
++        P3->>P6: 11、分配服务人员ID
++        P4->>P5: 12、支付完成
++        P5->>P6: 13、询问支付凭证cell配置信息
++        P6->>P6: 14、判断下单商家是否开通产品功能
++        P6->>P6: 15、检验服务员ID真实性
++        P6->>P6: 16、储存服务人员ID与用户UIN关联关系
++        P6->>P5: 17、返回是否带服务人员名片入口
++        P5->>P4: 18、推送支付凭证带服务人员名片
++        P4->>P6: 19、通过支付凭证进入专属服务人员名片页面
++        P6->>P6: 20、名片页面按商家配置模块进行展示
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 开发指引
+- ID: `4012068499`
+- 路径: 消费者投诉2.0
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012068499.md
+- 更新时间变更: 2026-03-24 07:11:09 -> 2026-06-09 09:46:34
+- 本地文件: `pages/4012068499.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.09
++
+ ## 1. 接口规则
+ 
+ 为了在保证支付安全的前提下，带给商户简单、一致且易用的开发体验，我们推出了全新的微信支付APIv3接口。该版本API的具体规则请参考[APIv3接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)。
+@@ -12,7 +14,51 @@
+ 
+ ### 3.1. 业务流程图
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/fada548943e400d7f2bf5d22777370e2.png)
++```mermaid
++sequenceDiagram
++    rect rgb(255,255,255)
++    actor 用户
++    participant 微信客户端
++    participant 微信支付系统
++    participant 商户后台
++
++    %% 主流程
++    用户->>微信客户端: 1、用户发起投诉()
++    微信客户端->>微信支付系统: 2、创建投诉单()
++    微信支付系统->>微信支付系统: 用户投诉次数(=1)
++    微信支付系统->>商户后台: 3、通知商户投诉待处理()
++    商户后台->>微信支付系统: 4、主动查询投诉单进展()
++    微信支付系统-->>商户后台: 5、返回查询结果()
++    商户后台->>商户后台: 投诉受理()
++    商户后台->>微信支付系统: 6、调用提交回复接口，回复投诉处理()
++    微信支付系统-->>微信客户端: 7、更新投诉单进展()
++    微信客户端-->>用户: 8、同步投诉回复()
++
++    %% 投诉处理结果分支
++    alt 投诉处理结果（满意投诉处理结果）
++        商户后台->>微信支付系统: 9、反馈处理完成()
++        微信支付系统->>微信客户端: 10、更新投诉单进展()
++        微信客户端-->>用户: 11、同步投诉处理完成()
++    else 不满意投诉处理结果
++        用户->>微信客户端: 12、用户继续投诉()
++        微信客户端->>微信客户端: 记录用户继续投诉内容()
++        微信客户端->>微信支付系统: 13、投诉单状态转为待处理()
++        微信支付系统->>微信支付系统: 用户投诉次数(+1)
++        微信支付系统->>商户后台: 14、通知商户投诉待处理()
++        商户后台->>微信支付系统: 15、主动查询投诉单进展()
++        微信支付系统-->>商户后台: 16、返回查询结果()
++        商户后台->>商户后台: 投诉受理()
++    end
++
++    %% 并行处理par块
++    par 并行处理
++        微信支付系统->>商户后台: 1、通知商户投诉最新进展()
++        商户后台-->>微信支付系统: 2、返回通知处理结果()
++        商户后台->>微信支付系统: 3、主动查询投诉单进展()
++        微信支付系统-->>商户后台: 4、返回查询结果()
++    end
++    end
++```
+ 
+ 重点步骤说明：
+ 
+```
+
+### 业务示例代码
+- ID: `4015821404`
+- 路径: 消费者投诉2.0
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4015821404.md
+- 更新时间变更: 2025-09-11 03:09:04 -> 2026-06-10 07:28:20
+- 本地文件: `pages/4015821404.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.06.10
++
+ ## 1. 目标
+ 
+ 通过本教程的学习，你应该可以：
+@@ -287,11 +289,45 @@
+ 
+ 「普通咨询」的投诉单状态机：
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/3efd06bb04a2ee0047d95e5933661fd8.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "state:PENDING(商户待处理)" as S2
++    state "state:PROCESSING(商户处理中)" as S3
++    state "state:PROCESSED(商户处理完成)" as S4
++
++    [*] --> S2: 用户提交投诉
++    S2 --> S3: 商家提交回复
++    S3 --> S4: 商家提交处理完成
++    S4 --> S3: 用户升级投诉(非全额退款到账)
++    note right of S4: 用户升级投诉(全额退款到账)
++    S4--> [*]
++```
+ 
+ 「退款申请」的投诉单状态机：
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a824672ca6494c8bc5ba1c77a16e1112.png)
++```mermaid
++%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
++stateDiagram-v2
++    direction LR
++    state "state:PENDING(商户待处理)" as S2
++    state "state:PROCESSED(商户处理完成)" as S3
++    state "state:PROCESSING(商户处理中)" as S4
++
++    [*] --> S2: 用户提交投诉
++    S2 --> S3: 退款到账事件
++    S2 --> S3: 用户提交投诉(用户提交表单阶段商家存在退款)
++    S2 --> S3: 商家驳回退款(非退款到账且未同意/驳回过)
++    S2 --> S4: 商家同意退款(非退款到账且未同意/驳回过)
++    S2 --> S4: 商家提交回复
++    S3 --> S4: 用户升级投诉(非全额退款到账)
++    S4 --> S3: 商家提交处理完成
++    S4 --> S3: 退款到账
++    S4 --> S3: 商家驳回退款(非退款到账且未同意/驳回过)
++    note right of S4: 用户升级投诉(全额退款到账)
++    S3 --> [*]
++```
+ 
+ ### 3.1 商户投诉单获取
+ 
 ```
 
 ## 附录：所有页面清单
@@ -312,7 +2452,7 @@
 | 5 | [刷脸支付](pages/4012647399.md) | `4012647399` | 2024-10-08 06:20:39 | 刷脸支付 |
 | 6 | [产品介绍](pages/4012062524.md) | `4012062524` | 2025-07-15 03:13:07 | JSAPI支付 |
 | 7 | [开发接入准备](pages/4015423216.md) | `4015423216` | 2026-05-21 07:03:41 | JSAPI支付 |
-| 8 | [开发指引](pages/4012791870.md) | `4012791870` | 2026-02-28 03:34:36 | JSAPI支付 |
+| 8 | [开发指引](pages/4012791870.md) | `4012791870` | 2026-06-09 07:58:04 | JSAPI支付 |
 | 9 | [常见问题](pages/4012791869.md) | `4012791869` | 2026-03-11 09:00:48 | JSAPI支付 |
 | 10 | [JSAPI/小程序下单](pages/4012791856.md) | `4012791856` | 2025-03-31 06:15:06 | JSAPI支付 > API列表 |
 | 11 | [JSAPI调起支付](pages/4012791857.md) | `4012791857` | 2025-02-26 09:52:40 | JSAPI支付 > API列表 |
@@ -333,7 +2473,7 @@
 | 26 | [各主体可申请的基础支付权限列表](pages/4015420731.md) | `4015420731` | 2025-06-27 06:54:59 | JSAPI支付 > 附录 |
 | 27 | [产品介绍](pages/4013070158.md) | `4013070158` | 2025-11-18 07:10:06 | APP支付 |
 | 28 | [开发接入准备](pages/4015478291.md) | `4015478291` | 2026-05-19 07:50:37 | APP支付 |
-| 29 | [开发指引](pages/4013070176.md) | `4013070176` | 2026-01-16 03:57:24 | APP支付 |
+| 29 | [开发指引](pages/4013070176.md) | `4013070176` | 2026-06-09 07:58:00 | APP支付 |
 | 30 | [常见问题](pages/4013070182.md) | `4013070182` | 2026-01-16 03:47:27 | APP支付 |
 | 31 | [APP下单](pages/4013070347.md) | `4013070347` | 2025-03-31 06:15:03 | APP支付 > API列表 |
 | 32 | [APP调起支付](pages/4013070351.md) | `4013070351` | 2025-02-19 03:53:32 | APP支付 > API列表 |
@@ -377,7 +2517,7 @@
 | 70 | [获取用户ip指引](pages/4018677409.md) | `4018677409` | 2026-03-13 07:56:04 | H5支付 > 附录 |
 | 71 | [产品介绍](pages/4012791874.md) | `4012791874` | 2025-07-17 08:07:28 | Native支付 |
 | 72 | [开发接入准备](pages/4015614538.md) | `4015614538` | 2026-05-19 07:52:00 | Native支付 |
-| 73 | [开发指引](pages/4012791891.md) | `4012791891` | 2025-07-17 08:07:28 | Native支付 |
+| 73 | [开发指引](pages/4012791891.md) | `4012791891` | 2026-06-09 09:47:19 | Native支付 |
 | 74 | [常见问题](pages/4012791890.md) | `4012791890` | 2026-05-19 07:39:26 | Native支付 |
 | 75 | [Native下单](pages/4012791877.md) | `4012791877` | 2025-03-31 06:14:58 | Native支付 > API列表 |
 | 76 | [Native调起支付](pages/4012791878.md) | `4012791878` | 2025-03-21 07:40:26 | Native支付 > API列表 |
@@ -397,7 +2537,7 @@
 | 90 | [申请Native支付权限指引](pages/4012791875.md) | `4012791875` | 2025-07-17 08:07:28 | Native支付 > 附录 |
 | 91 | [产品介绍](pages/4012791894.md) | `4012791894` | 2025-07-15 03:13:41 | 小程序支付 |
 | 92 | [开发接入准备](pages/4015459512.md) | `4015459512` | 2026-05-19 07:52:18 | 小程序支付 |
-| 93 | [开发指引](pages/4012791911.md) | `4012791911` | 2026-02-28 08:03:41 | 小程序支付 |
+| 93 | [开发指引](pages/4012791911.md) | `4012791911` | 2026-06-09 09:47:15 | 小程序支付 |
 | 94 | [常见问题](pages/4012791910.md) | `4012791910` | 2026-01-23 02:53:52 | 小程序支付 |
 | 95 | [JSAPI/小程序下单](pages/4012791897.md) | `4012791897` | 2025-03-31 06:15:06 | 小程序支付 > API列表 |
 | 96 | [小程序调起支付](pages/4012791898.md) | `4012791898` | 2025-02-26 09:51:05 | 小程序支付 > API列表 |
@@ -417,7 +2557,7 @@
 | 110 | [各主体可申请的基础支付权限列表](pages/4015459054.md) | `4015459054` | 2025-07-02 06:14:13 | 小程序支付 > 附录 |
 | 111 | [产品介绍](pages/4012077221.md) | `4012077221` | 2025-08-06 01:36:46 | JSAPI合单支付 |
 | 112 | [开发接入准备](pages/4015764634.md) | `4015764634` | 2026-05-21 08:24:21 | JSAPI合单支付 |
-| 113 | [开发指引](pages/4012078634.md) | `4012078634` | 2026-05-21 08:24:21 | JSAPI合单支付 |
+| 113 | [开发指引](pages/4012078634.md) | `4012078634` | 2026-06-09 09:47:13 | JSAPI合单支付 |
 | 114 | [常见问题](pages/4013421298.md) | `4013421298` | 2026-05-21 08:24:21 | JSAPI合单支付 |
 | 115 | [JSAPI合单下单](pages/4012556926.md) | `4012556926` | 2025-01-14 02:41:58 | JSAPI合单支付 > API列表 |
 | 116 | [JSAPI调起支付](pages/4012266069.md) | `4012266069` | 2025-02-19 03:55:33 | JSAPI合单支付 > API列表 |
@@ -434,7 +2574,7 @@
 | 127 | [管理商户号绑定的APPID账号](pages/4013426141.md) | `4013426141` | 2025-07-31 09:23:37 | JSAPI合单支付 > 附录 |
 | 128 | [产品介绍](pages/4012077215.md) | `4012077215` | 2025-08-06 01:36:50 | APP合单支付 |
 | 129 | [开发接入准备](pages/4013420660.md) | `4013420660` | 2026-05-20 08:26:06 | APP合单支付 |
-| 130 | [开发指引](pages/4012077667.md) | `4012077667` | 2026-05-20 08:31:11 | APP合单支付 |
+| 130 | [开发指引](pages/4012077667.md) | `4012077667` | 2026-06-09 09:47:09 | APP合单支付 |
 | 131 | [常见问题](pages/4013420906.md) | `4013420906` | 2026-05-20 08:33:17 | APP合单支付 |
 | 132 | [App合单下单](pages/4012556944.md) | `4012556944` | 2025-01-14 02:41:38 | APP合单支付 > API列表 |
 | 133 | [App调起支付](pages/4012266043.md) | `4012266043` | 2025-02-19 03:54:39 | APP合单支付 > API列表 |
@@ -450,7 +2590,7 @@
 | 143 | [下载账单](pages/4012085923.md) | `4012085923` | 2024-12-18 07:42:23 | APP合单支付 > API列表 |
 | 144 | [产品介绍](pages/4013421104.md) | `4013421104` | 2025-08-06 01:36:48 | H5合单支付 |
 | 145 | [开发接入准备](pages/4015764448.md) | `4015764448` | 2026-05-20 08:27:15 | H5合单支付 |
-| 146 | [开发指引](pages/4012078230.md) | `4012078230` | 2026-05-20 09:37:25 | H5合单支付 |
+| 146 | [开发指引](pages/4012078230.md) | `4012078230` | 2026-06-09 09:47:00 | H5合单支付 |
 | 147 | [常见问题](pages/4013421196.md) | `4013421196` | 2025-08-06 01:36:48 | H5合单支付 |
 | 148 | [H5合单下单](pages/4012556961.md) | `4012556961` | 2025-01-14 02:40:23 | H5合单支付 > API列表 |
 | 149 | [H5调起支付](pages/4012266131.md) | `4012266131` | 2025-01-09 03:20:15 | H5合单支付 > API列表 |
@@ -466,7 +2606,7 @@
 | 159 | [下载账单](pages/4013421189.md) | `4013421189` | 2025-01-09 03:20:03 | H5合单支付 > API列表 |
 | 160 | [产品介绍](pages/4012077545.md) | `4012077545` | 2025-08-06 01:36:44 | Native合单支付 |
 | 161 | [开发接入准备](pages/4015764779.md) | `4015764779` | 2026-05-20 08:28:07 | Native合单支付 |
-| 162 | [开发指引](pages/4012078926.md) | `4012078926` | 2026-05-20 09:52:24 | Native合单支付 |
+| 162 | [开发指引](pages/4012078926.md) | `4012078926` | 2026-06-09 09:46:57 | Native合单支付 |
 | 163 | [常见问题](pages/4013421369.md) | `4013421369` | 2026-05-20 09:55:27 | Native合单支付 |
 | 164 | [Native合单下单](pages/4012556982.md) | `4012556982` | 2025-01-14 02:40:50 | Native合单支付 > API列表 |
 | 165 | [Native调起支付](pages/4012266088.md) | `4012266088` | 2025-03-21 07:38:03 | Native合单支付 > API列表 |
@@ -482,7 +2622,7 @@
 | 175 | [下载账单](pages/4013421368.md) | `4013421368` | 2025-01-09 03:19:37 | Native合单支付 > API列表 |
 | 176 | [产品介绍](pages/4012077589.md) | `4012077589` | 2025-08-06 01:36:42 | 小程序合单支付 |
 | 177 | [开发接入准备](pages/4015765029.md) | `4015765029` | 2026-05-20 08:28:58 | 小程序合单支付 |
-| 178 | [开发指引](pages/4012079115.md) | `4012079115` | 2026-05-20 09:56:45 | 小程序合单支付 |
+| 178 | [开发指引](pages/4012079115.md) | `4012079115` | 2026-06-09 09:46:54 | 小程序合单支付 |
 | 179 | [常见问题](pages/4013421468.md) | `4013421468` | 2026-05-20 09:57:11 | 小程序合单支付 |
 | 180 | [小程序合单下单](pages/4012556931.md) | `4012556931` | 2025-01-14 02:41:58 | 小程序合单支付 > API列表 |
 | 181 | [小程序调起支付](pages/4012266109.md) | `4012266109` | 2025-01-09 03:27:32 | 小程序合单支付 > API列表 |
@@ -512,16 +2652,16 @@
 | 205 | [接入医保亲情付指引](pages/4016975471.md) | `4016975471` | 2026-05-20 03:23:51 | 医保支付 > 附录 |
 | 206 | [UI规范与页面说明](pages/4021595091.md) | `4021595091` | 2026-06-08 09:46:28 | 医保支付 > 附录 |
 | 207 | [产品介绍](pages/4013071001.md) | `4013071001` | 2025-06-27 09:49:14 | 订单退款 |
-| 208 | [开发指引](pages/4013071031.md) | `4013071031` | 2025-06-20 04:11:54 | 订单退款 |
+| 208 | [开发指引](pages/4013071031.md) | `4013071031` | 2026-06-09 09:46:45 | 订单退款 |
 | 209 | [常见问题](pages/4013071200.md) | `4013071200` | 2026-05-09 08:56:42 | 订单退款 |
 | 210 | [业务示例代码](pages/4015217336.md) | `4015217336` | 2025-09-03 03:02:18 | 订单退款 |
 | 211 | [申请退款](pages/4013071036.md) | `4013071036` | 2025-01-09 03:18:26 | 订单退款 > API列表 |
 | 212 | [查询单笔退款（通过商户退款单号）](pages/4013071041.md) | `4013071041` | 2025-01-09 03:19:47 | 订单退款 > API列表 |
 | 213 | [发起异常退款](pages/4013071193.md) | `4013071193` | 2024-12-30 07:50:09 | 订单退款 > API列表 |
 | 214 | [退款结果通知](pages/4013071196.md) | `4013071196` | 2025-01-02 08:01:31 | 订单退款 > API列表 |
-| 215 | [微信支付退款最佳实践](pages/4014959631.md) | `4014959631` | 2025-09-25 02:50:06 | 订单退款 > 附录 |
+| 215 | [微信支付退款最佳实践](pages/4014959631.md) | `4014959631` | 2026-06-10 07:28:35 | 订单退款 > 附录 |
 | 216 | [产品介绍](pages/4013071215.md) | `4013071215` | 2025-04-24 04:25:36 | 下载账单 |
-| 217 | [开发指引](pages/4013071218.md) | `4013071218` | 2024-11-25 10:04:01 | 下载账单 |
+| 217 | [开发指引](pages/4013071218.md) | `4013071218` | 2026-06-09 07:58:53 | 下载账单 |
 | 218 | [业务示例代码](pages/4015945131.md) | `4015945131` | 2025-12-03 04:00:41 | 下载账单 |
 | 219 | [常见问题](pages/4013071254.md) | `4013071254` | 2026-05-19 07:37:47 | 下载账单 |
 | 220 | [申请交易账单](pages/4013071227.md) | `4013071227` | 2025-01-10 01:36:34 | 下载账单 > API列表 |
@@ -532,7 +2672,7 @@
 | 225 | [下载账单操作指引](pages/4013071252.md) | `4013071252` | 2024-11-25 10:03:53 | 下载账单 > 附录 |
 | 226 | [产品介绍](pages/4012067962.md) | `4012067962` | 2025-05-13 02:17:45 | 分账 |
 | 227 | [开发接入准备](pages/4012067989.md) | `4012067989` | 2026-05-19 08:32:51 | 分账 |
-| 228 | [开发指引](pages/4012068033.md) | `4012068033` | 2025-08-14 02:20:08 | 分账 |
+| 228 | [开发指引](pages/4012068033.md) | `4012068033` | 2026-06-09 07:58:27 | 分账 |
 | 229 | [常见问题](pages/4014547102.md) | `4014547102` | 2026-05-21 03:14:53 | 分账 |
 | 230 | [请求分账](pages/4012524936.md) | `4012524936` | 2025-09-29 01:57:06 | 分账 > API列表 |
 | 231 | [查询分账结果](pages/4012525210.md) | `4012525210` | 2025-09-29 02:00:15 | 分账 > API列表 |
@@ -548,7 +2688,7 @@
 | 241 | [分账失败处理指引](pages/4015505684.md) | `4015505684` | 2025-07-04 03:41:52 | 分账 > 附录 |
 | 242 | [产品介绍](pages/4012711988.md) | `4012711988` | 2026-05-26 09:26:58 | 商家转账 |
 | 243 | [开发接入准备](pages/4013740645.md) | `4013740645` | 2026-06-01 03:29:49 | 商家转账 |
-| 244 | [开发指引](pages/4012715211.md) | `4012715211` | 2026-05-07 08:19:54 | 商家转账 |
+| 244 | [开发指引](pages/4012715211.md) | `4012715211` | 2026-06-09 09:46:27 | 商家转账 |
 | 245 | [业务示例代码](pages/4018940876.md) | `4018940876` | 2026-04-23 09:22:55 | 商家转账 |
 | 246 | [常见问题](pages/4013778940.md) | `4013778940` | 2026-05-19 07:42:20 | 商家转账 |
 | 247 | [发起转账](pages/4012716434.md) | `4012716434` | 2025-03-21 02:52:14 | 商家转账 > API列表 > 发起转账 |
@@ -591,7 +2731,7 @@
 | 284 | [保险理赔](pages/4013774595.md) | `4013774595` | 2026-02-05 07:23:07 | 商家转账 > 附录 > 转账场景报备信息字段传参说明 |
 | 285 | [产品介绍](pages/4012587050.md) | `4012587050` | 2024-12-09 09:50:51 | 微信支付分 |
 | 286 | [开发接入准备](pages/4012587112.md) | `4012587112` | 2026-05-19 07:59:56 | 微信支付分 |
-| 287 | [开发指引](pages/4012587166.md) | `4012587166` | 2026-03-09 09:24:40 | 微信支付分 |
+| 287 | [开发指引](pages/4012587166.md) | `4012587166` | 2026-06-09 09:46:25 | 微信支付分 |
 | 288 | [常见问题](pages/4012587200.md) | `4012587200` | 2026-05-09 08:57:58 | 微信支付分 |
 | 289 | [创建支付分订单](pages/4012587900.md) | `4012587900` | 2025-03-06 08:16:47 | 微信支付分 > API列表 |
 | 290 | [查询支付分订单](pages/4012587902.md) | `4012587902` | 2024-12-10 09:27:51 | 微信支付分 > API列表 |
@@ -630,7 +2770,7 @@
 | 323 | [酒店行业](pages/4012587370.md) | `4012587370` | 2024-12-09 09:50:22 | 微信支付分 > 附录 > post_payments(后付费项目)字段传参说明 |
 | 324 | [产品介绍](pages/4012077223.md) | `4012077223` | 2025-12-11 08:47:29 | 微信支付分停车服务 |
 | 325 | [开发接入准备](pages/4012077356.md) | `4012077356` | 2026-05-19 08:00:39 | 微信支付分停车服务 |
-| 326 | [开发指引](pages/4012077649.md) | `4012077649` | 2025-03-21 07:40:10 | 微信支付分停车服务 |
+| 326 | [开发指引](pages/4012077649.md) | `4012077649` | 2026-06-09 07:58:42 | 微信支付分停车服务 |
 | 327 | [常见问题](pages/4016183517.md) | `4016183517` | 2025-12-12 02:17:07 | 微信支付分停车服务 |
 | 328 | [创建停车入场](pages/4012533937.md) | `4012533937` | 2025-02-21 08:25:25 | 微信支付分停车服务 > API列表 > 停车入场 |
 | 329 | [停车入场状态变更通知](pages/4012284177.md) | `4012284177` | 2025-02-20 06:14:47 | 微信支付分停车服务 > API列表 > 停车入场 |
@@ -648,7 +2788,7 @@
 | 341 | [现金红包（V2）](pages/4012647471.md) | `4012647471` | 2025-04-25 08:11:06 | 现金红包（V2） |
 | 342 | [产品介绍](pages/4012084079.md) | `4012084079` | 2025-10-14 07:17:46 | 代金券 |
 | 343 | [开发接入准备](pages/4012084133.md) | `4012084133` | 2026-05-19 08:07:01 | 代金券 |
-| 344 | [开发指引](pages/4012084207.md) | `4012084207` | 2025-08-14 02:19:53 | 代金券 |
+| 344 | [开发指引](pages/4012084207.md) | `4012084207` | 2026-06-09 07:59:04 | 代金券 |
 | 345 | [常见问题](pages/4015880636.md) | `4015880636` | 2025-10-14 06:41:01 | 代金券 |
 | 346 | [业务示例代码](pages/4015894256.md) | `4015894256` | 2026-05-19 08:07:01 | 代金券 |
 | 347 | [核销事件回调通知](pages/4012285250.md) | `4012285250` | 2025-02-19 03:51:54 | 代金券 > API列表 |
@@ -670,12 +2810,12 @@
 | 363 | [设置代金券消息通知地址](pages/4012464198.md) | `4012464198` | 2024-08-28 03:19:30 | 代金券 > API列表 > 消息通知地址 |
 | 364 | [产品介绍](pages/4012063104.md) | `4012063104` | 2024-07-23 07:30:20 | 委托营销 |
 | 365 | [开发接入准备](pages/4012063130.md) | `4012063130` | 2026-05-19 08:10:42 | 委托营销 |
-| 366 | [开发指引](pages/4012063233.md) | `4012063233` | 2025-08-13 08:51:18 | 委托营销 |
+| 366 | [开发指引](pages/4012063233.md) | `4012063233` | 2026-06-09 07:59:03 | 委托营销 |
 | 367 | [建立合作关系](pages/4012380498.md) | `4012380498` | 2024-08-26 03:01:30 | 委托营销 > API列表 |
 | 368 | [查询合作关系列表](pages/4012380536.md) | `4012380536` | 2024-09-02 03:15:51 | 委托营销 > API列表 |
 | 369 | [产品介绍](pages/4012064295.md) | `4012064295` | 2025-11-11 11:19:33 | 支付有礼 |
 | 370 | [开发接入准备](pages/4012064330.md) | `4012064330` | 2026-05-19 08:10:58 | 支付有礼 |
-| 371 | [开发指引](pages/4012064366.md) | `4012064366` | 2025-03-27 08:11:44 | 支付有礼 |
+| 371 | [开发指引](pages/4012064366.md) | `4012064366` | 2026-06-09 07:59:01 | 支付有礼 |
 | 372 | [图片上传（营销专用）](pages/4012557248.md) | `4012557248` | 2024-09-20 02:59:58 | 支付有礼 > API列表 |
 | 373 | [创建全场满额送活动](pages/4012487898.md) | `4012487898` | 2024-09-02 08:05:47 | 支付有礼 > API列表 > 支付有礼活动 |
 | 374 | [获取活动详情接口](pages/4012487971.md) | `4012487971` | 2024-09-02 08:05:47 | 支付有礼 > API列表 > 支付有礼活动 |
@@ -693,7 +2833,7 @@
 | 386 | [H5发券](pages/4012285783.md) | `4012285783` | 2025-03-21 07:38:14 | H5发券 > API列表 |
 | 387 | [产品介绍](pages/4012068030.md) | `4012068030` | 2025-03-21 07:44:27 | 智慧商圈 |
 | 388 | [开发接入准备](pages/4012068068.md) | `4012068068` | 2026-05-19 08:12:05 | 智慧商圈 |
-| 389 | [开发指引](pages/4012068086.md) | `4012068086` | 2026-05-21 02:56:02 | 智慧商圈 |
+| 389 | [开发指引](pages/4012068086.md) | `4012068086` | 2026-06-09 07:59:00 | 智慧商圈 |
 | 390 | [常见问题](pages/4016111728.md) | `4016111728` | 2026-05-19 07:42:04 | 智慧商圈 |
 | 391 | [商圈会员积分服务授权结果通知](pages/4012285836.md) | `4012285836` | 2025-02-19 03:56:03 | 智慧商圈 > API列表 |
 | 392 | [商圈会员场内支付结果通知](pages/4012285856.md) | `4012285856` | 2025-02-19 03:56:03 | 智慧商圈 > API列表 |
@@ -704,7 +2844,7 @@
 | 397 | [商圈会员停车状态同步](pages/4012535502.md) | `4012535502` | 2024-11-27 07:19:43 | 智慧商圈 > API列表 |
 | 398 | [产品介绍](pages/4012061135.md) | `4012061135` | 2026-05-21 02:57:16 | 支付即服务 |
 | 399 | [开发接入准备](pages/4012061536.md) | `4012061536` | 2026-05-19 08:12:18 | 支付即服务 |
-| 400 | [开发指引](pages/4012062997.md) | `4012062997` | 2025-08-13 08:51:10 | 支付即服务 |
+| 400 | [开发指引](pages/4012062997.md) | `4012062997` | 2026-06-09 07:58:58 | 支付即服务 |
 | 401 | [常见问题](pages/4016913581.md) | `4016913581` | 2025-12-19 02:14:30 | 支付即服务 |
 | 402 | [服务人员查询](pages/4012535123.md) | `4012535123` | 2025-01-08 09:32:31 | 支付即服务 > API列表 |
 | 403 | [服务人员注册](pages/4012535138.md) | `4012535138` | 2025-01-09 03:10:17 | 支付即服务 > API列表 |
@@ -716,8 +2856,8 @@
 | 409 | [清关报关（V2）](pages/4012647500.md) | `4012647500` | 2025-04-25 07:53:32 | 清关报关（V2） |
 | 410 | [产品介绍](pages/4012068466.md) | `4012068466` | 2025-08-25 10:00:06 | 消费者投诉2.0 |
 | 411 | [开发接入准备](pages/4012068478.md) | `4012068478` | 2026-05-19 08:33:15 | 消费者投诉2.0 |
-| 412 | [开发指引](pages/4012068499.md) | `4012068499` | 2026-03-24 07:11:09 | 消费者投诉2.0 |
-| 413 | [业务示例代码](pages/4015821404.md) | `4015821404` | 2025-09-11 03:09:04 | 消费者投诉2.0 |
+| 412 | [开发指引](pages/4012068499.md) | `4012068499` | 2026-06-09 09:46:34 | 消费者投诉2.0 |
+| 413 | [业务示例代码](pages/4015821404.md) | `4015821404` | 2026-06-10 07:28:20 | 消费者投诉2.0 |
 | 414 | [常见问题](pages/4016111664.md) | `4016111664` | 2026-05-19 07:42:36 | 消费者投诉2.0 |
 | 415 | [查询投诉单列表](pages/4012533431.md) | `4012533431` | 2025-08-28 02:44:02 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
 | 416 | [查询投诉单详情](pages/4012533436.md) | `4012533436` | 2025-08-28 02:43:38 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |

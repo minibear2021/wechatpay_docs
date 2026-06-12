@@ -56,7 +56,7 @@
       "docId": "4012791870",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md",
-      "updateTime": "1772249676",
+      "updateTime": "1780991884",
       "fullPath": "JSAPI支付"
     },
     {
@@ -203,7 +203,7 @@
       "docId": "4013070176",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013070176.md",
-      "updateTime": "1768535844",
+      "updateTime": "1780991880",
       "fullPath": "APP支付"
     },
     {
@@ -511,7 +511,7 @@
       "docId": "4012791891",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791891.md",
-      "updateTime": "1752739648",
+      "updateTime": "1780998439",
       "fullPath": "Native支付"
     },
     {
@@ -651,7 +651,7 @@
       "docId": "4012791911",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791911.md",
-      "updateTime": "1772265821",
+      "updateTime": "1780998435",
       "fullPath": "小程序支付"
     },
     {
@@ -791,7 +791,7 @@
       "docId": "4012078634",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md",
-      "updateTime": "1779351861",
+      "updateTime": "1780998433",
       "fullPath": "JSAPI合单支付"
     },
     {
@@ -910,7 +910,7 @@
       "docId": "4012077667",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md",
-      "updateTime": "1779265871",
+      "updateTime": "1780998429",
       "fullPath": "APP合单支付"
     },
     {
@@ -1022,7 +1022,7 @@
       "docId": "4012078230",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md",
-      "updateTime": "1779269845",
+      "updateTime": "1780998420",
       "fullPath": "H5合单支付"
     },
     {
@@ -1134,7 +1134,7 @@
       "docId": "4012078926",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078926.md",
-      "updateTime": "1779270744",
+      "updateTime": "1780998417",
       "fullPath": "Native合单支付"
     },
     {
@@ -1246,7 +1246,7 @@
       "docId": "4012079115",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012079115.md",
-      "updateTime": "1779271005",
+      "updateTime": "1780998414",
       "fullPath": "小程序合单支付"
     },
     {
@@ -1456,7 +1456,7 @@
       "docId": "4013071031",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071031.md",
-      "updateTime": "1750392714",
+      "updateTime": "1780998405",
       "fullPath": "订单退款"
     },
     {
@@ -1505,7 +1505,7 @@
       "docId": "4014959631",
       "title": "微信支付退款最佳实践",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4014959631.md",
-      "updateTime": "1758768606",
+      "updateTime": "1781076515",
       "fullPath": "订单退款 > 附录"
     },
     {
@@ -1519,7 +1519,7 @@
       "docId": "4013071218",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071218.md",
-      "updateTime": "1732529041",
+      "updateTime": "1780991933",
       "fullPath": "下载账单"
     },
     {
@@ -1596,7 +1596,7 @@
       "docId": "4012068033",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md",
-      "updateTime": "1755138008",
+      "updateTime": "1780991907",
       "fullPath": "分账"
     },
     {
@@ -1708,7 +1708,7 @@
       "docId": "4012715211",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012715211.md",
-      "updateTime": "1778141994",
+      "updateTime": "1780998387",
       "fullPath": "商家转账"
     },
     {
@@ -2009,7 +2009,7 @@
       "docId": "4012587166",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012587166.md",
-      "updateTime": "1773048280",
+      "updateTime": "1780998385",
       "fullPath": "微信支付分"
     },
     {
@@ -2282,7 +2282,7 @@
       "docId": "4012077649",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077649.md",
-      "updateTime": "1742542810",
+      "updateTime": "1780991922",
       "fullPath": "微信支付分停车服务"
     },
     {
@@ -2408,7 +2408,7 @@
       "docId": "4012084207",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md",
-      "updateTime": "1755137993",
+      "updateTime": "1780991944",
       "fullPath": "代金券"
     },
     {
@@ -2562,7 +2562,7 @@
       "docId": "4012063233",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012063233.md",
-      "updateTime": "1755075078",
+      "updateTime": "1780991943",
       "fullPath": "委托营销"
     },
     {
@@ -2597,7 +2597,7 @@
       "docId": "4012064366",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012064366.md",
-      "updateTime": "1743063104",
+      "updateTime": "1780991941",
       "fullPath": "支付有礼"
     },
     {
@@ -2723,7 +2723,7 @@
       "docId": "4012068086",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068086.md",
-      "updateTime": "1779332162",
+      "updateTime": "1780991940",
       "fullPath": "智慧商圈"
     },
     {
@@ -2800,7 +2800,7 @@
       "docId": "4012062997",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012062997.md",
-      "updateTime": "1755075070",
+      "updateTime": "1780991938",
       "fullPath": "支付即服务"
     },
     {
@@ -2884,14 +2884,14 @@
       "docId": "4012068499",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068499.md",
-      "updateTime": "1774336269",
+      "updateTime": "1780998394",
       "fullPath": "消费者投诉2.0"
     },
     {
       "docId": "4015821404",
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015821404.md",
-      "updateTime": "1757560144",
+      "updateTime": "1781076500",
       "fullPath": "消费者投诉2.0"
     },
     {
