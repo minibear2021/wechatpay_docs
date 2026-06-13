@@ -1,5 +1,5 @@
 {
-  "totalNodes": 862,
+  "totalNodes": 864,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -1260,14 +1260,14 @@
       "docId": "4016824704",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824704.md",
-      "updateTime": "1779258032",
+      "updateTime": "1781170811",
       "fullPath": "医保支付（服务商模式）"
     },
     {
       "docId": "4017149893",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4017149893.md",
-      "updateTime": "1779261266",
+      "updateTime": "1781233205",
       "fullPath": "医保支付（服务商模式）"
     },
     {
@@ -1355,6 +1355,13 @@
       "fullPath": "医保支付（服务商模式） > 附录"
     },
     {
+      "docId": "4021773695",
+      "title": "测试及环境切换",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4021773695.md",
+      "updateTime": "1781168303",
+      "fullPath": "医保支付（服务商模式） > 附录"
+    },
+    {
       "docId": "4018300086",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018300086.md",
@@ -1365,14 +1372,14 @@
       "docId": "4018300089",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018300089.md",
-      "updateTime": "1779261797",
+      "updateTime": "1781170810",
       "fullPath": "医保支付（间连模式）"
     },
     {
       "docId": "4016824703",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824703.md",
-      "updateTime": "1779261915",
+      "updateTime": "1781233188",
       "fullPath": "医保支付（间连模式）"
     },
     {
@@ -1457,6 +1464,13 @@
       "title": "UI规范与页面说明",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4021595913.md",
       "updateTime": "1780911985",
+      "fullPath": "医保支付（间连模式） > 附录"
+    },
+    {
+      "docId": "4021774021",
+      "title": "测试及环境切换",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4021774021.md",
+      "updateTime": "1781168302",
       "fullPath": "医保支付（间连模式） > 附录"
     },
     {
@@ -2009,14 +2023,14 @@
       "docId": "4012085549",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012085549.md",
-      "updateTime": "1742548909",
+      "updateTime": "1781258338",
       "fullPath": "微信支付分停车服务"
     },
     {
       "docId": "4012085632",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012085632.md",
-      "updateTime": "1779180189",
+      "updateTime": "1781258351",
       "fullPath": "微信支付分停车服务"
     },
     {

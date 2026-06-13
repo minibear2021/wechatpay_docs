@@ -1,5 +1,5 @@
 {
-  "totalNodes": 521,
+  "totalNodes": 522,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -1351,14 +1351,14 @@
       "docId": "4016824684",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016824684.md",
-      "updateTime": "1779249259",
+      "updateTime": "1781169446",
       "fullPath": "医保支付"
     },
     {
       "docId": "4016824681",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016824681.md",
-      "updateTime": "1779260802",
+      "updateTime": "1781233217",
       "fullPath": "医保支付"
     },
     {
@@ -1443,6 +1443,13 @@
       "title": "UI规范与页面说明",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4021595091.md",
       "updateTime": "1780911988",
+      "fullPath": "医保支付 > 附录"
+    },
+    {
+      "docId": "4021773498",
+      "title": "测试及环境切换",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4021773498.md",
+      "updateTime": "1781168300",
       "fullPath": "医保支付 > 附录"
     },
     {
@@ -1722,7 +1729,7 @@
       "docId": "4013778940",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013778940.md",
-      "updateTime": "1779176540",
+      "updateTime": "1781165429",
       "fullPath": "商家转账"
     },
     {
@@ -2268,14 +2275,14 @@
       "docId": "4012077223",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077223.md",
-      "updateTime": "1765442849",
+      "updateTime": "1781257586",
       "fullPath": "微信支付分停车服务"
     },
     {
       "docId": "4012077356",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077356.md",
-      "updateTime": "1779177639",
+      "updateTime": "1781257570",
       "fullPath": "微信支付分停车服务"
     },
     {

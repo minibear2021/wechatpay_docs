@@ -1,4 +1,4 @@
->更新时间：2026.06.11
+>更新时间：2026.06.12
 
 # 微信支付商户平台文档中心
 
@@ -104,7 +104,7 @@
 - [申请H5支付权限指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791841.md)
 - [获取用户ip指引](https://pay.weixin.qq.com/doc/v3/merchant/4018677409.md)
 ## Native支付
-> Native 支付即扫码支付，商户通过接口生成支付二维码，用户使用微信扫码即可完成付款，适用于门店、线下商超、自助设备等线下场景，接入简单、稳定高效，是线下商户主流收款方式之一。
+> Native 支付，商户通过接口生成支付二维码，用户使用微信扫码即可完成付款，适用于门店、线下商超、自助设备等线下场景，接入简单、稳定高效，是线下商户主流收款方式之一。
 
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012791874.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015614538.md)
@@ -154,6 +154,8 @@
 - [申请JSAPI支付权限指引(小程序支付场景)](https://pay.weixin.qq.com/doc/v3/merchant/4012791895.md)
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015459054.md)
 ## JSAPI合单支付
+> JSAPI合单支付，提供商户在微信客户端内部浏览器网页中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用JSAPI支付）整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077221.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764634.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md)
@@ -174,6 +176,8 @@
 ### 附录
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013426141.md)
 ## APP合单支付
+> APP合单支付，提供商户在自己的APP中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用APP支付）整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077215.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4013420660.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012077667.md)
@@ -192,6 +196,8 @@
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556748.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md)
 ## H5合单支付
+> H5合单支付，提供商户在手机浏览器网页（非微信客户端内部浏览器）中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用H5支付）整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4013421104.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764448.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md)
@@ -210,6 +216,8 @@
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421185.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421189.md)
 ## Native合单支付
+> Native合单支付，提供商户在PC端网页浏览器中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用Native支付）整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077545.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764779.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078926.md)
@@ -228,6 +236,8 @@
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421365.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421368.md)
 ## 小程序合单支付
+> 小程序合单支付，提供商户在微信小程序中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用小程序支付）整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077589.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015765029.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012079115.md)
@@ -268,6 +278,7 @@
 - [申请医保支付权限](https://pay.weixin.qq.com/doc/v3/merchant/4016824675.md)
 - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/merchant/4016975471.md)
 - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/merchant/4021595091.md)
+- [测试及环境切换](https://pay.weixin.qq.com/doc/v3/merchant/4021773498.md)
 ## 订单退款
 > 订单退款为商户提供交易逆向服务，支持全额与部分退款，可按订单发起退款申请，资金原路退回用户账户，支持状态查询与流程追溯，保障售后资金安全，提升消费体验与商户合规能力。
 

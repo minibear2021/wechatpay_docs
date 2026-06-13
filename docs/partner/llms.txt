@@ -1,4 +1,4 @@
->更新时间：2026.06.11
+>更新时间：2026.06.12
 
 # 微信支付合作伙伴平台文档中心
 
@@ -99,7 +99,7 @@
 - [H5收银台适老化字体规范](https://pay.weixin.qq.com/doc/v3/partner/4013358769.md)
 - [获取用户ip指引](https://pay.weixin.qq.com/doc/v3/partner/4018675960.md)
 ## Native支付
-> Native 支付即扫码支付，商户通过接口生成支付二维码，用户使用微信扫码即可完成付款，适用于门店、线下商超、自助设备等线下场景，接入简单、稳定高效，是线下商户主流收款方式之一。
+> Native 支付，商户通过接口生成支付二维码，用户使用微信扫码即可完成付款，适用于门店、线下商超、自助设备等线下场景，接入简单、稳定高效，是线下商户主流收款方式之一。
 
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012076267.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012076268.md)
@@ -145,6 +145,8 @@
 ### 附录
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013352070.md)
 ## JSAPI合单支付
+> 服务商模式JSAPI合单支付，提供服务商在微信浏览器网页中实现将多个子商户的订单整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079332.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166834.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013461849.md)
@@ -165,6 +167,8 @@
 ### 附录
 - [合单支付-商户号绑定APPID操作说明](https://pay.weixin.qq.com/doc/v3/partner/4013462628.md)
 ## APP合单支付
+> 服务商模式APP合单支付，提供服务商在自己的APP中实现将多个子商户的订单整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079331.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166832.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013461863.md)
@@ -182,6 +186,8 @@
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760229.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012231933.md)
 ## H5合单支付
+> 服务商模式H5合单支付，提供服务商在移动客户端浏览器网页（非微信客户端内部浏览器）中实现将多个子商户的订单整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013462080.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166833.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462145.md)
@@ -199,6 +205,8 @@
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462134.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462137.md)
 ## Native合单支付
+> 服务商模式Native合单支付，提供服务商在PC端网页浏览器中实现将多个子商户的订单整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079333.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166835.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462413.md)
@@ -216,6 +224,8 @@
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462358.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462389.md)
 ## 小程序合单支付
+> 服务商模式小程序合单支付，提供服务商在微信小程序中实现将多个子商户的订单整合为一个订单进行收款的能力。
+
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079334.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166836.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462619.md)
@@ -255,6 +265,7 @@
 - [申请医保支付权限](https://pay.weixin.qq.com/doc/v3/partner/4016971494.md)
 - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/partner/4016970670.md)
 - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/partner/4021595914.md)
+- [测试及环境切换](https://pay.weixin.qq.com/doc/v3/partner/4021773695.md)
 ## 医保支付（间连模式）
 > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
 
@@ -278,6 +289,7 @@
 - [申请医保支付权限](https://pay.weixin.qq.com/doc/v3/partner/4016824701.md)
 - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/partner/4018300091.md)
 - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/partner/4021595913.md)
+- [测试及环境切换](https://pay.weixin.qq.com/doc/v3/partner/4021774021.md)
 ## 订单退款
 > 订单退款为商户提供交易逆向服务，支持全额与部分退款，可按订单发起退款申请，资金原路退回用户账户，支持状态查询与流程追溯，保障售后资金安全，提升消费体验与商户合规能力。
 
