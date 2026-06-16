@@ -718,17 +718,17 @@
       "fullPath": "JSAPI合单支付"
     },
     {
-      "docId": "4012166834",
-      "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166834.md",
-      "updateTime": "1780998362",
-      "fullPath": "JSAPI合单支付"
-    },
-    {
       "docId": "4013461849",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013461849.md",
       "updateTime": "1779351662",
+      "fullPath": "JSAPI合单支付"
+    },
+    {
+      "docId": "4012166834",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012166834.md",
+      "updateTime": "1780998362",
       "fullPath": "JSAPI合单支付"
     },
     {

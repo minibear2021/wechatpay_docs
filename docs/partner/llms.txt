@@ -1,4 +1,4 @@
->更新时间：2026.06.12
+>更新时间：2026.06.15
 
 # 微信支付合作伙伴平台文档中心
 
@@ -148,8 +148,8 @@
 > 服务商模式JSAPI合单支付，提供服务商在微信浏览器网页中实现将多个子商户的订单整合为一个订单进行收款的能力。
 
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079332.md)
-- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166834.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013461849.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166834.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462212.md)
 ### API列表
 - [JSAPI合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012757938.md)
