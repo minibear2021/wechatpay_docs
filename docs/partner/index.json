@@ -12,7 +12,7 @@
     },
     {
       "docId": "4019636341",
-      "title": "基础支付接入Skill",
+      "title": "微信支付接入Skill",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4019636341.md",
       "updateTime": "1775704319",
       "fullPath": "Skills"
@@ -1505,7 +1505,7 @@
       "docId": "4013080629",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080629.md",
-      "updateTime": "1778317016",
+      "updateTime": "1782294039",
       "fullPath": "订单退款"
     },
     {

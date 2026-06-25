@@ -5,9 +5,9 @@
   "nodes": [
     {
       "docId": "4019638116",
-      "title": "基础支付接入Skill",
+      "title": "微信支付接入Skill",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4019638116.md",
-      "updateTime": "1775704403",
+      "updateTime": "1782285395",
       "fullPath": "Skills"
     },
     {
@@ -1470,7 +1470,7 @@
       "docId": "4013071200",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071200.md",
-      "updateTime": "1778317002",
+      "updateTime": "1782294090",
       "fullPath": "订单退款"
     },
     {
@@ -1776,21 +1776,21 @@
     },
     {
       "docId": "4012719576",
-      "title": "Android",
+      "title": "APP调起用户确认收款-Android",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012719576.md",
       "updateTime": "1741336635",
       "fullPath": "商家转账 > API列表 > 发起转账 > APP调起用户确认收款"
     },
     {
       "docId": "4012719578",
-      "title": "iOS",
+      "title": "APP调起用户确认收款-iOS",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012719578.md",
       "updateTime": "1741336626",
       "fullPath": "商家转账 > API列表 > 发起转账 > APP调起用户确认收款"
     },
     {
       "docId": "4019670774",
-      "title": "鸿蒙",
+      "title": "APP调起用户确认收款-鸿蒙",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4019670774.md",
       "updateTime": "1776155331",
       "fullPath": "商家转账 > API列表 > 发起转账 > APP调起用户确认收款"
