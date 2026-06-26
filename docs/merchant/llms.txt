@@ -1,4 +1,4 @@
->更新时间：2026.06.24
+>更新时间：2026.06.25
 
 # 微信支付商户平台文档中心
 
@@ -664,7 +664,6 @@
 - [请求返回{"code":"PARAM_ERROR","message":"平台证书序列号Wechatpay-Serial错误"}](https://pay.weixin.qq.com/doc/v3/merchant/4013053279.md)
 - [为什么微信支付的回调缺少签名的几个HTTP头？](https://pay.weixin.qq.com/doc/v3/merchant/4013053283.md)
 - [如何在程序中加载商户API证书私钥](https://pay.weixin.qq.com/doc/v3/merchant/4013053290.md)
-- [如何查看商户API证书或平台证书序列号？](https://pay.weixin.qq.com/doc/v3/merchant/4013053294.md)
 - [为什么请求返回401 Unauthorized？](https://pay.weixin.qq.com/doc/v3/merchant/4012072670.md)
 - [验证微信支付响应的签名报错：签名验证失败](https://pay.weixin.qq.com/doc/v3/merchant/4016241880.md)
 - [调用接口报错：“平台私钥解密失败”](https://pay.weixin.qq.com/doc/v3/merchant/4016913151.md)

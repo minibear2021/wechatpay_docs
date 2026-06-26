@@ -1,5 +1,5 @@
 {
-  "totalNodes": 864,
+  "totalNodes": 863,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -5734,13 +5734,6 @@
       "title": "如何在程序中加载商户API证书私钥",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013059175.md",
       "updateTime": "1766644661",
-      "fullPath": "Optional > 开发须知 > 常见问题"
-    },
-    {
-      "docId": "4013059181",
-      "title": "如何查看商户API证书或平台证书序列号？",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4013059181.md",
-      "updateTime": "1732588981",
       "fullPath": "Optional > 开发须知 > 常见问题"
     },
     {
