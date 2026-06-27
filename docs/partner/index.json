@@ -1,20 +1,13 @@
 {
-  "totalNodes": 863,
+  "totalNodes": 862,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
     {
-      "docId": "4018929846",
-      "title": "商品券接入Skill",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4018929846.md",
-      "updateTime": "1775702635",
-      "fullPath": "Skills"
-    },
-    {
       "docId": "4019636341",
       "title": "微信支付接入Skill",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4019636341.md",
-      "updateTime": "1775704319",
+      "updateTime": "1782466595",
       "fullPath": "Skills"
     },
     {
