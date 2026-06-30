@@ -7,7 +7,7 @@
       "docId": "4019636341",
       "title": "微信支付接入Skill",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4019636341.md",
-      "updateTime": "1782466595",
+      "updateTime": "1782706133",
       "fullPath": "Skills"
     },
     {
@@ -63,7 +63,7 @@
       "docId": "4013334850",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013334850.md",
-      "updateTime": "1779176235",
+      "updateTime": "1782717537",
       "fullPath": "JSAPI支付"
     },
     {
@@ -1583,6 +1583,13 @@
       "title": "申请服务商资金账单",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080596.md",
       "updateTime": "1737011330",
+      "fullPath": "下载账单 > API列表"
+    },
+    {
+      "docId": "4012760249",
+      "title": "申请单个子商户资金账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012760249.md",
+      "updateTime": "1729500300",
       "fullPath": "下载账单 > API列表"
     },
     {
@@ -5313,7 +5320,7 @@
       "docId": "4014075940",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4014075940.md",
-      "updateTime": "1766113029",
+      "updateTime": "1782698275",
       "fullPath": "平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现"
     },
     {
@@ -5426,13 +5433,6 @@
       "title": "申请二级商户资金账单",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012760697.md",
       "updateTime": "1729671276",
-      "fullPath": "平台收付通-电商交易解决方案 > 账单下载 > API列表"
-    },
-    {
-      "docId": "4012760249",
-      "title": "申请单个子商户资金账单",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012760249.md",
-      "updateTime": "1729500300",
       "fullPath": "平台收付通-电商交易解决方案 > 账单下载 > API列表"
     },
     {

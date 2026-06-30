@@ -1,4 +1,4 @@
->更新时间：2026.06.26
+>更新时间：2026.06.29
 
 # 微信支付合作伙伴平台文档中心
 
@@ -315,6 +315,7 @@
 ### API列表
 - [申请所有/单个特约商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013080595.md)
 - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013080596.md)
+- [申请单个子商户资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760249.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013080597.md)
 ### 附录
 - [交易账单详细说明](https://pay.weixin.qq.com/doc/v3/partner/4013080599.md)
@@ -1112,7 +1113,6 @@
 - [申请分账账单](https://pay.weixin.qq.com/doc/v3/partner/4012761131.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012124894.md)
 - [申请二级商户资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760697.md)
-- [申请单个子商户资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760249.md)
 - [下载单个子商户/二级商户资金账单](https://pay.weixin.qq.com/doc/v3/partner/4014314390.md)
 ### 跨境付款
 > 跨境付款依托境内收付通，解决境内平台向境外供应商结算需求，支持多币种汇兑、全球分发、海关一键推单。手续费率可由平台或二级商户承担，提供合规出境、快速结算、报关一体化服务。
