@@ -1,5 +1,5 @@
 {
-  "totalNodes": 862,
+  "totalNodes": 876,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -1738,6 +1738,104 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015504885.md",
       "updateTime": "1751598491",
       "fullPath": "分账 > 附录"
+    },
+    {
+      "docId": "4019514964",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019514964.md",
+      "updateTime": "1782809438",
+      "fullPath": "停车缴费服务"
+    },
+    {
+      "docId": "4019515014",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019515014.md",
+      "updateTime": "1782809438",
+      "fullPath": "停车缴费服务"
+    },
+    {
+      "docId": "4020339052",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4020339052.md",
+      "updateTime": "1782809438",
+      "fullPath": "停车缴费服务"
+    },
+    {
+      "docId": "4019514982",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019514982.md",
+      "updateTime": "1782809438",
+      "fullPath": "停车缴费服务"
+    },
+    {
+      "docId": "4019557780",
+      "title": "提交停车场进件申请",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557780.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557794",
+      "title": "查询停车场进件申请单",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557794.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557811",
+      "title": "查询停车场进件申请单列表",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557811.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557799",
+      "title": "撤回停车场进件申请",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557799.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557757",
+      "title": "同步车辆入场通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557757.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557725",
+      "title": "同步车辆离场通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557725.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557765",
+      "title": "同步支付结果通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557765.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4020338487",
+      "title": "同步非临停扩展支付",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4020338487.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4023070758",
+      "title": "查询停车场信息",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4023070758.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4019557825",
+      "title": "查询停车费用",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557825.md",
+      "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
     },
     {
       "docId": "4012586132",

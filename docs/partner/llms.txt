@@ -1,4 +1,4 @@
->更新时间：2026.06.30
+>更新时间：2026.07.01
 
 # 微信支付合作伙伴平台文档中心
 
@@ -343,6 +343,22 @@
 - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012075366.md)
 ### 附录
 - [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/partner/4015504885.md)
+## 停车缴费服务
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4019514964.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4019515014.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4020339052.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4019514982.md)
+### API列表
+- [提交停车场进件申请](https://pay.weixin.qq.com/doc/v3/partner/4019557780.md)
+- [查询停车场进件申请单](https://pay.weixin.qq.com/doc/v3/partner/4019557794.md)
+- [查询停车场进件申请单列表](https://pay.weixin.qq.com/doc/v3/partner/4019557811.md)
+- [撤回停车场进件申请](https://pay.weixin.qq.com/doc/v3/partner/4019557799.md)
+- [同步车辆入场通知](https://pay.weixin.qq.com/doc/v3/partner/4019557757.md)
+- [同步车辆离场通知](https://pay.weixin.qq.com/doc/v3/partner/4019557725.md)
+- [同步支付结果通知](https://pay.weixin.qq.com/doc/v3/partner/4019557765.md)
+- [同步非临停扩展支付](https://pay.weixin.qq.com/doc/v3/partner/4020338487.md)
+- [查询停车场信息](https://pay.weixin.qq.com/doc/v3/partner/4023070758.md)
+- [查询停车费用](https://pay.weixin.qq.com/doc/v3/partner/4019557825.md)
 ## 微信支付分
 > 微信支付分是基于用户身份、支付行为等综合评估的信用分值，支持免押租借、先享后付等场景。支持先免、先享两种模式，帮助商户降低门槛、提升转化，订单资金可通过分账完成分配。
 
