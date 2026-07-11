@@ -1,5 +1,5 @@
 {
-  "totalNodes": 521,
+  "totalNodes": 523,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -1870,6 +1870,20 @@
       "title": "免确认收款授权结果通知",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4014512908.md",
       "updateTime": "1778206193",
+      "fullPath": "商家转账 > API列表 > 用户授权免确认模式"
+    },
+    {
+      "docId": "4024814206",
+      "title": "商户单号查询转账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4024814206.md",
+      "updateTime": "1783499148",
+      "fullPath": "商家转账 > API列表 > 用户授权免确认模式"
+    },
+    {
+      "docId": "4024819515",
+      "title": "微信单号查询转账单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4024819515.md",
+      "updateTime": "1783499148",
       "fullPath": "商家转账 > API列表 > 用户授权免确认模式"
     },
     {

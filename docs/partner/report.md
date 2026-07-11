@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20260710_013119
+**生成时间**: 20260711_013051
 **文档总数**: 876
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
@@ -12,159 +12,39 @@
 - 修改: 1 个页面
 - 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
-- llms.txt 变更: 否
+- llms.txt 变更: 是
+
+## llms.txt 变更
+
+```diff
+--- llms_old.txt
++++ llms.txt
+@@ -1,4 +1,4 @@
+->更新时间：2026.07.02
++>更新时间：2026.07.10
+ 
+ # 微信支付合作伙伴平台文档中心
+ 
+```
 
 ## 修改页面
 
 ### 产品介绍
-- ID: `4015274636`
-- 路径: 商家名片会员
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015274636.md
-- 更新时间变更: 2026-02-10 04:06:43 -> 2026-07-09 02:33:38
-- 本地文件: `pages/4015274636.md`
+- ID: `4013080592`
+- 路径: 下载账单
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080592.md
+- 更新时间变更: 2025-04-24 06:38:30 -> 2026-07-10 09:13:53
+- 本地文件: `pages/4013080592.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,3 +1,5 @@
-+>更新时间：2026.02.10
++>更新时间：2025.04.24
 +
  ## 1、产品概述
  
- 商家名片会员是[商家名片](https://pay.weixin.qq.com/doc/v3/partner/4015853362.md)的功能之一，在接入前需先[申请开通商家名片](https://pay.weixin.qq.com/doc/v3/partner/4016433970.md)功能。
-@@ -10,25 +12,25 @@
- 
- 用户手机号作为用户开卡的必填信息，其他平台提供的通用开卡信息（如：性别、生日、地址、邮箱、城市）都是非必需的，商家可依据自身的经营情况合理使用（如需用户提供，在[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中指定即可）
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/dfcafe2bd3a45b61d6492bc644810152.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348664)
- 
- #### 2.1.1、商家名片入会
- 
- 商家[开通商家名片](https://pay.weixin.qq.com/doc/v3/partner/4015853362.md#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AE%E5%90%8D%E7%89%87%E9%9C%80%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BF%A1%E6%81%AF)功能后，即可创建会员卡模板，创建了会员卡模板后，将直接在名片会员展示入会组件。进入商家名片的用户可以看到入会组件并进行入会。
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/15626bc7a47cd2f027f17fe0c62b99cd.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348665)
- 
- 进入商家名片的渠道
- 
- - 支付凭证跳转商家名片（需联系微信支付运营申请开通）：用户交易后，微信支付下发「支付凭证」，用户点击支付凭证即可跳转商家名片
- 
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/728a626275ca230c746cfe3e36f60483.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348667)
- 
- - 「摇优惠」入口跳转商家名片：通过「微信支付号」底部「摇优惠」入口进入「喜欢的商家」列表，点击具体的商家，即可跳转「商家名片」
- 
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/acb49415becbbcb9168574c256fbf9b2.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348669)
- 
- 注意
- 
-@@ -40,7 +42,7 @@
- 
- | 商家在[小程序](https://pay.weixin.qq.com/doc/v3/partner/4015273633.md)/[H5](https://pay.weixin.qq.com/doc/v3/partner/4015331476.md)入会组件引导用户开通会员 | 会员开通成功后会通知用户 | 用户可以通过会员开通成功通知，<br>进入商家名片主页 |
- | --- | --- | --- |
--| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/11e79d0bb2f84613fa719c85f6d7c0d7.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/cb6d6f2569d01059e1ccef40035f3a79.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c31375ea272dc48ee9ad06af91dac42a.png) |
-+| ![](/tencent/api/attachments/s3/url?attachmentid=34348666) | ![](/tencent/api/attachments/s3/url?attachmentid=34348668) | ![](/tencent/api/attachments/s3/url?attachmentid=34348671) |
- 
- #### 2.1.3、入会有礼活动入会
- 
-@@ -53,7 +55,7 @@
- 
- 商家在微信支付下单接口传入对应的信息且当前有关联的入会有礼活动，支付凭证cell才会展示入会入口。详见[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/156176c0bb6d610e03b0064244a0fecd.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348670)
- 
- ### 2.2、存量会员导入
- 
-@@ -70,9 +72,9 @@
- 
- 已入会的会员可查看会员的基础信息（卡名称、会员信息、会员等级、卡片有效期、卡积分，储值，会员码）及可用的券，针对卡面、积分、储值、会员码都支持配置跳转商家小程序自身页面（[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中指定）
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/ef31beb647bd64d0b5795de4f70e37f6.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348673)
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/9b57aad1706b73c9ed3fa6b0a01f3ba9.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348674)
- 
- #### 2.3.2、会员卡动态
- 
-@@ -88,13 +90,13 @@
- 
- | 实时动态<br>通过[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力实现 | 异步动态<br>通过[创建用户动态信息](https://pay.weixin.qq.com/doc/v3/partner/4015336987.md)接口实现 |
- | --- | --- |
--| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/761d9e43b4b26856d1cb36129dffc2b5.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/7b86d75b6f9389ece7a4e986efdbd8ac.png) |
-+| ![](/tencent/api/attachments/s3/url?attachmentid=34348672) | ![](/tencent/api/attachments/s3/url?attachmentid=34348675) |
- 
- ### 2.4、会员券
- 
- 商家可以给已经入会的用户[塞入商品券（单券）](https://pay.weixin.qq.com/doc/v3/partner/4015781605.md)，[塞入商品券（多次优惠）](https://pay.weixin.qq.com/doc/v3/partner/4016280664.md)。塞券的时候标注会员信息，用户将会看到有会员标识的商品券，提升会员权益感知。
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c06e1078b45562c4eb8549ab233541ce.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34349775)
- 
- ### 2.5、会员码拉起微信支付付款码（暂不支持）
- 
-@@ -106,7 +108,7 @@
- - 需在[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)时「code\_type」字段需要指定为 `JUMP_MINI_PROGRAM`:  跳转商家小程序。
- 
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5ec4d9a159c54b7d4a129338ff35b0af.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34349757)
- 
- ### 2.6、付费会员（暂不支持）
- 
-@@ -115,7 +117,7 @@
- - 用户并不在平台页面付费，平台仅负责将开通的信息传递给用户，实际付费操作在商家的小程序内完成。
- 
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/871214fd48d3573c24e4e22839a88abf.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348678)
- 
- ### 2.7、名片会员-积分兑券能力
- 
-@@ -125,15 +127,15 @@
- 
- | 接入积分兑券的用户体验 | 没接入积分兑券的用户体验 |
- | --- | --- |
--| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/4009b40361febe3acf18acc61e2512c1.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/15a432c6de1880b9fa01d226da5c1afd.png) |
-+| ![](/tencent/api/attachments/s3/url?attachmentid=37284768) | ![](/tencent/api/attachments/s3/url?attachmentid=37284769) |
- 
- #### 2.7.2、积分兑券主流程
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/4c22096ae12ddd10dafb05882dcc69d1.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=37284770)
- 
- #### 2.7.3、积分兑券异常流程
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/dc8dd669e831edc9916bc59eab8b5f1c.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=37284771)
- 
- ## 3、注意事项
- 
-@@ -145,7 +147,7 @@
- 
- 如果不及时同步将导致用户在名片会员入会失败，与商家系统会员状态存在不一致。
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/66ab9689372c9eb131e04c65f9594da4.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348679)
- 
- ### 3.2、存量会员导入到商家名片的方式
- 
-@@ -160,8 +162,8 @@
- 
- 为了避免商户导入无效会员卡，影响用户体验。用户可以主动删除在名片内的某一张会员卡，删除后平台将通过[会员卡事件通知接口](https://pay.weixin.qq.com/doc/v3/partner/4015283692.md)将删除信息同步商家。
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5a1acce0ff866d890a4526d914ea41e7.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348681)
- 
- ### 3.4、会员卡状态说明
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a0f073b17d3de4cccfdfcbf71ec93afc.png)
-+![](/tencent/api/attachments/s3/url?attachmentid=34348682)
+ 微信支付按日(00:00:00~23:59:59)生成交易和资金账单，服务商或子商户（也叫特约商户）需在次日10点后，通过接口或平台下载账单对账。
 ```
 
 ## 附录：所有页面清单
@@ -394,7 +274,7 @@
 | 218 | [退款结果通知](pages/4013080628.md) | `4013080628` | 2024-12-30 07:47:39 | 订单退款 > API列表 |
 | 219 | [退款操作指引](pages/4013080632.md) | `4013080632` | 2024-11-26 08:21:24 | 订单退款 > 附录 |
 | 220 | [微信支付退款最佳实践](pages/4014960215.md) | `4014960215` | 2026-06-10 07:28:37 | 订单退款 > 附录 |
-| 221 | [产品介绍](pages/4013080592.md) | `4013080592` | 2025-04-24 06:38:30 | 下载账单 |
+| 221 | [产品介绍](pages/4013080592.md) | `4013080592` | 2026-07-10 09:13:53 | 下载账单 |
 | 222 | [开发指引](pages/4013080593.md) | `4013080593` | 2026-06-09 07:58:24 | 下载账单 |
 | 223 | [业务示例代码](pages/4015988147.md) | `4015988147` | 2025-12-03 04:00:07 | 下载账单 |
 | 224 | [常见问题](pages/4013080602.md) | `4013080602` | 2026-05-09 08:57:11 | 下载账单 |

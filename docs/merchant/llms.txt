@@ -1,4 +1,4 @@
->更新时间：2026.07.02
+>更新时间：2026.07.10
 
 # 微信支付商户平台文档中心
 
@@ -362,6 +362,8 @@
 - [商户单号查询授权结果](https://pay.weixin.qq.com/doc/v3/merchant/4014399423.md)
 - [用户授权后转账](https://pay.weixin.qq.com/doc/v3/merchant/4014399371.md)
 - [免确认收款授权结果通知](https://pay.weixin.qq.com/doc/v3/merchant/4014512908.md)
+- [商户单号查询转账单](https://pay.weixin.qq.com/doc/v3/merchant/4024814206.md)
+- [微信单号查询转账单](https://pay.weixin.qq.com/doc/v3/merchant/4024819515.md)
 - [解除免确认收款授权](https://pay.weixin.qq.com/doc/v3/merchant/4015653811.md)
 ##### APP调起用户免确认收款授权
 - [Android](https://pay.weixin.qq.com/doc/v3/merchant/4020320167.md)
