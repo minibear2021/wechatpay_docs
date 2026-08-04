@@ -1,5 +1,5 @@
 {
-  "totalNodes": 523,
+  "totalNodes": 530,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -1451,6 +1451,48 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4021773498.md",
       "updateTime": "1781168300",
       "fullPath": "医保支付 > 附录"
+    },
+    {
+      "docId": "4026275563",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026275563.md",
+      "updateTime": "1784707647",
+      "fullPath": "医保一码付"
+    },
+    {
+      "docId": "4026276029",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026276029.md",
+      "updateTime": "1784708037",
+      "fullPath": "医保一码付"
+    },
+    {
+      "docId": "4026276043",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026276043.md",
+      "updateTime": "1785310890",
+      "fullPath": "医保一码付"
+    },
+    {
+      "docId": "4026379305",
+      "title": "签约入口说明",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026379305.md",
+      "updateTime": "1785309980",
+      "fullPath": "医保一码付 > 附录"
+    },
+    {
+      "docId": "4026292912",
+      "title": "申请一码付权限",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026292912.md",
+      "updateTime": "1784710085",
+      "fullPath": "医保一码付 > 附录"
+    },
+    {
+      "docId": "4026303367",
+      "title": "测试信息准备和验收注意事项",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026303367.md",
+      "updateTime": "1784710071",
+      "fullPath": "医保一码付 > 附录"
     },
     {
       "docId": "4013071001",
@@ -3019,6 +3061,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012467251.md",
       "updateTime": "1756780941",
       "fullPath": "消费者投诉2.0 > API列表 > 商户反馈图片"
+    },
+    {
+      "docId": "4024350132",
+      "title": "证书密钥概览",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4024350132.md",
+      "updateTime": "1784606621",
+      "fullPath": "证书密钥概览"
     },
     {
       "docId": "4012153196",

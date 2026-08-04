@@ -1,5 +1,5 @@
 {
-  "totalNodes": 876,
+  "totalNodes": 884,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -1465,6 +1465,48 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4021774021.md",
       "updateTime": "1781168302",
       "fullPath": "医保支付（间连模式） > 附录"
+    },
+    {
+      "docId": "4027117103",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4027117103.md",
+      "updateTime": "1784707963",
+      "fullPath": "医保一码付"
+    },
+    {
+      "docId": "4027117104",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4027117104.md",
+      "updateTime": "1784708055",
+      "fullPath": "医保一码付"
+    },
+    {
+      "docId": "4027117105",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4027117105.md",
+      "updateTime": "1785310889",
+      "fullPath": "医保一码付"
+    },
+    {
+      "docId": "4027117109",
+      "title": "签约入口说明",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4027117109.md",
+      "updateTime": "1785309982",
+      "fullPath": "医保一码付 > 附录"
+    },
+    {
+      "docId": "4027117107",
+      "title": "申请一码付权限",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4027117107.md",
+      "updateTime": "1784708011",
+      "fullPath": "医保一码付 > 附录"
+    },
+    {
+      "docId": "4027117108",
+      "title": "测试信息准备和验收注意事项",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4027117108.md",
+      "updateTime": "1784707680",
+      "fullPath": "医保一码付 > 附录"
     },
     {
       "docId": "4013080622",
@@ -4358,6 +4400,13 @@
       "fullPath": "微信电子发票 > API列表"
     },
     {
+      "docId": "4025863376",
+      "title": "开具旅客运输行业电子发票",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4025863376.md",
+      "updateTime": "1784260633",
+      "fullPath": "微信电子发票 > API列表"
+    },
+    {
       "docId": "4015792575",
       "title": "冲红电子发票",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015792575.md",
@@ -4736,6 +4785,13 @@
       "fullPath": "合作伙伴订阅"
     },
     {
+      "docId": "4025464285",
+      "title": "证书密钥概览",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4025464285.md",
+      "updateTime": "1784606635",
+      "fullPath": "证书密钥概览"
+    },
+    {
       "docId": "4012925323",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012925323.md",
@@ -4820,10 +4876,10 @@
       "fullPath": "平台收付通-电商交易解决方案"
     },
     {
-      "docId": "4012072827",
+      "docId": "4016312079",
       "title": "消费者投诉2.0",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072827.md",
-      "updateTime": "1756116014",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016312079.md",
+      "updateTime": "1784173254",
       "fullPath": "平台收付通-电商交易解决方案"
     },
     {

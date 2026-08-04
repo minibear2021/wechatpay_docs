@@ -1,4 +1,4 @@
->更新时间：2026.07.10
+>更新时间：2026.08.03
 
 # 微信支付合作伙伴平台文档中心
 
@@ -289,6 +289,14 @@
 - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/partner/4018300091.md)
 - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/partner/4021595913.md)
 - [测试及环境切换](https://pay.weixin.qq.com/doc/v3/partner/4021774021.md)
+## 医保一码付
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4027117103.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4027117104.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4027117105.md)
+### 附录
+- [签约入口说明](https://pay.weixin.qq.com/doc/v3/partner/4027117109.md)
+- [申请一码付权限](https://pay.weixin.qq.com/doc/v3/partner/4027117107.md)
+- [测试信息准备和验收注意事项](https://pay.weixin.qq.com/doc/v3/partner/4027117108.md)
 ## 订单退款
 > 订单退款为商户提供交易逆向服务，支持全额与部分退款，可按订单发起退款申请，资金原路退回用户账户，支持状态查询与流程追溯，保障售后资金安全，提升消费体验与商户合规能力。
 
@@ -870,6 +878,7 @@
 - [开具通用行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792574.md)
 - [开具不动产租赁行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015941740.md)
 - [开具成品油行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4016760559.md)
+- [开具旅客运输行业电子发票](https://pay.weixin.qq.com/doc/v3/partner/4025863376.md)
 - [冲红电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792575.md)
 - [查询电子发票](https://pay.weixin.qq.com/doc/v3/partner/4015792567.md)
 - [获取发票下载信息](https://pay.weixin.qq.com/doc/v3/partner/4015792576.md)
@@ -950,6 +959,8 @@
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4016022264.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4016022266.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016550707.md)
+## 证书密钥概览
+- [证书密钥概览](https://pay.weixin.qq.com/doc/v3/partner/4025464285.md)
 ## 微信支付公钥
 > 微信支付公钥可用于验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加解密，保障交易与数据安全。商户在 API 安全页面申请下载，一次申请永久有效。
 
@@ -973,7 +984,7 @@
 ## 平台收付通-电商交易解决方案
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012086891.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012086921.md)
-- [消费者投诉2.0](https://pay.weixin.qq.com/doc/v3/partner/4012072827.md)
+- [消费者投诉2.0](https://pay.weixin.qq.com/doc/v3/partner/4016312079.md)
 ### 商户进件
 > 商户进件是平台收付通为平台型电商提供的二级商户入驻服务，通过接口协助平台下商户快速完成微信支付二级商户入驻，统一管理商户资质与准入流程，为后续合单支付、分账结算、资金管控等核心能力提供合规主体基础，保障平台交易链路顺畅运行。
 
