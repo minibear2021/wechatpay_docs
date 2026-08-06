@@ -1,5 +1,5 @@
 {
-  "totalNodes": 884,
+  "totalNodes": 885,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -63,7 +63,7 @@
       "docId": "4013334850",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013334850.md",
-      "updateTime": "1782717537",
+      "updateTime": "1785910579",
       "fullPath": "JSAPI支付"
     },
     {
@@ -602,7 +602,7 @@
       "docId": "4013352071",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013352071.md",
-      "updateTime": "1778316884",
+      "updateTime": "1785921610",
       "fullPath": "小程序支付"
     },
     {
@@ -1540,7 +1540,7 @@
       "docId": "4013080629",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080629.md",
-      "updateTime": "1782294039",
+      "updateTime": "1785910339",
       "fullPath": "订单退款"
     },
     {
@@ -1687,7 +1687,7 @@
       "docId": "4014547107",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4014547107.md",
-      "updateTime": "1777359390",
+      "updateTime": "1785910566",
       "fullPath": "分账"
     },
     {
@@ -1877,6 +1877,13 @@
       "title": "查询停车费用",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4019557825.md",
       "updateTime": "1782701996",
+      "fullPath": "停车缴费服务 > API列表"
+    },
+    {
+      "docId": "4024070065",
+      "title": "商户查费回调",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4024070065.md",
+      "updateTime": "1785910692",
       "fullPath": "停车缴费服务 > API列表"
     },
     {
@@ -4326,7 +4333,7 @@
       "docId": "4016960715",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016960715.md",
-      "updateTime": "1785133843",
+      "updateTime": "1785910318",
       "fullPath": "微信电子发票"
     },
     {
@@ -4515,7 +4522,7 @@
       "docId": "4016058480",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016058480.md",
-      "updateTime": "1769136714",
+      "updateTime": "1785910622",
       "fullPath": "特约商户进件"
     },
     {
@@ -4781,7 +4788,7 @@
       "docId": "4016550707",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016550707.md",
-      "updateTime": "1763105582",
+      "updateTime": "1785910647",
       "fullPath": "合作伙伴订阅"
     },
     {
@@ -6090,7 +6097,7 @@
       "docId": "4016183684",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016183684.md",
-      "updateTime": "1777359012",
+      "updateTime": "1785910510",
       "fullPath": "Optional > 名词表"
     },
     {
