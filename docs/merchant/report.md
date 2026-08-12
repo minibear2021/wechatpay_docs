@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260808_024704
+**生成时间**: 20260812_031543
 **文档总数**: 530
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 2 个页面
-- 成功拉取: 2 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,8 +20,8 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.08.06
-+>更新时间：2026.08.07
+->更新时间：2026.08.07
++>更新时间：2026.08.12
  
  # 微信支付商户平台文档中心
  
@@ -29,72 +29,141 @@
 
 ## 修改页面
 
-### 产品介绍
-- ID: `4012711988`
-- 路径: 商家转账
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012711988.md
-- 更新时间变更: 2026-06-26 03:35:29 -> 2026-08-07 02:45:50
-- 本地文件: `pages/4012711988.md`
+### 开发指引
+- ID: `4012791870`
+- 路径: JSAPI支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md
+- 更新时间变更: 2026-06-09 07:58:04 -> 2026-08-11 09:37:47
+- 本地文件: `pages/4012791870.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2026.06.26
-+>更新时间：2026.08.07
+->更新时间：2026.06.09
++>更新时间：2026.08.11
  
- 注意
+ ## 1、整体业务开发流程概览
  
-@@ -64,7 +64,7 @@
+@@ -19,19 +19,17 @@
  
- 直接授权收款中授权授权后转账用户主动关闭授权服务
+ ```mermaid
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber
+-        actor User as 用户
+-        participant Mch as 商户前端页面(微信浏览器打开)
+-        participant Mch2 as 商户后端
+-        participant WxPay as 微信支付系统
++	autonumber ea
++    actor User as 用户
++    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
++    participant Mch2@{ type: control } as 商户后端
++    participant WxPay@{ type: secondaryActor } as 微信支付系统
  
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c0d0b82ee691a375afc9a335884820af.png)
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b6fe7271c2f6b4b96102d530e20c0ce2.png)
+-        User->>Mch: 用户下单
+-        Mch->>Mch2: 发送下单请求
+-        Mch2->>WxPay: 调用JSAPI/小程序下单接口
+-        WxPay-->>Mch2: 下单成功返回prepay_id
+-        Mch2-->>Mch: 返回JSAPI拉起支付所需参数
+-    end
++	User->>Mch: 用户下单
++	Mch->>Mch2: 发送下单请求
++	Mch2->>WxPay: 调用JSAPI/小程序下单接口
++	WxPay-->>Mch2: 下单成功返回prepay_id
++	Mch2-->>Mch: 返回JSAPI拉起支付所需参数
+ ```
  
- （仅绿框内页面为微信官方页面，需按照商家转账规则展示，其余流程均为商户灵活设计）
+ 下单接口关键参数说明：
+@@ -57,17 +55,19 @@
+ 商户调起支付前，请确保已在[商户平台](https://pay.weixin.qq.com/)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/merchant/4013287088.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)
  
-@@ -82,17 +82,17 @@
- 4. 开通昵称，用户在商户侧的账号昵称，[发起免确认收款授权](https://pay.weixin.qq.com/doc/v3/merchant/4015901167.md)接口传入的“user\_display\_name（用户展示名称）”字段
+ ```mermaid
+-%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++%%{init: {
++  "sequence": {
++    "height":110,
++    "messageMargin":45
++  }
++}}%%
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber
+-        actor User as 用户
+-        participant Mch as 商户前端页面(微信浏览器打开)
+-        participant Mch2 as 商户后端
+-        participant WxPay as 微信支付系统
++    actor User as 用户
++    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
++    participant Mch2@{ type: control } as 商户后端
++    participant WxPay@{ type: secondaryActor } as 微信支付系统
+ 
+-        Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
+-    end
++	Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
+ ```
+ 
+ ### 2.3、用户支付
+@@ -85,14 +85,13 @@
+ 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791860.md)接口关单，关单后可以将订单当作失败终态处理。
+ 
+ ```mermaid
+-%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
++%%{init: { "sequence": { "wrap": true, "wrapPadding": 10,"height":90, "noteAlign": "left" } } }%%
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber
++        autonumber ea
+         actor User as 用户
+-        participant Mch as 商户前端页面(微信浏览器打开)
+-        participant Mch2 as 商户后端
+-        participant WxPay as 微信支付系统
++        participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
++        participant Mch2@{ type: control }  as 商户后端
++        participant WxPay@{ type: secondaryActor } as 微信支付系统
+ 
+         WxPay-->>Mch: 用户返回商户前端页面(前端会有回调function)
+         Mch->>Mch2: 查单确认订单状态
+@@ -116,7 +115,6 @@
+             end
+ 
+         end
+-    end
+ ```
+ 
+ ### 2.4、商户对账
+@@ -134,22 +132,22 @@
+ stateDiagram-v2
+     direction LR
+     state "trade_state：NOTPAY（未支付）" as trade_state
+-    state "trade_state：CLOSED（已关闭）" as Activity_230b0cda_df74_4b47_a196_a50ab1db73e3
+-    state "trade_state：SUCCESS（支付成功）" as Activity_f88291a1_4607_4cab_aa4f_80a164315b90
+-    state "trade_state：REFUND（转入退款）" as Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c
++    state "trade_state：CLOSED（已关闭）" as S1
++    state "trade_state：SUCCESS（支付成功）" as S2
++    state "trade_state：REFUND（转入退款）" as S3
  
  
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/88bce07432d5e122185a9fbe8f1444df.png)
--
--（仅绿框内页面为微信官方页面，需按照商家转账规则展示，其余流程均为商户灵活设计）
--
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/537c3b911894c7161ab79c58a1ddf660.png)
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a089c5d219741454f7b8008c5d9df6ad.png)
-+
-+（仅绿框内页面为微信官方页面，需按照商家转账规则展示，其余流程均为商户灵活设计）
-+
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/86bfcc88e07bfd1a2c062a15cda09bd0.png)
+-    trade_state --> Activity_f88291a1_4607_4cab_aa4f_80a164315b90: 用户支付成功
+-    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 订单超过7天未支付<br/>微信侧进行自动关单
+-    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
+-    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 7天内商户可对未支付的订单调用关闭订单接口
++    trade_state --> S2: 用户支付成功
++    trade_state --> S1: 订单超过7天未支付<br/>微信侧进行自动关单
++    S2 --> S3: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
++    trade_state --> S1: 7天内商户可对未支付的订单调用关闭订单接口
+     note right of trade_state
+     	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
+     end note
  
- （仅绿框内页面为微信官方页面，需按照商家转账规则展示，其余流程均为商户灵活设计）
- 
- 商户可通过解除免确认收款授权，帮助用户发起解除，用户也可以通过任意微信支付入账消息进入操作关闭服务
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b2c4f213ec6378be9c34b7a581245632.png)
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/806fa29eff9de7e2c2573f185639b5a5.png)
- 
- （2）产品特色
- 
-```
-
-### 常见问题
-- ID: `4016111728`
-- 路径: 智慧商圈
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4016111728.md
-- 更新时间变更: 2026-07-31 04:00:48 -> 2026-08-07 08:09:07
-- 本地文件: `pages/4016111728.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.07.07
-+>更新时间：2026.08.07
- 
- #### Q：商圈会员积分同步接口如果传0的话，订单退款后会不会有积分动账通知？
+-    Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c --> [*]
+-    Activity_230b0cda_df74_4b47_a196_a50ab1db73e3 --> [*]
+-    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> [*]
++    S3 --> [*]
++    S1 --> [*]
++    S2 --> [*]
+     [*] --> trade_state: 商户调用JSAPI/小程序下单接口生成订单
+ ```
  
 ```
 
@@ -112,7 +181,7 @@
 | 5 | [刷脸支付](pages/4012647399.md) | `4012647399` | 2024-10-08 06:20:39 | 刷脸支付 |
 | 6 | [产品介绍](pages/4012062524.md) | `4012062524` | 2025-07-15 03:13:07 | JSAPI支付 |
 | 7 | [开发接入准备](pages/4015423216.md) | `4015423216` | 2026-05-21 07:03:41 | JSAPI支付 |
-| 8 | [开发指引](pages/4012791870.md) | `4012791870` | 2026-06-09 07:58:04 | JSAPI支付 |
+| 8 | [开发指引](pages/4012791870.md) | `4012791870` | 2026-08-11 09:37:47 | JSAPI支付 |
 | 9 | [常见问题](pages/4012791869.md) | `4012791869` | 2026-08-05 06:10:48 | JSAPI支付 |
 | 10 | [JSAPI/小程序下单](pages/4012791856.md) | `4012791856` | 2025-03-31 06:15:06 | JSAPI支付 > API列表 |
 | 11 | [JSAPI调起支付](pages/4012791857.md) | `4012791857` | 2025-02-26 09:52:40 | JSAPI支付 > API列表 |
