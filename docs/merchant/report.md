@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260812_031543
+**生成时间**: 20260813_032024
 **文档总数**: 530
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -12,159 +12,187 @@
 - 修改: 1 个页面
 - 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
-- llms.txt 变更: 是
-
-## llms.txt 变更
-
-```diff
---- llms_old.txt
-+++ llms.txt
-@@ -1,4 +1,4 @@
-->更新时间：2026.08.07
-+>更新时间：2026.08.12
- 
- # 微信支付商户平台文档中心
- 
-```
+- llms.txt 变更: 否
 
 ## 修改页面
 
-### 开发指引
-- ID: `4012791870`
-- 路径: JSAPI支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md
-- 更新时间变更: 2026-06-09 07:58:04 -> 2026-08-11 09:37:47
-- 本地文件: `pages/4012791870.md`
+### 商家转账到零钱升级说明
+- ID: `4015273741`
+- 路径: 商家转账 > 附录
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4015273741.md
+- 更新时间变更: 2026-07-31 09:01:37 -> 2026-08-12 08:16:31
+- 本地文件: `pages/4015273741.md`
 
 ```diff
 --- old.md
 +++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.06.09
-+>更新时间：2026.08.11
+@@ -1,32 +1,149 @@
+->更新时间：2026.06.23
++>更新时间：2026.08.12
  
- ## 1、整体业务开发流程概览
+ ## 1.背景
  
-@@ -19,19 +19,17 @@
+-为提升转账效率、安全性并降低商家运营成本，"商家转账到零钱"已于2025年1月15日升级至新版"商家转账"。本次升级重点包括：
++为提升转账效率、安全性并降低商家运营成本，"商家转账到零钱"已于2025年1月15日升级至新版"商家转账"。
  
- ```mermaid
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber
--        actor User as 用户
--        participant Mch as 商户前端页面(微信浏览器打开)
--        participant Mch2 as 商户后端
--        participant WxPay as 微信支付系统
-+	autonumber ea
-+    actor User as 用户
-+    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
-+    participant Mch2@{ type: control } as 商户后端
-+    participant WxPay@{ type: secondaryActor } as 微信支付系统
+-​​安全增强​​：提供免费安全医生服务、系统漏洞诊断，通过严格的安全策略实现24小时资金保护；
++本次升级重点包括：
  
--        User->>Mch: 用户下单
--        Mch->>Mch2: 发送下单请求
--        Mch2->>WxPay: 调用JSAPI/小程序下单接口
--        WxPay-->>Mch2: 下单成功返回prepay_id
--        Mch2-->>Mch: 返回JSAPI拉起支付所需参数
--    end
-+	User->>Mch: 用户下单
-+	Mch->>Mch2: 发送下单请求
-+	Mch2->>WxPay: 调用JSAPI/小程序下单接口
-+	WxPay-->>Mch2: 下单成功返回prepay_id
-+	Mch2-->>Mch: 返回JSAPI拉起支付所需参数
- ```
+-​​成本优化​​：用户主动选择入账（目前仅支持到零钱），避免用户对账不清引发客诉，异常账户可在微信内闭环处理，降低客服介入率。
++安全增强​​：提供免费安全医生服务、系统漏洞诊断，通过严格的安全策略实现24小时资金保护；
  
- 下单接口关键参数说明：
-@@ -57,17 +55,19 @@
- 商户调起支付前，请确保已在[商户平台](https://pay.weixin.qq.com/)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/merchant/4013287088.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)
+-## 2.功能对比
++收款流程优化​​：用户主动选择入账（目前仅支持到零钱），避免用户对账不清引发客诉，异常账户可在微信内闭环处理，降低客服介入率。
  
- ```mermaid
--%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
-+%%{init: {
-+  "sequence": {
-+    "height":110,
-+    "messageMargin":45
-+  }
-+}}%%
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber
--        actor User as 用户
--        participant Mch as 商户前端页面(微信浏览器打开)
--        participant Mch2 as 商户后端
--        participant WxPay as 微信支付系统
-+    actor User as 用户
-+    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
-+    participant Mch2@{ type: control } as 商户后端
-+    participant WxPay@{ type: secondaryActor } as 微信支付系统
+-|  | 商家转账 | 商家转账到零钱 |
+-| --- | --- | --- |
+-| 支持在单个请求中向多个用户的微信零钱转账 | ❌ | ✅ |
+-| 是否需要验密 | ❌ | ✅ |
+-| 是否支持通过商户平台页面发起转账 | ❌ | ✅ |
+-| 是否需要用户主动确认收款 | ✅ | ❌ |
++## 2. 升级流程
  
--        Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
--    end
-+	Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
- ```
+-## 3.升级指引
++### 2.1 申请产品权限
  
- ### 2.3、用户支付
-@@ -85,14 +85,13 @@
- 若因特殊原因需在用户可支付时间范围内关闭订单，商户可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)接口确认订单状态，若订单仍是未支付状态，商户可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/merchant/4012791860.md)接口关单，关单后可以将订单当作失败终态处理。
+-通过平台升级通知操作升级的商户，新版"商家转账"与原"商家转账到零钱"可同时使用。
++#### 2.1.1 如何确认已获取商家转账产品权限
  
- ```mermaid
--%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
-+%%{init: { "sequence": { "wrap": true, "wrapPadding": 10,"height":90, "noteAlign": "left" } } }%%
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber
-+        autonumber ea
-         actor User as 用户
--        participant Mch as 商户前端页面(微信浏览器打开)
--        participant Mch2 as 商户后端
--        participant WxPay as 微信支付系统
-+        participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
-+        participant Mch2@{ type: control }  as 商户后端
-+        participant WxPay@{ type: secondaryActor } as 微信支付系统
+-若未有升级通知或未操作升级，新版"商家转账"与原"商家转账到零钱"属于互斥产品，已完成升级的商户将无法继续使用原服务。
++需商户登录商户平台确认，具体路径为：商户后台-产品大全-商家转账-前往功能
  
-         WxPay-->>Mch: 用户返回商户前端页面(前端会有回调function)
-         Mch->>Mch2: 查单确认订单状态
-@@ -116,7 +115,6 @@
-             end
+-新版"商家转账"与“企业付款到零钱”、“现金红包”等功能可同时使用。
++若通过上述入口查看的页面内容与下方图示任一一致，即表明你已获取“商家转账”产品权限，请查看选择接入模式
++
++| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/17dfeafa23e126a2ea9214b58f073a38.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/f01da613af3f55039438467d3b41de09.png) |
++| :-- | :-- |
++
++若通过上述入口查看的页面内容与下方图示任一一致，即表明您尚未获取“商家转账”产品权限。请根据是否收到升级通知，选择对应流程开通权限
++
++| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/bd943eefbd37c51ff6a6301de4374501.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/bd45381506a9d60ce2be13d8c99df0c1.png) |
++| :-- | :-- |
++
++#### 2.1.2 已收到升级通知
++
++若当前开通对应的为旧版商家转账（商家转账到零钱），则需管理员登录商户后台，检查站内信是否有升级通知。
++
++按照站内信指引入口操作升级的商户，新版"商家转账"与原有"商家转账到零钱"功能暂时支持同时使用，请务必尽快全量切换至新版商家转账（商户后台站内信可查看升级入口）
++
++无需审核时的流程：
++
++步骤1：点击升级链接进入商家转账升级界面
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/1c031dd62ec6812e4698159df92a33a4.png)
++
++步骤2：开通商家转账
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/42d79a596138852417708d29f83e1cc9.jpeg)
++
++步骤3：开通成功
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/74a299ff33a357d3736bfe69b4d720ba.png)
++
++需审核的流程：
++
++步骤1：点击升级链接进入商家转账升级界面
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/7526b7847bf776640d24335f12b56242.jpeg)
++
++步骤2：开通商家转账
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/42d79a596138852417708d29f83e1cc9.jpeg)
++
++步骤3：等待审核
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/522c40026d4db01936d68f2ea4db4d7a.png)
++
++#### 2.1.3 未收到升级通知
++
++- 商家转账到零钱的商户，可通过[此链接](https://pay.weixin.qq.com/xdc/mchpaymentmaterialmpweb/entry#/upgrade)升级
++
++
++- 其他产品功能的商户，开通步骤可参考开发接入准备中的[申请流程](https://pay.weixin.qq.com/doc/v3/merchant/4013740645.md#3-%E7%94%B3%E8%AF%B7%E6%B5%81%E7%A8%8B)
++
++
++#### 2.1.4 产品与转账接口对应关系表
++
++商户可通过系统调用的接口，帮助判断当前已接入的转账产品是否需要升级
++
++| 产品名称 | 接口URL |
++| --- | --- |
++| 企业付款到零钱（需升级） | /mmpaymkttransfers/promotion/transfers |
++| 企业付款到银行卡（需升级） | /mmpaysptrans/pay\_bank |
++| 现金红包/商家红包（需升级） | /mmpaymkttransfers/sendredpack <br>/mmpaymkttransfers/sendminiprogramhb(小程序红包) |
++| 商家转账到零钱（需升级） | /v3/transfer/batches |
++| 商家转账 | /v3/fund-app/mch-transfer/transfer-bills（需确认模式）<br>/v3/fund-app/mch-transfer/transfer-bills/pre-transfer-with-authorization（发起转账并完成免确认收款授权）<br>/v3/fund-app/mch-transfer/user-confirm-authorization（先发起免确认收款授权）<br>/v3/fund-app/mch-transfer/transfer-bills/transfer（授权后转账） |
  
-         end
--    end
- ```
+ 注意：
  
- ### 2.4、商户对账
-@@ -134,22 +132,22 @@
- stateDiagram-v2
-     direction LR
-     state "trade_state：NOTPAY（未支付）" as trade_state
--    state "trade_state：CLOSED（已关闭）" as Activity_230b0cda_df74_4b47_a196_a50ab1db73e3
--    state "trade_state：SUCCESS（支付成功）" as Activity_f88291a1_4607_4cab_aa4f_80a164315b90
--    state "trade_state：REFUND（转入退款）" as Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c
-+    state "trade_state：CLOSED（已关闭）" as S1
-+    state "trade_state：SUCCESS（支付成功）" as S2
-+    state "trade_state：REFUND（转入退款）" as S3
+-- 原商家转账到零钱和商家转账的属于两套不同的API接口，升级需重新接入API。你可点击 [［这里］](https://pay.weixin.qq.com/doc/v3/merchant/4012711988.md) 访问新版文档
++若商户已有产品权限和调用接口不匹配，会报权限验证失败类错误。商户可结合已有产品权限，检查调用的接口URL进行判断，企业付款到零钱、现金红包/商家红包，商家转账到零钱均需升级。
  
- 
--    trade_state --> Activity_f88291a1_4607_4cab_aa4f_80a164315b90: 用户支付成功
--    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 订单超过7天未支付<br/>微信侧进行自动关单
--    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
--    trade_state --> Activity_230b0cda_df74_4b47_a196_a50ab1db73e3: 7天内商户可对未支付的订单调用关闭订单接口
-+    trade_state --> S2: 用户支付成功
-+    trade_state --> S1: 订单超过7天未支付<br/>微信侧进行自动关单
-+    S2 --> S3: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
-+    trade_state --> S1: 7天内商户可对未支付的订单调用关闭订单接口
-     note right of trade_state
-     	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
-     end note
- 
--    Activity_fb72d47a_1b10_40cf_8765_b5c8bac9a48c --> [*]
--    Activity_230b0cda_df74_4b47_a196_a50ab1db73e3 --> [*]
--    Activity_f88291a1_4607_4cab_aa4f_80a164315b90 --> [*]
-+    S3 --> [*]
-+    S1 --> [*]
-+    S2 --> [*]
-     [*] --> trade_state: 商户调用JSAPI/小程序下单接口生成订单
- ```
- 
+-- 新版商家转账需根据自己使用商家转账的载体选择对应API接口拉起用户确认收款页，移动应用类型使用[APP调起用户确认收款](https://pay.weixin.qq.com/doc/v3/merchant/4012719576.md)，公众号及小程序类型使用[JSAPI调起用户确认收款](https://pay.weixin.qq.com/doc/v3/merchant/4012716430.md)
++### 2.2 选择接入模式
++
++开通新版“商家转账”权限后，商户可灵活选择用户确认收款或用户授权免确认任一模式接入，同时也支持双模式并行。关于两种模式的详细开发指引，请分别参阅《[用户确认收款模式开发文档](https://pay.weixin.qq.com/doc/v3/merchant/4012715211.md#2%E3%80%81-%E8%AF%A6%E7%BB%86%E5%BC%80%E5%8F%91%E6%8C%87%E5%BC%95%EF%BC%88%E7%94%A8%E6%88%B7%E7%A1%AE%E8%AE%A4%E6%94%B6%E6%AC%BE%E6%A8%A1%E5%BC%8F%EF%BC%89)》与《[用户授权免确认模式开发文档](https://pay.weixin.qq.com/doc/v3/merchant/4012715211.md#3%E3%80%81%E8%AF%A6%E7%BB%86%E5%BC%80%E5%8F%91%E6%8C%87%E5%BC%95%EF%BC%88%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83%E5%85%8D%E7%A1%AE%E8%AE%A4%E6%A8%A1%E5%BC%8F%EF%BC%89)》。
++
++#### 2.2.1 模式介绍
++
++| 模式类型 | 适用场景 |
++| --- | --- |
++| 确认收款模式 | 适用于单次收款、低频转账场景，或用户对收款信息敏感度较高的场景 |
++| 用户授权免确认模式 | 适用于用户需多次收款、长期/高频收款，或需完成审核后才可转账的场景（如用户首次收款、登录、报名、提交审核时即可引导授权） |
++
++#### 2.2.2 模式区别说明
++
++|  | 用户是否需确认/免确认授权方式 | 是否支持撤销转账 | 是否支持取消授权 | 是否需要用户主动收款 | 转账结果是否有异步通知 | 是否免确认收款授权结果通知 |
++| --- | --- | --- | --- | --- | --- | --- |
++| 商家转账--需确认模式 | 需确认 | 是 | -- | 是 | 是 | -- |
++| 商家转账--用户授权免确认模式 | 发起转账并完成免确认收款授权（方式一） | 是 | 是 | 是 | 是 | 是 |
++| 商家转账--用户授权免确认模式 | 先发起免确认收款授权（方式二） | 否 | 是 | -- | -- | 是 |
++| 商家转账--用户授权免确认模式 | 授权后转账 | 否 | 是 | 否 | 否 | 否 |
++
++### 2.3 开发对接
++
++#### 2.3.1 开发流程
++
++详细的开发流程可参考[开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012715211.md)
++
++#### 2.3.2 快速对接
++
++“商家转账到零钱”旧版提供官方 SDK，而新版“商家转账”产品调整为工具类 \+ 示例代码的模式，不再提供官方 SDK。你可通过以下链接查看对应语言工具类的详细使用方法：
++
++- [接口业务示例代码](https://pay.weixin.qq.com/doc/v3/merchant/4018940876.md)
++
++- [工具类详细使用方法（Java）](https://pay.weixin.qq.com/doc/v3/merchant/4014931831.md)
++
++- [工具类详细使用方法（ Go）](https://pay.weixin.qq.com/doc/v3/merchant/4015119334.md)
++
++
++注意：
++
++- 原商家转账到零钱和商家转账的属于两套不同的API接口，新版商家转账与2025年1月15日正式上线，升级需重新接入API。你可点击 [［这里］](https://pay.weixin.qq.com/doc/v3/merchant/4012711988.md) 访问新版文档
++
++- 新版商家转账需根据自己使用商家转账的载体选择对应API接口拉起用户确认收款页或者用户授权页，移动应用类型使用[APP调起用户确认收款](https://pay.weixin.qq.com/doc/v3/merchant/4012719576.md)，公众号及小程序类型使用[JSAPI调起用户确认收款](https://pay.weixin.qq.com/doc/v3/merchant/4012716430.md)
++
++
++## 3.升级过程中常见的问题集（重要）
++
++Q: "商家转账到零钱"已于2025年1月15日升级至新版"商家转账"，那我25年已经升级了还用升级吗？
++
++A:  企业付款到卡、商家转账到零钱产品都需要升级，商户若有接此产品，需尽快升级新版"商家转账"产品(可参考接口关系表进行自查：[2.1.4 产品与转账接口对应关系表](https://pay.weixin.qq.com/doc/v3/merchant/4015273741.md#2.1.4-%E4%BA%A7%E5%93%81%E4%B8%8E%E8%BD%AC%E8%B4%A6%E6%8E%A5%E5%8F%A3%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB%E8%A1%A8))。
++
++若您对相关信息无法确认，可联系在线技术支持团队核实：https://support.pay.weixin.qq.com/aidevhelper?from=wechatpaydoc
++
++Q: "商家转账到零钱"已于2025年1月15日升级至新版"商家转账"，那我25年已经升级了还要开通新产品权限吗？
++
++A:  对于长期未使用导致自动关闭后重新开通的权限， 以及2025年1月15日后新申请开通的权限，默认为新版“商家转账”产品，无需额外申请新产品权限。
++
++产品早期仅支持“商家转账-确认收款”模式，目前，“商家转账-用户授权免确认”模式已正式全量上线，商户可根据实际业务需求按需接入（参考：[2.2 选择接入模式](https://pay.weixin.qq.com/doc/v3/merchant/4015273741.md#2.2-%E9%80%89%E6%8B%A9%E6%8E%A5%E5%85%A5%E6%A8%A1%E5%BC%8F)）。
++
++Q: 商户后台收到的升级通知，截止日期太赶了，能不能申请延期？
++
++A:  延期问题可联系客服咨询确认：可以联系下腾讯客服，拨打95017转2号键输入商户号接入人工客服进行核实，若拨打95017无法接入成功，可以关注“腾讯客服”公众号进行核实。
 ```
 
 ## 附录：所有页面清单
@@ -458,7 +486,7 @@
 | 282 | [设置转账额度](pages/4013747667.md) | `4013747667` | 2026-05-08 02:58:10 | 商家转账 > 附录 |
 | 283 | [获取账单和电子回单](pages/4013748430.md) | `4013748430` | 2025-02-26 11:48:22 | 商家转账 > 附录 |
 | 284 | [订单失败原因说明](pages/4013774966.md) | `4013774966` | 2025-04-15 02:42:41 | 商家转账 > 附录 |
-| 285 | [商家转账到零钱升级说明](pages/4015273741.md) | `4015273741` | 2026-07-31 09:01:37 | 商家转账 > 附录 |
+| 285 | [商家转账到零钱升级说明](pages/4015273741.md) | `4015273741` | 2026-08-12 08:16:31 | 商家转账 > 附录 |
 | 286 | [现金营销](pages/4013774588.md) | `4013774588` | 2025-07-15 01:38:23 | 商家转账 > 附录 > 转账场景报备信息字段传参说明 |
 | 287 | [企业赔付](pages/4013774589.md) | `4013774589` | 2025-07-15 01:38:18 | 商家转账 > 附录 > 转账场景报备信息字段传参说明 |
 | 288 | [佣金报酬](pages/4013774590.md) | `4013774590` | 2025-07-15 01:38:22 | 商家转账 > 附录 > 转账场景报备信息字段传参说明 |
