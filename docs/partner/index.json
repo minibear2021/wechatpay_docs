@@ -1883,7 +1883,7 @@
       "docId": "4024070065",
       "title": "商户查费回调",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4024070065.md",
-      "updateTime": "1785910692",
+      "updateTime": "1786611925",
       "fullPath": "停车缴费服务 > API列表"
     },
     {
@@ -3528,7 +3528,7 @@
       "docId": "4015780862",
       "title": "商品券回调通知",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015780862.md",
-      "updateTime": "1778227527",
+      "updateTime": "1786586760",
       "fullPath": "商品券（单券） > API列表 > 商品券回调通知"
     },
     {
@@ -3836,7 +3836,7 @@
       "docId": "4016435717",
       "title": "商品券回调通知",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016435717.md",
-      "updateTime": "1778227523",
+      "updateTime": "1786586758",
       "fullPath": "商品券（多次优惠） > API列表 > 商品券回调通知"
     },
     {
