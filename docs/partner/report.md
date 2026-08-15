@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20260814_031736
+**生成时间**: 20260815_020547
 **文档总数**: 885
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 3 个页面
-- 成功拉取: 3 个页面
+- 修改: 0 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,103 +20,11 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.08.12
-+>更新时间：2026.08.13
+->更新时间：2026.08.13
++>更新时间：2026.08.14
  
  # 微信支付合作伙伴平台文档中心
  
-```
-
-## 修改页面
-
-### 商户查费回调
-- ID: `4024070065`
-- 路径: 停车缴费服务 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4024070065.md
-- 更新时间变更: 2026-08-05 06:18:12 -> 2026-08-13 09:05:25
-- 本地文件: `pages/4024070065.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.08.05
-+>更新时间：2026.08.13
- 
- ## 一、回调描述
- 
-@@ -8,7 +8,7 @@
- 
- 注意
- 
--- parking\_info\_scv\_url 字段在服务商进件时配置，不在查费 API 里;
-+- parking\_info\_scv\_url 字段在服务商进件时配置，不在查费 API 里，签名时需要使用该字段；
- 
- - 连接超时 2 秒、读写超时 3 秒、code 非 SUCCESS 均视为查费失败；
- 
-@@ -90,6 +90,8 @@
- #### 2.2、对回调通知进行应答
- 
- 商户处理查费请求后，须返回 HTTP 状态码 200，响应包体为 JSON，且须在响应头 `Authorization` 中携带商户签名（ `WECHATPAY2-SHA256-RSA2048`）。
-+
-+签名步骤可参考：[如何签名](https://pay.weixin.qq.com/doc/v3/partner/4012365864.md)。
- 
- 查费成功时，除 code、message 外，标注为「必填」的字段均须返回。
- 
-```
-
-### 商品券回调通知
-- ID: `4015780862`
-- 路径: 商品券（单券） > API列表 > 商品券回调通知
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015780862.md
-- 更新时间变更: 2026-05-08 08:05:27 -> 2026-08-13 02:06:00
-- 本地文件: `pages/4015780862.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.05.08
-+>更新时间：2026.08.13
- 
- ## 一、回调描述
- 
-@@ -176,7 +176,7 @@
- | unionid | string | true | 【用户UnionID】 领券用户在AppID所属微信开放平台账号下的唯一用户标识，详见《[UnionID机制说明](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)》 |
- | receive_time | string | true | 【领券时间】 用户领券时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | send_request_no | string | true | 【发券请求单号】 发券时传入的请求流水号 |
--| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li></ul> |
-+| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li></ul> |
- | valid_begin_time | string | true | 【有效期开始时间】 用户商品券可用开始时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | valid_end_time | string | true | 【有效期结束时间】 用户商品券可用结束时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | phone_number | string | false | 【领券手机号】用户授权的领券手机号，用户授权时才会提供此字段。 |
-```
-
-### 商品券回调通知
-- ID: `4016435717`
-- 路径: 商品券（多次优惠） > API列表 > 商品券回调通知
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4016435717.md
-- 更新时间变更: 2026-05-08 08:05:23 -> 2026-08-13 02:05:58
-- 本地文件: `pages/4016435717.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.05.08
-+>更新时间：2026.08.13
- 
- ## 一、回调描述
- 
-@@ -178,7 +178,7 @@
- | unionid | string | true | 【用户UnionID】 领券用户在AppID所属微信开放平台账号下的唯一用户标识，详见《[UnionID机制说明](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)》 |
- | receive_time | string | true | 【领券时间】 用户领券时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | send_request_no | string | true | 【发券请求单号】 发券时传入的请求流水号 |
--| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li></ul> |
-+| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li></ul> |
- | valid_begin_time | string | true | 【有效期开始时间】 用户商品券可用开始时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | valid_end_time | string | true | 【有效期结束时间】 用户商品券可用结束时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | phone_number | string | false | 【领券手机号】用户授权的领券手机号，用户授权时才会提供此字段。 |
 ```
 
 ## 附录：所有页面清单
