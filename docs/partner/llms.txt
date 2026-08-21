@@ -1,4 +1,4 @@
->更新时间：2026.08.18
+>更新时间：2026.08.20
 
 # 微信支付合作伙伴平台文档中心
 
@@ -1025,6 +1025,9 @@
 - [提交已注销商户号可用余额提现申请单](https://pay.weixin.qq.com/doc/v3/partner/4012488950.md)
 - [商户提现申请单号查询提现申请单状态](https://pay.weixin.qq.com/doc/v3/partner/4012476164.md)
 - [微信支付提现申请单号查询提现申请单状态](https://pay.weixin.qq.com/doc/v3/partner/4012778400.md)
+#### 商户查询
+##### API列表
+- [查询指定主体子商户列表](https://pay.weixin.qq.com/doc/v3/partner/4033742105.md)
 ### 支付下单
 #### 普通支付
 - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012088031.md)

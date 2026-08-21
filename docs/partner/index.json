@@ -1,5 +1,5 @@
 {
-  "totalNodes": 885,
+  "totalNodes": 886,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -2142,7 +2142,7 @@
       "docId": "4012586146",
       "title": "智慧零售(无人设备)",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012586146.md",
-      "updateTime": "1733737250",
+      "updateTime": "1787221172",
       "fullPath": "微信支付分 > 附录 > post_payments(后付费项目)字段传参说明"
     },
     {
@@ -5035,6 +5035,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012778400.md",
       "updateTime": "1730772979",
       "fullPath": "平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表"
+    },
+    {
+      "docId": "4033742105",
+      "title": "查询指定主体子商户列表",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4033742105.md",
+      "updateTime": "1787105047",
+      "fullPath": "平台收付通-电商交易解决方案 > 商户注销 > 商户查询 > API列表"
     },
     {
       "docId": "4012088031",
