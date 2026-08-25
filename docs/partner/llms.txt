@@ -1,4 +1,4 @@
->更新时间：2026.08.20
+>更新时间：2026.08.24
 
 # 微信支付合作伙伴平台文档中心
 
@@ -629,20 +629,8 @@
 - [同步会员开通结果](https://pay.weixin.qq.com/doc/v3/partner/4015336979.md)
 #### 事件通知
 - [会员卡事件通知](https://pay.weixin.qq.com/doc/v3/partner/4015283692.md)
-- [用户积分兑券事件通知](https://pay.weixin.qq.com/doc/v3/partner/4015878622.md)
-- [用户积分同步事件通知](https://pay.weixin.qq.com/doc/v3/partner/4016096820.md)
 #### 用户动态
-- [创建用户动态信息](https://pay.weixin.qq.com/doc/v3/partner/4015336987.md)
 - [下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)
-#### 会员卡积分兑券
-- [同步积分余额](https://pay.weixin.qq.com/doc/v3/partner/4015897280.md)
-- [同步积分兑券结果](https://pay.weixin.qq.com/doc/v3/partner/4015897268.md)
-#### 品牌会员发券活动
-- [创建品牌会员发券活动](https://pay.weixin.qq.com/doc/v3/partner/4016464918.md)
-- [查询品牌会员发券活动](https://pay.weixin.qq.com/doc/v3/partner/4016588015.md)
-- [查询品牌会员发券活动列表](https://pay.weixin.qq.com/doc/v3/partner/4016588039.md)
-- [修改品牌会员发券活动信息](https://pay.weixin.qq.com/doc/v3/partner/4016588044.md)
-- [终止品牌会员发券活动](https://pay.weixin.qq.com/doc/v3/partner/4016588028.md)
 ## 摇一摇有优惠
 > 摇一摇有优惠是微信支付的支付后互动营销功能，依据用户消费偏好在支付完成页快速发放优惠，简化领券与核销链路，帮助商户提升复购、实现精细化运营，使用前需完成商家名片配置或品牌门店创建。
 

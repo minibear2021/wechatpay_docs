@@ -1,5 +1,5 @@
 {
-  "totalNodes": 886,
+  "totalNodes": 876,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -3133,81 +3133,11 @@
       "fullPath": "商家名片会员 > API列表 > 事件通知"
     },
     {
-      "docId": "4015878622",
-      "title": "用户积分兑券事件通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4015878622.md",
-      "updateTime": "1755511733",
-      "fullPath": "商家名片会员 > API列表 > 事件通知"
-    },
-    {
-      "docId": "4016096820",
-      "title": "用户积分同步事件通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016096820.md",
-      "updateTime": "1758077834",
-      "fullPath": "商家名片会员 > API列表 > 事件通知"
-    },
-    {
-      "docId": "4015336987",
-      "title": "创建用户动态信息",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4015336987.md",
-      "updateTime": "1763105513",
-      "fullPath": "商家名片会员 > API列表 > 用户动态"
-    },
-    {
       "docId": "4015534755",
       "title": "下单同步用户实时动态",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015534755.md",
       "updateTime": "1763105513",
       "fullPath": "商家名片会员 > API列表 > 用户动态"
-    },
-    {
-      "docId": "4015897280",
-      "title": "同步积分余额",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4015897280.md",
-      "updateTime": "1755678905",
-      "fullPath": "商家名片会员 > API列表 > 会员卡积分兑券"
-    },
-    {
-      "docId": "4015897268",
-      "title": "同步积分兑券结果",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4015897268.md",
-      "updateTime": "1755678907",
-      "fullPath": "商家名片会员 > API列表 > 会员卡积分兑券"
-    },
-    {
-      "docId": "4016464918",
-      "title": "创建品牌会员发券活动",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016464918.md",
-      "updateTime": "1763104857",
-      "fullPath": "商家名片会员 > API列表 > 品牌会员发券活动"
-    },
-    {
-      "docId": "4016588015",
-      "title": "查询品牌会员发券活动",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016588015.md",
-      "updateTime": "1763104857",
-      "fullPath": "商家名片会员 > API列表 > 品牌会员发券活动"
-    },
-    {
-      "docId": "4016588039",
-      "title": "查询品牌会员发券活动列表",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016588039.md",
-      "updateTime": "1763104857",
-      "fullPath": "商家名片会员 > API列表 > 品牌会员发券活动"
-    },
-    {
-      "docId": "4016588044",
-      "title": "修改品牌会员发券活动信息",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016588044.md",
-      "updateTime": "1763104857",
-      "fullPath": "商家名片会员 > API列表 > 品牌会员发券活动"
-    },
-    {
-      "docId": "4016588028",
-      "title": "终止品牌会员发券活动",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016588028.md",
-      "updateTime": "1763104857",
-      "fullPath": "商家名片会员 > API列表 > 品牌会员发券活动"
     },
     {
       "docId": "4015782374",
