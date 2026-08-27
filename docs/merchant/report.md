@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260821_021458
+**生成时间**: 20260827_104159
 **文档总数**: 530
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 1 个页面
-- 成功拉取: 1 个页面
+- 修改: 0 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,42 +20,10 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.08.18
-+>更新时间：2026.08.20
+->更新时间：2026.08.20
++>更新时间：2026.08.26
  
  # 微信支付商户平台文档中心
- 
-```
-
-## 修改页面
-
-### 智慧零售(无人设备)
-- ID: `4012587317`
-- 路径: 微信支付分 > 附录 > post_payments(后付费项目)字段传参说明
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012587317.md
-- 更新时间变更: 2024-12-09 09:50:28 -> 2026-08-20 10:20:23
-- 本地文件: `pages/4012587317.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,3 +1,5 @@
-+>更新时间：2026.08.20
-+
- ## 1. 概述
- 
- 接入微信支付分的商户需在创建、完结、修改订单金额时，通过API接口中的post\_payments参数回传详细的后付费项目明细。该明细将在支付分订单详情页面展示，减少用户对订单金额的疑问。
-@@ -27,9 +29,9 @@
- | 后付费项目说明 | description | string \[1, 30\] | 必填 | 可乐 | 商品名称 | "post\_payments" :  \[{<br>"name" :   "商品信息",<br>"amount" : 300,<br>"description": "可乐",<br>"count": 1<br>}\] | "post\_payments" :  \[{<br>"name" :   "商品信息",<br>"amount" : 300,<br>"description": "可乐",<br>"count": 1<br>}， {<br>"name" :   "商品信息",<br>"amount" : 300,<br>"description": "雪碧",<br>"count": 1<br>}\] |
- | 后付费项目的数量 | count | int | 必填 | 1 | 商品数量 | "post\_payments" :  \[{<br>"name" :   "商品信息",<br>"amount" : 300,<br>"description": "可乐",<br>"count": 1<br>}\] | "post\_payments" :  \[{<br>"name" :   "商品信息",<br>"amount" : 300,<br>"description": "可乐",<br>"count": 1<br>}， {<br>"name" :   "商品信息",<br>"amount" : 300,<br>"description": "雪碧",<br>"count": 1<br>}\] |
- 
--后付费项目明细在支付分订单页面的实际展示效果（以下两种呈现形式为版本差异，均符合预期）：
-+后付费项目明细在支付分订单页面的实际展示效果（实际效果可能随业务迭代有所调整，以线上为准）：
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b2bd279b51f6d511e603449b3c8d4efd.png)
-+![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/928b48318caafae3f32484902c53d6b4.png)
- 
- ### 2.3 修改订单金额接口
  
 ```
 
