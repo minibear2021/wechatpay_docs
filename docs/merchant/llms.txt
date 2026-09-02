@@ -1,4 +1,4 @@
->更新时间：2026.08.28
+>更新时间：2026.09.01
 
 # 微信支付商户平台文档中心
 
@@ -255,6 +255,13 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421450.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421456.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md)
+## AI支付
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4035576700.md)
+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4035576711.md)
+- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4035576716.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4035576771.md)
+### API列表
+- [x402预下单](https://pay.weixin.qq.com/doc/v3/merchant/4035576740.md)
 ## 医保支付
 > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
 

@@ -1,4 +1,4 @@
->更新时间：2026.08.28
+>更新时间：2026.09.01
 
 # 微信支付合作伙伴平台文档中心
 
@@ -1142,6 +1142,12 @@
 - [申请资金出境](https://pay.weixin.qq.com/doc/v3/partner/4012476113.md)
 - [查询出境结果](https://pay.weixin.qq.com/doc/v3/partner/4012476127.md)
 - [获取购付汇账单文件下载链接](https://pay.weixin.qq.com/doc/v3/partner/4012476132.md)
+### 修改主体信息
+#### API列表
+- [提交申请单](https://pay.weixin.qq.com/doc/v3/partner/4014090649.md)
+- [撤销申请单](https://pay.weixin.qq.com/doc/v3/partner/4014090672.md)
+- [查询申请单状态-使用业务单号](https://pay.weixin.qq.com/doc/v3/partner/4014090667.md)
+- [查询申请单状态-使用申请单号](https://pay.weixin.qq.com/doc/v3/partner/4014090655.md)
 
 ## Optional
 ### 开发须知

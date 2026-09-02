@@ -1,5 +1,5 @@
 {
-  "totalNodes": 530,
+  "totalNodes": 535,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -1339,6 +1339,41 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md",
       "updateTime": "1736392763",
       "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4035576700",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4035576700.md",
+      "updateTime": "1787816548",
+      "fullPath": "AI支付"
+    },
+    {
+      "docId": "4035576711",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4035576711.md",
+      "updateTime": "1787816548",
+      "fullPath": "AI支付"
+    },
+    {
+      "docId": "4035576716",
+      "title": "开发指引",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4035576716.md",
+      "updateTime": "1788228076",
+      "fullPath": "AI支付"
+    },
+    {
+      "docId": "4035576771",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4035576771.md",
+      "updateTime": "1787820976",
+      "fullPath": "AI支付"
+    },
+    {
+      "docId": "4035576740",
+      "title": "x402预下单",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4035576740.md",
+      "updateTime": "1788247791",
+      "fullPath": "AI支付 > API列表"
     },
     {
       "docId": "4016824672",
