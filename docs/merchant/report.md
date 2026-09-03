@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260902_051037
+**生成时间**: 20260903_051507
 **文档总数**: 535
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
 ## 变更概览
 
-- 新增: 5 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 5 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,63 +20,41 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.08.28
-+>更新时间：2026.09.01
+->更新时间：2026.09.01
++>更新时间：2026.09.02
  
  # 微信支付商户平台文档中心
  
-@@ -255,6 +255,13 @@
- - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421450.md)
- - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421456.md)
- - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md)
-+## AI支付
-+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4035576700.md)
-+- [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4035576711.md)
-+- [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4035576716.md)
-+- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4035576771.md)
-+### API列表
-+- [x402预下单](https://pay.weixin.qq.com/doc/v3/merchant/4035576740.md)
- ## 医保支付
- > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
- 
 ```
 
-## 新增页面
-
-### 产品介绍
-- ID: `4035576700`
-- 路径: AI支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4035576700.md
-- 更新时间: 2026-08-27 07:42:28
-- 本地文件: `pages/4035576700.md`
-
-### 开发接入准备
-- ID: `4035576711`
-- 路径: AI支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4035576711.md
-- 更新时间: 2026-08-27 07:42:28
-- 本地文件: `pages/4035576711.md`
-
-### 开发指引
-- ID: `4035576716`
-- 路径: AI支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4035576716.md
-- 更新时间: 2026-09-01 02:01:16
-- 本地文件: `pages/4035576716.md`
+## 修改页面
 
 ### 常见问题
-- ID: `4035576771`
-- 路径: AI支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4035576771.md
-- 更新时间: 2026-08-27 08:56:16
-- 本地文件: `pages/4035576771.md`
+- ID: `4012791845`
+- 路径: H5支付
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791845.md
+- 更新时间变更: 2025-10-15 08:12:25 -> 2026-09-01 07:43:28
+- 本地文件: `pages/4012791845.md`
 
-### x402预下单
-- ID: `4035576740`
-- 路径: AI支付 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4035576740.md
-- 更新时间: 2026-09-01 07:29:51
-- 本地文件: `pages/4035576740.md`
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.09.01
++
+ ### Q：调起H5支付报"商家参数格式有误，请联系商家解决"
+ 
+ A：请按以下几点进行排查：
+@@ -52,7 +54,7 @@
+ 
+ 2、如h5\_url有添加redirect\_url，请确认参数拼接格式是否有误，是否有对redirect\_url的值做urlencode,可参考以下例子格式：
+ 
+-`https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20161110163838f231619da20804912345&package=1037687096&redirect_url=https%3A%2F%2Fwww.wechatpay.com.cn`
++`https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20161110163838f231619da20804912345&ct=1788231340&sign=BgAAP1RRtoycVrdicuetcdu3EN4hEqHwyM6poqvnXCWbqps&package=1037687096&redirect_url=https%3A%2F%2Fwww.wechatpay.com.cn`
+ 
+ 3、请确认h5\_url链接是否完整，是否与下单接口返回的h5\_url一致
+ 
+```
 
 ## 附录：所有页面清单
 
@@ -135,7 +113,7 @@
 | 48 | [产品介绍](pages/4012791832.md) | `4012791832` | 2025-07-17 08:07:32 | H5支付 |
 | 49 | [开发接入准备](pages/4015614193.md) | `4015614193` | 2026-05-19 07:51:45 | H5支付 |
 | 50 | [开发指引](pages/4012791831.md) | `4012791831` | 2026-06-09 09:47:23 | H5支付 |
-| 51 | [常见问题](pages/4012791845.md) | `4012791845` | 2025-10-15 08:12:25 | H5支付 |
+| 51 | [常见问题](pages/4012791845.md) | `4012791845` | 2026-09-01 07:43:28 | H5支付 |
 | 52 | [H5下单](pages/4012791834.md) | `4012791834` | 2025-03-31 06:15:01 | H5支付 > API列表 |
 | 53 | [H5调起支付](pages/4012791835.md) | `4012791835` | 2024-12-11 07:24:11 | H5支付 > API列表 |
 | 54 | [微信支付订单号查询订单](pages/4012791837.md) | `4012791837` | 2024-12-27 04:05:55 | H5支付 > API列表 |
