@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260903_051507
+**生成时间**: 20260904_051055
 **文档总数**: 535
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 1 个页面
-- 成功拉取: 1 个页面
+- 修改: 0 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,39 +20,10 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.09.01
-+>更新时间：2026.09.02
+->更新时间：2026.09.02
++>更新时间：2026.09.03
  
  # 微信支付商户平台文档中心
- 
-```
-
-## 修改页面
-
-### 常见问题
-- ID: `4012791845`
-- 路径: H5支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791845.md
-- 更新时间变更: 2025-10-15 08:12:25 -> 2026-09-01 07:43:28
-- 本地文件: `pages/4012791845.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,3 +1,5 @@
-+>更新时间：2026.09.01
-+
- ### Q：调起H5支付报"商家参数格式有误，请联系商家解决"
- 
- A：请按以下几点进行排查：
-@@ -52,7 +54,7 @@
- 
- 2、如h5\_url有添加redirect\_url，请确认参数拼接格式是否有误，是否有对redirect\_url的值做urlencode,可参考以下例子格式：
- 
--`https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20161110163838f231619da20804912345&package=1037687096&redirect_url=https%3A%2F%2Fwww.wechatpay.com.cn`
-+`https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id=wx20161110163838f231619da20804912345&ct=1788231340&sign=BgAAP1RRtoycVrdicuetcdu3EN4hEqHwyM6poqvnXCWbqps&package=1037687096&redirect_url=https%3A%2F%2Fwww.wechatpay.com.cn`
- 
- 3、请确认h5\_url链接是否完整，是否与下单接口返回的h5\_url一致
  
 ```
 
