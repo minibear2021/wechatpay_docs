@@ -7,7 +7,7 @@
       "docId": "4019636341",
       "title": "微信支付接入Skill",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4019636341.md",
-      "updateTime": "1789091499",
+      "updateTime": "1789635489",
       "fullPath": "Skills"
     },
     {
@@ -434,7 +434,7 @@
       "docId": "4013336019",
       "title": "配置H5支付域名",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013336019.md",
-      "updateTime": "1767946843",
+      "updateTime": "1789697750",
       "fullPath": "H5支付 > 附录"
     },
     {
@@ -1253,7 +1253,7 @@
       "docId": "4016824704",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824704.md",
-      "updateTime": "1781170811",
+      "updateTime": "1789697706",
       "fullPath": "医保支付（服务商模式）"
     },
     {
@@ -1330,7 +1330,7 @@
       "docId": "4016971494",
       "title": "申请医保支付权限",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016971494.md",
-      "updateTime": "1784707926",
+      "updateTime": "1789697703",
       "fullPath": "医保支付（服务商模式） > 附录"
     },
     {
@@ -1442,7 +1442,7 @@
       "docId": "4016824701",
       "title": "申请医保支付权限",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824701.md",
-      "updateTime": "1784707942",
+      "updateTime": "1789697701",
       "fullPath": "医保支付（间连模式） > 附录"
     },
     {
@@ -1897,14 +1897,14 @@
       "docId": "4012586133",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012586133.md",
-      "updateTime": "1779180171",
+      "updateTime": "1789697695",
       "fullPath": "微信支付分"
     },
     {
       "docId": "4012586134",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012586134.md",
-      "updateTime": "1781076531",
+      "updateTime": "1789697693",
       "fullPath": "微信支付分"
     },
     {
@@ -2744,7 +2744,7 @@
       "docId": "4012076040",
       "title": "免开发版本操作指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076040.md",
-      "updateTime": "1731921936",
+      "updateTime": "1789697689",
       "fullPath": "支付即服务 > 附录"
     },
     {
@@ -2765,7 +2765,7 @@
       "docId": "4012072158",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072158.md",
-      "updateTime": "1779180632",
+      "updateTime": "1789697684",
       "fullPath": "点金计划"
     },
     {
@@ -2835,7 +2835,7 @@
       "docId": "4016985537",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016985537.md",
-      "updateTime": "1781595936",
+      "updateTime": "1789697663",
       "fullPath": "品牌入驻"
     },
     {
@@ -3150,7 +3150,7 @@
       "docId": "4016060552",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016060552.md",
-      "updateTime": "1783050588",
+      "updateTime": "1789697658",
       "fullPath": "摇一摇有优惠"
     },
     {
@@ -4242,7 +4242,7 @@
       "docId": "4015792554",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015792554.md",
-      "updateTime": "1779264624",
+      "updateTime": "1789697686",
       "fullPath": "微信电子发票"
     },
     {
@@ -4438,7 +4438,7 @@
       "docId": "4012062375",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012062375.md",
-      "updateTime": "1779183157",
+      "updateTime": "1789697670",
       "fullPath": "特约商户进件"
     },
     {
@@ -4522,7 +4522,7 @@
       "docId": "4012064824",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064824.md",
-      "updateTime": "1779264472",
+      "updateTime": "1789697668",
       "fullPath": "商户开户意愿确认"
     },
     {
@@ -4802,14 +4802,14 @@
       "docId": "4012086891",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012086891.md",
-      "updateTime": "1772265893",
+      "updateTime": "1789697542",
       "fullPath": "平台收付通-电商交易解决方案"
     },
     {
       "docId": "4012086921",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012086921.md",
-      "updateTime": "1779183515",
+      "updateTime": "1789697540",
       "fullPath": "平台收付通-电商交易解决方案"
     },
     {

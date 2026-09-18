@@ -7,7 +7,7 @@
       "docId": "4019638116",
       "title": "微信支付接入Skill",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4019638116.md",
-      "updateTime": "1789091476",
+      "updateTime": "1789635491",
       "fullPath": "Skills"
     },
     {
@@ -49,7 +49,7 @@
       "docId": "4015423216",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015423216.md",
-      "updateTime": "1779347021",
+      "updateTime": "1789616320",
       "fullPath": "JSAPI支付"
     },
     {
@@ -196,7 +196,7 @@
       "docId": "4015478291",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015478291.md",
-      "updateTime": "1779177037",
+      "updateTime": "1789697603",
       "fullPath": "APP支付"
     },
     {
@@ -343,7 +343,7 @@
       "docId": "4015614193",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015614193.md",
-      "updateTime": "1779177105",
+      "updateTime": "1789697605",
       "fullPath": "H5支付"
     },
     {
@@ -462,7 +462,7 @@
       "docId": "4013287193",
       "title": "配置H5支付域名",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013287193.md",
-      "updateTime": "1767946857",
+      "updateTime": "1789697753",
       "fullPath": "H5支付 > 附录"
     },
     {
@@ -504,7 +504,7 @@
       "docId": "4015614538",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015614538.md",
-      "updateTime": "1779177120",
+      "updateTime": "1789697628",
       "fullPath": "Native支付"
     },
     {
@@ -644,7 +644,7 @@
       "docId": "4015459512",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015459512.md",
-      "updateTime": "1779177138",
+      "updateTime": "1789697758",
       "fullPath": "小程序支付"
     },
     {
@@ -784,7 +784,7 @@
       "docId": "4015764634",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764634.md",
-      "updateTime": "1779351861",
+      "updateTime": "1789697741",
       "fullPath": "JSAPI合单支付"
     },
     {
@@ -903,7 +903,7 @@
       "docId": "4013420660",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420660.md",
-      "updateTime": "1779265566",
+      "updateTime": "1789697737",
       "fullPath": "APP合单支付"
     },
     {
@@ -1015,7 +1015,7 @@
       "docId": "4015764448",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764448.md",
-      "updateTime": "1779265635",
+      "updateTime": "1789697735",
       "fullPath": "H5合单支付"
     },
     {
@@ -1127,7 +1127,7 @@
       "docId": "4015764779",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015764779.md",
-      "updateTime": "1779265687",
+      "updateTime": "1789697734",
       "fullPath": "Native合单支付"
     },
     {
@@ -1239,7 +1239,7 @@
       "docId": "4015765029",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015765029.md",
-      "updateTime": "1779265738",
+      "updateTime": "1789697732",
       "fullPath": "小程序合单支付"
     },
     {
@@ -2100,14 +2100,14 @@
       "docId": "4012587112",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012587112.md",
-      "updateTime": "1779177596",
+      "updateTime": "1789697724",
       "fullPath": "微信支付分"
     },
     {
       "docId": "4012587166",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012587166.md",
-      "updateTime": "1780998385",
+      "updateTime": "1789697722",
       "fullPath": "微信支付分"
     },
     {
