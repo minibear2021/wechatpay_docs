@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20260919_051310
+**生成时间**: 20260922_053144
 **文档总数**: 535
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,81 +9,22 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 1 个页面
-- 成功拉取: 1 个页面
+- 修改: 0 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
-- llms.txt 变更: 否
+- llms.txt 变更: 是
 
-## 修改页面
-
-### 申请医保支付权限
-- ID: `4016824675`
-- 路径: 医保支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4016824675.md
-- 更新时间变更: 2026-07-22 08:11:50 -> 2026-09-18 08:04:05
-- 本地文件: `pages/4016824675.md`
+## llms.txt 变更
 
 ```diff
---- old.md
-+++ new.md
+--- llms_old.txt
++++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.06.23
-+>更新时间：2026.09.18
+->更新时间：2026.09.18
++>更新时间：2026.09.21
  
- ## 概览
+ # 微信支付商户平台文档中心
  
-@@ -10,7 +10,20 @@
- 
- 3. 向微信申请开通医保支付新接口的支付权限。
- 
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/7107e012e28629eb356f26cdb0ab030f.png)
-+```mermaid
-+flowchart LR
-+  A["第一步
-+医疗结构向省医保局
-+申请接入移动医保支付
-+历史已完成则跳过"] --> B["第二步
-+向微信申请医院立项
-+历史已接入旧接口则跳过
-+"]
-+    C["第三步
-+向微信申请开通
-+医保支付新接口支付权限"]
-+    B --> C
-+```
- 
- ## 1、医疗机构申请接入省移动医保支付
- 
-@@ -106,24 +119,24 @@
- | 邮件标题： | 【直连新接口】-接口迁移-商户名称-2026XXXX（申请日期） |
- | --- | --- |
- | 主送： | wxpay\_operation@tencent.com |
--| 抄送： | caihangliu@tencent.com；xiaomaowang@tencent.com；yuxiwang@tencent.com；nicolawu@tencent.com; mikedu@tencent.com; shirlyychen@tencent.com; gaishalin@tencent.com; v\_hqzzheng@tencent.com; rexxaryang@tencent.com; ruishu@tencent.com; sarzyxiang@tencent.com; sanbaozhou@tencent.com; musksun@tencent.com; yukiyywan@tencent.com; joycehan@tencent.com;wx\_ybzf@tencent.com |
-+| 抄送： | caihangliu@tencent.com；xiaomaowang@tencent.com；yuxiwang@tencent.com； mikedu@tencent.com; shirlyychen@tencent.com; sanbaozhou@tencent.com; musksun@tencent.com; yukiyywan@tencent.com; joycehan@tencent.com; |
- | 正文： | Hi ，<br>以下医疗机构历史已开通医保支付权限，申请开通直连移动医保支付新接口权限，辛苦配置，谢谢。<br>申请表（填写并复制申请表的内容到正文，请勿提供截图） |
- | 附件： | 商户基本信息表：<br>[商户基本信息表（独立模式）.xlsx](https://docs.qq.com/sheet/DRU9YTUpXV0RVaWdK?tab=BB08J2) |
- 
- 情况三：权限变更，已接入微信医保支付新接口，需更改或新增商户号/APPID
- 
--| 邮件标题： | 【直连新接口】-接口迁移-商户名称-2026XXXX（申请日期） |
-+| 邮件标题： | 【直连新接口】-商户号变更/新增appid申请-商户名称-2026XXXX（申请日期） |
- | --- | --- |
- | 主送： | wxpay\_operation@tencent.com |
--| 抄送： | caihangliu@tencent.com；xiaomaowang@tencent.com；yuxiwang@tencent.com；nicolawu@tencent.com; mikedu@tencent.com; shirlyychen@tencent.com; gaishalin@tencent.com; v\_hqzzheng@tencent.com; rexxaryang@tencent.com; ruishu@tencent.com; sarzyxiang@tencent.com; sanbaozhou@tencent.com; musksun@tencent.com; yukiyywan@tencent.com; joycehan@tencent.com;wx\_ybzf@tencent.com |
-+| 抄送： | caihangliu@tencent.com；xiaomaowang@tencent.com；yuxiwang@tencent.com； mikedu@tencent.com; shirlyychen@tencent.com; sanbaozhou@tencent.com; musksun@tencent.com; yukiyywan@tencent.com; joycehan@tencent.com; |
- | 正文： | Hi ，<br>以下医疗机构历史已开通医保支付新接口权限，申请更改或新增商户号/APPID，辛苦配置，谢谢。<br>申请表（填写并复制申请表的内容到正文，请勿提供截图） |
- | 附件： | 商户基本信息表：<br>[商户基本信息表（独立模式）.xlsx](https://docs.qq.com/sheet/DRU9YTUpXV0RVaWdK?tab=BB08J2) |
- 
--情况四：模式变更，已开通新接口权限，需变更接入模式
-+情况四：模式变更，已开通新接口权限，需变更接入模式（如服务商模式变更为独立模式）
- 
- | 邮件标题： | 【直连新接口】医保接入模式变更申请--商户名称--2025xxxx（申请日期） |
- | --- | --- |
- | 主送： | wxpay\_operation@tencent.com |
--| 抄送： | caihangliu@tencent.com；xiaomaowang@tencent.com；yuxiwang@tencent.com；nicolawu@tencent.com; mikedu@tencent.com; shirlyychen@tencent.com; gaishalin@tencent.com; v\_hqzzheng@tencent.com; rexxaryang@tencent.com; ruishu@tencent.com; sarzyxiang@tencent.com; sanbaozhou@tencent.com; musksun@tencent.com; yukiyywan@tencent.com; joycehan@tencent.com; |
-+| 抄送： | caihangliu@tencent.com；xiaomaowang@tencent.com；yuxiwang@tencent.com； mikedu@tencent.com; shirlyychen@tencent.com; sanbaozhou@tencent.com; musksun@tencent.com; yukiyywan@tencent.com; joycehan@tencent.com; |
- | 正文： | Hi ，<br>以下医疗机构历史已开通新接口医保支付权限，申请由\*\*模式变更至\*\*模式，辛苦配置，谢谢。<br>申请表（填写并复制申请表的内容到正文，请勿提供截图） |
- | 附件： | 商户基本信息表：<br>[商户基本信息表.xlsx](https://docs.qq.com/sheet/DRURkamN6VEVtaWZ6?tab=BB08J2) |
 ```
 
 ## 附录：所有页面清单
