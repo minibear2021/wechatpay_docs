@@ -1,5 +1,5 @@
 {
-  "totalNodes": 880,
+  "totalNodes": 881,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -3522,6 +3522,13 @@
       "title": "商品券结构及修改说明",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018984452.md",
       "updateTime": "1774579631",
+      "fullPath": "商品券（单券） > 附录"
+    },
+    {
+      "docId": "4043817598",
+      "title": "券类型选型",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4043817598.md",
+      "updateTime": "1790132201",
       "fullPath": "商品券（单券） > 附录"
     },
     {
