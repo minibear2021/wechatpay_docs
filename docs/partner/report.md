@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20260923_051944
+**生成时间**: 20260928_060113
 **文档总数**: 881
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 1 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
 - 修改: 0 个页面
-- 成功拉取: 1 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,29 +20,12 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.09.21
-+>更新时间：2026.09.23
+->更新时间：2026.09.23
++>更新时间：2026.09.28
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -706,6 +706,7 @@
- - [商品券可核销时间规则说明（coupon_available_period）](https://pay.weixin.qq.com/doc/v3/partner/4016675999.md)
- - [商品券客户端消息推送页面](https://pay.weixin.qq.com/doc/v3/partner/4019005729.md)
- - [商品券结构及修改说明](https://pay.weixin.qq.com/doc/v3/partner/4018984452.md)
-+- [券类型选型](https://pay.weixin.qq.com/doc/v3/partner/4043817598.md)
- #### API请求示例-创建商品券
- - [【单券-全场-折扣券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756270.md)
- - [【单券-全场-满减券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756271.md)
 ```
-
-## 新增页面
-
-### 券类型选型
-- ID: `4043817598`
-- 路径: 商品券（单券） > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4043817598.md
-- 更新时间: 2026-09-23 02:56:41
-- 本地文件: `pages/4043817598.md`
 
 ## 附录：所有页面清单
 
