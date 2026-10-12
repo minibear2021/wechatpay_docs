@@ -1,4 +1,4 @@
->更新时间：2026.10.09
+>更新时间：2026.10.11
 
 # 微信支付商户平台文档中心
 
@@ -31,7 +31,7 @@
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012791869.md)
 ### API列表
-- [JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)
+- [JSAPI下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)
 - [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)
 - [微信支付订单号查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791858.md)
 - [商户订单号查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)

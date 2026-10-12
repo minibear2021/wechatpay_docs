@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20261010_062907
+**生成时间**: 20261012_063959
 **文档总数**: 535
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 0 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,11 +20,51 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.08
-+>更新时间：2026.10.09
+->更新时间：2026.10.09
++>更新时间：2026.10.11
  
  # 微信支付商户平台文档中心
  
+@@ -31,7 +31,7 @@
+ - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md)
+ - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012791869.md)
+ ### API列表
+-- [JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)
++- [JSAPI下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)
+ - [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)
+ - [微信支付订单号查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791858.md)
+ - [商户订单号查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)
+```
+
+## 修改页面
+
+### JSAPI下单
+- ID: `4012791856`
+- 路径: JSAPI支付 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md
+- 更新时间变更: 2025-03-31 06:15:06 -> 2026-10-11 07:41:55
+- 本地文件: `pages/4012791856.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,6 @@
+-JSAPI支付场景(微信内置浏览器打开的网页)或小程序支付场景，商户需调用该接口在微信支付下单，生成用于调起支付的预支付交易会话标识(prepay\_id)。
++>更新时间：2026.10.11
++
++JSAPI支付场景(微信内置浏览器打开的网页)，商户需调用该接口在微信支付下单，生成用于调起支付的预支付交易会话标识(prepay\_id)。
+ 
+ 
+ 
+@@ -37,7 +39,7 @@
+ | amount.total | integer | true | 【总金额】 订单总金额，单位为分，整型，必须大于0。<br>示例：1元应填写 100 |
+ | amount.currency | string(16) | false | 【货币类型】符合ISO 4217标准的三位字母代码，固定传：CNY，代表人民币。 |
+ | payer | object | true | 【支付者信息】支付者信息 |
+-| payer.openid | string(128) | true | 【用户标识】用户在商户appid下的唯一标识。下单前需获取到用户的OpenID，详见[OpenID获取](https://pay.weixin.qq.com/doc/v3/merchant/4012068676.md)。 |
++| payer.openid | string(128) | true | 【用户标识】用户在商户appid下的唯一标识。下单前需获取到用户的OpenID，JSAPI场景详见[OpenID获取](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html#%E5%9B%9B%E3%80%81%E6%8D%A2%E5%8F%96%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83-Token)，小程序场景详见[OpenID获取](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)，需要注意的是获取OpenID的appid 须与下单及调起支付时所使用的appid保持一致。 |
+ | detail | object | false | 【商品详情】 商品详情描述，该结构去除多余空格换行压缩后，总长度不能超过6144字节。 |
+ | detail.cost_price | integer | false | 【订单原价】<br>1、商户侧一张小票订单可能被分多次支付，订单原价用于记录整张小票的交易金额。<br>2、当订单原价与支付金额不相等，则不享受优惠。<br>3、该字段主要用于防止同一张小票分多次支付，以享受多次优惠的情况，正常支付订单不必上传此参数。 |
+ | detail.invoice_id | string(32) | false | 【商品小票ID】 商家小票ID |
 ```
 
 ## 附录：所有页面清单
@@ -43,7 +83,7 @@
 | 7 | [开发接入准备](pages/4015423216.md) | `4015423216` | 2026-09-17 03:38:40 | JSAPI支付 |
 | 8 | [开发指引](pages/4012791870.md) | `4012791870` | 2026-08-11 09:37:47 | JSAPI支付 |
 | 9 | [常见问题](pages/4012791869.md) | `4012791869` | 2026-08-05 06:10:48 | JSAPI支付 |
-| 10 | [JSAPI/小程序下单](pages/4012791856.md) | `4012791856` | 2025-03-31 06:15:06 | JSAPI支付 > API列表 |
+| 10 | [JSAPI下单](pages/4012791856.md) | `4012791856` | 2026-10-11 07:41:55 | JSAPI支付 > API列表 |
 | 11 | [JSAPI调起支付](pages/4012791857.md) | `4012791857` | 2025-02-26 09:52:40 | JSAPI支付 > API列表 |
 | 12 | [微信支付订单号查询订单](pages/4012791858.md) | `4012791858` | 2024-12-27 04:05:55 | JSAPI支付 > API列表 |
 | 13 | [商户订单号查询订单](pages/4012791859.md) | `4012791859` | 2024-12-27 04:16:21 | JSAPI支付 > API列表 |

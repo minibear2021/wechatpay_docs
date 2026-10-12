@@ -56,7 +56,7 @@
       "docId": "4012069859",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012069859.md",
-      "updateTime": "1780998377",
+      "updateTime": "1791705267",
       "fullPath": "JSAPI支付"
     },
     {
@@ -68,9 +68,9 @@
     },
     {
       "docId": "4012738519",
-      "title": "JSAPI/小程序下单",
+      "title": "JSAPI下单",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012738519.md",
-      "updateTime": "1743401694",
+      "updateTime": "1791704647",
       "fullPath": "JSAPI支付 > API列表"
     },
     {
