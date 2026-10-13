@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261012_064003
+**生成时间**: 20261013_071034
 **文档总数**: 881
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 2 个页面
-- 成功拉取: 2 个页面
+- 修改: 0 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,169 +20,11 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.09
-+>更新时间：2026.10.11
+->更新时间：2026.10.11
++>更新时间：2026.10.12
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -31,7 +31,7 @@
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012069859.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md)
- ### API列表
--- [JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)
-+- [JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)
- - [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)
- - [微信支付订单号查询订单](https://pay.weixin.qq.com/doc/v3/partner/4012738964.md)
- - [关闭订单](https://pay.weixin.qq.com/doc/v3/partner/4012739019.md)
-```
-
-## 修改页面
-
-### 开发指引
-- ID: `4012069859`
-- 路径: JSAPI支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012069859.md
-- 更新时间变更: 2026-06-09 09:46:17 -> 2026-10-11 07:54:27
-- 本地文件: `pages/4012069859.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.06.09
-+>更新时间：2026.10.11
- 
- ## 1、开发前准备
- 
-@@ -20,7 +20,7 @@
- 
- ## 2、整体业务开发流程概览
- 
--- 服务商后端调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口获取预支付ID（prepay\_id）后，服务商/子商户前端页面再通过调用[WeixinJSBridge](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)对象方法调起微信支付界面。
-+- 服务商后端调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口获取预支付ID（prepay\_id）后，服务商/子商户前端页面再通过调用[WeixinJSBridge](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)对象方法调起微信支付界面。
- 
- - 当用户取消支付或支付成功后点击"完成"按钮，会返回拉起支付前页面，同时服务商/子商户前端页面将收到回调，此时服务商后端需调用[查询订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口确认订单状态，并根据订单状态进行相应的业务逻辑处理（在服务商/子商户页面向用户展示查询到的订单支付状态、在服务商内部系统更新订单状态等），如果订单支付成功，微信支付系统还会发送[支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012085146.md)给服务商。具体的支付回调和查单的实现方案，服务商可以参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
- 
-@@ -37,41 +37,17 @@
- 
- ```mermaid
- sequenceDiagram
-- autonumber ea
--  %% xwatt-participant {"alias":"P1","id":"df1f8ed3-630d-49ec-a138-3a1879687f0d","kind":"Actor"}
--  actor P1 as 用户1
--  %% xwatt-participant {"alias":"P2","id":"49a74743-6e9a-4414-bacf-03d89baf6a9b","kind":"Business Entity"}
--  participant P2 as 微信客户端
--  %% xwatt-participant {"alias":"P3","id":"27d74c9e-5f37-4402-88eb-daa15acf551f","kind":"Business Entity"}
--  participant P3 as 商户系统后台
--  %% xwatt-participant {"alias":"P4","id":"3bcddc3a-3c79-4398-a9c2-e671e0fe9ac6","kind":"Business Entity"}
--  participant P4 as 微信支付系统
--  P1->P3: 平台下单，发起支付11
--  P3->P3: 2、生成平台订单
--  P3->P4: 3、请求下单接口，创建订单
--  P4->P4: 4、生成预付单()
--  P4-->>P3: 5、返回预付单标识()
--  P3->P3: 6、生成带签名支付信息()
--  P1->P3: 7、发起支付()
--  P3->P2: 8、调起微信支付()
--  P2-->>P4: 9、发起支付请求()
--  P4->P4: 10、验证支付授权权限()
--  P4-->>P2: 11、返回支付授权()
--  P1->P2: 12、确认支付，输入密码()
--  P2->P4: 13、提交授权()
--  P4->P4: 14、验证授权()
--  alt 获取订单支付状态
--    P4->P3: 15、异步通知平台支付结果()
--    P3->P3: 16、保存支付通知()
--    P3-->>P4: 17、返回告知成功接收处理()
--    P4-->>P2: 18、返回支付结果，并发微信消息提醒()
--  end
--  P2->P3: 19、支付状态查询()
--  alt 未收到支付回调通知
--    P3->P4: 20、调用查单接口，查询支付结果()
--    P4-->>P3: 21、返回支付结果()
--  end
--  P3-->>P1: 22、展示支付消息()
-+%% xwatt: autonumber ea
-+  autonumber
-+  actor p0 as 用户
-+  participant p1 as 服务商/子商户前端页面(微信浏览器打开)
-+  participant p2 as 服务商后端
-+  participant p3 as 微信支付系统
-+  p0->>p1: 用户下单
-+  p1->>p2: 发送下单请求
-+  p2->>p3: 调用JSAPI/小程序下单接口
-+  p3-->>p2: 下单成功返回prepay_id
-+  p2-->>p1: 返回JSAPI拉起支付所需参数
- ```
- 
- 下单接口关键参数说明：
-@@ -103,16 +79,13 @@
- 服务商调起支付前，请确保已在[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)
- 
- ```mermaid
--%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
- sequenceDiagram
--    rect rgb(255,255,255)
-         actor User as 用户
-         participant Mch as 服务商/子商户前端页面(微信浏览器打开)
-         participant SP as 服务商后端
-         participant WxPay as 微信支付系统
- 
-         Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
--    end
- ```
- 
- ### 3.3、用户支付
-@@ -130,10 +103,9 @@
- 若因特殊原因需在用户可支付时间范围内关闭订单，服务商可通过调用[查询订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口确认订单状态，若订单仍是未支付状态，服务商可以调用[关闭订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739019.md)接口关单，关单后可以将订单当作失败终态处理。
- 
- ```mermaid
--%%{init: { "sequence": { "wrap": true, "wrapPadding": 10, "noteAlign": "left" } } }%%
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         actor User as 用户
-         participant Mch as 服务商/子商户前端页面(微信浏览器打开)
-         participant SP as 服务商后端
-@@ -161,7 +133,6 @@
-             end
- 
-         end
--    end
- ```
- 
- ### 3.4、商户对账
-```
-
-### JSAPI下单
-- ID: `4012738519`
-- 路径: JSAPI支付 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012738519.md
-- 更新时间变更: 2025-03-31 06:14:54 -> 2026-10-11 07:44:07
-- 本地文件: `pages/4012738519.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2025.03.31
-+>更新时间：2026.10.11
- 
- JSAPI支付场景(微信内置浏览器打开的网页)或小程序支付场景，服务商需调用该接口在微信支付下单，生成用于调起支付的预支付交易会话标识(prepay\_id)。
- 
-@@ -43,8 +43,8 @@
- | amount.total | integer | true | 【总金额】 订单总金额，单位为分，整型，必须大于0。<br>示例：1元应填写 100 |
- | amount.currency | string(16) | false | 【货币类型】符合ISO 4217标准的三位字母代码，固定传：CNY，代表人民币。 |
- | payer | object | true | 【支付者信息】支付者信息 |
--| payer.sp_openid | string(128) | false | 【用户服务商标识】用户在服务商sp\_appid下的唯一标识，sp\_openid和sub\_openid二选一必填，获取方式详见[参数说明](https://pay.weixin.qq.com/doc/v3/partner/4012081935.md)。 |
--| payer.sub_openid | string(128) | false | 【用户子商户标识】用户在子商户sub\_appid下的唯一标识，sp\_openid和sub\_openid二选一必填，获取方式详见[参数说明](https://pay.weixin.qq.com/doc/v3/partner/4012081935.md)。 |
-+| payer.sp_openid | string(128) | false | 【用户服务商标识】用户在服务商sp\_appid下的唯一标识，sp\_openid和sub\_openid二选一必填，JSAPI场景详见[OpenID获取](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html#%E5%9B%9B%E3%80%81%E6%8D%A2%E5%8F%96%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83-Token)，小程序场景详见[OpenID获取](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)，需要注意的是获取OpenID的appid须与下单及调起支付时所使用的sp\_appid保持一致。 |
-+| payer.sub_openid | string(128) | false | 【用户子商户标识】用户在子商户sub\_appid下的唯一标识，sp\_openid和sub\_openid二选一必填，JSAPI场景详见[OpenID获取](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html#%E5%9B%9B%E3%80%81%E6%8D%A2%E5%8F%96%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83-Token)，小程序场景详见[OpenID获取](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)，需要注意的是获取OpenID的appid须与下单及调起支付时所使用的sub\_appid保持一致。 |
- | detail | object | false | 【商品详情】 商品详情描述，该结构去除多余空格换行压缩后，总长度不能超过6144字节。 |
- | detail.cost_price | integer | false | 【订单原价】<br>1、商户侧一张小票订单可能被分多次支付，订单原价用于记录整张小票的交易金额。<br>2、当订单原价与支付金额不相等，则不享受优惠。<br>3、该字段主要用于防止同一张小票分多次支付，以享受多次优惠的情况，正常支付订单不必上传此参数。 |
- | detail.invoice_id | string(32) | false | 【商品小票ID】 商家小票ID |
 ```
 
 ## 附录：所有页面清单
