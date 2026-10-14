@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261013_071034
+**生成时间**: 20261014_053327
 **文档总数**: 881
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 0 个页面
+- 修改: 7 个页面
+- 成功拉取: 7 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,10 +20,539 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.11
-+>更新时间：2026.10.12
+->更新时间：2026.10.12
++>更新时间：2026.10.13
  
  # 微信支付合作伙伴平台文档中心
+ 
+```
+
+## 修改页面
+
+### 开发接入准备
+- ID: `4012069853`
+- 路径: JSAPI支付
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012069853.md
+- 更新时间变更: 2026-05-19 08:35:53 -> 2026-10-13 13:00:01
+- 本地文件: `pages/4012069853.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,6 +1,41 @@
+->更新时间：2026.05.19
++>更新时间：2026.10.13
+ 
+-## 1、申请开通服务商JSAPI支付产品权限
++## 1、开发前准备
++
++### 1.1、设置安全联系人
++
++微信支付日常安全监测发现技术异常时，会向安全联系人和超级管理员发送风险提醒。请商户超级管理员尽快设置技术同事为安全联系人，确保能及时接收异常信息评估业务风险，详见 [安全联系人设置指引](https://pay.weixin.qq.com/doc/v3/partner/4012083124.md)。
++
++### 1.2、熟悉微信支付接口规则
++
++正式进入开发前，开发者需要先阅读 [基本规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md)、 [总述-APIv3如何签名和验签](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md) 了解调用微信支付接口的基本规则和签名规则。
++
++### 1.3、准备开发参数
++
++通用开发参数：如服务商商户号、子商户号（也叫特约商户号）、sp\_appid、证书私钥、公钥等，获取方式详见：[开发必要参数说明](https://pay.weixin.qq.com/doc/v3/partner/4013080340.md)。
++
++业务开发参数：见下表
++
++| 参数名 | 用途 | 获取角色 | 获取方式 |
++| --- | --- | --- | --- |
++| `sp_appid` | `sp_appid` 是服务商在微信[开放平台](https://open.weixin.qq.com/)（移动应用）或[公众平台](https://mp.weixin.qq.com/)（公众号/小程序）上申请的一个唯一标识。该 `sp_appid` 必须与服务商商户号 `sp_mchid` 进行绑定，使用微信支付功能会校验该参数。见[开发必要参数说明](https://pay.weixin.qq.com/doc/v3/partner/4013080340.md) | 超级管理员、技术负责人 | 登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)「产品中心 → APPID账号管理 → 我关联的APPID账号」查看。见[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013335081.md)「1、查询服务商自身绑定的APPID账号」 |
++| 回调域名 | 微信支付向服务商发送支付成功通知和退款结果通知时的域名 | 服务商备案域名，开发人员传入地址 | 服务商自行准备公网域名，不由微信支付分配。国内服务器须先完成 ICP 备案，省管局审核时限 20 个工作日内，开发准备开始就提交；在接入商或工信部备案系统能查到已备案后使用。<br>准备完成后，由服务商将该域名写入 `notify_url`。见[回调通知注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md) |
++
++产品权限
++
++| 需要准备 | 用途 | 办理方式 |
++| --- | --- | --- |
++| 服务商 JSAPI 支付权限 | 授权该服务商商户号为子商户受理 JSAPI 支付，用于在微信内置浏览器中下单并调起收银台 | 已有服务商商户号：服务商平台「产品中心 → 特约商户授权产品 → 服务商JSAPI支付 → 申请开通」，审核 7 个工作日内。<br>尚无服务商商户号：按[服务商商户入驻详细流程](https://kf.qq.com/faq/161220iqeAfA1612202yeURB.html)申请。开通结果在同一页面查看。见下文「2.1、服务商自身申请开通JSAPI支付权限」 |
++| 支付授权目录 | 登记可调起收银台的页面目录。调起支付时，微信支付校验当前页面 URL 是否与已登记目录一致。服务商或子商户其中一处配置匹配即可调起 | 域名备案后配置，一般 5 分钟内生效。可为全体子商户配置：服务商平台「产品中心 → 开发配置」。也可为单个子商户配置：服务商平台「合作伙伴功能 → 商户基础服务 → 开发配置参数」。见[配置JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md) |
++| 子商户授权 | 授权服务商使用该子商户的 JSAPI 支付权限 | 服务商在服务商平台对子商户发起邀请，子商户登录商户平台确认授权。子商户尚未入驻时，可通过[服务商平台入驻](https://kf.qq.com/faq/200114EZfmy62001142YVRzy.html)或[产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012062365.md)。见下文「2.2、子商户授权服务商使用JSAPI支付权限」 |
++| `sp_mchid` 与 `sp_appid` 绑定 | 授权指定 `sp_appid` 使用该服务商商户号，下单时微信支付会校验二者的绑定关系 | 超级管理员在服务商平台「产品中心 → AppID授权管理 → 关联AppID」提交，再登录对应平台（公众平台或开放平台）确认。已绑定账号在「产品中心 → APPID账号管理 → 我关联的APPID账号」查看。见[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md) |
++| `sub_mchid` 与 `sub_appid` 绑定 | 使用 `sub_appid` 时，授权该应用标识与对应子商户号绑定，下单时微信支付会校验该参数 | 由服务商在服务商平台为子商户发起绑定，再登录对应平台确认。见[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md)「登录服务商平台为子商户发起APPID的授权绑定申请」 |
++
++注意：
++
++在开发的过程中，请将应答的HTTP头Request-ID值打印到日志中。Request-ID作为[请求的唯一标识](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86)，在调用接口遇到问题时，可向微信侧提供该值用于快速定位到请求记录，协助排查问题原因。
++
++## 2、申请开通服务商JSAPI支付产品权限
+ 
+ 使用服务商模式JSAPI支付产品，涉及两个权限：
+ 
+@@ -9,7 +44,7 @@
+ - 子商户（也叫特约商户）授权服务商使用JSAPI支付权限，[详见1.2](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md#1.2%E3%80%81%E5%AD%90%E5%95%86%E6%88%B7%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1%E5%95%86%E4%BD%BF%E7%94%A8JSAPI%E6%94%AF%E4%BB%98%E6%9D%83%E9%99%90)。
+ 
+ 
+-### 1.1、服务商自身申请开通JSAPI支付权限
++### 2.1、服务商自身申请开通JSAPI支付权限
+ 
+ 若商户已拥有服务商商户号(如无，请按[服务商商户入驻详细流程](https://kf.qq.com/faq/161220iqeAfA1612202yeURB.html)指引申请)，请按照如下步骤申请，申请完成后进入审核阶段，待审核通过后(7个工作日内)，则开通JSAPI支付权限成功。
+ 
+```
+
+### 开发指引
+- ID: `4012069859`
+- 路径: JSAPI支付
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012069859.md
+- 更新时间变更: 2026-10-11 07:54:27 -> 2026-10-13 13:29:46
+- 本地文件: `pages/4012069859.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,39 +1,55 @@
+->更新时间：2026.10.11
+-
+-## 1、开发前准备
+-
+-### 1.1、设置安全联系人
+-
+-微信支付日常安全监测发现技术异常时，会向安全联系人和超级管理员发送风险提醒。请商户超级管理员尽快设置技术同事为安全联系人，确保能及时接收异常信息评估业务风险，详见[安全联系人设置指引](https://pay.weixin.qq.com/doc/v3/partner/4012083124.md)。
+-
+-### 1.2、熟悉微信支付接口规则
+-
+-正式进入开发前，开发者需要先阅读[基本规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md)、[签名和验签规则](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md)了解调用微信支付接口的基本规则和签名规则。
+-
+-### 1.3、准备开发参数
+-
+-在发起接口请求时，开发者还需传入一些必要参数，如服务商商户号、子商户号（也叫特约商户号）、sp\_appid、证书私钥、公钥等，获取方式详见：[服务商模式开发必要参数说明](https://pay.weixin.qq.com/doc/v3/partner/4013080340.md)。
+-
+-注意：
+-
+-在开发的过程中，请将应答的HTTP头Request-ID值打印到日志中。Request-ID作为[请求的唯一标识](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86)，在调用接口遇到问题时，可向微信侧提供该值用于快速定位到请求记录，协助排查问题原因。
+-
+-## 2、整体业务开发流程概览
+-
+-- 服务商后端调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口获取预支付ID（prepay\_id）后，服务商/子商户前端页面再通过调用[WeixinJSBridge](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)对象方法调起微信支付界面。
+-
+-- 当用户取消支付或支付成功后点击"完成"按钮，会返回拉起支付前页面，同时服务商/子商户前端页面将收到回调，此时服务商后端需调用[查询订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口确认订单状态，并根据订单状态进行相应的业务逻辑处理（在服务商/子商户页面向用户展示查询到的订单支付状态、在服务商内部系统更新订单状态等），如果订单支付成功，微信支付系统还会发送[支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012085146.md)给服务商。具体的支付回调和查单的实现方案，服务商可以参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
+-
+-- 最后服务商可通过[下载交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013080595.md)进行对账。需要退款的订单，也可调用[退款接口](https://pay.weixin.qq.com/doc/v3/partner/4012739034.md)完成退款。
+-
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/0b0aa6e5f005cac5654ec11f419d9065.png)
+-
+-## 3、详细步骤说明
+-
+-### 3.1、服务商下单
+-
+-服务商通过调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口生成订单并获取预支付ID。
++>更新时间：2026.10.13
++
++## 1、接口接入清单
++
++本节列出服务商 JSAPI 支付须接入的接口。
++
++### 1.1、必接接口
++
++以下接口必须接入，缺一即视为接入不完整。「二选一」的两个查单接口至少接入一个。
++
++| 接口 | 接入要求 | 说明 |
++| --- | --- | --- |
++| JSAPI下单 | 必接 | 生成订单并获取预支付交易会话标识 `prepay_id`。与分账、代金券、电子发票等业务相关的字段见 1.3、可选能力对接说明 |
++| JSAPI调起支付 | 必接 | 调起微信收银台 |
++| 商户订单号查询订单 | 二选一 | 按商户订单号确认支付状态。与下一行至少接其中一个；两个都不接将无法确认订单支付状态 |
++| 微信支付订单号查询订单 | 二选一 | 按微信支付订单号确认支付状态。已存储 `transaction_id` 并以其为查单主键时用本接口 |
++| 支付成功回调通知 | 必接 | 接收订单支付成功的异步通知 |
++| 关闭订单 | 必接 | 关闭无需继续支付的订单，避免用户在商户侧已废弃的订单上支付造成资金损失 |
++
++### 1.2、推荐接入接口
++
++退款接口推荐接入，以便在系统内发起退款。除非项目不由本系统发起退款、只在服务商平台人工操作，可以不接入。
++
++账单类接口推荐接入，以便通过交易账单发现微信支付成功但本地未成功的差异。除非项目本身不做接口对账，可以不接入。
++
++某一类若不接入，需要让用户确认；未经用户确认，不得跳过。
++
++| 接口 | 接入要求 | 说明 |
++| --- | --- | --- |
++| 申请退款 | 推荐接入 | 发起订单退款。不接时，退款只能在服务商平台人工操作。接入时，下面三个退款接口须一并接入 |
++| 退款结果回调通知 | 推荐接入 | 接收退款单状态变更的异步通知 |
++| 查询单笔退款（按商户退款单号） | 推荐接入 | 确认退款的实际处理结果 |
++| 发起异常退款 | 推荐接入 | 退款状态为 `ABNORMAL`（用户银行卡作废或冻结，导致原路退款银行卡失败）时，通过本接口完成该笔退款。不处理则资金停留在退款中间账户 |
++| 申请所有/单个子商户交易账单 | 推荐接入 | 用于 T+1 对账。不接时，微信支付成功但本地未成功等差异无法自动发现。T+1 日上午 10 点后下载交易账单，与本地订单逐笔核对。本接口只返回下载链接，不返回账单数据 |
++| 申请服务商资金账单 | 按需 | 需核对服务商账户资金变动流水（结算、手续费、退款出款等）时接入。本接口只返回下载链接，不返回账单数据 |
++| 下载账单 | 接入对账时必接 | 接入申请交易账单或申请资金账单中任一接口时必须接入。只调用申请账单接口拿不到账单数据 |
++
++### 1.3、可选能力对接说明
++
++下表为下单接口中与分账、代金券、电子发票相关的字段。接入相应业务时，这些字段须在下单时一并传入，下单后无法补传。未接入相应业务时，对应字段可不传。是否接入分账、代金券、电子发票，需要让用户逐项确认；未经用户确认，不得省略对应字段。相关产品文档在用户确认接入该业务后另行查阅。
++
++| 接口 | 字段 | 关联业务 | 传值说明 |
++| --- | --- | --- | --- |
++| JSAPI下单 | `settle_info.profit_sharing` | 分账 | 传 `true` 后该笔订单才能分账，资金进入子商户基本账户的不可用余额；不传或传 `false`，资金进入子商户可用余额，后续无法分账 |
++| JSAPI下单 | `goods_tag` | 代金券 | 创券时若配置了订单优惠标记，下单必须传入已配置的标记之一，否则无法用券；券未配置标记时可不传 |
++| JSAPI下单 | `support_fapiao` | 电子发票 | 传 `true` 且已在服务商平台或微信公众平台开通电子发票后，支付成功消息和支付详情页才会出现开票入口 |
++
++## 2、详细步骤说明
++
++### 2.1、服务商下单
++
++服务商通过调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口生成订单并获取预支付ID。
+ 
+ ```mermaid
+ sequenceDiagram
+@@ -45,7 +61,7 @@
+   participant p3 as 微信支付系统
+   p0->>p1: 用户下单
+   p1->>p2: 发送下单请求
+-  p2->>p3: 调用JSAPI/小程序下单接口
++  p2->>p3: 调用JSAPI下单接口
+   p3-->>p2: 下单成功返回prepay_id
+   p2-->>p1: 返回JSAPI拉起支付所需参数
+ ```
+@@ -74,7 +90,7 @@
+ | --- | --- |
+ | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b75cd3efce2d98a7a1cd53ebebb4d896.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5474bfda9eb4a153db977dbcd0753faf.png) |
+ 
+-### 3.2、服务商调起支付
++### 2.2、服务商调起支付
+ 
+ 服务商调起支付前，请确保已在[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)
+ 
+@@ -88,7 +104,7 @@
+         Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
+ ```
+ 
+-### 3.3、用户支付
++### 2.3、用户支付结果确认（查单、支付成功回调通知）
+ 
+ 用户在微信收银台完成支付/取消支付，返回服务商/子商户前端页面后，微信浏览器内置对象方法会收到回调，此时服务商需要调[查询订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口确认订单状态，并根据订单状态向用户展示支付结果。
+ 
+@@ -135,15 +151,15 @@
+         end
+ ```
+ 
+-### 3.4、商户对账
+-
+-详细参考：[账单产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013080592.md)
+-
+-### 3.5、订单退款
+-
+-详细参考：[退款产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013080622.md)
+-
+-## 4、普通支付订单状态流转图
++### 2.4、商户对账（申请交易账单、申请资金账单、下载账单）
++
++申请账单、下载账单，以及和本地订单核对，详细参考：[账单开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)
++
++### 2.5、订单退款（退款申请、退款结果回调通知、查询单笔退款、发起异常退款）
++
++退款步骤、退款单状态和注意事项，详细参考：[退款开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)
++
++## 3、普通支付订单状态流转图
+ 
+ ```mermaid
+ %%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
+@@ -165,7 +181,7 @@
+     S4 --> [*]
+ ```
+ 
+-1、服务商调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口下单成功后，服务商可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
++1、服务商调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口下单成功后，服务商可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
+ 
+ 2、当订单状态处于未支付(trade\_state：NOTPAY)时，用户可对订单进行支付，若用户支付失败，订单状态不变。
+ 
+@@ -182,3 +198,43 @@
+ - trade\_state：SUCCESS
+ 
+ - trade\_state：REFUND
++
++
++## 4、单业务注意事项
++
++本节按环节列出接入服务商 JSAPI 支付时须遵守的约束。
++
++### 下单
++
++| 事项 | 说明 |
++| --- | --- |
++| `payer.sp_openid` 与 `payer.sub_openid` 二选一必填，且须与实际调起支付的用户一致 | 下单传入的 openid 所属用户与实际调起支付的用户不一致时，提示「下单账号与支付账号不一致，请核实后再支付」。见 [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md) |
++| openid 须由本次下单使用的 appid 获取 | 使用 `sp_appid` 时传 `payer.sp_openid`，使用 `sub_appid` 时传 `payer.sub_openid`。不匹配时报「appid与openid不匹配」或「sub\_appid和sub\_openid不匹配」。见 [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md) |
++| openid 须由后端获取，不用页面提交的值 | 回调页拿到 `code` 后交给后端，由后端换取 openid。 `secret` 和 `access_token` 不得传到页面。见 [微信网页授权](https://developers.weixin.qq.com/doc/service/guide/h5/auth.md) |
++| 下单必须传入公网可访问的 `notify_url` | `notify_url` 须为公网可访问地址。传入内网地址或地址错误时，收不到支付成功回调。见 [回调通知注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md) |
++| 前端下单按钮须防抖，服务端须防止同一笔业务重复下单 | 前端对同一笔业务重复提交时，服务端应识别为同一次下单，而不是再受理一笔新单。 `prepay_id` 未满 2 小时，用原参数调起；已满 2 小时，用原 `out_trade_no` 和原参数重新下单。见 [JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md) |
++| `prepay_id` 有效期 2 小时 | `prepay_id` 有效期 2 小时。超过后须用原下单参数重新请求下单接口，不得用已过期的 `prepay_id` 调起。见 [JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md) |
++| 无权限时须核验服务商 JSAPI 权限、子商户授权及 AppID 绑定 | 服务商须已开通 JSAPI 支付，子商户须已授权，且 `sp_appid` 已与 `sp_mchid` 绑定。使用 `sub_appid` 时还须完成与 `sub_mchid` 的绑定。见 [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md) |
++| 不传 `time_expire` 时，支付有效期默认为 7 天 | `time_expire` 用于限制用户能完成支付的最后时限。不传时，用户可在 7 天内支付，超出 7 天订单将被关闭。见本文「3.1、服务商下单」 |
++
++### 调起支付
++
++| 事项 | 说明 |
++| --- | --- |
++| 须从微信内置浏览器调起 | 必须在微信内置浏览器中调起。从外部浏览器打开再调起时，提示「为保障支付安全，暂不支持从外部进入微信网页并完成支付」。见 [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md) |
++| 调起参数 `appId` 须为下单时的 `sp_appid` 或 `sub_appid` | `appId` 填写下单时传入的 `sp_appid` 或 `sub_appid`，且当前实际调起支付的公众号 appid 必须是二者之一。否则无法调起。见 [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md) |
++| 支付授权目录须为支付页面所在目录 | 授权目录为支付页面 URL 去掉文件名后的目录，且以 `/` 结尾。服务商为全体子商户配置，或为该子商户单独配置，其中一处与当前页面匹配即可调起。目录不一致时无法调起。见 [配置JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md) |
++| 网页授权域名与支付授权目录分别配置 | 网页授权域名在公众平台配置，用于获取 openid。支付授权目录在服务商平台配置，用于拉起支付。只配支付授权目录时，获取 openid 仍会失败。见 [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md) |
++| `package` 格式为 `prepay_id=` 拼接下单返回的 `prepay_id` | `package` 取下单返回的 `prepay_id`，格式为 `prepay_id=` 后直接接该值，不是只传 `prepay_id` 本身。见 [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md) |
++
++### 支付回调、查单
++
++支付回调、查单注意事项，见[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
++
++### 退款
++
++退款注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)。
++
++### 对账
++
++对账注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)。
+```
+
+### 开发指引
+- ID: `4013080623`
+- 路径: 订单退款
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080623.md
+- 更新时间变更: 2026-06-10 07:28:39 -> 2026-10-13 13:07:48
+- 本地文件: `pages/4013080623.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.06.10
++>更新时间：2026.10.13
+ 
+ ## 1、整体业务开发流程概览
+ 
+@@ -17,7 +17,7 @@
+ 
+         actor User as 用户
+         participant Mch as 商户系统
+-        participant WxPay@{ type: secondaryActor } as 微信支付系统
++        participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
+ 
+         User->>Mch: 用户申请退款
+         Mch->>WxPay: 查询订单信息
+@@ -40,7 +40,7 @@
+ 
+         actor User as 用户
+         participant Mch as 商户系统
+-        participant WxPay@{ type: secondaryActor } as 微信支付系统
++        participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
+ 
+         User->>Mch: 用户申请退款
+         Mch->>Mch: 生成商户退款单号
+@@ -65,7 +65,8 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-autonumber ea
++%% xwatt: autonumber ea
++autonumber
+         actor User as 用户
+         participant P2 as 微信客户端
+         participant Mch as 商户系统
+@@ -110,7 +111,8 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-        autonumber ea
++        %% xwatt: autonumber ea
++        autonumber
+         actor User as 用户
+         participant Mch as 商户系统
+         participant WxPay as 微信支付系统
+@@ -167,3 +169,15 @@
+ - status：SUCCESS
+ 
+ - status：CLOSED
++
++
++## 4、单业务注意事项
++
++| 事项 | 说明 |
++| --- | --- |
++| 接入退款时须完成申请、幂等、结果确认和状态持久化 | 同一 `out_refund_no` 多次请求只退一笔。退款申请返回成功只表示已受理，标为退款成功只依据回调 `REFUND.SUCCESS` 或查单 `status` 为 `SUCCESS`。见 [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md) |
++| 退款仅支持支付成功后 1 年内的订单 | 可退款期限自支付成功时间起算，为 365 天。超过该期限不支持发起退款。见 [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md) |
++| 退款申请超时或状态不明时须查询，重试须使用原退款单号 | 超时或返回 `SYSTEM_ERROR` 等状态未明时，调用查询单笔退款确认状态。重试须使用原 `out_refund_no`，更换退款单号可能导致重复退款。见 [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4013080626.md) |
++| 须处理全部退款结果， `ABNORMAL` 须调用发起异常退款 | `ABNORMAL` 表示原路退回银行卡失败，须调用发起异常退款。未调用时，资金停留在退款中间账户。见 [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4013080627.md) |
++| 退款到账时间只用于向用户说明预期，不作为结单依据 | 退款有一定延时。零钱支付的订单退款一般 5 分钟内到账，银行卡支付的订单退款一般 1-3 个工作日到账。这是预计到账时间，只用来向用户说明，不能据此把退款标成成功。是否成功，以查询退款返回的 `status` 为准。 |
++| 退款回调地址至少配置一处 | 可在退款申请传入 `notify_url`，或在商户平台配置退款回调，至少一处。接口传入 `notify_url` 后，商户平台配置的回调地址不再生效。见 [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md) |
+```
+
+### 开发指引
+- ID: `4013080593`
+- 路径: 下载账单
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080593.md
+- 更新时间变更: 2026-06-09 07:58:24 -> 2026-10-13 13:30:23
+- 本地文件: `pages/4013080593.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.06.09
++>更新时间：2026.10.13
+ 
+ ## 1、整体业务开发流程概览
+ 
+@@ -52,3 +52,10 @@
+         WxPay-->>Mch: 返回账单文件内容或压缩文件(申请账单时指定GZIP压缩)
+         Mch->>Mch: 商户下载并校验哈希值
+ ```
++
++## 3、单业务注意事项
++
++| 事项 | 说明 |
++| --- | --- |
++| 对账须先申请账单再下载，并核验 `hash_value` | 申请交易账单、申请资金账单只返回 `download_url`，不返回账单数据。下载后将文件摘要与 `hash_value` 比对。见 [申请所有/单个特约商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013080595.md) |
++| 交易账单须与本地订单逐笔核对 | 下载并核验 `hash_value` 后，按订单与本地逐笔比对。微信支付成功但本地未成功的差异须有处理，不能只下载不核对。见 [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013080597.md) |
+```
+
+### 开发必要参数说明
+- ID: `4013080340`
+- 路径: Optional > 开发须知 > 开发参数申请和配置
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080340.md
+- 更新时间变更: 2026-06-02 08:22:05 -> 2026-10-13 03:52:59
+- 本地文件: `pages/4013080340.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.06.02
++>更新时间：2026.10.13
+ 
+ 服务商模式开发前需要先准备以下开发必要参数：
+ 
+@@ -8,11 +8,16 @@
+ | sp\_appid | `sp_appid` 是服务商在微信[开放平台](https://open.weixin.qq.com/)（移动应用）或[公众平台](https://mp.weixin.qq.com/)（公众号/小程序）上申请的一个唯一标识。该 `sp_appid` 必须与服务商商户号 `sp_mchid` 进行绑定，因为使用微信支付功能会校验该参数。 | 超级管理员、技术负责人 | 服务商可登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，通过路径【产品中心 -\> APPID账号管理 -> 我关联的APPID账号】来查看所有绑定的APPID账号。若未绑定请超级管理员参考：[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md#2%E3%80%81%E5%95%86%E6%88%B7%E5%8F%B7%E7%BB%91%E5%AE%9A%E6%96%B0%E7%9A%84APPID%E8%B4%A6%E5%8F%B7%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)。如还没有APPID请参考：[mchid与appid申请](https://pay.weixin.qq.com/doc/v3/partner/4012081990.md)。 |
+ | sub\_mchid | `sub_mchid` 是子商户（也叫特约商户）在服务商下的唯一身份标识。子商户进件有两种方式：<br>1、通过[服务商平台进件](https://kf.qq.com/faq/200114EZfmy62001142YVRzy.html)<br>2、通过[接口进件](https://pay.weixin.qq.com/doc/v3/partner/4012062365.md)<br>当子商户进件成功后，微信支付侧会向商户提供该子商户号。 | 超级管理员、技术负责人 | 子商户号查询有两种方式：<br>1、可登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，点击【合作伙伴功能-商户基础服务-开发参数配置】即可查看子商户号。<br>2、接口获取，服务商调用[查询申请单状态API](https://pay.weixin.qq.com/doc/v3/partner/4012691376.md)接口，会通过参数 `sub_mchid` 返回子商户号。 |
+ | sub\_appid | `sub_appid` 是子商户在微信[开放平台](https://open.weixin.qq.com/)（移动应用）或[公众平台](https://mp.weixin.qq.com/)（公众号/小程序）上申请的一个唯一标识。该 `sub_appid` 必须与子商户号 `sub_mchid` 进行绑定，因为使用微信支付功能会校验该参数。由服务商登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)为子商户进行绑定，具体流程请参考[服务商为子商户配置AppID（即sub\_appid）](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md#%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%95%86%E5%B9%B3%E5%8F%B0%E4%B8%BA%E5%AD%90%E5%95%86%E6%88%B7%E5%8F%91%E8%B5%B7APPID%E7%9A%84%E6%8E%88%E6%9D%83%E7%BB%91%E5%AE%9A%E7%94%B3%E8%AF%B7%EF%BC%88%E5%8D%B3sub_appid%EF%BC%89)。 | 超级管理员、技术负责人 | sub\_appid查询有两种方式：<br>1、服务商可登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，通过路径【合作伙伴功能 -> 开发参数配置 -> 找到对应子商户号点击“开发配置” -\> 特约商户APPID配置】来查看所有服务商为子商户绑定的APPID。<br>2、子商户可登录[商户平台](https://pay.wechatpay.cn/)，通过路径【产品中心 -\> APPID账号配置 -> 服务商为我关联的APPID账号 】来查看所有服务商为子商户绑定的APPID。 |
++| openid | 用户在公众号内的唯一身份标识，不同公众号类型对应不同的 OpenID，同一个用户在不同的公众号下也对应不同的openid，微信支付部分接口需要传递该参数。 | 开发人员通过调用接口获取 | 可通过以下四种方式获取：<br>H5获取openid详见[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)<br>小程序获取openid详见[小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)<br>JSAPI获取openid详见[公众号获取OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)<br>App获取openid详见[App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html) |
+ | 服务商API证书 | 服务商发起APIv3接口请求时，需要使用服务商API证书私钥[对请求进行签名](https://pay.weixin.qq.com/doc/v3/partner/4012365862.md)。 | 超级管理员、技术负责人 | 首次获取请登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[申请商户API证书流程](https://pay.weixin.qq.com/doc/v3/partner/4012081992.md)进行下载，下载后请妥善保管，该证书只能下载一次，若遗失或泄露，需在服务商平台重新申请下载。 |
+ | 服务商API证书序列号 | 调用APIv3接口时请求头中的必传参数( `serial_no`)，需要与生成签名值时使用的服务商API证书对应。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)或通过证书解析工具可获取到服务商API证书序列号，详见：[查看商户API证书序列号指南](https://pay.weixin.qq.com/doc/v3/partner/4012081992.md#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%95%86%E6%88%B7API%E8%AF%81%E4%B9%A6%E5%BA%8F%E5%88%97%E5%8F%B7%EF%BC%9F)。 |
+-| 微信支付公钥<br>(推荐使用，公钥长期有效，管理简单) | 服务商会在以下两种场景中使用微信支付公钥：<br>1、接收到APIv3接口的返回内容，需要使用微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、调用某些含有敏感信息参数(如姓名、身份证号码)的接口时，需要使用微信支付公钥[加密敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)后再传输参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[微信支付公钥获取指南](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)进行下载。 |
+-| 微信支付公钥id | 服务商会在以下两种场景中使用微信支付公钥id( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带公钥id，服务商需使用对应的微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、当调用的接口带有使用微信支付公钥[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)参数时，需在请求头中传公钥id参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，进入【账户中心 > 账户设置 \> API安全】目录，点击【管理公钥】即可查看到微信支付公钥id。 |
+ | APIv3密钥 | 开发者接入之前需要[设置APIv3密钥](https://kf.qq.com/faq/180830E36vyQ180830AZFZvu.html)，服务商会在以下两种场景中使用到APIv3密钥：<br>1、微信支付会使用APIv3密钥加密回调信息，然后将加密后的密文回调给服务商，服务商接收到APIv3回调通知的密文后，需使用该密钥进行[解密](https://pay.weixin.qq.com/doc/v3/partner/4012082320.md)。<br>2、在[下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)公钥时，需要使用该密钥进行解密。 | 超级管理员、技术负责人 | 首次设置请登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[设置APIv3密钥流程](https://pay.weixin.qq.com/doc/v3/partner/4012081991.md#4%E3%80%81%E8%AE%BE%E7%BD%AEAPIv3%E5%AF%86%E9%92%A5)，<br>设置后无法在服务商平台查看，请服务商妥善保管，若遗失或泄露须重新设置。 |
+-| 微信支付平台证书<br>(推荐切换成微信支付公钥，平台证书需要每五年更换一次) | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)和[敏感信息加密](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数。 | 开发人员通过调用接口下载 | 首次获取平台证书需通过Java命令行下载，后续则可以使用[微信支付平台证书下载](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)接口获取，详见：[平台证书简介及使用说明](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md#4.-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B3%E5%8F%B0%E8%AF%81%E4%B9%A6)。<br>已经使用平台证书的服务商也可[参考指引切换为使用微信支付公钥](https://pay.weixin.qq.com/doc/v3/partner/4012925289.md)。 |
+-| 平台证书序列号 | 服务商会在以下两种场景中使用平台证书序列号( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带平台证书序列号，服务商需使用对应的平台证书进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)；<br>2、当调用的接口带有使用平台证书[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数时，需在请求头中传平台证书序列号参数。 | 开发人员通过调用接口获取 | 可通过以下三种方式查看平台证书序列号：<br>1、在调用接口[下载微信支付平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)时，接口会返回平台证书序列号( `serial_no`)参数。<br>2、可使用openssl命令行工具查看证书序列号，详见：[如何查看商户API证书或平台证书序列号](https://pay.weixin.qq.com/doc/v3/partner/4013059181.md)<br>3、可使用第三方的证书[解析工具](https://myssl.com/cert_decode.html)，查看证书内容、 |
+-| openid | 用户在公众号内的唯一身份标识，不同公众号类型对应不同的 OpenID，同一个用户在不同的公众号下也对应不同的openid，微信支付部分接口需要传递该参数。 | 开发人员通过调用接口获取 | 可通过以下四种方式获取：<br>H5获取openid详见[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)<br>小程序获取openid详见[小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)<br>JSAPI获取openid详见[公众号获取OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)<br>App获取openid详见[App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html) |
++
++验签方案：优先使用微信支付公钥：长期有效，无需定期更换。新接入按方案 A 获取即可，无需再获取平台证书。仅存量已使用平台证书的商户可继续用方案 B。
++
++| 方案 | 参数名 | 用途 | 获取角色 | 获取方式 |
++| --- | --- | --- | --- | --- |
++| 方案 A：微信支付公钥（推荐） | 微信支付公钥<br>(推荐使用，公钥长期有效，管理简单) | 服务商会在以下两种场景中使用微信支付公钥：<br>1、接收到APIv3接口的返回内容，需要使用微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、调用某些含有敏感信息参数(如姓名、身份证号码)的接口时，需要使用微信支付公钥[加密敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)后再传输参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[微信支付公钥获取指南](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)进行下载。 |
++| 方案 A：微信支付公钥（推荐） | 微信支付公钥id | 服务商会在以下两种场景中使用微信支付公钥id( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带公钥id，服务商需使用对应的微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、当调用的接口带有使用微信支付公钥[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)参数时，需在请求头中传公钥id参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，进入【账户中心 > 账户设置 \> API安全】目录，点击【管理公钥】即可查看到微信支付公钥id。 |
++| 方案 B：微信支付平台证书 | 微信支付平台证书<br>(推荐切换成微信支付公钥，平台证书需要每五年更换一次) | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)和[敏感信息加密](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数。 | 开发人员通过调用接口下载 | 首次获取平台证书需通过Java命令行下载，后续则可以使用[微信支付平台证书下载](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)接口获取，详见：[平台证书简介及使用说明](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md#4.-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B3%E5%8F%B0%E8%AF%81%E4%B9%A6)。<br>已经使用平台证书的服务商也可[参考指引切换为使用微信支付公钥](https://pay.weixin.qq.com/doc/v3/partner/4012925289.md)。 |
++| 方案 B：微信支付平台证书 | 平台证书序列号 | 服务商会在以下两种场景中使用平台证书序列号( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带平台证书序列号，服务商需使用对应的平台证书进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)；<br>2、当调用的接口带有使用平台证书[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数时，需在请求头中传平台证书序列号参数。 | 开发人员通过调用接口获取 | 可通过以下三种方式查看平台证书序列号：<br>1、在调用接口[下载微信支付平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)时，接口会返回平台证书序列号( `serial_no`)参数。<br>2、可使用openssl命令行工具查看证书序列号，详见：[如何查看商户API证书或平台证书序列号](https://pay.weixin.qq.com/doc/v3/partner/4013059181.md)<br>3、可使用第三方的证书[解析工具](https://myssl.com/cert_decode.html)，查看证书内容、 |
+```
+
+### 支付回调和查单实现指引
+- ID: `4012082568`
+- 路径: Optional > 最佳实践
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012082568.md
+- 更新时间变更: 2024-12-18 07:43:24 -> 2026-10-13 09:08:37
+- 本地文件: `pages/4012082568.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2024.12.18
++>更新时间：2026.10.13
+ 
+ ## 1.背景
+ 
+@@ -74,6 +74,10 @@
+ 
+ 商户后台需要准确、高效地处理微信支付发送的异步支付结果通知，并按接口规范把处理结果返回给微信支付。详情请参考[接口规范](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)和[注意事项](https://pay.weixin.qq.com/doc/v3/merchant/4012075420.md)
+ 
++验签后如何应答、重复通知和重发次数见[支付成功回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012791861.md)。
++
++未收到支付成功回调时，先按下文查单，不要更换商户订单号立即重新下单。trade\_state 为 NOTPAY 不表示支付失败。
++
+ ### 5.2.定时轮询查单
+ 
+ 如果长时间没有收到支付结果通知，商户后台应该定时轮询调用《[微信支付查单接口](https://pay.weixin.qq.com/doc/v3/merchant/4012791858.md)》去核实订单状态。
+@@ -101,6 +105,21 @@
+ - 订单匹配失败，商户系统中成功的订单在对账单中未找到记录：异常情况，需要商户排查是否订单处理逻辑有bug。
+ 
+ 
++下载步骤见[下载账单开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071218.md)。
++
++### 5.4.关闭订单前先查单
++
++用户在商户系统取消订单，或已超过可支付时间仍未支付，或按上文查单达到停止条件后，先查单，再按 trade\_state 处理。没付才关单，已付不关单。
++
++| 查单结果 | 处理 |
++| --- | --- |
++| NOTPAY | 调用关闭订单。关单成功后，本地标为已关闭，不再拉起支付。用户还要购买，使用新的商户订单号重新下单 |
++| SUCCESS | 不关单。同一商户订单号已支付成功时，不要重复下单，也不要再调用关单；用户要取消这笔已支付订单，走退款。见错误码 268449538 / 268498689 |
++| CLOSED | 不再调用关闭订单 |
++| REFUND | 不关单，按已有退款单继续处理 |
++
++关单返回「订单已支付」（错误码 268449538 / 268498689）时，说明查单之后用户已经付完，重新查单，按 SUCCESS 处理。
++
+ ## 6.常见问题
+ 
+ ### 1、前端返回如何区分是成功返回，还是用户取消支付或者异常？
+@@ -118,8 +137,8 @@
+ | 回调类型 | errMsg | 说明 |
+ | --- | --- | --- |
+ | success | requestPayment:ok | 调用支付成功 |
+-| fail | requestPayment:fail cancel | 用户取消支付 |
+-| fail | requestPayment:fail (detail message) | 调用支付失败，其中 detail message 为后台返回的详细失败原因 |
++| fail | requestPayment:fail cancel | 用户取消支付 |
++| fail | requestPayment:fail (detail message) | 调用支付失败，其中 detail message 为后台返回的详细失败原因 |
+ 
+ App支付，通过onResp函数返回的errCode值判断：
+ 
+@@ -132,3 +151,17 @@
+ ### 2、如何判断微信支付查单接口返回的订单状态是支付成功？
+ 
+ 商户收到《[微信支付查单接口](https://pay.weixin.qq.com/doc/v3/merchant/4012791858.md)》的响应报文，验证签名成功，并且返回的trade\_state为SUCCESS，则认为订单是支付成功。
++
++上一问的表格只区分前端返回类型，不能单独作为支付成功的依据。
++
++## 7.注意事项
++
++| 事项 | 说明 |
++| --- | --- |
++| 用户取消或超时未支付时，先查单再决定关单或退款 | 先查单。 `NOTPAY` 才关单。 `SUCCESS` 不关单：用户取消走退款，超时则先履约，无法履约再退款。 `NOTPAY` 不得直接置为支付失败。见 [支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md) |
++| 支付结果须以后端查单或支付成功回调为准 | `get_brand_wcpay_request:ok` 只表示用户完成收银台操作，不表示支付成功。更新为已支付及发货，仅当查单或支付成功回调验签通过且 `trade_state` 为 `SUCCESS`。见 [支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md) |
++| 支付成功回调须在 5 秒内应答，未收到时须查单 | 收到通知后 5 秒内先验签再应答。验签不通过返回 `4xx` 或 `5xx`，不得返回 `200`。未收到通知时查单同步状态。见 [回调通知注意事项](https://pay.weixin.qq.com/doc/v3/merchant/4012075420.md) |
++| 防火墙须放行微信支付回调 IP 段 | 支付成功回调来自微信支付回调 IP。该 IP 被拦截时收不到通知，须放行其访问 `notify_url` 的 443 端口。见 [回调通知注意事项](https://pay.weixin.qq.com/doc/v3/merchant/4012075420.md) |
++| 未设置 APIv3 密钥时无法接收支付成功回调 | 商户平台未设置 APIv3 密钥时，微信支付不向 `notify_url` 推送支付成功回调。见 [配置APIv3密钥](https://pay.weixin.qq.com/doc/v3/merchant/4012072195.md) |
++| 不得漏接查单 | 「商户订单号查询订单」与「微信支付订单号查询订单」至少接入一个。两个都不接时，无法确认订单支付状态。见 [商户订单号查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md) |
++| 未收到支付成功回调时不得立即再次下单 | 未收到回调时先查单，不得更换 `out_trade_no` 再次下单。 `trade_state` 为 `NOTPAY` 不表示支付失败。 |
+```
+
+### 参数说明
+- ID: `4012081935`
+- 路径: Optional > 名词表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012081935.md
+- 更新时间变更: 2024-10-29 02:13:52 -> 2026-10-13 09:47:01
+- 本地文件: `pages/4012081935.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2024.10.29
++>更新时间：2026.10.13
+ 
+ ## 商户证书
+ 
+@@ -24,11 +24,11 @@
+ 
+ 用户在公众号内的身份标识，不同公众号拥有不同的OpenID。商户后台系统通过登录授权、支付通知、查询订单等API可获取到用户的OpenID。主要用途是判断同一个用户，对用户发送客服消息、模板消息等。企业号用户需要使用企业号userid转OpenID接口将企业成员的userid转换成OpenID。
+ 
+-[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)
++[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)
+ 
+ [小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)
+ 
+-[公众号获取OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)
++[公众号获取OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)
+ 
+ [App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html)
  
 ```
 
@@ -40,8 +569,8 @@
 | 4 | [付款码支付（V2）](pages/4012851192.md) | `4012851192` | 2025-04-25 07:54:10 | 付款码支付（V2） |
 | 5 | [刷脸支付](pages/4012851199.md) | `4012851199` | 2024-10-28 07:53:13 | 刷脸支付 |
 | 6 | [产品介绍](pages/4012069852.md) | `4012069852` | 2026-05-21 03:22:54 | JSAPI支付 |
-| 7 | [开发接入准备](pages/4012069853.md) | `4012069853` | 2026-05-19 08:35:53 | JSAPI支付 |
-| 8 | [开发指引](pages/4012069859.md) | `4012069859` | 2026-10-11 07:54:27 | JSAPI支付 |
+| 7 | [开发接入准备](pages/4012069853.md) | `4012069853` | 2026-10-13 13:00:01 | JSAPI支付 |
+| 8 | [开发指引](pages/4012069859.md) | `4012069859` | 2026-10-13 13:29:46 | JSAPI支付 |
 | 9 | [常见问题](pages/4013334850.md) | `4013334850` | 2026-08-05 06:16:19 | JSAPI支付 |
 | 10 | [JSAPI下单](pages/4012738519.md) | `4012738519` | 2026-10-11 07:44:07 | JSAPI支付 > API列表 |
 | 11 | [JSAPI调起支付](pages/4012069855.md) | `4012069855` | 2025-02-26 07:08:25 | JSAPI支付 > API列表 |
@@ -251,7 +780,7 @@
 | 215 | [测试信息准备和验收注意事项](pages/4027117108.md) | `4027117108` | 2026-07-22 08:08:00 | 医保一码付 > 附录 |
 | 216 | [产品介绍](pages/4013080622.md) | `4013080622` | 2026-05-21 03:44:04 | 订单退款 |
 | 217 | [开发接入准备](pages/4013080630.md) | `4013080630` | 2026-05-19 08:38:56 | 订单退款 |
-| 218 | [开发指引](pages/4013080623.md) | `4013080623` | 2026-06-10 07:28:39 | 订单退款 |
+| 218 | [开发指引](pages/4013080623.md) | `4013080623` | 2026-10-13 13:07:48 | 订单退款 |
 | 219 | [业务示例代码](pages/4015217325.md) | `4015217325` | 2026-06-10 07:28:38 | 订单退款 |
 | 220 | [常见问题](pages/4013080629.md) | `4013080629` | 2026-08-05 06:12:19 | 订单退款 |
 | 221 | [申请退款](pages/4013080625.md) | `4013080625` | 2025-01-16 07:08:56 | 订单退款 > API列表 |
@@ -261,7 +790,7 @@
 | 225 | [退款操作指引](pages/4013080632.md) | `4013080632` | 2024-11-26 08:21:24 | 订单退款 > 附录 |
 | 226 | [微信支付退款最佳实践](pages/4014960215.md) | `4014960215` | 2026-06-10 07:28:37 | 订单退款 > 附录 |
 | 227 | [产品介绍](pages/4013080592.md) | `4013080592` | 2026-07-10 09:13:53 | 下载账单 |
-| 228 | [开发指引](pages/4013080593.md) | `4013080593` | 2026-06-09 07:58:24 | 下载账单 |
+| 228 | [开发指引](pages/4013080593.md) | `4013080593` | 2026-10-13 13:30:23 | 下载账单 |
 | 229 | [业务示例代码](pages/4015988147.md) | `4015988147` | 2025-12-03 04:00:07 | 下载账单 |
 | 230 | [常见问题](pages/4013080602.md) | `4013080602` | 2026-05-09 08:57:11 | 下载账单 |
 | 231 | [申请所有/单个特约商户交易账单](pages/4013080595.md) | `4013080595` | 2025-01-16 07:08:51 | 下载账单 > API列表 |
@@ -839,7 +1368,7 @@
 | 803 | [总述-APIv3如何签名和验签](pages/4012365870.md) | `4012365870` | 2024-11-21 10:50:08 | Optional > 开发须知 |
 | 804 | [基本规则](pages/4012081726.md) | `4012081726` | 2024-07-25 02:06:07 | Optional > 开发须知 > 接口规则说明 |
 | 805 | [HTTP状态码](pages/4012081727.md) | `4012081727` | 2024-07-25 02:07:36 | Optional > 开发须知 > 接口规则说明 |
-| 806 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-06-02 08:22:05 | Optional > 开发须知 > 开发参数申请和配置 |
+| 806 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-10-13 03:52:59 | Optional > 开发须知 > 开发参数申请和配置 |
 | 807 | [mchid与appid申请](pages/4012081990.md) | `4012081990` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
 | 808 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
 | 809 | [配置APIv3密钥](pages/4012081991.md) | `4012081991` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
@@ -875,7 +1404,7 @@
 | 839 | [验证微信支付响应的签名报错：签名验证失败](pages/4016241895.md) | `4016241895` | 2025-10-14 06:39:36 | Optional > 开发须知 > 常见问题 |
 | 840 | [调用接口报错：“平台私钥解密失败”](pages/4016913182.md) | `4016913182` | 2025-12-19 02:59:24 | Optional > 开发须知 > 常见问题 |
 | 841 | [跨城冗灾升级指引](pages/4012082567.md) | `4012082567` | 2025-03-21 07:37:49 | Optional > 最佳实践 |
-| 842 | [支付回调和查单实现指引](pages/4012082568.md) | `4012082568` | 2024-12-18 07:43:24 | Optional > 最佳实践 |
+| 842 | [支付回调和查单实现指引](pages/4012082568.md) | `4012082568` | 2026-10-13 09:08:37 | Optional > 最佳实践 |
 | 843 | [专线商户Notify升级指引](pages/4012082569.md) | `4012082569` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
 | 844 | [回调通知注意事项](pages/4012082570.md) | `4012082570` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
 | 845 | [最佳安全实践](pages/4012082456.md) | `4012082456` | 2024-11-27 09:15:00 | Optional > 最佳实践 > API安全最佳实践 |
@@ -899,7 +1428,7 @@
 | 863 | [支付产品](pages/4012081932.md) | `4012081932` | 2024-07-25 02:23:51 | Optional > 名词表 |
 | 864 | [业务平台](pages/4012081933.md) | `4012081933` | 2024-07-25 02:23:51 | Optional > 名词表 |
 | 865 | [业务系统](pages/4012081934.md) | `4012081934` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 866 | [参数说明](pages/4012081935.md) | `4012081935` | 2024-10-29 02:13:52 | Optional > 名词表 |
+| 866 | [参数说明](pages/4012081935.md) | `4012081935` | 2026-10-13 09:47:01 | Optional > 名词表 |
 | 867 | [常见问题](pages/4016183684.md) | `4016183684` | 2026-08-05 06:15:10 | Optional > 名词表 |
 | 868 | [微信支付链路界面与交互规范](pages/4020527499.md) | `4020527499` | 2026-05-19 02:15:32 | Optional > 服务运营规范 |
 | 869 | [Postman调试工具](pages/4012083114.md) | `4012083114` | 2024-11-29 09:45:15 | Optional > 开发工具 |

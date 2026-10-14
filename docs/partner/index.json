@@ -49,14 +49,14 @@
       "docId": "4012069853",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012069853.md",
-      "updateTime": "1779179753",
+      "updateTime": "1791896401",
       "fullPath": "JSAPI支付"
     },
     {
       "docId": "4012069859",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012069859.md",
-      "updateTime": "1791705267",
+      "updateTime": "1791898186",
       "fullPath": "JSAPI支付"
     },
     {
@@ -1526,7 +1526,7 @@
       "docId": "4013080623",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080623.md",
-      "updateTime": "1781076519",
+      "updateTime": "1791896868",
       "fullPath": "订单退款"
     },
     {
@@ -1596,7 +1596,7 @@
       "docId": "4013080593",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080593.md",
-      "updateTime": "1780991904",
+      "updateTime": "1791898223",
       "fullPath": "下载账单"
     },
     {
@@ -5642,7 +5642,7 @@
       "docId": "4013080340",
       "title": "开发必要参数说明",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080340.md",
-      "updateTime": "1780388525",
+      "updateTime": "1791863579",
       "fullPath": "Optional > 开发须知 > 开发参数申请和配置"
     },
     {
@@ -5894,7 +5894,7 @@
       "docId": "4012082568",
       "title": "支付回调和查单实现指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012082568.md",
-      "updateTime": "1734507804",
+      "updateTime": "1791882517",
       "fullPath": "Optional > 最佳实践"
     },
     {
@@ -6062,7 +6062,7 @@
       "docId": "4012081935",
       "title": "参数说明",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012081935.md",
-      "updateTime": "1730168032",
+      "updateTime": "1791884821",
       "fullPath": "Optional > 名词表"
     },
     {
