@@ -49,7 +49,7 @@
       "docId": "4015423216",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015423216.md",
-      "updateTime": "1791891653",
+      "updateTime": "1791959725",
       "fullPath": "JSAPI支付"
     },
     {
@@ -2632,14 +2632,14 @@
       "docId": "4012464070",
       "title": "查询代金券消息通知地址",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012464070.md",
-      "updateTime": "1724814485",
+      "updateTime": "1791974243",
       "fullPath": "代金券 > API列表 > 消息通知地址"
     },
     {
       "docId": "4012464198",
       "title": "设置代金券消息通知地址",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012464198.md",
-      "updateTime": "1724815170",
+      "updateTime": "1791974229",
       "fullPath": "代金券 > API列表 > 消息通知地址"
     },
     {

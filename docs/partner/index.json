@@ -1,5 +1,5 @@
 {
-  "totalNodes": 881,
+  "totalNodes": 883,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -2429,14 +2429,14 @@
       "docId": "4012464155",
       "title": "查询代金券消息通知地址",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012464155.md",
-      "updateTime": "1731921949",
+      "updateTime": "1791974241",
       "fullPath": "代金券 > API列表 > 消息通知地址"
     },
     {
       "docId": "4012464176",
       "title": "设置代金券消息通知地址",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012464176.md",
-      "updateTime": "1731921940",
+      "updateTime": "1791974240",
       "fullPath": "代金券 > API列表 > 消息通知地址"
     },
     {
@@ -3010,7 +3010,7 @@
       "docId": "4015274639",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015274639.md",
-      "updateTime": "1781076521",
+      "updateTime": "1791774483",
       "fullPath": "商家名片会员"
     },
     {
@@ -3136,7 +3136,7 @@
       "docId": "4015534755",
       "title": "下单同步用户实时动态",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015534755.md",
-      "updateTime": "1763105513",
+      "updateTime": "1791774455",
       "fullPath": "商家名片会员 > API列表 > 用户动态"
     },
     {
@@ -3458,7 +3458,7 @@
       "docId": "4015780862",
       "title": "商品券回调通知",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015780862.md",
-      "updateTime": "1786586760",
+      "updateTime": "1791962225",
       "fullPath": "商品券（单券） > API列表 > 商品券回调通知"
     },
     {
@@ -3522,6 +3522,13 @@
       "title": "商品券结构及修改说明",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018984452.md",
       "updateTime": "1774579631",
+      "fullPath": "商品券（单券） > 附录"
+    },
+    {
+      "docId": "4043213639",
+      "title": "品类券头图设计规范",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4043213639.md",
+      "updateTime": "1789982487",
       "fullPath": "商品券（单券） > 附录"
     },
     {
@@ -3773,7 +3780,7 @@
       "docId": "4016435717",
       "title": "商品券回调通知",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016435717.md",
-      "updateTime": "1786586758",
+      "updateTime": "1791962199",
       "fullPath": "商品券（多次优惠） > API列表 > 商品券回调通知"
     },
     {
@@ -3837,6 +3844,13 @@
       "title": "商品券结构及修改说明",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018984437.md",
       "updateTime": "1774579625",
+      "fullPath": "商品券（多次优惠） > 附录"
+    },
+    {
+      "docId": "4043213651",
+      "title": "品类券头图设计规范",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4043213651.md",
+      "updateTime": "1789982485",
       "fullPath": "商品券（多次优惠） > 附录"
     },
     {

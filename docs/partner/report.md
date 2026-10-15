@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261014_053327
-**文档总数**: 881
+**生成时间**: 20261015_052135
+**文档总数**: 883
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 0 个页面
+- 新增: 2 个页面
 - 删除: 0 个页面
-- 修改: 7 个页面
-- 成功拉取: 7 个页面
+- 修改: 6 个页面
+- 成功拉取: 8 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,546 +20,513 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.12
-+>更新时间：2026.10.13
+->更新时间：2026.10.13
++>更新时间：2026.10.15
  
  # 微信支付合作伙伴平台文档中心
  
+@@ -706,6 +706,7 @@
+ - [商品券可核销时间规则说明（coupon_available_period）](https://pay.weixin.qq.com/doc/v3/partner/4016675999.md)
+ - [商品券客户端消息推送页面](https://pay.weixin.qq.com/doc/v3/partner/4019005729.md)
+ - [商品券结构及修改说明](https://pay.weixin.qq.com/doc/v3/partner/4018984452.md)
++- [品类券头图设计规范](https://pay.weixin.qq.com/doc/v3/partner/4043213639.md)
+ - [券类型选型](https://pay.weixin.qq.com/doc/v3/partner/4043817598.md)
+ #### API请求示例-创建商品券
+ - [【单券-全场-折扣券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756270.md)
+@@ -766,6 +767,7 @@
+ - [商品券可核销时间规则说明（coupon_available_period）](https://pay.weixin.qq.com/doc/v3/partner/4016676012.md)
+ - [商品券客户端消息推送页面](https://pay.weixin.qq.com/doc/v3/partner/4019005741.md)
+ - [商品券结构及修改说明](https://pay.weixin.qq.com/doc/v3/partner/4018984437.md)
++- [品类券头图设计规范](https://pay.weixin.qq.com/doc/v3/partner/4043213651.md)
+ #### API请求示例-创建商品券
+ - [【多次优惠-全场-折扣券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756283.md)
+ - [【多次优惠-全场-满减券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756284.md)
 ```
+
+## 新增页面
+
+### 品类券头图设计规范
+- ID: `4043213639`
+- 路径: 商品券（单券） > 附录
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4043213639.md
+- 更新时间: 2026-09-21 09:21:27
+- 本地文件: `pages/4043213639.md`
+
+### 品类券头图设计规范
+- ID: `4043213651`
+- 路径: 商品券（多次优惠） > 附录
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4043213651.md
+- 更新时间: 2026-09-21 09:21:25
+- 本地文件: `pages/4043213651.md`
 
 ## 修改页面
 
-### 开发接入准备
-- ID: `4012069853`
-- 路径: JSAPI支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012069853.md
-- 更新时间变更: 2026-05-19 08:35:53 -> 2026-10-13 13:00:01
-- 本地文件: `pages/4012069853.md`
+### 查询代金券消息通知地址
+- ID: `4012464155`
+- 路径: 代金券 > API列表 > 消息通知地址
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012464155.md
+- 更新时间变更: 2024-11-18 09:25:49 -> 2026-10-14 10:37:21
+- 本地文件: `pages/4012464155.md`
 
 ```diff
 --- old.md
 +++ new.md
-@@ -1,6 +1,41 @@
-->更新时间：2026.05.19
-+>更新时间：2026.10.13
+@@ -1,8 +1,8 @@
+->更新时间：2024.11.18
++>更新时间：2026.10.14
  
--## 1、申请开通服务商JSAPI支付产品权限
-+## 1、开发前准备
-+
-+### 1.1、设置安全联系人
-+
-+微信支付日常安全监测发现技术异常时，会向安全联系人和超级管理员发送风险提醒。请商户超级管理员尽快设置技术同事为安全联系人，确保能及时接收异常信息评估业务风险，详见 [安全联系人设置指引](https://pay.weixin.qq.com/doc/v3/partner/4012083124.md)。
-+
-+### 1.2、熟悉微信支付接口规则
-+
-+正式进入开发前，开发者需要先阅读 [基本规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md)、 [总述-APIv3如何签名和验签](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md) 了解调用微信支付接口的基本规则和签名规则。
-+
-+### 1.3、准备开发参数
-+
-+通用开发参数：如服务商商户号、子商户号（也叫特约商户号）、sp\_appid、证书私钥、公钥等，获取方式详见：[开发必要参数说明](https://pay.weixin.qq.com/doc/v3/partner/4013080340.md)。
-+
-+业务开发参数：见下表
-+
-+| 参数名 | 用途 | 获取角色 | 获取方式 |
-+| --- | --- | --- | --- |
-+| `sp_appid` | `sp_appid` 是服务商在微信[开放平台](https://open.weixin.qq.com/)（移动应用）或[公众平台](https://mp.weixin.qq.com/)（公众号/小程序）上申请的一个唯一标识。该 `sp_appid` 必须与服务商商户号 `sp_mchid` 进行绑定，使用微信支付功能会校验该参数。见[开发必要参数说明](https://pay.weixin.qq.com/doc/v3/partner/4013080340.md) | 超级管理员、技术负责人 | 登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)「产品中心 → APPID账号管理 → 我关联的APPID账号」查看。见[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013335081.md)「1、查询服务商自身绑定的APPID账号」 |
-+| 回调域名 | 微信支付向服务商发送支付成功通知和退款结果通知时的域名 | 服务商备案域名，开发人员传入地址 | 服务商自行准备公网域名，不由微信支付分配。国内服务器须先完成 ICP 备案，省管局审核时限 20 个工作日内，开发准备开始就提交；在接入商或工信部备案系统能查到已备案后使用。<br>准备完成后，由服务商将该域名写入 `notify_url`。见[回调通知注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md) |
-+
-+产品权限
-+
-+| 需要准备 | 用途 | 办理方式 |
-+| --- | --- | --- |
-+| 服务商 JSAPI 支付权限 | 授权该服务商商户号为子商户受理 JSAPI 支付，用于在微信内置浏览器中下单并调起收银台 | 已有服务商商户号：服务商平台「产品中心 → 特约商户授权产品 → 服务商JSAPI支付 → 申请开通」，审核 7 个工作日内。<br>尚无服务商商户号：按[服务商商户入驻详细流程](https://kf.qq.com/faq/161220iqeAfA1612202yeURB.html)申请。开通结果在同一页面查看。见下文「2.1、服务商自身申请开通JSAPI支付权限」 |
-+| 支付授权目录 | 登记可调起收银台的页面目录。调起支付时，微信支付校验当前页面 URL 是否与已登记目录一致。服务商或子商户其中一处配置匹配即可调起 | 域名备案后配置，一般 5 分钟内生效。可为全体子商户配置：服务商平台「产品中心 → 开发配置」。也可为单个子商户配置：服务商平台「合作伙伴功能 → 商户基础服务 → 开发配置参数」。见[配置JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md) |
-+| 子商户授权 | 授权服务商使用该子商户的 JSAPI 支付权限 | 服务商在服务商平台对子商户发起邀请，子商户登录商户平台确认授权。子商户尚未入驻时，可通过[服务商平台入驻](https://kf.qq.com/faq/200114EZfmy62001142YVRzy.html)或[产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012062365.md)。见下文「2.2、子商户授权服务商使用JSAPI支付权限」 |
-+| `sp_mchid` 与 `sp_appid` 绑定 | 授权指定 `sp_appid` 使用该服务商商户号，下单时微信支付会校验二者的绑定关系 | 超级管理员在服务商平台「产品中心 → AppID授权管理 → 关联AppID」提交，再登录对应平台（公众平台或开放平台）确认。已绑定账号在「产品中心 → APPID账号管理 → 我关联的APPID账号」查看。见[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md) |
-+| `sub_mchid` 与 `sub_appid` 绑定 | 使用 `sub_appid` 时，授权该应用标识与对应子商户号绑定，下单时微信支付会校验该参数 | 由服务商在服务商平台为子商户发起绑定，再登录对应平台确认。见[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md)「登录服务商平台为子商户发起APPID的授权绑定申请」 |
-+
-+注意：
-+
-+在开发的过程中，请将应答的HTTP头Request-ID值打印到日志中。Request-ID作为[请求的唯一标识](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86)，在调用接口遇到问题时，可向微信侧提供该值用于快速定位到请求记录，协助排查问题原因。
-+
-+## 2、申请开通服务商JSAPI支付产品权限
+ 通过此接口查询营销事件通知的回调URL地址
  
- 使用服务商模式JSAPI支付产品，涉及两个权限：
- 
-@@ -9,7 +44,7 @@
- - 子商户（也叫特约商户）授权服务商使用JSAPI支付权限，[详见1.2](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md#1.2%E3%80%81%E5%AD%90%E5%95%86%E6%88%B7%E6%8E%88%E6%9D%83%E6%9C%8D%E5%8A%A1%E5%95%86%E4%BD%BF%E7%94%A8JSAPI%E6%94%AF%E4%BB%98%E6%9D%83%E9%99%90)。
+-接口频率：2000QPS
++接口频率： 2000QPS
  
  
--### 1.1、服务商自身申请开通JSAPI支付权限
-+### 2.1、服务商自身申请开通JSAPI支付权限
  
- 若商户已拥有服务商商户号(如无，请按[服务商商户入驻详细流程](https://kf.qq.com/faq/161220iqeAfA1612202yeURB.html)指引申请)，请按照如下步骤申请，申请完成后进入审核阶段，待审核通过后(7个工作日内)，则开通JSAPI支付权限成功。
+@@ -15,65 +15,38 @@
+ 
+ 请求域名：【主域名】https://api.mch.weixin.qq.com 使用该域名将访问就近的接入点
+ 
+-　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/partner/4012082567.md)
++　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
+ 
+ ## 请求参数
+ 
+ ### Header 参数
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
++| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/merchant/4012365342.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
+ | Accept | string | true | 请设置为 `application/json` |
+ ### Query 参数
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| mchid | string(20) | true | **【商户号】** 微信支付商户号 |
++| mchid | string(20) | true | 【商户号】 微信支付商户号 |
+ ## 应答参数
+ 
+ 200 OK
+ 
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| notify_url | string | true | **【通知地址】** 通知地址 |
+-| mchid | string | true | **【商户号】** 微信支付商户号 |
++| notify_url | string | true | 【通知地址】 通知地址 |
++| appid | string | false | 【公众账号ID】 消息通知对应的appid，未设置时不返回；设置后原样返回appid，代金券核销通知将回传该appid下的用户openid。 |
++| mchid | string | true | 【商户号】  微信支付商户号 |
+ ## 错误码
+ 
+-### 公共错误码
++以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
+ 
+ | 状态码 | 错误码 | 描述 | 解决方案 |
+ | --- | --- | --- | --- |
+ | 400 | PARAM\_ERROR | 参数错误 | 请根据错误提示正确传入参数 |
+-| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md) |
+-| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012082324.md) |
++| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081709.md) |
++| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012072670.md) |
+ | 500 | SYSTEM\_ERROR | 系统异常，请稍后重试 | 请稍后重试 |
+-
+-### 业务错误码
+-
+-| 状态码 | 错误码 | 描述 | 解决方案 |
+-| --- | --- | --- | --- |
+-| 400 | APPID\_MCHID\_NOT\_MATCH | 商户号与AppID不匹配 | 请绑定调用接口的商户号和AppID后重试 |
+-| 400 | INVALID\_REQUEST | OpenID与AppID不匹配 | 请使用AppID下的OpenID |
+-| 400 | INVALID\_REQUEST | 活动已结束或未激活 | 请检查批次状态 |
+-| 400 | INVALID\_REQUEST | 非法的商户号 | 请检查商户号是否正确 |
+-| 400 | MCH\_NOT\_EXISTS | 商户号不合法 | 请输入正确的商户号 |
+-| 400 | PARAM\_ERROR | 回调URL不能为空 | 请填写回调URL |
+-| 400 | PARAM\_ERROR | 回调商户不能为空 | 请填写回调商户 |
+-| 400 | PARAM\_ERROR | 券ID必填 | 请填写券ID |
+-| 400 | PARAM\_ERROR | AppID必填 | 请输入AppID |
+-| 400 | PARAM\_ERROR | OpenID必填 | 请输入OpenID |
+-| 400 | PARAM\_ERROR | 页大小超过阈值 | 请不要超过最大的页大小 |
+-| 400 | PARAM\_ERROR | 输入时间格式错误 | 请输入正确的时间格式 |
+-| 400 | PARAM\_ERROR | 批次号必填 | 请输入批次号 |
+-| 400 | PARAM\_ERROR | 商户号必填 | 请输入商户号 |
+-| 400 | PARAM\_ERROR | 非法的批次状态 | 请检查批次状态 |
+-| 403 | NOT\_ENOUGH | 批次预算不足 | 请补充预算 |
+-| 403 | REQUEST\_BLOCKED | 调用商户无权限 | 请开通产品权限后再调用该接口 |
+-| 403 | REQUEST\_BLOCKED | 商户无权发券 | 调用接口的商户号无权发券，请检查是否是自己的批次或是已授权的批次。 |
+-| 403 | REQUEST\_BLOCKED | 批次不支持跨商户发券 | 该批次未做跨商户号的授权，请授权后再发放 |
+-| 403 | REQUEST\_BLOCKED | 用户被限领拦截 | 用户领取已经达到上限，请调高上限或停止发放。 |
+-| 403 | USER\_ACCOUNT\_ABNORMAL | 用户非法 | 该用户账号异常，无法领券。商家可联系微信支付或让用户联系微信支付客服处理。 |
+-| 404 | RESOURCE\_NOT\_EXISTS | 批次不存在 | 请检查批次ID是否正确 |
+-| 429 | FREQUENCY\_LIMITED | 请求过于频繁 | 稍后重试 |
+ 
+ 请求示例
  
 ```
 
-### 开发指引
-- ID: `4012069859`
-- 路径: JSAPI支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012069859.md
-- 更新时间变更: 2026-10-11 07:54:27 -> 2026-10-13 13:29:46
-- 本地文件: `pages/4012069859.md`
+### 设置代金券消息通知地址
+- ID: `4012464176`
+- 路径: 代金券 > API列表 > 消息通知地址
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012464176.md
+- 更新时间变更: 2024-11-18 09:25:40 -> 2026-10-14 10:37:20
+- 本地文件: `pages/4012464176.md`
 
 ```diff
 --- old.md
 +++ new.md
-@@ -1,39 +1,55 @@
-->更新时间：2026.10.11
--
--## 1、开发前准备
--
--### 1.1、设置安全联系人
--
--微信支付日常安全监测发现技术异常时，会向安全联系人和超级管理员发送风险提醒。请商户超级管理员尽快设置技术同事为安全联系人，确保能及时接收异常信息评估业务风险，详见[安全联系人设置指引](https://pay.weixin.qq.com/doc/v3/partner/4012083124.md)。
--
--### 1.2、熟悉微信支付接口规则
--
--正式进入开发前，开发者需要先阅读[基本规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md)、[签名和验签规则](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md)了解调用微信支付接口的基本规则和签名规则。
--
--### 1.3、准备开发参数
--
--在发起接口请求时，开发者还需传入一些必要参数，如服务商商户号、子商户号（也叫特约商户号）、sp\_appid、证书私钥、公钥等，获取方式详见：[服务商模式开发必要参数说明](https://pay.weixin.qq.com/doc/v3/partner/4013080340.md)。
--
--注意：
--
--在开发的过程中，请将应答的HTTP头Request-ID值打印到日志中。Request-ID作为[请求的唯一标识](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%94%AF%E4%B8%80%E6%A0%87%E8%AF%86)，在调用接口遇到问题时，可向微信侧提供该值用于快速定位到请求记录，协助排查问题原因。
--
--## 2、整体业务开发流程概览
--
--- 服务商后端调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口获取预支付ID（prepay\_id）后，服务商/子商户前端页面再通过调用[WeixinJSBridge](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)对象方法调起微信支付界面。
--
--- 当用户取消支付或支付成功后点击"完成"按钮，会返回拉起支付前页面，同时服务商/子商户前端页面将收到回调，此时服务商后端需调用[查询订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口确认订单状态，并根据订单状态进行相应的业务逻辑处理（在服务商/子商户页面向用户展示查询到的订单支付状态、在服务商内部系统更新订单状态等），如果订单支付成功，微信支付系统还会发送[支付成功回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012085146.md)给服务商。具体的支付回调和查单的实现方案，服务商可以参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
--
--- 最后服务商可通过[下载交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013080595.md)进行对账。需要退款的订单，也可调用[退款接口](https://pay.weixin.qq.com/doc/v3/partner/4012739034.md)完成退款。
--
--
--![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/0b0aa6e5f005cac5654ec11f419d9065.png)
--
--## 3、详细步骤说明
--
--### 3.1、服务商下单
--
--服务商通过调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口生成订单并获取预支付ID。
-+>更新时间：2026.10.13
-+
-+## 1、接口接入清单
-+
-+本节列出服务商 JSAPI 支付须接入的接口。
-+
-+### 1.1、必接接口
-+
-+以下接口必须接入，缺一即视为接入不完整。「二选一」的两个查单接口至少接入一个。
-+
-+| 接口 | 接入要求 | 说明 |
-+| --- | --- | --- |
-+| JSAPI下单 | 必接 | 生成订单并获取预支付交易会话标识 `prepay_id`。与分账、代金券、电子发票等业务相关的字段见 1.3、可选能力对接说明 |
-+| JSAPI调起支付 | 必接 | 调起微信收银台 |
-+| 商户订单号查询订单 | 二选一 | 按商户订单号确认支付状态。与下一行至少接其中一个；两个都不接将无法确认订单支付状态 |
-+| 微信支付订单号查询订单 | 二选一 | 按微信支付订单号确认支付状态。已存储 `transaction_id` 并以其为查单主键时用本接口 |
-+| 支付成功回调通知 | 必接 | 接收订单支付成功的异步通知 |
-+| 关闭订单 | 必接 | 关闭无需继续支付的订单，避免用户在商户侧已废弃的订单上支付造成资金损失 |
-+
-+### 1.2、推荐接入接口
-+
-+退款接口推荐接入，以便在系统内发起退款。除非项目不由本系统发起退款、只在服务商平台人工操作，可以不接入。
-+
-+账单类接口推荐接入，以便通过交易账单发现微信支付成功但本地未成功的差异。除非项目本身不做接口对账，可以不接入。
-+
-+某一类若不接入，需要让用户确认；未经用户确认，不得跳过。
-+
-+| 接口 | 接入要求 | 说明 |
-+| --- | --- | --- |
-+| 申请退款 | 推荐接入 | 发起订单退款。不接时，退款只能在服务商平台人工操作。接入时，下面三个退款接口须一并接入 |
-+| 退款结果回调通知 | 推荐接入 | 接收退款单状态变更的异步通知 |
-+| 查询单笔退款（按商户退款单号） | 推荐接入 | 确认退款的实际处理结果 |
-+| 发起异常退款 | 推荐接入 | 退款状态为 `ABNORMAL`（用户银行卡作废或冻结，导致原路退款银行卡失败）时，通过本接口完成该笔退款。不处理则资金停留在退款中间账户 |
-+| 申请所有/单个子商户交易账单 | 推荐接入 | 用于 T+1 对账。不接时，微信支付成功但本地未成功等差异无法自动发现。T+1 日上午 10 点后下载交易账单，与本地订单逐笔核对。本接口只返回下载链接，不返回账单数据 |
-+| 申请服务商资金账单 | 按需 | 需核对服务商账户资金变动流水（结算、手续费、退款出款等）时接入。本接口只返回下载链接，不返回账单数据 |
-+| 下载账单 | 接入对账时必接 | 接入申请交易账单或申请资金账单中任一接口时必须接入。只调用申请账单接口拿不到账单数据 |
-+
-+### 1.3、可选能力对接说明
-+
-+下表为下单接口中与分账、代金券、电子发票相关的字段。接入相应业务时，这些字段须在下单时一并传入，下单后无法补传。未接入相应业务时，对应字段可不传。是否接入分账、代金券、电子发票，需要让用户逐项确认；未经用户确认，不得省略对应字段。相关产品文档在用户确认接入该业务后另行查阅。
-+
-+| 接口 | 字段 | 关联业务 | 传值说明 |
-+| --- | --- | --- | --- |
-+| JSAPI下单 | `settle_info.profit_sharing` | 分账 | 传 `true` 后该笔订单才能分账，资金进入子商户基本账户的不可用余额；不传或传 `false`，资金进入子商户可用余额，后续无法分账 |
-+| JSAPI下单 | `goods_tag` | 代金券 | 创券时若配置了订单优惠标记，下单必须传入已配置的标记之一，否则无法用券；券未配置标记时可不传 |
-+| JSAPI下单 | `support_fapiao` | 电子发票 | 传 `true` 且已在服务商平台或微信公众平台开通电子发票后，支付成功消息和支付详情页才会出现开票入口 |
-+
-+## 2、详细步骤说明
-+
-+### 2.1、服务商下单
-+
-+服务商通过调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口生成订单并获取预支付ID。
+@@ -1,14 +1,14 @@
+->更新时间：2024.11.18
++>更新时间：2026.10.14
  
- ```mermaid
- sequenceDiagram
-@@ -45,7 +61,7 @@
-   participant p3 as 微信支付系统
-   p0->>p1: 用户下单
-   p1->>p2: 发送下单请求
--  p2->>p3: 调用JSAPI/小程序下单接口
-+  p2->>p3: 调用JSAPI下单接口
-   p3-->>p2: 下单成功返回prepay_id
-   p2-->>p1: 返回JSAPI拉起支付所需参数
- ```
-@@ -74,7 +90,7 @@
- | --- | --- |
- | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b75cd3efce2d98a7a1cd53ebebb4d896.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/5474bfda9eb4a153db977dbcd0753faf.png) |
+ 用于设置接收营销事件通知的URL，可接收营销相关的事件通知:核销通知
  
--### 3.2、服务商调起支付
-+### 2.2、服务商调起支付
+ 注意：该接口只能创建商户号进行设置
  
- 服务商调起支付前，请确保已在[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)配置好JSAPI支付授权目录（只有[配置了JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md)的网页才能调起支付），然后通过调用微信浏览器内置对象方法来调起微信收银台，具体请参考[JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)
+-接口频率：不区分来源 1000/min 单ip 5/min
++接口频率： 不区分来源 1000/min 单ip 5/min
  
-@@ -88,7 +104,7 @@
-         Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
- ```
+-幂等规则：接口支持幂等重入
++幂等规则： 接口支持幂等重入
  
--### 3.3、用户支付
-+### 2.3、用户支付结果确认（查单、支付成功回调通知）
+-接口耗时：100ms
++接口耗时： 100ms
  
- 用户在微信收银台完成支付/取消支付，返回服务商/子商户前端页面后，微信浏览器内置对象方法会收到回调，此时服务商需要调[查询订单API](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口确认订单状态，并根据订单状态向用户展示支付结果。
  
-@@ -135,15 +151,15 @@
-         end
- ```
  
--### 3.4、商户对账
+@@ -21,68 +21,42 @@
+ 
+ 请求域名：【主域名】https://api.mch.weixin.qq.com 使用该域名将访问就近的接入点
+ 
+-　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/partner/4012082567.md)
++　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
+ 
+ ## 请求参数
+ 
+ ### Header 参数
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
++| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/merchant/4012365342.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
+ | Accept | string | true | 请设置为 `application/json` |
+ | Content-Type | string | true | 请设置为 `application/json` |
+ ### Body 参数
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| mchid | string(20) | true | **【商户号】** 微信支付商户号<br>校验规则：该商户号必须为创建商户号进行配置 |
+-| notify_url | string(256) | true | **【通知url地址】** 支付通知商户url地址。<br>校验规则：<br>1、notify\_url必须为https<br>2、地址要是一个可访问的地址<br>3、不能携带参数。示例： `https://pay.weixin.qq.com/wxpay/pay.action` |
+-| switch | boolean | false | **【回调开关】** 如果商户不需要再接收营销事件通知，可通过该开关关闭。<br>枚举值：<br>true：开启推送<br>false：停止推送<br>校验规则：<br>1、该参数设置为false暂不支持使用<br>2、如果想关闭通知请在商户平台关闭券的回调通知 |
++| mchid | string(20) | true | 【商户号】 微信支付商户号<br>校验规则：该商户号必须为创建商户号进行配置 |
++| notify_url | string(256) | true | 【通知url地址】 支付通知商户url地址。<br>校验规则：<br>1、notify\_url必须为https<br>2、地址要是一个可访问的地址<br>3、不能携带参数。示例： “ [https://pay.weixin.qq.com/wxpay/pay.action”](https://pay.weixin.qq.com/wxpay/pay.action%E2%80%9D) |
++| switch | boolean | false | 【回调开关】 如果商户不需要再接收营销事件通知，可通过该开关关闭。<br>枚举值：<br>true：开启推送<br>false：停止推送<br>校验规则：<br>1、该参数设置为false暂不支持使用<br>2、如果想关闭通知请在商户平台关闭券的回调通知 |
++| appid | string(32) | false | 【公众账号ID】 公众账号ID也称 AppID，是（ [微信开放平台](https://open.weixin.qq.com/)、 [微信公众平台](https://mp.weixin.qq.com/)）为开发者提供的一个唯一标识，用于识别开发者的应用程序（APP、小程序、公众号）。开发者需要先在微信开放平台或微信公众平台中申请ID，然后在商户平台中绑定，详见： [管理商户号绑定的APPID账号](https://kf.qq.com/faq/1801116VJfua1801113QVNVz.html)。<br>传入本字段时会更新配置，可填 AppID，也可填空串。<br>1、填 AppID：代金券核销通知将回传该 AppID 下的用户 openid。<br>2、填空串：核销通知不再生成 openid。 |
+ ## 应答参数
+ 
+ 200 OK
+ 
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| update_time | string | true | **【修改时间】** 修改时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
+-| notify_url | string | true | **【通知地址】** 通知地址 |
++| update_time | string | true | 【修改时间】 修改时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
++| notify_url | string | true | 【通知地址】 通知地址 |
++| appid | string | false | 【公众账号ID】 消息通知对应的appid，未设置时不返回；设置后原样返回appid，代金券核销通知将回传该appid下的用户openid。 |
+ ## 错误码
+ 
+-### 公共错误码
++以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
+ 
+ | 状态码 | 错误码 | 描述 | 解决方案 |
+ | --- | --- | --- | --- |
+ | 400 | PARAM\_ERROR | 参数错误 | 请根据错误提示正确传入参数 |
+-| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md) |
+-| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012082324.md) |
++| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081709.md) |
++| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012072670.md) |
+ | 500 | SYSTEM\_ERROR | 系统异常，请稍后重试 | 请稍后重试 |
 -
--详细参考：[账单产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013080592.md)
+-### 业务错误码
 -
--### 3.5、订单退款
--
--详细参考：[退款产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013080622.md)
--
--## 4、普通支付订单状态流转图
-+### 2.4、商户对账（申请交易账单、申请资金账单、下载账单）
-+
-+申请账单、下载账单，以及和本地订单核对，详细参考：[账单开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)
-+
-+### 2.5、订单退款（退款申请、退款结果回调通知、查询单笔退款、发起异常退款）
-+
-+退款步骤、退款单状态和注意事项，详细参考：[退款开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)
-+
-+## 3、普通支付订单状态流转图
+-| 状态码 | 错误码 | 描述 | 解决方案 |
+-| --- | --- | --- | --- |
+-| 400 | APPID\_MCHID\_NOT\_MATCH | 商户号与AppID不匹配 | 请绑定调用接口的商户号和AppID后重试 |
+-| 400 | INVALID\_REQUEST | OpenID与AppID不匹配 | 请使用AppID下的OpenID |
+-| 400 | INVALID\_REQUEST | 活动已结束或未激活 | 请检查批次状态 |
+-| 400 | INVALID\_REQUEST | 非法的商户号 | 请检查商户号是否正确 |
+-| 400 | MCH\_NOT\_EXISTS | 商户号不合法 | 请输入正确的商户号 |
+-| 400 | PARAM\_ERROR | 回调URL不能为空 | 请填写回调URL |
+-| 400 | PARAM\_ERROR | 回调商户不能为空 | 请填写回调商户 |
+-| 400 | PARAM\_ERROR | 券ID必填 | 请填写券ID |
+-| 400 | PARAM\_ERROR | AppID必填 | 请输入AppID |
+-| 400 | PARAM\_ERROR | OpenID必填 | 请输入OpenID |
+-| 400 | PARAM\_ERROR | 页大小超过阈值 | 请不要超过最大的页大小 |
+-| 400 | PARAM\_ERROR | 输入时间格式错误 | 请输入正确的时间格式 |
+-| 400 | PARAM\_ERROR | 批次号必填 | 请输入批次号 |
+-| 400 | PARAM\_ERROR | 商户号必填 | 请输入商户号 |
+-| 400 | PARAM\_ERROR | 非法的批次状态 | 请检查批次状态 |
+-| 403 | NOT\_ENOUGH | 批次预算不足 | 请补充预算 |
+-| 403 | REQUEST\_BLOCKED | 调用商户无权限 | 请开通产品权限后再调用该接口 |
+-| 403 | REQUEST\_BLOCKED | 商户无权发券 | 调用接口的商户号无权发券，请检查是否是自己的批次或是已授权的批次。 |
+-| 403 | REQUEST\_BLOCKED | 批次不支持跨商户发券 | 该批次未做跨商户号的授权，请授权后再发放 |
+-| 403 | REQUEST\_BLOCKED | 用户被限领拦截 | 用户领取已经达到上限，请调高上限或停止发放。 |
+-| 403 | USER\_ACCOUNT\_ABNORMAL | 用户非法 | 该用户账号异常，无法领券。商家可联系微信支付或让用户联系微信支付客服处理。 |
+-| 404 | RESOURCE\_NOT\_EXISTS | 批次不存在 | 请检查批次ID是否正确 |
+-| 429 | FREQUENCY\_LIMITED | 请求过于频繁 | 稍后重试 |
  
- ```mermaid
- %%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
-@@ -165,7 +181,7 @@
-     S4 --> [*]
- ```
+ 请求示例
  
--1、服务商调用[JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口下单成功后，服务商可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
-+1、服务商调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口下单成功后，服务商可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
- 
- 2、当订单状态处于未支付(trade\_state：NOTPAY)时，用户可对订单进行支付，若用户支付失败，订单状态不变。
- 
-@@ -182,3 +198,43 @@
- - trade\_state：SUCCESS
- 
- - trade\_state：REFUND
-+
-+
-+## 4、单业务注意事项
-+
-+本节按环节列出接入服务商 JSAPI 支付时须遵守的约束。
-+
-+### 下单
-+
-+| 事项 | 说明 |
-+| --- | --- |
-+| `payer.sp_openid` 与 `payer.sub_openid` 二选一必填，且须与实际调起支付的用户一致 | 下单传入的 openid 所属用户与实际调起支付的用户不一致时，提示「下单账号与支付账号不一致，请核实后再支付」。见 [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md) |
-+| openid 须由本次下单使用的 appid 获取 | 使用 `sp_appid` 时传 `payer.sp_openid`，使用 `sub_appid` 时传 `payer.sub_openid`。不匹配时报「appid与openid不匹配」或「sub\_appid和sub\_openid不匹配」。见 [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md) |
-+| openid 须由后端获取，不用页面提交的值 | 回调页拿到 `code` 后交给后端，由后端换取 openid。 `secret` 和 `access_token` 不得传到页面。见 [微信网页授权](https://developers.weixin.qq.com/doc/service/guide/h5/auth.md) |
-+| 下单必须传入公网可访问的 `notify_url` | `notify_url` 须为公网可访问地址。传入内网地址或地址错误时，收不到支付成功回调。见 [回调通知注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md) |
-+| 前端下单按钮须防抖，服务端须防止同一笔业务重复下单 | 前端对同一笔业务重复提交时，服务端应识别为同一次下单，而不是再受理一笔新单。 `prepay_id` 未满 2 小时，用原参数调起；已满 2 小时，用原 `out_trade_no` 和原参数重新下单。见 [JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md) |
-+| `prepay_id` 有效期 2 小时 | `prepay_id` 有效期 2 小时。超过后须用原下单参数重新请求下单接口，不得用已过期的 `prepay_id` 调起。见 [JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md) |
-+| 无权限时须核验服务商 JSAPI 权限、子商户授权及 AppID 绑定 | 服务商须已开通 JSAPI 支付，子商户须已授权，且 `sp_appid` 已与 `sp_mchid` 绑定。使用 `sub_appid` 时还须完成与 `sub_mchid` 的绑定。见 [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md) |
-+| 不传 `time_expire` 时，支付有效期默认为 7 天 | `time_expire` 用于限制用户能完成支付的最后时限。不传时，用户可在 7 天内支付，超出 7 天订单将被关闭。见本文「3.1、服务商下单」 |
-+
-+### 调起支付
-+
-+| 事项 | 说明 |
-+| --- | --- |
-+| 须从微信内置浏览器调起 | 必须在微信内置浏览器中调起。从外部浏览器打开再调起时，提示「为保障支付安全，暂不支持从外部进入微信网页并完成支付」。见 [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md) |
-+| 调起参数 `appId` 须为下单时的 `sp_appid` 或 `sub_appid` | `appId` 填写下单时传入的 `sp_appid` 或 `sub_appid`，且当前实际调起支付的公众号 appid 必须是二者之一。否则无法调起。见 [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md) |
-+| 支付授权目录须为支付页面所在目录 | 授权目录为支付页面 URL 去掉文件名后的目录，且以 `/` 结尾。服务商为全体子商户配置，或为该子商户单独配置，其中一处与当前页面匹配即可调起。目录不一致时无法调起。见 [配置JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md) |
-+| 网页授权域名与支付授权目录分别配置 | 网页授权域名在公众平台配置，用于获取 openid。支付授权目录在服务商平台配置，用于拉起支付。只配支付授权目录时，获取 openid 仍会失败。见 [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md) |
-+| `package` 格式为 `prepay_id=` 拼接下单返回的 `prepay_id` | `package` 取下单返回的 `prepay_id`，格式为 `prepay_id=` 后直接接该值，不是只传 `prepay_id` 本身。见 [JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md) |
-+
-+### 支付回调、查单
-+
-+支付回调、查单注意事项，见[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
-+
-+### 退款
-+
-+退款注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)。
-+
-+### 对账
-+
-+对账注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)。
 ```
 
 ### 开发指引
-- ID: `4013080623`
-- 路径: 订单退款
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080623.md
-- 更新时间变更: 2026-06-10 07:28:39 -> 2026-10-13 13:07:48
-- 本地文件: `pages/4013080623.md`
+- ID: `4015274639`
+- 路径: 商家名片会员
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015274639.md
+- 更新时间变更: 2026-06-10 07:28:41 -> 2026-10-12 03:08:03
+- 本地文件: `pages/4015274639.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
 ->更新时间：2026.06.10
-+>更新时间：2026.10.13
++>更新时间：2026.10.12
  
- ## 1、整体业务开发流程概览
+ ## 1、开发前准备
  
-@@ -17,7 +17,7 @@
- 
-         actor User as 用户
-         participant Mch as 商户系统
--        participant WxPay@{ type: secondaryActor } as 微信支付系统
-+        participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
- 
-         User->>Mch: 用户申请退款
-         Mch->>WxPay: 查询订单信息
-@@ -40,7 +40,7 @@
- 
-         actor User as 用户
-         participant Mch as 商户系统
--        participant WxPay@{ type: secondaryActor } as 微信支付系统
-+        participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
- 
-         User->>Mch: 用户申请退款
-         Mch->>Mch: 生成商户退款单号
-@@ -65,7 +65,8 @@
+@@ -39,8 +39,8 @@
  
  ```mermaid
  sequenceDiagram
--autonumber ea
-+%% xwatt: autonumber ea
-+autonumber
-         actor User as 用户
-         participant P2 as 微信客户端
-         participant Mch as 商户系统
-@@ -110,7 +111,8 @@
- 
- ```mermaid
- sequenceDiagram
+-    rect rgb(255,255,255)
 -        autonumber ea
-+        %% xwatt: autonumber ea
++    %% xwatt: autonumber ea
 +        autonumber
-         actor User as 用户
          participant Mch as 商户系统
          participant WxPay as 微信支付系统
-@@ -167,3 +169,15 @@
- - status：SUCCESS
  
- - status：CLOSED
-+
-+
-+## 4、单业务注意事项
-+
-+| 事项 | 说明 |
-+| --- | --- |
-+| 接入退款时须完成申请、幂等、结果确认和状态持久化 | 同一 `out_refund_no` 多次请求只退一笔。退款申请返回成功只表示已受理，标为退款成功只依据回调 `REFUND.SUCCESS` 或查单 `status` 为 `SUCCESS`。见 [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md) |
-+| 退款仅支持支付成功后 1 年内的订单 | 可退款期限自支付成功时间起算，为 365 天。超过该期限不支持发起退款。见 [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md) |
-+| 退款申请超时或状态不明时须查询，重试须使用原退款单号 | 超时或返回 `SYSTEM_ERROR` 等状态未明时，调用查询单笔退款确认状态。重试须使用原 `out_refund_no`，更换退款单号可能导致重复退款。见 [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4013080626.md) |
-+| 须处理全部退款结果， `ABNORMAL` 须调用发起异常退款 | `ABNORMAL` 表示原路退回银行卡失败，须调用发起异常退款。未调用时，资金停留在退款中间账户。见 [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4013080627.md) |
-+| 退款到账时间只用于向用户说明预期，不作为结单依据 | 退款有一定延时。零钱支付的订单退款一般 5 分钟内到账，银行卡支付的订单退款一般 1-3 个工作日到账。这是预计到账时间，只用来向用户说明，不能据此把退款标成成功。是否成功，以查询退款返回的 `status` 为准。 |
-+| 退款回调地址至少配置一处 | 可在退款申请传入 `notify_url`，或在商户平台配置退款回调，至少一处。接口传入 `notify_url` 后，商户平台配置的回调地址不再生效。见 [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md) |
-```
-
-### 开发指引
-- ID: `4013080593`
-- 路径: 下载账单
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080593.md
-- 更新时间变更: 2026-06-09 07:58:24 -> 2026-10-13 13:30:23
-- 本地文件: `pages/4013080593.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.06.09
-+>更新时间：2026.10.13
- 
- ## 1、整体业务开发流程概览
- 
-@@ -52,3 +52,10 @@
-         WxPay-->>Mch: 返回账单文件内容或压缩文件(申请账单时指定GZIP压缩)
-         Mch->>Mch: 商户下载并校验哈希值
+@@ -49,11 +49,12 @@
+         Mch->>WxPay: 查询会员卡模板列表
+         Mch->>WxPay: 修改会员卡模板信息
+         Mch->>WxPay: 作废会员卡模板
+-    end
  ```
+ 
+ ### 3.2、用户入会
+ 
++3.2.1、3.2.2 两种方式要求会员卡模板「是否支持用户主动入会」为 true；为 false 的卡模板仅支持 3.2.3、3.2.4 两种方式。
 +
-+## 3、单业务注意事项
+ #### 3.2.1、【新用户】通过商家小程序/H5入会
+ 
+ 用户可通过小程序或H5页面进入微信支付提供的开卡组件发起入会流程，核心流程如下：
+@@ -62,8 +63,8 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber ea
++    %% xwatt: autonumber ea
++        autonumber
+         actor User as 用户
+         participant Mch as 商户小程序
+         participant Mch2 as 商户系统
+@@ -84,7 +85,6 @@
+         User->>Mch: 查询会员信息
+         Mch->>Mch2: 查询会员信息
+         Mch2-->>WxPay: 查询用户会员卡信息
+-    end
+ ```
+ 
+ #### 3.2.2、【新用户】通过商家名片入会
+@@ -102,7 +102,8 @@
+ ```mermaid
+ sequenceDiagram
+     rect rgb(255,255,255)
+-        autonumber ea
++    %% xwatt: autonumber ea
++        autonumber
+         actor User as 用户
+         participant WxPay as 微信支付
+         participant Mch as 商户系统
+@@ -127,7 +128,8 @@
+ ```mermaid
+ sequenceDiagram
+     rect rgb(255,255,255)
+-        autonumber ea
++    %% xwatt: autonumber ea
++        autonumber
+         actor User as 用户
+         participant WxPay as 微信支付
+         participant Mch as 商户小程序
+@@ -162,8 +164,8 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber ea
++    %% xwatt: autonumber ea
++        autonumber
+         participant Mch as 商户系统
+         participant WxPay as 微信支付
+ 
+@@ -181,21 +183,16 @@
+         opt 用户会员信息不一致
+             Mch->>WxPay: 修改用户会员卡信息
+         end
+-    end
+ ```
+ 
+ #### 3.2.4、【存量会员】通过下单同步入会
+ 
+-商家可通过在微信支付下单接口的attach字段传入会员卡code（ `user_card_code`）来导入未开通会员的用户。下单用户若此前未开通会员卡，通过此方式可实时添加会员并自动生效一张会员卡，详细指引请参考：[实时动态传入的方式](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md#2.3%E3%80%81%E5%AE%9E%E6%97%B6%E5%8A%A8%E6%80%81%E4%BC%A0%E5%85%A5%E7%9A%84%E6%96%B9%E5%BC%8F)
+-
+-注意：
+-
+-通过下单同步入会时，必须传入会员卡code字段（user\_card\_code）。
+-
+-```mermaid
+-sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber ea
++商家可通过在微信支付下单接口的attach字段传入实时动态内容来导入未开通会员的用户。下单用户若此前未开通会员卡，通过此方式可实时添加会员并自动生效一张会员卡，详细指引请参考：[实时动态传入的方式](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md#2.3%E3%80%81%E5%AE%9E%E6%97%B6%E5%8A%A8%E6%80%81%E4%BC%A0%E5%85%A5%E7%9A%84%E6%96%B9%E5%BC%8F)
 +
-+| 事项 | 说明 |
-+| --- | --- |
-+| 对账须先申请账单再下载，并核验 `hash_value` | 申请交易账单、申请资金账单只返回 `download_url`，不返回账单数据。下载后将文件摘要与 `hash_value` 比对。见 [申请所有/单个特约商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013080595.md) |
-+| 交易账单须与本地订单逐笔核对 | 下载并核验 `hash_value` 后，按订单与本地逐笔比对。微信支付成功但本地未成功的差异须有处理，不能只下载不核对。见 [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013080597.md) |
++```mermaid
++sequenceDiagram
++    %% xwatt: autonumber ea
++        autonumber
+         participant Mch as 商户系统
+         participant WxPay as 微信支付
+ 
+@@ -203,7 +200,6 @@
+         alt 检验attach(创建用户会员卡)
+             WxPay->>WxPay: 记录用户会员卡信息
+         end
+-    end
+ ```
+ 
+ ### 3.3、管理用户会员卡
+@@ -213,7 +209,8 @@
+ ```mermaid
+ sequenceDiagram
+     rect rgb(255,255,255)
+-        autonumber ea
++    %% xwatt: autonumber ea
++        autonumber
+         participant Mch as 商户系统
+         participant WxPay as 微信支付系统
+ 
+@@ -237,8 +234,8 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber ea
++    %% xwatt: autonumber ea
++        autonumber
+         actor User as 微信支付用户
+         participant P2 as 商家系统
+         participant WxPay as 微信支付
+@@ -246,7 +243,6 @@
+         User->>P2: 购物
+         P2->>WxPay: 创建用户动态信息
+         User->>WxPay: 展示会员卡动态信息
+-    end
+ ```
+ 
+ ### 3.5、用户会员卡状态流转图
 ```
 
-### 开发必要参数说明
-- ID: `4013080340`
-- 路径: Optional > 开发须知 > 开发参数申请和配置
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4013080340.md
-- 更新时间变更: 2026-06-02 08:22:05 -> 2026-10-13 03:52:59
-- 本地文件: `pages/4013080340.md`
+### 下单同步用户实时动态
+- ID: `4015534755`
+- 路径: 商家名片会员 > API列表 > 用户动态
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015534755.md
+- 更新时间变更: 2025-11-14 07:31:53 -> 2026-10-12 03:07:35
+- 本地文件: `pages/4015534755.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2026.06.02
-+>更新时间：2026.10.13
+->更新时间：2025.11.14
++>更新时间：2026.10.12
  
- 服务商模式开发前需要先准备以下开发必要参数：
+ ## 1、能力概述
  
-@@ -8,11 +8,16 @@
- | sp\_appid | `sp_appid` 是服务商在微信[开放平台](https://open.weixin.qq.com/)（移动应用）或[公众平台](https://mp.weixin.qq.com/)（公众号/小程序）上申请的一个唯一标识。该 `sp_appid` 必须与服务商商户号 `sp_mchid` 进行绑定，因为使用微信支付功能会校验该参数。 | 超级管理员、技术负责人 | 服务商可登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，通过路径【产品中心 -\> APPID账号管理 -> 我关联的APPID账号】来查看所有绑定的APPID账号。若未绑定请超级管理员参考：[管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md#2%E3%80%81%E5%95%86%E6%88%B7%E5%8F%B7%E7%BB%91%E5%AE%9A%E6%96%B0%E7%9A%84APPID%E8%B4%A6%E5%8F%B7%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97)。如还没有APPID请参考：[mchid与appid申请](https://pay.weixin.qq.com/doc/v3/partner/4012081990.md)。 |
- | sub\_mchid | `sub_mchid` 是子商户（也叫特约商户）在服务商下的唯一身份标识。子商户进件有两种方式：<br>1、通过[服务商平台进件](https://kf.qq.com/faq/200114EZfmy62001142YVRzy.html)<br>2、通过[接口进件](https://pay.weixin.qq.com/doc/v3/partner/4012062365.md)<br>当子商户进件成功后，微信支付侧会向商户提供该子商户号。 | 超级管理员、技术负责人 | 子商户号查询有两种方式：<br>1、可登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，点击【合作伙伴功能-商户基础服务-开发参数配置】即可查看子商户号。<br>2、接口获取，服务商调用[查询申请单状态API](https://pay.weixin.qq.com/doc/v3/partner/4012691376.md)接口，会通过参数 `sub_mchid` 返回子商户号。 |
- | sub\_appid | `sub_appid` 是子商户在微信[开放平台](https://open.weixin.qq.com/)（移动应用）或[公众平台](https://mp.weixin.qq.com/)（公众号/小程序）上申请的一个唯一标识。该 `sub_appid` 必须与子商户号 `sub_mchid` 进行绑定，因为使用微信支付功能会校验该参数。由服务商登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)为子商户进行绑定，具体流程请参考[服务商为子商户配置AppID（即sub\_appid）](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md#%E7%99%BB%E5%BD%95%E6%9C%8D%E5%8A%A1%E5%95%86%E5%B9%B3%E5%8F%B0%E4%B8%BA%E5%AD%90%E5%95%86%E6%88%B7%E5%8F%91%E8%B5%B7APPID%E7%9A%84%E6%8E%88%E6%9D%83%E7%BB%91%E5%AE%9A%E7%94%B3%E8%AF%B7%EF%BC%88%E5%8D%B3sub_appid%EF%BC%89)。 | 超级管理员、技术负责人 | sub\_appid查询有两种方式：<br>1、服务商可登录[服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，通过路径【合作伙伴功能 -> 开发参数配置 -> 找到对应子商户号点击“开发配置” -\> 特约商户APPID配置】来查看所有服务商为子商户绑定的APPID。<br>2、子商户可登录[商户平台](https://pay.wechatpay.cn/)，通过路径【产品中心 -\> APPID账号配置 -> 服务商为我关联的APPID账号 】来查看所有服务商为子商户绑定的APPID。 |
-+| openid | 用户在公众号内的唯一身份标识，不同公众号类型对应不同的 OpenID，同一个用户在不同的公众号下也对应不同的openid，微信支付部分接口需要传递该参数。 | 开发人员通过调用接口获取 | 可通过以下四种方式获取：<br>H5获取openid详见[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)<br>小程序获取openid详见[小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)<br>JSAPI获取openid详见[公众号获取OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)<br>App获取openid详见[App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html) |
- | 服务商API证书 | 服务商发起APIv3接口请求时，需要使用服务商API证书私钥[对请求进行签名](https://pay.weixin.qq.com/doc/v3/partner/4012365862.md)。 | 超级管理员、技术负责人 | 首次获取请登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[申请商户API证书流程](https://pay.weixin.qq.com/doc/v3/partner/4012081992.md)进行下载，下载后请妥善保管，该证书只能下载一次，若遗失或泄露，需在服务商平台重新申请下载。 |
- | 服务商API证书序列号 | 调用APIv3接口时请求头中的必传参数( `serial_no`)，需要与生成签名值时使用的服务商API证书对应。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)或通过证书解析工具可获取到服务商API证书序列号，详见：[查看商户API证书序列号指南](https://pay.weixin.qq.com/doc/v3/partner/4012081992.md#Q%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%95%86%E6%88%B7API%E8%AF%81%E4%B9%A6%E5%BA%8F%E5%88%97%E5%8F%B7%EF%BC%9F)。 |
--| 微信支付公钥<br>(推荐使用，公钥长期有效，管理简单) | 服务商会在以下两种场景中使用微信支付公钥：<br>1、接收到APIv3接口的返回内容，需要使用微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、调用某些含有敏感信息参数(如姓名、身份证号码)的接口时，需要使用微信支付公钥[加密敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)后再传输参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[微信支付公钥获取指南](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)进行下载。 |
--| 微信支付公钥id | 服务商会在以下两种场景中使用微信支付公钥id( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带公钥id，服务商需使用对应的微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、当调用的接口带有使用微信支付公钥[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)参数时，需在请求头中传公钥id参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，进入【账户中心 > 账户设置 \> API安全】目录，点击【管理公钥】即可查看到微信支付公钥id。 |
- | APIv3密钥 | 开发者接入之前需要[设置APIv3密钥](https://kf.qq.com/faq/180830E36vyQ180830AZFZvu.html)，服务商会在以下两种场景中使用到APIv3密钥：<br>1、微信支付会使用APIv3密钥加密回调信息，然后将加密后的密文回调给服务商，服务商接收到APIv3回调通知的密文后，需使用该密钥进行[解密](https://pay.weixin.qq.com/doc/v3/partner/4012082320.md)。<br>2、在[下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)公钥时，需要使用该密钥进行解密。 | 超级管理员、技术负责人 | 首次设置请登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[设置APIv3密钥流程](https://pay.weixin.qq.com/doc/v3/partner/4012081991.md#4%E3%80%81%E8%AE%BE%E7%BD%AEAPIv3%E5%AF%86%E9%92%A5)，<br>设置后无法在服务商平台查看，请服务商妥善保管，若遗失或泄露须重新设置。 |
--| 微信支付平台证书<br>(推荐切换成微信支付公钥，平台证书需要每五年更换一次) | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)和[敏感信息加密](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数。 | 开发人员通过调用接口下载 | 首次获取平台证书需通过Java命令行下载，后续则可以使用[微信支付平台证书下载](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)接口获取，详见：[平台证书简介及使用说明](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md#4.-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B3%E5%8F%B0%E8%AF%81%E4%B9%A6)。<br>已经使用平台证书的服务商也可[参考指引切换为使用微信支付公钥](https://pay.weixin.qq.com/doc/v3/partner/4012925289.md)。 |
--| 平台证书序列号 | 服务商会在以下两种场景中使用平台证书序列号( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带平台证书序列号，服务商需使用对应的平台证书进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)；<br>2、当调用的接口带有使用平台证书[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数时，需在请求头中传平台证书序列号参数。 | 开发人员通过调用接口获取 | 可通过以下三种方式查看平台证书序列号：<br>1、在调用接口[下载微信支付平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)时，接口会返回平台证书序列号( `serial_no`)参数。<br>2、可使用openssl命令行工具查看证书序列号，详见：[如何查看商户API证书或平台证书序列号](https://pay.weixin.qq.com/doc/v3/partner/4013059181.md)<br>3、可使用第三方的证书[解析工具](https://myssl.com/cert_decode.html)，查看证书内容、 |
--| openid | 用户在公众号内的唯一身份标识，不同公众号类型对应不同的 OpenID，同一个用户在不同的公众号下也对应不同的openid，微信支付部分接口需要传递该参数。 | 开发人员通过调用接口获取 | 可通过以下四种方式获取：<br>H5获取openid详见[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)<br>小程序获取openid详见[小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)<br>JSAPI获取openid详见[公众号获取OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)<br>App获取openid详见[App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html) |
+@@ -60,6 +60,8 @@
+ 
+ ### 2.3、实时动态传入的方式
+ 
++传入cell和card\_id后，若下单用户在该会员卡模版下没有生效中或待激活的会员卡，支付成功后将自动为其生效一张会员卡；已有会员卡的用户不会重复开卡。cell的模版ID为0（开通商家会员）、或会员卡模版未生效/已过期时不会开卡。
 +
-+验签方案：优先使用微信支付公钥：长期有效，无需定期更换。新接入按方案 A 获取即可，无需再获取平台证书。仅存量已使用平台证书的商户可继续用方案 B。
+ 会员内容基于商家原有下单请求中的attach字段，增加cell、card\_id，user\_card\_code。
+ 
+ 例如：abcde&cell=\[data\]&card\_id=\[data\]&user\_card\_code=\[data\]
+@@ -90,9 +92,11 @@
+   - 会员卡模版id，对应API的card\_id
+ - user\_card\_code
+ 
+-  - 选填，如果需要导入未开通会员的用户，则需要传入 （可以用此方式实时添加会员，被标识的下单用户，若此前未开通会员卡，将自动生效一张用户会员卡，详见[3.2添加用户会员卡到商家名片的渠道](https://pay.weixin.qq.com/doc/v3/partner/4015274636.md#3.2%E3%80%81%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E4%BC%9A%E5%91%98%E5%8D%A1%E5%88%B0%E5%95%86%E5%AE%B6%E5%90%8D%E7%89%87%E7%9A%84%E6%B8%A0%E9%81%93)
++  - 选填
+ 
+   - 会员卡code，对应API的user\_card\_code
 +
-+| 方案 | 参数名 | 用途 | 获取角色 | 获取方式 |
-+| --- | --- | --- | --- | --- |
-+| 方案 A：微信支付公钥（推荐） | 微信支付公钥<br>(推荐使用，公钥长期有效，管理简单) | 服务商会在以下两种场景中使用微信支付公钥：<br>1、接收到APIv3接口的返回内容，需要使用微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、调用某些含有敏感信息参数(如姓名、身份证号码)的接口时，需要使用微信支付公钥[加密敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)后再传输参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，参考[微信支付公钥获取指南](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)进行下载。 |
-+| 方案 A：微信支付公钥（推荐） | 微信支付公钥id | 服务商会在以下两种场景中使用微信支付公钥id( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带公钥id，服务商需使用对应的微信支付公钥进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059017.md)；<br>2、当调用的接口带有使用微信支付公钥[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)参数时，需在请求头中传公钥id参数。 | 超级管理员、技术负责人 | 登录[微信服务商平台](https://pay.weixin.qq.com/index.php/partner/public/home)，进入【账户中心 > 账户设置 \> API安全】目录，点击【管理公钥】即可查看到微信支付公钥id。 |
-+| 方案 B：微信支付平台证书 | 微信支付平台证书<br>(推荐切换成微信支付公钥，平台证书需要每五年更换一次) | 微信支付平台证书的作用等同于微信支付公钥，主要用于APIv3接口的返回内容的[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)和[敏感信息加密](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数。 | 开发人员通过调用接口下载 | 首次获取平台证书需通过Java命令行下载，后续则可以使用[微信支付平台证书下载](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)接口获取，详见：[平台证书简介及使用说明](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md#4.-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%B9%B3%E5%8F%B0%E8%AF%81%E4%B9%A6)。<br>已经使用平台证书的服务商也可[参考指引切换为使用微信支付公钥](https://pay.weixin.qq.com/doc/v3/partner/4012925289.md)。 |
-+| 方案 B：微信支付平台证书 | 平台证书序列号 | 服务商会在以下两种场景中使用平台证书序列号( `Wechatpay-Serial`)：<br>1、接收到APIv3接口的返回内容，请求头中会携带平台证书序列号，服务商需使用对应的平台证书进行[验签](https://pay.weixin.qq.com/doc/v3/partner/4013059030.md)；<br>2、当调用的接口带有使用平台证书[加密的敏感信息](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)参数时，需在请求头中传平台证书序列号参数。 | 开发人员通过调用接口获取 | 可通过以下三种方式查看平台证书序列号：<br>1、在调用接口[下载微信支付平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)时，接口会返回平台证书序列号( `serial_no`)参数。<br>2、可使用openssl命令行工具查看证书序列号，详见：[如何查看商户API证书或平台证书序列号](https://pay.weixin.qq.com/doc/v3/partner/4013059181.md)<br>3、可使用第三方的证书[解析工具](https://myssl.com/cert_decode.html)，查看证书内容、 |
++  - 会员卡模版 code 分配类型为商家分配时，传入则以该值作为会员卡 code，不传由微信支付分配；为系统分配时，传入的值不生效。
+ 
+ #### 2.3.1 cell字段
+ 
 ```
 
-### 支付回调和查单实现指引
-- ID: `4012082568`
-- 路径: Optional > 最佳实践
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012082568.md
-- 更新时间变更: 2024-12-18 07:43:24 -> 2026-10-13 09:08:37
-- 本地文件: `pages/4012082568.md`
+### 商品券回调通知
+- ID: `4015780862`
+- 路径: 商品券（单券） > API列表 > 商品券回调通知
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015780862.md
+- 更新时间变更: 2026-08-13 02:06:00 -> 2026-10-14 07:17:05
+- 本地文件: `pages/4015780862.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2024.12.18
-+>更新时间：2026.10.13
+->更新时间：2026.08.13
++>更新时间：2026.10.14
  
- ## 1.背景
+ ## 一、回调描述
  
-@@ -74,6 +74,10 @@
- 
- 商户后台需要准确、高效地处理微信支付发送的异步支付结果通知，并按接口规范把处理结果返回给微信支付。详情请参考[接口规范](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)和[注意事项](https://pay.weixin.qq.com/doc/v3/merchant/4012075420.md)
- 
-+验签后如何应答、重复通知和重发次数见[支付成功回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4012791861.md)。
-+
-+未收到支付成功回调时，先按下文查单，不要更换商户订单号立即重新下单。trade\_state 为 NOTPAY 不表示支付失败。
-+
- ### 5.2.定时轮询查单
- 
- 如果长时间没有收到支付结果通知，商户后台应该定时轮询调用《[微信支付查单接口](https://pay.weixin.qq.com/doc/v3/merchant/4012791858.md)》去核实订单状态。
-@@ -101,6 +105,21 @@
- - 订单匹配失败，商户系统中成功的订单在对账单中未找到记录：异常情况，需要商户排查是否订单处理逻辑有bug。
- 
- 
-+下载步骤见[下载账单开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071218.md)。
-+
-+### 5.4.关闭订单前先查单
-+
-+用户在商户系统取消订单，或已超过可支付时间仍未支付，或按上文查单达到停止条件后，先查单，再按 trade\_state 处理。没付才关单，已付不关单。
-+
-+| 查单结果 | 处理 |
-+| --- | --- |
-+| NOTPAY | 调用关闭订单。关单成功后，本地标为已关闭，不再拉起支付。用户还要购买，使用新的商户订单号重新下单 |
-+| SUCCESS | 不关单。同一商户订单号已支付成功时，不要重复下单，也不要再调用关单；用户要取消这笔已支付订单，走退款。见错误码 268449538 / 268498689 |
-+| CLOSED | 不再调用关闭订单 |
-+| REFUND | 不关单，按已有退款单继续处理 |
-+
-+关单返回「订单已支付」（错误码 268449538 / 268498689）时，说明查单之后用户已经付完，重新查单，按 SUCCESS 处理。
-+
- ## 6.常见问题
- 
- ### 1、前端返回如何区分是成功返回，还是用户取消支付或者异常？
-@@ -118,8 +137,8 @@
- | 回调类型 | errMsg | 说明 |
- | --- | --- | --- |
- | success | requestPayment:ok | 调用支付成功 |
--| fail | requestPayment:fail cancel | 用户取消支付 |
--| fail | requestPayment:fail (detail message) | 调用支付失败，其中 detail message 为后台返回的详细失败原因 |
-+| fail | requestPayment:fail cancel | 用户取消支付 |
-+| fail | requestPayment:fail (detail message) | 调用支付失败，其中 detail message 为后台返回的详细失败原因 |
- 
- App支付，通过onResp函数返回的errCode值判断：
- 
-@@ -132,3 +151,17 @@
- ### 2、如何判断微信支付查单接口返回的订单状态是支付成功？
- 
- 商户收到《[微信支付查单接口](https://pay.weixin.qq.com/doc/v3/merchant/4012791858.md)》的响应报文，验证签名成功，并且返回的trade\_state为SUCCESS，则认为订单是支付成功。
-+
-+上一问的表格只区分前端返回类型，不能单独作为支付成功的依据。
-+
-+## 7.注意事项
-+
-+| 事项 | 说明 |
-+| --- | --- |
-+| 用户取消或超时未支付时，先查单再决定关单或退款 | 先查单。 `NOTPAY` 才关单。 `SUCCESS` 不关单：用户取消走退款，超时则先履约，无法履约再退款。 `NOTPAY` 不得直接置为支付失败。见 [支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md) |
-+| 支付结果须以后端查单或支付成功回调为准 | `get_brand_wcpay_request:ok` 只表示用户完成收银台操作，不表示支付成功。更新为已支付及发货，仅当查单或支付成功回调验签通过且 `trade_state` 为 `SUCCESS`。见 [支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md) |
-+| 支付成功回调须在 5 秒内应答，未收到时须查单 | 收到通知后 5 秒内先验签再应答。验签不通过返回 `4xx` 或 `5xx`，不得返回 `200`。未收到通知时查单同步状态。见 [回调通知注意事项](https://pay.weixin.qq.com/doc/v3/merchant/4012075420.md) |
-+| 防火墙须放行微信支付回调 IP 段 | 支付成功回调来自微信支付回调 IP。该 IP 被拦截时收不到通知，须放行其访问 `notify_url` 的 443 端口。见 [回调通知注意事项](https://pay.weixin.qq.com/doc/v3/merchant/4012075420.md) |
-+| 未设置 APIv3 密钥时无法接收支付成功回调 | 商户平台未设置 APIv3 密钥时，微信支付不向 `notify_url` 推送支付成功回调。见 [配置APIv3密钥](https://pay.weixin.qq.com/doc/v3/merchant/4012072195.md) |
-+| 不得漏接查单 | 「商户订单号查询订单」与「微信支付订单号查询订单」至少接入一个。两个都不接时，无法确认订单支付状态。见 [商户订单号查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md) |
-+| 未收到支付成功回调时不得立即再次下单 | 未收到回调时先查单，不得更换 `out_trade_no` 再次下单。 `trade_state` 为 `NOTPAY` 不表示支付失败。 |
+@@ -176,7 +176,7 @@
+ | unionid | string | true | 【用户UnionID】 领券用户在AppID所属微信开放平台账号下的唯一用户标识，详见《[UnionID机制说明](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)》 |
+ | receive_time | string | true | 【领券时间】 用户领券时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
+ | send_request_no | string | true | 【发券请求单号】 发券时传入的请求流水号 |
+-| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li></ul> |
++| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li><li>`STICKER_GIFT`: 贴图有礼，通过贴图有礼渠道发放</li></ul> |
+ | valid_begin_time | string | true | 【有效期开始时间】 用户商品券可用开始时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
+ | valid_end_time | string | true | 【有效期结束时间】 用户商品券可用结束时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
+ | phone_number | string | false | 【领券手机号】用户授权的领券手机号，用户授权时才会提供此字段。 |
 ```
 
-### 参数说明
-- ID: `4012081935`
-- 路径: Optional > 名词表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012081935.md
-- 更新时间变更: 2024-10-29 02:13:52 -> 2026-10-13 09:47:01
-- 本地文件: `pages/4012081935.md`
+### 商品券回调通知
+- ID: `4016435717`
+- 路径: 商品券（多次优惠） > API列表 > 商品券回调通知
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016435717.md
+- 更新时间变更: 2026-08-13 02:05:58 -> 2026-10-14 07:16:39
+- 本地文件: `pages/4016435717.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2024.10.29
-+>更新时间：2026.10.13
+->更新时间：2026.08.13
++>更新时间：2026.10.14
  
- ## 商户证书
+ ## 一、回调描述
  
-@@ -24,11 +24,11 @@
- 
- 用户在公众号内的身份标识，不同公众号拥有不同的OpenID。商户后台系统通过登录授权、支付通知、查询订单等API可获取到用户的OpenID。主要用途是判断同一个用户，对用户发送客服消息、模板消息等。企业号用户需要使用企业号userid转OpenID接口将企业成员的userid转换成OpenID。
- 
--[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)
-+[网页授权获取用户OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)
- 
- [小程序获取OpenID](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html)
- 
--[公众号获取OpenID](https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/Wechat_webpage_authorization.html)
-+[公众号获取OpenID](https://developers.weixin.qq.com/doc/service/guide/h5/auth.html)
- 
- [App获取OpenID](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Authorized_API_call_UnionID.html)
- 
+@@ -178,7 +178,7 @@
+ | unionid | string | true | 【用户UnionID】 领券用户在AppID所属微信开放平台账号下的唯一用户标识，详见《[UnionID机制说明](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)》 |
+ | receive_time | string | true | 【领券时间】 用户领券时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
+ | send_request_no | string | true | 【发券请求单号】 发券时传入的请求流水号 |
+-| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li></ul> |
++| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li><li>`STICKER_GIFT`: 贴图有礼，通过贴图有礼渠道发放</li></ul> |
+ | valid_begin_time | string | true | 【有效期开始时间】 用户商品券可用开始时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
+ | valid_end_time | string | true | 【有效期结束时间】 用户商品券可用结束时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
+ | phone_number | string | false | 【领券手机号】用户授权的领券手机号，用户授权时才会提供此字段。 |
 ```
 
 ## 附录：所有页面清单
 
 <details>
-<summary>点击查看全部 881 个页面</summary>
+<summary>点击查看全部 883 个页面</summary>
 
 | 序号 | 标题（链接） | ID | 更新时间 | 完整路径 |
 |------|-------------|----|----------|----------|
@@ -909,8 +876,8 @@
 | 344 | [根据商户号查用户的券](pages/4012494237.md) | `4012494237` | 2024-11-18 09:25:43 | 代金券 > API列表 > 券 |
 | 345 | [发放指定批次的代金券](pages/4012463807.md) | `4012463807` | 2024-11-18 09:25:41 | 代金券 > API列表 > 券 |
 | 346 | [查询代金券详情](pages/4012492796.md) | `4012492796` | 2024-11-18 09:26:04 | 代金券 > API列表 > 券 |
-| 347 | [查询代金券消息通知地址](pages/4012464155.md) | `4012464155` | 2024-11-18 09:25:49 | 代金券 > API列表 > 消息通知地址 |
-| 348 | [设置代金券消息通知地址](pages/4012464176.md) | `4012464176` | 2024-11-18 09:25:40 | 代金券 > API列表 > 消息通知地址 |
+| 347 | [查询代金券消息通知地址](pages/4012464155.md) | `4012464155` | 2026-10-14 10:37:21 | 代金券 > API列表 > 消息通知地址 |
+| 348 | [设置代金券消息通知地址](pages/4012464176.md) | `4012464176` | 2026-10-14 10:37:20 | 代金券 > API列表 > 消息通知地址 |
 | 349 | [产品介绍](pages/4012071996.md) | `4012071996` | 2024-07-23 08:00:45 | 委托营销 |
 | 350 | [开发接入准备](pages/4012071997.md) | `4012071997` | 2026-05-19 08:45:58 | 委托营销 |
 | 351 | [开发指引](pages/4012071998.md) | `4012071998` | 2026-06-09 09:47:05 | 委托营销 |
@@ -992,7 +959,7 @@
 | 427 | [根据业务申请编号查询添加申请状态](pages/4016366816.md) | `4016366816` | 2025-10-30 09:56:20 | 商家名片 > API列表 > 交易连接名片 |
 | 428 | [商家名片&交易连接名片配置指引](pages/4016433970.md) | `4016433970` | 2026-04-02 12:57:33 | 商家名片 > 附录 |
 | 429 | [产品介绍](pages/4015274636.md) | `4015274636` | 2026-07-09 02:33:38 | 商家名片会员 |
-| 430 | [开发指引](pages/4015274639.md) | `4015274639` | 2026-06-10 07:28:41 | 商家名片会员 |
+| 430 | [开发指引](pages/4015274639.md) | `4015274639` | 2026-10-12 03:08:03 | 商家名片会员 |
 | 431 | [常见问题](pages/4017418554.md) | `4017418554` | 2026-01-30 07:18:54 | 商家名片会员 |
 | 432 | [图片上传](pages/4015900513.md) | `4015900513` | 2025-11-14 07:32:05 | 商家名片会员 > API列表 |
 | 433 | [创建会员卡模板](pages/4015336970.md) | `4015336970` | 2025-08-01 02:53:26 | 商家名片会员 > API列表 > 会员卡模板管理 |
@@ -1010,7 +977,7 @@
 | 445 | [根据OPENID导入用户会员卡](pages/4015336981.md) | `4015336981` | 2025-06-22 08:21:27 | 商家名片会员 > API列表 > 商家同步会员身份 |
 | 446 | [同步会员开通结果](pages/4015336979.md) | `4015336979` | 2025-06-22 08:22:08 | 商家名片会员 > API列表 > 商家同步会员身份 |
 | 447 | [会员卡事件通知](pages/4015283692.md) | `4015283692` | 2025-08-18 10:08:53 | 商家名片会员 > API列表 > 事件通知 |
-| 448 | [下单同步用户实时动态](pages/4015534755.md) | `4015534755` | 2025-11-14 07:31:53 | 商家名片会员 > API列表 > 用户动态 |
+| 448 | [下单同步用户实时动态](pages/4015534755.md) | `4015534755` | 2026-10-12 03:07:35 | 商家名片会员 > API列表 > 用户动态 |
 | 449 | [产品介绍](pages/4015782374.md) | `4015782374` | 2026-03-11 10:24:02 | 摇一摇有优惠 |
 | 450 | [开发接入准备](pages/4016060552.md) | `4016060552` | 2026-09-18 02:14:18 | 摇一摇有优惠 |
 | 451 | [开发指引](pages/4016110225.md) | `4016110225` | 2025-11-18 03:40:57 | 摇一摇有优惠 |
@@ -1056,7 +1023,7 @@
 | 491 | [退券](pages/4015781599.md) | `4015781599` | 2025-11-07 03:37:52 | 商品券（单券） > API列表 > 商品券失效与退券 |
 | 492 | [获取商品券事件通知地址](pages/4015781284.md) | `4015781284` | 2025-08-28 02:02:45 | 商品券（单券） > API列表 > 商品券回调通知 |
 | 493 | [设置商品券事件通知地址](pages/4015781286.md) | `4015781286` | 2025-08-28 02:02:45 | 商品券（单券） > API列表 > 商品券回调通知 |
-| 494 | [商品券回调通知](pages/4015780862.md) | `4015780862` | 2026-08-13 02:06:00 | 商品券（单券） > API列表 > 商品券回调通知 |
+| 494 | [商品券回调通知](pages/4015780862.md) | `4015780862` | 2026-10-14 07:17:05 | 商品券（单券） > API列表 > 商品券回调通知 |
 | 495 | [提交图片生成任务](pages/4017327735.md) | `4017327735` | 2026-01-26 03:27:31 | 商品券（单券） > API列表 > 生成商品券头图 |
 | 496 | [查询图片生成任务执行结果](pages/4017327739.md) | `4017327739` | 2026-01-26 03:27:31 | 商品券（单券） > API列表 > 生成商品券头图 |
 | 497 | [图片生成回调通知](pages/4017327744.md) | `4017327744` | 2026-01-26 03:27:31 | 商品券（单券） > API列表 > 生成商品券头图 |
@@ -1066,383 +1033,385 @@
 | 501 | [商品券可核销时间规则说明（coupon_available_period）](pages/4016675999.md) | `4016675999` | 2025-11-25 03:05:19 | 商品券（单券） > 附录 |
 | 502 | [商品券客户端消息推送页面](pages/4019005729.md) | `4019005729` | 2026-03-27 06:57:51 | 商品券（单券） > 附录 |
 | 503 | [商品券结构及修改说明](pages/4018984452.md) | `4018984452` | 2026-03-27 02:47:11 | 商品券（单券） > 附录 |
-| 504 | [券类型选型](pages/4043817598.md) | `4043817598` | 2026-09-23 02:56:41 | 商品券（单券） > 附录 |
-| 505 | [【单券-全场-折扣券】API请求示例](pages/4016756270.md) | `4016756270` | 2025-12-02 13:12:50 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
-| 506 | [【单券-全场-满减券】API请求示例](pages/4016756271.md) | `4016756271` | 2025-12-02 13:13:02 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
-| 507 | [【单券-单品-折扣券】API请求示例](pages/4016756272.md) | `4016756272` | 2025-12-25 11:53:38 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
-| 508 | [【单券-单品-满减券】API请求示例](pages/4016756273.md) | `4016756273` | 2025-12-25 11:54:13 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
-| 509 | [【单券-单品-兑换券】API请求示例](pages/4016756274.md) | `4016756274` | 2025-12-25 11:55:51 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
-| 510 | [产品介绍](pages/4016438787.md) | `4016438787` | 2026-05-13 06:51:15 | 商品券（多次优惠） |
-| 511 | [开发指引](pages/4016438816.md) | `4016438816` | 2026-06-10 07:28:08 | 商品券（多次优惠） |
-| 512 | [常见问题](pages/4016950439.md) | `4016950439` | 2025-12-23 02:29:27 | 商品券（多次优惠） |
-| 513 | [图片上传](pages/4016435731.md) | `4016435731` | 2025-11-07 06:33:45 | 商品券（多次优惠） > API列表 |
-| 514 | [创建商品券](pages/4016434630.md) | `4016434630` | 2025-12-31 07:51:33 | 商品券（多次优惠） > API列表 > 商品券管理 |
-| 515 | [修改商品券](pages/4016434633.md) | `4016434633` | 2025-11-07 03:42:29 | 商品券（多次优惠） > API列表 > 商品券管理 |
-| 516 | [查询商品券](pages/4016434632.md) | `4016434632` | 2025-11-07 03:42:29 | 商品券（多次优惠） > API列表 > 商品券管理 |
-| 517 | [失效商品券](pages/4016434631.md) | `4016434631` | 2025-11-07 03:42:29 | 商品券（多次优惠） > API列表 > 商品券管理 |
-| 518 | [添加商品券批次组](pages/4016280622.md) | `4016280622` | 2025-11-20 03:00:43 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 519 | [查询商品券批次列表](pages/4016434641.md) | `4016434641` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 520 | [查询商品券指定批次](pages/4016434649.md) | `4016434649` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 521 | [修改商品券批次组](pages/4016280633.md) | `4016280633` | 2025-11-20 03:00:41 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 522 | [修改商品券批次组发放预算](pages/4016280642.md) | `4016280642` | 2025-11-20 03:00:40 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 523 | [批次组批量关联门店](pages/4016280620.md) | `4016280620` | 2025-11-20 03:00:37 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 524 | [批次组批量取消关联门店](pages/4016280629.md) | `4016280629` | 2025-11-20 03:00:33 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 525 | [查询批次关联门店列表](pages/4016434665.md) | `4016434665` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 526 | [预上传券Code](pages/4016434668.md) | `4016434668` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
-| 527 | [向用户发放商品券批次组](pages/4016280664.md) | `4016280664` | 2025-11-20 03:00:32 | 商品券（多次优惠） > API列表 > 商品券发放 |
-| 528 | [确认发放用户商品券](pages/4016435562.md) | `4016435562` | 2025-11-07 06:25:22 | 商品券（多次优惠） > API列表 > 商品券发放 |
-| 529 | [向用户预发放商品券批次组](pages/4016280670.md) | `4016280670` | 2025-12-16 08:25:19 | 商品券（多次优惠） > API列表 > 商品券发放 > 小程序发券组件 |
-| 530 | [调起小程序发券组件](pages/4016435568.md) | `4016435568` | 2025-12-23 08:54:20 | 商品券（多次优惠） > API列表 > 商品券发放 > 小程序发券组件 |
-| 531 | [核销用户商品券](pages/4016435636.md) | `4016435636` | 2025-11-07 06:28:01 | 商品券（多次优惠） > API列表 > 商品券核销 |
-| 532 | [调起小程序核销组件](pages/4016435640.md) | `4016435640` | 2025-11-07 08:58:05 | 商品券（多次优惠） > API列表 > 商品券核销 |
-| 533 | [查询用户商品券详情](pages/4016435702.md) | `4016435702` | 2025-11-07 06:31:39 | 商品券（多次优惠） > API列表 > 商品券查询 |
-| 534 | [指定券状态查询用户商品券列表](pages/4016435703.md) | `4016435703` | 2025-11-07 06:31:39 | 商品券（多次优惠） > API列表 > 商品券查询 |
-| 535 | [失效用户商品券组](pages/4016280658.md) | `4016280658` | 2025-11-20 03:00:30 | 商品券（多次优惠） > API列表 > 商品券失效与退券 |
-| 536 | [退券](pages/4016435674.md) | `4016435674` | 2025-11-07 06:30:06 | 商品券（多次优惠） > API列表 > 商品券失效与退券 |
-| 537 | [获取商品券事件通知地址](pages/4016435718.md) | `4016435718` | 2025-11-07 06:32:46 | 商品券（多次优惠） > API列表 > 商品券回调通知 |
-| 538 | [设置商品券事件通知地址](pages/4016435719.md) | `4016435719` | 2025-11-07 06:32:46 | 商品券（多次优惠） > API列表 > 商品券回调通知 |
-| 539 | [商品券回调通知](pages/4016435717.md) | `4016435717` | 2026-08-13 02:05:58 | 商品券（多次优惠） > API列表 > 商品券回调通知 |
-| 540 | [提交图片生成任务](pages/4017327752.md) | `4017327752` | 2026-01-26 03:27:42 | 商品券（多次优惠） > API列表 > 生成商品券头图 |
-| 541 | [查询图片生成任务执行结果](pages/4017327753.md) | `4017327753` | 2026-01-26 03:27:42 | 商品券（多次优惠） > API列表 > 生成商品券头图 |
-| 542 | [图片生成回调通知](pages/4017327759.md) | `4017327759` | 2026-01-26 03:27:42 | 商品券（多次优惠） > API列表 > 生成商品券头图 |
-| 543 | [小程序发券组件开发指引](pages/4016435566.md) | `4016435566` | 2026-06-10 07:28:07 | 商品券（多次优惠） > 附录 |
-| 544 | [小程序核销组件开发指引](pages/4016435642.md) | `4016435642` | 2026-04-02 14:46:11 | 商品券（多次优惠） > 附录 |
-| 545 | [品牌、服务商、appid关联关系](pages/4018984192.md) | `4018984192` | 2026-03-26 06:44:07 | 商品券（多次优惠） > 附录 |
-| 546 | [商品券可核销时间规则说明（coupon_available_period）](pages/4016676012.md) | `4016676012` | 2025-11-25 11:47:16 | 商品券（多次优惠） > 附录 |
-| 547 | [商品券客户端消息推送页面](pages/4019005741.md) | `4019005741` | 2026-03-27 06:57:49 | 商品券（多次优惠） > 附录 |
-| 548 | [商品券结构及修改说明](pages/4018984437.md) | `4018984437` | 2026-03-27 02:47:05 | 商品券（多次优惠） > 附录 |
-| 549 | [【多次优惠-全场-折扣券】API请求示例](pages/4016756283.md) | `4016756283` | 2025-12-04 07:57:31 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
-| 550 | [【多次优惠-全场-满减券】API请求示例](pages/4016756284.md) | `4016756284` | 2025-12-04 07:59:00 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
-| 551 | [【多次优惠-单品-折扣券】API请求示例](pages/4016756285.md) | `4016756285` | 2025-12-04 08:00:48 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
-| 552 | [【多次优惠-单品-满减券】API请求示例](pages/4016756286.md) | `4016756286` | 2025-12-04 08:01:18 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
-| 553 | [【多次优惠-单品-兑换券】API请求示例](pages/4016756287.md) | `4016756287` | 2025-12-04 08:01:50 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
-| 554 | [产品介绍](pages/4016628074.md) | `4016628074` | 2025-11-19 02:54:10 | 品牌门店 |
-| 555 | [开发指引](pages/4016628135.md) | `4016628135` | 2026-06-10 07:28:01 | 品牌门店 |
-| 556 | [常见问题](pages/4016705104.md) | `4016705104` | 2025-11-27 04:06:48 | 品牌门店 |
-| 557 | [创建品牌门店](pages/4015783183.md) | `4015783183` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 558 | [查询品牌门店](pages/4015783153.md) | `4015783153` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 559 | [查询品牌门店列表](pages/4016756674.md) | `4016756674` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
-| 560 | [更新品牌门店](pages/4015783158.md) | `4015783158` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 561 | [删除品牌门店](pages/4015783113.md) | `4015783113` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 562 | [暂停门店营业](pages/4016756671.md) | `4016756671` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
-| 563 | [恢复门店营业](pages/4016756672.md) | `4016756672` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
-| 564 | [绑定收款商户号](pages/4015783177.md) | `4015783177` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 565 | [解绑收款商户号](pages/4015783188.md) | `4015783188` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 566 | [品牌经营平台管理品牌门店](pages/4016689827.md) | `4016689827` | 2025-11-25 10:04:14 | 品牌门店 > 附录 |
-| 567 | [获得品牌已授权且在生效中的产品权限信息](pages/4017410365.md) | `4017410365` | 2026-01-29 09:12:34 | 品牌服务商授权 > API列表 |
-| 568 | [产品介绍](pages/4012072620.md) | `4012072620` | 2024-07-23 08:51:32 | 连锁品牌分账 |
-| 569 | [开发接入准备](pages/4012072625.md) | `4012072625` | 2026-05-19 09:30:42 | 连锁品牌分账 |
-| 570 | [开发指引](pages/4012072637.md) | `4012072637` | 2026-06-09 09:46:07 | 连锁品牌分账 |
-| 571 | [业务示例代码](pages/4015871675.md) | `4015871675` | 2026-06-09 09:46:50 | 连锁品牌分账 |
-| 572 | [常见问题](pages/4015981574.md) | `4015981574` | 2026-02-06 03:12:47 | 连锁品牌分账 |
-| 573 | [请求分账](pages/4012692975.md) | `4012692975` | 2025-09-29 03:46:37 | 连锁品牌分账 > API列表 |
-| 574 | [查询分账结果](pages/4012467002.md) | `4012467002` | 2025-09-29 03:45:52 | 连锁品牌分账 > API列表 |
-| 575 | [请求分账回退](pages/4012467097.md) | `4012467097` | 2025-09-29 03:43:29 | 连锁品牌分账 > API列表 |
-| 576 | [查询分账回退结果](pages/4012467011.md) | `4012467011` | 2025-09-29 03:43:57 | 连锁品牌分账 > API列表 |
-| 577 | [解冻剩余资金](pages/4012467016.md) | `4012467016` | 2025-09-29 03:43:07 | 连锁品牌分账 > API列表 |
-| 578 | [查询订单剩余待分金额](pages/4012467021.md) | `4012467021` | 2025-09-29 03:42:34 | 连锁品牌分账 > API列表 |
-| 579 | [查询最大分账比例](pages/4012467022.md) | `4012467022` | 2025-09-29 03:42:11 | 连锁品牌分账 > API列表 |
-| 580 | [添加分账接收方](pages/4012467100.md) | `4012467100` | 2025-09-29 03:41:51 | 连锁品牌分账 > API列表 |
-| 581 | [删除分账接收方](pages/4012467103.md) | `4012467103` | 2025-09-29 02:38:34 | 连锁品牌分账 > API列表 |
-| 582 | [分账动账通知](pages/4012075400.md) | `4012075400` | 2025-02-19 03:56:03 | 连锁品牌分账 > API列表 |
-| 583 | [申请分账账单](pages/4012715572.md) | `4012715572` | 2025-09-29 02:37:48 | 连锁品牌分账 > API列表 |
-| 584 | [下载账单](pages/4012076073.md) | `4012076073` | 2024-10-30 06:42:53 | 连锁品牌分账 > API列表 |
-| 585 | [分账失败处理指引](pages/4015504918.md) | `4015504918` | 2025-07-04 03:08:09 | 连锁品牌分账 > 附录 |
-| 586 | [清关报关（V2）](pages/4012851220.md) | `4012851220` | 2025-04-25 07:53:42 | 清关报关（V2） |
-| 587 | [产品介绍](pages/4012072827.md) | `4012072827` | 2025-08-25 10:00:14 | 消费者投诉2.0 |
-| 588 | [开发接入准备](pages/4012072844.md) | `4012072844` | 2026-05-19 09:30:57 | 消费者投诉2.0 |
-| 589 | [开发指引](pages/4012072858.md) | `4012072858` | 2026-06-09 09:46:03 | 消费者投诉2.0 |
-| 590 | [业务示例代码](pages/4015933338.md) | `4015933338` | 2026-06-09 09:46:01 | 消费者投诉2.0 |
-| 591 | [常见问题](pages/4016111688.md) | `4016111688` | 2026-05-19 07:41:24 | 消费者投诉2.0 |
-| 592 | [查询投诉单列表](pages/4012691285.md) | `4012691285` | 2025-09-02 02:28:31 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
-| 593 | [查询投诉单详情](pages/4012691648.md) | `4012691648` | 2025-08-28 02:43:42 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
-| 594 | [查询投诉单协商历史](pages/4012691802.md) | `4012691802` | 2025-08-28 02:43:30 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
-| 595 | [投诉通知回调](pages/4012076174.md) | `4012076174` | 2025-02-19 03:56:03 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 596 | [创建投诉通知回调地址](pages/4012458106.md) | `4012458106` | 2025-08-28 02:43:28 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 597 | [查询投诉通知回调地址](pages/4012459065.md) | `4012459065` | 2025-08-28 02:43:23 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 598 | [更新投诉通知回调地址](pages/4012459287.md) | `4012459287` | 2025-08-28 02:43:25 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 599 | [删除投诉通知回调地址](pages/4012460474.md) | `4012460474` | 2025-08-28 02:43:21 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 600 | [回复用户](pages/4012467213.md) | `4012467213` | 2025-09-01 02:27:29 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 601 | [反馈处理完成](pages/4012467217.md) | `4012467217` | 2025-09-01 02:25:00 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 602 | [更新退款审批结果](pages/4012467218.md) | `4012467218` | 2025-09-01 02:24:26 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 603 | [回复需要即时服务的投诉单](pages/4017151726.md) | `4017151726` | 2026-01-22 08:02:14 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 604 | [图片上传接口](pages/4012467222.md) | `4012467222` | 2025-09-01 02:10:00 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
-| 605 | [图片请求接口](pages/4012467223.md) | `4012467223` | 2025-09-02 02:43:19 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
-| 606 | [产品介绍](pages/4015792553.md) | `4015792553` | 2025-11-28 08:19:11 | 微信电子发票 |
-| 607 | [开发接入准备](pages/4015792554.md) | `4015792554` | 2026-09-18 02:14:46 | 微信电子发票 |
-| 608 | [开发指引](pages/4015792556.md) | `4015792556` | 2026-07-27 08:21:58 | 微信电子发票 |
-| 609 | [业务示例代码](pages/4016078358.md) | `4016078358` | 2026-06-10 07:28:02 | 微信电子发票 |
-| 610 | [常见问题](pages/4016960715.md) | `4016960715` | 2026-08-05 06:11:58 | 微信电子发票 |
-| 611 | [获取开通服务商电子发票能力邀请链接](pages/4015941495.md) | `4015941495` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 612 | [获取邀请开通的商户信息](pages/4015941524.md) | `4015941524` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 613 | [检查子商户开票功能状态](pages/4015792561.md) | `4015792561` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 614 | [创建电子发票卡券模板](pages/4015792562.md) | `4015792562` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 615 | [配置开发选项](pages/4015792563.md) | `4015792563` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 616 | [获取用户抬头填写链接](pages/4015770776.md) | `4015770776` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 617 | [获取用户填写抬头信息](pages/4015784260.md) | `4015784260` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 618 | [开具通用行业电子发票](pages/4015792574.md) | `4015792574` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 619 | [开具不动产租赁行业电子发票](pages/4015941740.md) | `4015941740` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 620 | [开具成品油行业电子发票](pages/4016760559.md) | `4016760559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 621 | [开具旅客运输行业电子发票](pages/4025863376.md) | `4025863376` | 2026-07-17 03:57:13 | 微信电子发票 > API列表 |
-| 622 | [冲红电子发票](pages/4015792575.md) | `4015792575` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 623 | [查询电子发票](pages/4015792567.md) | `4015792567` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 624 | [获取发票下载信息](pages/4015792576.md) | `4015792576` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 625 | [下载发票文件](pages/4015792569.md) | `4015792569` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 626 | [上传电子发票文件](pages/4015792580.md) | `4015792580` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 627 | [将电子发票插入微信用户卡包](pages/4015792579.md) | `4015792579` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 628 | [用户发票抬头填写完成通知](pages/4015792559.md) | `4015792559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 629 | [发票开具成功通知](pages/4015792570.md) | `4015792570` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 630 | [发票插入用户卡包成功通知](pages/4015792578.md) | `4015792578` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 631 | [发票冲红成功通知](pages/4015792571.md) | `4015792571` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 632 | [发票卡券作废通知](pages/4015792560.md) | `4015792560` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 633 | [成品油单位转换公式](pages/4016730844.md) | `4016730844` | 2026-07-27 06:19:53 | 微信电子发票 > 附录 |
-| 634 | [产品介绍](pages/4012062365.md) | `4012062365` | 2024-10-16 07:11:49 | 特约商户进件 |
-| 635 | [开发接入准备](pages/4012062375.md) | `4012062375` | 2026-09-18 02:14:30 | 特约商户进件 |
-| 636 | [开发指引](pages/4012062379.md) | `4012062379` | 2026-06-09 09:45:48 | 特约商户进件 |
-| 637 | [常见问题](pages/4016058480.md) | `4016058480` | 2026-08-05 06:17:02 | 特约商户进件 |
-| 638 | [提交申请单](pages/4012719997.md) | `4012719997` | 2025-03-26 06:58:27 | 特约商户进件 > API列表 |
-| 639 | [申请单号查询申请状态](pages/4012697052.md) | `4012697052` | 2025-03-24 04:07:15 | 特约商户进件 > API列表 |
-| 640 | [业务申请编号查询申请状态](pages/4012697168.md) | `4012697168` | 2025-03-24 04:07:17 | 特约商户进件 > API列表 |
-| 641 | [修改结算账户](pages/4012761102.md) | `4012761102` | 2025-01-22 01:35:52 | 特约商户进件 > API列表 |
-| 642 | [查询结算账户](pages/4012761113.md) | `4012761113` | 2025-01-21 03:41:29 | 特约商户进件 > API列表 |
-| 643 | [查询结算账户修改申请状态](pages/4012761120.md) | `4012761120` | 2025-01-21 03:41:31 | 特约商户进件 > API列表 |
-| 644 | [文件上传](pages/4012760490.md) | `4012760490` | 2026-05-09 07:01:44 | 特约商户进件 > API列表 |
-| 645 | [视频上传](pages/4012761084.md) | `4012761084` | 2024-11-18 09:25:56 | 特约商户进件 > API列表 |
-| 646 | [产品介绍](pages/4012064820.md) | `4012064820` | 2024-10-24 08:22:24 | 商户开户意愿确认 |
-| 647 | [开发接入准备](pages/4012064824.md) | `4012064824` | 2026-09-18 08:04:00 | 商户开户意愿确认 |
-| 648 | [开发指引](pages/4012064832.md) | `4012064832` | 2026-06-09 09:45:45 | 商户开户意愿确认 |
-| 649 | [常见问题](pages/4016644196.md) | `4016644196` | 2026-01-16 03:48:52 | 商户开户意愿确认 |
-| 650 | [提交申请单](pages/4012722388.md) | `4012722388` | 2025-01-09 03:10:33 | 商户开户意愿确认 > API列表 |
-| 651 | [撤销申请单](pages/4012697627.md) | `4012697627` | 2024-12-04 02:03:31 | 商户开户意愿确认 > API列表 |
-| 652 | [查询申请单审核结果](pages/4012697715.md) | `4012697715` | 2024-11-04 07:59:30 | 商户开户意愿确认 > API列表 |
-| 653 | [获取商户开户意愿确认状态](pages/4012467549.md) | `4012467549` | 2024-10-24 09:20:46 | 商户开户意愿确认 > API列表 |
-| 654 | [图片上传](pages/4012760509.md) | `4012760509` | 2024-11-18 09:25:43 | 商户开户意愿确认 > API列表 |
-| 655 | [产品介绍](pages/4012064844.md) | `4012064844` | 2026-03-10 07:23:55 | 商户平台处置通知 |
-| 656 | [开发接入准备](pages/4012064851.md) | `4012064851` | 2026-05-19 09:33:15 | 商户平台处置通知 |
-| 657 | [开发指引](pages/4012064853.md) | `4012064853` | 2026-06-09 09:45:42 | 商户平台处置通知 |
-| 658 | [业务示例代码](pages/4015949382.md) | `4015949382` | 2025-09-03 03:01:42 | 商户平台处置通知 |
-| 659 | [查询商户违规通知回调地址](pages/4012471327.md) | `4012471327` | 2025-08-28 09:27:26 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 660 | [修改商户违规通知回调地址](pages/4012471330.md) | `4012471330` | 2025-08-28 09:27:19 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 661 | [创建商户违规通知回调地址](pages/4012471333.md) | `4012471333` | 2025-08-28 09:27:12 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 662 | [删除商户违规通知回调地址](pages/4012471334.md) | `4012471334` | 2025-08-28 09:27:05 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 663 | [商户平台处置记录回调通知](pages/4012079216.md) | `4012079216` | 2025-02-19 03:56:03 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 664 | [产品介绍](pages/4012064898.md) | `4012064898` | 2026-05-25 07:06:33 | 不活跃商户身份核实 |
-| 665 | [开发接入准备](pages/4012064902.md) | `4012064902` | 2026-05-19 09:33:57 | 不活跃商户身份核实 |
-| 666 | [开发指引](pages/4012064909.md) | `4012064909` | 2026-06-09 09:45:41 | 不活跃商户身份核实 |
-| 667 | [常见问题](pages/4012064915.md) | `4012064915` | 2024-07-24 08:05:05 | 不活跃商户身份核实 |
-| 668 | [发起不活跃商户身份核实](pages/4012471357.md) | `4012471357` | 2025-08-08 07:33:04 | 不活跃商户身份核实 > API列表 |
-| 669 | [查询不活跃商户身份核实结果](pages/4012471359.md) | `4012471359` | 2025-08-08 08:00:48 | 不活跃商户身份核实 > API列表 |
-| 670 | [关键概念](pages/4012064904.md) | `4012064904` | 2024-10-25 02:37:34 | 不活跃商户身份核实 > 附录 |
-| 671 | [产品介绍](pages/4012165270.md) | `4012165270` | 2026-09-20 07:23:07 | 商户被管控能力及原因查询 |
-| 672 | [查询子商户管控情况](pages/4012803072.md) | `4012803072` | 2025-09-26 09:24:32 | 商户被管控能力及原因查询 > API列表 |
-| 673 | [产品介绍](pages/4016022264.md) | `4016022264` | 2025-09-17 04:03:07 | 合作伙伴订阅 |
-| 674 | [开发指引](pages/4016022266.md) | `4016022266` | 2025-09-16 03:35:57 | 合作伙伴订阅 |
-| 675 | [常见问题](pages/4016550707.md) | `4016550707` | 2026-08-05 06:17:27 | 合作伙伴订阅 |
-| 676 | [证书密钥概览](pages/4025464285.md) | `4025464285` | 2026-07-21 04:03:55 | 证书密钥概览 |
-| 677 | [产品介绍](pages/4012925323.md) | `4012925323` | 2026-05-20 03:21:30 | 微信支付公钥 |
-| 678 | [常见问题](pages/4013038589.md) | `4013038589` | 2025-03-04 07:15:22 | 微信支付公钥 |
-| 679 | [商户签名验签／加解密测试](pages/4015139289.md) | `4015139289` | 2026-04-08 03:50:21 | 微信支付公钥 > API列表 |
-| 680 | [回调接口](pages/4019605946.md) | `4019605946` | 2026-04-10 08:15:23 | 微信支付公钥 > API列表 |
-| 681 | [如何从平台证书切换成微信支付公钥](pages/4012925289.md) | `4012925289` | 2024-12-12 02:59:29 | 微信支付公钥 > 附录 |
-| 682 | [如何从微信支付公钥切换成平台证书](pages/4015419376.md) | `4015419376` | 2026-03-17 09:45:27 | 微信支付公钥 > 附录 |
-| 683 | [产品介绍](pages/4012073044.md) | `4012073044` | 2026-05-21 07:25:38 | 平台证书 |
-| 684 | [常见问题](pages/4012073263.md) | `4012073263` | 2024-11-29 09:45:35 | 平台证书 |
-| 685 | [下载平台证书](pages/4012715700.md) | `4012715700` | 2024-10-15 08:45:31 | 平台证书 > API列表 |
-| 686 | [平台证书更换操作指引](pages/4012073146.md) | `4012073146` | 2024-12-04 06:35:09 | 平台证书 > 附录 |
-| 687 | [产品介绍](pages/4012086891.md) | `4012086891` | 2026-09-18 02:12:22 | 平台收付通-电商交易解决方案 |
-| 688 | [开发接入准备](pages/4012086921.md) | `4012086921` | 2026-09-18 02:12:20 | 平台收付通-电商交易解决方案 |
-| 689 | [消费者投诉2.0](pages/4016312079.md) | `4016312079` | 2026-07-16 03:40:54 | 平台收付通-电商交易解决方案 |
-| 690 | [开发指引](pages/4012087137.md) | `4012087137` | 2026-06-16 07:46:00 | 平台收付通-电商交易解决方案 > 商户进件 |
-| 691 | [常见问题](pages/4012525423.md) | `4012525423` | 2026-05-26 08:53:06 | 平台收付通-电商交易解决方案 > 商户进件 |
-| 692 | [提交申请单](pages/4012713017.md) | `4012713017` | 2025-02-28 12:07:34 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 693 | [通过业务申请编号查询申请状态](pages/4012691376.md) | `4012691376` | 2024-11-28 06:22:29 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 694 | [通过申请单ID查询申请状态](pages/4012691469.md) | `4012691469` | 2024-11-28 06:22:27 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 695 | [修改结算账户](pages/4012761138.md) | `4012761138` | 2026-01-14 06:27:19 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 696 | [查询结算账户](pages/4012761142.md) | `4012761142` | 2026-01-14 06:27:41 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 697 | [查询结算账户修改申请状态](pages/4012761169.md) | `4012761169` | 2025-01-21 03:41:31 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 698 | [文件上传](pages/4012760432.md) | `4012760432` | 2026-05-09 07:02:14 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 699 | [产品介绍](pages/4018153750.md) | `4018153750` | 2026-06-11 07:25:17 | 平台收付通-电商交易解决方案 > 商户注销 |
-| 700 | [商户注销资格校验](pages/4016420099.md) | `4016420099` | 2025-11-05 09:41:04 | 平台收付通-电商交易解决方案 > 商户注销 > 注销预校验 > API列表 |
-| 701 | [提交注销提现申请](pages/4013892756.md) | `4013892756` | 2025-03-13 04:54:44 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
-| 702 | [商户申请单号查询申请单状态](pages/4013892759.md) | `4013892759` | 2025-09-26 02:25:46 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
-| 703 | [微信支付申请单号查询申请单状态](pages/4013892765.md) | `4013892765` | 2025-09-26 02:25:56 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
-| 704 | [常见问题](pages/4015943239.md) | `4015943239` | 2025-11-07 06:48:10 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） |
-| 705 | [提交注销申请单](pages/4012476217.md) | `4012476217` | 2025-02-17 10:16:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
-| 706 | [查询注销单状态](pages/4012476223.md) | `4012476223` | 2024-11-05 02:04:20 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
-| 707 | [图片上传](pages/4012691710.md) | `4012691710` | 2024-11-05 02:05:52 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 图片上传 |
-| 708 | [提交已注销商户号可用余额提现申请单](pages/4012488950.md) | `4012488950` | 2025-01-09 03:10:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
-| 709 | [商户提现申请单号查询提现申请单状态](pages/4012476164.md) | `4012476164` | 2024-11-05 02:15:27 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
-| 710 | [微信支付提现申请单号查询提现申请单状态](pages/4012778400.md) | `4012778400` | 2024-11-05 02:16:19 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
-| 711 | [查询指定主体子商户列表](pages/4033742105.md) | `4033742105` | 2026-08-19 02:04:07 | 平台收付通-电商交易解决方案 > 商户注销 > 商户查询 > API列表 |
-| 712 | [开发指引](pages/4012088031.md) | `4012088031` | 2026-06-10 07:28:44 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
-| 713 | [常见问题](pages/4012525474.md) | `4012525474` | 2026-05-09 08:54:23 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
-| 714 | [APP下单](pages/4012714669.md) | `4012714669` | 2024-10-24 03:39:28 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
-| 715 | [APP调起支付](pages/4012090168.md) | `4012090168` | 2025-02-20 03:00:52 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
-| 716 | [JSAPI下单](pages/4012714678.md) | `4012714678` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
-| 717 | [JSAPI调起支付](pages/4012090156.md) | `4012090156` | 2025-02-26 07:08:25 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
-| 718 | [Native下单](pages/4012714902.md) | `4012714902` | 2024-10-24 06:18:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
-| 719 | [Native调起支付](pages/4012090180.md) | `4012090180` | 2025-03-21 07:41:33 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
-| 720 | [小程序下单](pages/4012714911.md) | `4012714911` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
-| 721 | [小程序调起支付](pages/4012090181.md) | `4012090181` | 2025-02-26 07:10:30 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
-| 722 | [H5下单](pages/4012714759.md) | `4012714759` | 2024-10-24 06:27:02 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
-| 723 | [H5调起支付](pages/4012090177.md) | `4012090177` | 2024-12-23 02:14:31 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
-| 724 | [微信支付订单号查询订单](pages/4012760565.md) | `4012760565` | 2025-04-07 01:51:41 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 725 | [微信支付商户订单号查询订单](pages/4012760568.md) | `4012760568` | 2025-04-07 01:51:51 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 726 | [关闭订单](pages/4012760574.md) | `4012760574` | 2025-04-07 01:51:49 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 727 | [支付结果通知](pages/4012090195.md) | `4012090195` | 2025-04-07 01:52:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 728 | [开发指引](pages/4012089542.md) | `4012089542` | 2026-06-10 07:28:43 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
-| 729 | [常见问题](pages/4012525491.md) | `4012525491` | 2026-05-09 08:54:07 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
-| 730 | [合单下单-JSAPI](pages/4012760615.md) | `4012760615` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
-| 731 | [JSAPI调起支付](pages/4012090843.md) | `4012090843` | 2025-02-19 03:55:15 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
-| 732 | [合单下单-APP](pages/4012760622.md) | `4012760622` | 2024-11-14 08:12:11 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
-| 733 | [APP调起支付](pages/4012090949.md) | `4012090949` | 2025-03-28 10:57:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
-| 734 | [合单下单-H5](pages/4012760626.md) | `4012760626` | 2024-11-14 08:12:10 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
-| 735 | [H5调起支付](pages/4012091014.md) | `4012091014` | 2024-10-28 02:58:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
-| 736 | [合单下单-NATIVE](pages/4012760629.md) | `4012760629` | 2024-11-14 08:12:12 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
-| 737 | [Native调起支付](pages/4012091224.md) | `4012091224` | 2024-10-28 02:54:47 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
-| 738 | [合单下单-小程序](pages/4012760633.md) | `4012760633` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
-| 739 | [小程序调起支付](pages/4012091236.md) | `4012091236` | 2025-02-18 11:41:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
-| 740 | [合单查询订单](pages/4012761049.md) | `4012761049` | 2024-10-24 07:08:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
-| 741 | [合单关闭订单](pages/4012761093.md) | `4012761093` | 2024-10-24 07:09:52 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
-| 742 | [支付通知](pages/4012237246.md) | `4012237246` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
-| 743 | [开发指引](pages/4012087888.md) | `4012087888` | 2026-06-10 07:27:51 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
-| 744 | [业务示例代码](pages/4015870957.md) | `4015870957` | 2026-06-09 09:46:47 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
-| 745 | [常见问题](pages/4012525463.md) | `4012525463` | 2026-05-21 07:43:02 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
-| 746 | [请求分账](pages/4012691594.md) | `4012691594` | 2025-09-29 06:45:52 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 747 | [查询分账结果](pages/4012477734.md) | `4012477734` | 2025-09-29 02:09:30 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 748 | [请求分账回退](pages/4012477737.md) | `4012477737` | 2025-09-29 02:06:15 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 749 | [查询分账回退结果](pages/4012477740.md) | `4012477740` | 2025-09-29 02:04:34 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 750 | [解冻剩余资金](pages/4012477745.md) | `4012477745` | 2025-09-29 02:03:23 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 751 | [查询订单剩余待分金额](pages/4012477751.md) | `4012477751` | 2025-09-29 02:02:25 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 752 | [添加分账接收方](pages/4012477758.md) | `4012477758` | 2025-09-29 02:01:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 753 | [删除分账接收方](pages/4012477759.md) | `4012477759` | 2025-09-29 02:00:58 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 754 | [分账动账通知](pages/4012116672.md) | `4012116672` | 2025-02-19 03:56:03 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 755 | [分账失败处理指引](pages/4015504955.md) | `4015504955` | 2025-07-04 03:08:08 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > 附录 |
-| 756 | [业务示例代码](pages/4015593692.md) | `4015593692` | 2026-06-10 07:27:50 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
-| 757 | [常见问题](pages/4015942503.md) | `4015942503` | 2026-01-22 06:48:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
-| 758 | [请求补差](pages/4012477631.md) | `4012477631` | 2024-11-04 11:30:10 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
-| 759 | [请求补差回退](pages/4012477636.md) | `4012477636` | 2024-11-04 11:30:36 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
-| 760 | [取消补差](pages/4012477639.md) | `4012477639` | 2024-10-24 08:47:04 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
-| 761 | [业务示例代码](pages/4015217874.md) | `4015217874` | 2026-06-10 07:27:49 | 平台收付通-电商交易解决方案 > 交易退款 |
-| 762 | [申请退款](pages/4012476892.md) | `4012476892` | 2024-11-04 11:33:40 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 763 | [查询单笔退款（按微信支付退款单号）](pages/4012476908.md) | `4012476908` | 2024-11-04 11:36:44 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 764 | [查询单笔退款（按商户退款单号）](pages/4012476911.md) | `4012476911` | 2024-11-04 11:36:11 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 765 | [退款结果通知](pages/4012124635.md) | `4012124635` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 766 | [查询垫付回补结果](pages/4012476916.md) | `4012476916` | 2024-11-04 11:40:17 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 767 | [垫付退款回补](pages/4012476927.md) | `4012476927` | 2024-11-04 11:41:31 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 768 | [发起异常退款](pages/4015181616.md) | `4015181616` | 2025-06-06 08:23:46 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 769 | [常见问题](pages/4016644075.md) | `4016644075` | 2025-11-21 03:07:14 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 |
-| 770 | [查询二级商户账户实时余额](pages/4012476690.md) | `4012476690` | 2024-11-04 11:47:34 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 771 | [查询二级商户账户日终余额](pages/4012476693.md) | `4012476693` | 2024-11-04 11:47:25 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 772 | [查询平台账户实时余额](pages/4012476700.md) | `4012476700` | 2024-11-04 11:46:09 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 773 | [查询平台账户日终余额](pages/4012476702.md) | `4012476702` | 2024-11-04 11:46:15 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 774 | [业务示例代码](pages/4019899593.md) | `4019899593` | 2026-06-10 07:27:45 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
-| 775 | [常见问题](pages/4014075940.md) | `4014075940` | 2026-06-29 01:57:55 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
-| 776 | [二级商户预约提现](pages/4012476652.md) | `4012476652` | 2024-12-19 07:33:30 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 777 | [二级商户查询预约提现状态（根据商户预约提现单号查询）](pages/4012476656.md) | `4012476656` | 2024-12-19 07:33:26 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 778 | [二级商户查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476665.md) | `4012476665` | 2024-12-19 07:33:24 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 779 | [平台预约提现](pages/4012476670.md) | `4012476670` | 2024-12-19 07:33:21 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 780 | [平台查询预约提现状态（根据商户预约提现单号查询）](pages/4012476672.md) | `4012476672` | 2024-12-19 07:33:18 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 781 | [平台查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476674.md) | `4012476674` | 2024-12-19 07:33:16 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 782 | [二级商户按日终余额预约提现](pages/4013328143.md) | `4013328143` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 783 | [查询二级商户按日终余额预约提现状态](pages/4013328163.md) | `4013328163` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 784 | [按日下载提现异常文件](pages/4012476678.md) | `4012476678` | 2024-12-19 07:11:13 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 785 | [商户提现状态变更通知](pages/4013049135.md) | `4013049135` | 2025-02-24 09:49:47 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 786 | [业务示例代码](pages/4016062108.md) | `4016062108` | 2025-12-04 01:55:05 | 平台收付通-电商交易解决方案 > 账单下载 |
-| 787 | [申请交易账单](pages/4012760667.md) | `4012760667` | 2025-04-07 01:51:03 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 788 | [申请资金账单](pages/4012760672.md) | `4012760672` | 2025-04-07 01:50:55 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 789 | [申请分账账单](pages/4012761131.md) | `4012761131` | 2025-01-20 08:06:16 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 790 | [下载账单](pages/4012124894.md) | `4012124894` | 2025-04-16 09:44:14 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 791 | [申请二级商户资金账单](pages/4012760697.md) | `4012760697` | 2024-10-23 08:14:36 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 792 | [下载单个子商户/二级商户资金账单](pages/4014314390.md) | `4014314390` | 2025-04-16 03:21:56 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 793 | [业务示例代码](pages/4015593257.md) | `4015593257` | 2026-06-10 07:27:44 | 平台收付通-电商交易解决方案 > 跨境付款 |
-| 794 | [查询订单剩余可出境余额](pages/4012476109.md) | `4012476109` | 2024-11-05 02:17:34 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 795 | [申请资金出境](pages/4012476113.md) | `4012476113` | 2024-11-05 02:22:26 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 796 | [查询出境结果](pages/4012476127.md) | `4012476127` | 2024-11-05 02:23:59 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 797 | [获取购付汇账单文件下载链接](pages/4012476132.md) | `4012476132` | 2024-11-05 02:32:27 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 798 | [提交申请单](pages/4014090649.md) | `4014090649` | 2025-03-31 06:45:54 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 799 | [撤销申请单](pages/4014090672.md) | `4014090672` | 2025-03-31 06:45:49 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 800 | [查询申请单状态-使用业务单号](pages/4014090667.md) | `4014090667` | 2025-03-31 06:45:50 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 801 | [查询申请单状态-使用申请单号](pages/4014090655.md) | `4014090655` | 2025-03-31 06:45:51 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 802 | [APIv3概述](pages/4012081673.md) | `4012081673` | 2024-11-21 08:19:57 | Optional > 开发须知 |
-| 803 | [总述-APIv3如何签名和验签](pages/4012365870.md) | `4012365870` | 2024-11-21 10:50:08 | Optional > 开发须知 |
-| 804 | [基本规则](pages/4012081726.md) | `4012081726` | 2024-07-25 02:06:07 | Optional > 开发须知 > 接口规则说明 |
-| 805 | [HTTP状态码](pages/4012081727.md) | `4012081727` | 2024-07-25 02:07:36 | Optional > 开发须知 > 接口规则说明 |
-| 806 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-10-13 03:52:59 | Optional > 开发须知 > 开发参数申请和配置 |
-| 807 | [mchid与appid申请](pages/4012081990.md) | `4012081990` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 808 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 809 | [配置APIv3密钥](pages/4012081991.md) | `4012081991` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 810 | [品牌经营API开发必要参数说明](pages/4015981654.md) | `4015981654` | 2025-12-15 01:50:19 | Optional > 开发须知 > 开发参数申请和配置 |
-| 811 | [平台员工权限管理](pages/4013080349.md) | `4013080349` | 2025-09-19 01:36:32 | Optional > 开发须知 > 开发参数申请和配置 |
-| 812 | [申请商户API证书](pages/4012081992.md) | `4012081992` | 2025-10-28 03:01:36 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
-| 813 | [如何更换商户API证书？](pages/4013058943.md) | `4013058943` | 2024-11-20 03:18:41 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
-| 814 | [请求参数里带Path参数（路径参数），如何计算签名](pages/4012365862.md) | `4012365862` | 2025-02-18 08:09:32 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 815 | [请求参数里带Body参数(包体参数），如何计算签名](pages/4012365864.md) | `4012365864` | 2025-02-18 09:53:43 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 816 | [请求参数里有Query（查询参数），如何计算签名](pages/4012365865.md) | `4012365865` | 2025-02-18 09:53:41 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 817 | [图片上传接口，如何计算签名](pages/4012365863.md) | `4012365863` | 2025-03-25 03:03:49 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 818 | [APP调起支付签名](pages/4012365868.md) | `4012365868` | 2025-03-26 09:28:08 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
-| 819 | [JSAPI调起支付签名](pages/4012365867.md) | `4012365867` | 2025-03-26 09:28:07 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
-| 820 | [小程序调起支付签名](pages/4012365869.md) | `4012365869` | 2025-03-26 09:28:05 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
-| 821 | [如何使用微信支付公钥验签](pages/4013059017.md) | `4013059017` | 2024-11-20 06:55:05 | Optional > 开发须知 > 如何验签 |
-| 822 | [如何使用平台证书验签名](pages/4013059030.md) | `4013059030` | 2024-11-29 09:43:48 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
-| 823 | [如何使用签名/验签工具](pages/4012365880.md) | `4012365880` | 2024-12-27 04:05:13 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
-| 824 | [如何使用微信支付公钥加密敏感字段](pages/4013059044.md) | `4013059044` | 2025-03-19 08:49:11 | Optional > 开发须知 > 如何加解密敏感字段 |
-| 825 | [如何使用平台证书加密敏感字段](pages/4013059053.md) | `4013059053` | 2025-03-19 08:49:03 | Optional > 开发须知 > 如何加解密敏感字段 |
-| 826 | [如何使用API证书解密敏感字段](pages/4013059060.md) | `4013059060` | 2024-11-20 03:29:55 | Optional > 开发须知 > 如何加解密敏感字段 |
-| 827 | [如何解密回调报文和平台证书](pages/4012082320.md) | `4012082320` | 2024-11-29 08:22:52 | Optional > 开发须知 > 如何解密微信支付回调报文 |
-| 828 | [报错：HTTP header缺少微信支付平台证书序列号(Wechatpay-Serial)](pages/4012365874.md) | `4012365874` | 2024-11-19 09:07:14 | Optional > 开发须知 > 常见问题 |
-| 829 | [报错：Http头Authorization值格式错误，请参考《微信支付商户REST API签名规则》或者“Authorization不合法”](pages/4012365872.md) | `4012365872` | 2026-01-23 03:31:55 | Optional > 开发须知 > 常见问题 |
-| 830 | [报错：商户证书序列号有误。请使用签名私钥匹配的证书序列号](pages/4012365873.md) | `4012365873` | 2024-12-12 03:12:16 | Optional > 开发须知 > 常见问题 |
-| 831 | [报错：状态码401或者“错误的签名，验签失败”或者“签名错误，请检查后再试”](pages/4012365875.md) | `4012365875` | 2024-12-12 03:12:14 | Optional > 开发须知 > 常见问题 |
-| 832 | [调起支付报错：支付验证签名失败](pages/4012365876.md) | `4012365876` | 2025-03-26 09:28:04 | Optional > 开发须知 > 常见问题 |
-| 833 | [使用Java加载密钥时，抛出异常InvalidKeyException: Illegal key size](pages/4013059103.md) | `4013059103` | 2024-11-20 03:37:11 | Optional > 开发须知 > 常见问题 |
-| 834 | [使用Java解密时，抛出异常AEADBadTagException: Tag mismatch](pages/4013059153.md) | `4013059153` | 2024-11-20 03:38:02 | Optional > 开发须知 > 常见问题 |
-| 835 | [请求返回{"code":"PARAM_ERROR","message":"平台证书序列号Wechatpay-Serial错误"}](pages/4013059161.md) | `4013059161` | 2024-11-20 03:38:49 | Optional > 开发须知 > 常见问题 |
-| 836 | [为什么微信支付的回调缺少签名的几个HTTP头？](pages/4013059166.md) | `4013059166` | 2024-11-20 03:39:20 | Optional > 开发须知 > 常见问题 |
-| 837 | [如何在程序中加载商户API证书私钥](pages/4013059175.md) | `4013059175` | 2025-12-25 06:37:41 | Optional > 开发须知 > 常见问题 |
-| 838 | [为什么请求返回401 Unauthorized？](pages/4012082324.md) | `4012082324` | 2024-11-25 08:53:06 | Optional > 开发须知 > 常见问题 |
-| 839 | [验证微信支付响应的签名报错：签名验证失败](pages/4016241895.md) | `4016241895` | 2025-10-14 06:39:36 | Optional > 开发须知 > 常见问题 |
-| 840 | [调用接口报错：“平台私钥解密失败”](pages/4016913182.md) | `4016913182` | 2025-12-19 02:59:24 | Optional > 开发须知 > 常见问题 |
-| 841 | [跨城冗灾升级指引](pages/4012082567.md) | `4012082567` | 2025-03-21 07:37:49 | Optional > 最佳实践 |
-| 842 | [支付回调和查单实现指引](pages/4012082568.md) | `4012082568` | 2026-10-13 09:08:37 | Optional > 最佳实践 |
-| 843 | [专线商户Notify升级指引](pages/4012082569.md) | `4012082569` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
-| 844 | [回调通知注意事项](pages/4012082570.md) | `4012082570` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
-| 845 | [最佳安全实践](pages/4012082456.md) | `4012082456` | 2024-11-27 09:15:00 | Optional > 最佳实践 > API安全最佳实践 |
-| 846 | [安全漏洞checklist](pages/4013059657.md) | `4013059657` | 2024-11-27 09:14:52 | Optional > 最佳实践 > API安全最佳实践 |
-| 847 | [系统漏洞检测及修复](pages/4013059668.md) | `4013059668` | 2025-03-21 07:40:38 | Optional > 最佳实践 > API安全最佳实践 |
-| 848 | [Web漏洞检测及修复](pages/4013059740.md) | `4013059740` | 2025-03-21 08:53:52 | Optional > 最佳实践 > API安全最佳实践 |
-| 849 | [最新安全漏洞及修复](pages/4013059970.md) | `4013059970` | 2024-11-27 09:14:33 | Optional > 最佳实践 > API安全最佳实践 |
-| 850 | [密钥泄漏修复指引](pages/4012082455.md) | `4012082455` | 2024-12-24 01:54:38 | Optional > 最佳实践 > API安全最佳实践 |
-| 851 | [国家商用密码简介](pages/4012082627.md) | `4012082627` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
-| 852 | [获取国家商用密码证书和密钥](pages/4012082628.md) | `4012082628` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
-| 853 | [APIv3接口使用国家商用密码指引](pages/4012082629.md) | `4012082629` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
-| 854 | [开户银行全称对照表](pages/4012082812.md) | `4012082812` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 855 | [开户银行对照表](pages/4012082813.md) | `4012082813` | 2025-02-19 07:30:19 | Optional > 对照表 |
-| 856 | [银行类型对照表](pages/4012082814.md) | `4012082814` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 857 | [省市区编号对照表](pages/4012082815.md) | `4012082815` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 858 | [优惠费率活动对照表](pages/4012082816.md) | `4012082816` | 2024-12-26 08:48:22 | Optional > 对照表 |
-| 859 | [跨境电商二级商户费率对照表](pages/4012082817.md) | `4012082817` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 860 | [商户行业编码](pages/4012082818.md) | `4012082818` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 861 | [特殊行业ID对照表](pages/4012082819.md) | `4012082819` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 862 | [接入模式](pages/4012081931.md) | `4012081931` | 2026-06-01 06:16:40 | Optional > 名词表 |
-| 863 | [支付产品](pages/4012081932.md) | `4012081932` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 864 | [业务平台](pages/4012081933.md) | `4012081933` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 865 | [业务系统](pages/4012081934.md) | `4012081934` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 866 | [参数说明](pages/4012081935.md) | `4012081935` | 2026-10-13 09:47:01 | Optional > 名词表 |
-| 867 | [常见问题](pages/4016183684.md) | `4016183684` | 2026-08-05 06:15:10 | Optional > 名词表 |
-| 868 | [微信支付链路界面与交互规范](pages/4020527499.md) | `4020527499` | 2026-05-19 02:15:32 | Optional > 服务运营规范 |
-| 869 | [Postman调试工具](pages/4012083114.md) | `4012083114` | 2024-11-29 09:45:15 | Optional > 开发工具 |
-| 870 | [平台证书下载工具](pages/4012083115.md) | `4012083115` | 2024-11-27 09:13:57 | Optional > 开发工具 |
-| 871 | [验签工具](pages/4012083116.md) | `4012083116` | 2025-01-03 07:02:48 | Optional > 开发工具 |
-| 872 | [产品介绍](pages/4012083118.md) | `4012083118` | 2025-03-21 07:39:41 | Optional > 网络云排查 |
-| 873 | [网络问题排查指南](pages/4012083119.md) | `4012083119` | 2025-03-21 07:39:03 | Optional > 网络云排查 |
-| 874 | [常见问题](pages/4012083120.md) | `4012083120` | 2024-07-25 03:43:58 | Optional > 网络云排查 |
-| 875 | [产品介绍](pages/4012083122.md) | `4012083122` | 2024-07-25 03:43:58 | Optional > 安全医生 |
-| 876 | [诊断链接绑定指引](pages/4012083123.md) | `4012083123` | 2024-07-25 03:43:58 | Optional > 安全医生 |
-| 877 | [安全联系人设置指引](pages/4012083124.md) | `4012083124` | 2024-07-25 03:43:58 | Optional > 安全医生 |
-| 878 | [SDK概述](pages/4012083109.md) | `4012083109` | 2026-04-24 09:22:07 | Optional > SDK |
-| 879 | [使用 Java SDK](pages/4012083111.md) | `4012083111` | 2025-05-29 03:32:06 | Optional > SDK |
-| 880 | [使用 PHP SDK](pages/4012083112.md) | `4012083112` | 2025-05-29 03:32:04 | Optional > SDK |
-| 881 | [使用 Go SDK](pages/4012083113.md) | `4012083113` | 2025-05-29 03:36:58 | Optional > SDK |
+| 504 | [品类券头图设计规范](pages/4043213639.md) | `4043213639` | 2026-09-21 09:21:27 | 商品券（单券） > 附录 |
+| 505 | [券类型选型](pages/4043817598.md) | `4043817598` | 2026-09-23 02:56:41 | 商品券（单券） > 附录 |
+| 506 | [【单券-全场-折扣券】API请求示例](pages/4016756270.md) | `4016756270` | 2025-12-02 13:12:50 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
+| 507 | [【单券-全场-满减券】API请求示例](pages/4016756271.md) | `4016756271` | 2025-12-02 13:13:02 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
+| 508 | [【单券-单品-折扣券】API请求示例](pages/4016756272.md) | `4016756272` | 2025-12-25 11:53:38 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
+| 509 | [【单券-单品-满减券】API请求示例](pages/4016756273.md) | `4016756273` | 2025-12-25 11:54:13 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
+| 510 | [【单券-单品-兑换券】API请求示例](pages/4016756274.md) | `4016756274` | 2025-12-25 11:55:51 | 商品券（单券） > 附录 > API请求示例-创建商品券 |
+| 511 | [产品介绍](pages/4016438787.md) | `4016438787` | 2026-05-13 06:51:15 | 商品券（多次优惠） |
+| 512 | [开发指引](pages/4016438816.md) | `4016438816` | 2026-06-10 07:28:08 | 商品券（多次优惠） |
+| 513 | [常见问题](pages/4016950439.md) | `4016950439` | 2025-12-23 02:29:27 | 商品券（多次优惠） |
+| 514 | [图片上传](pages/4016435731.md) | `4016435731` | 2025-11-07 06:33:45 | 商品券（多次优惠） > API列表 |
+| 515 | [创建商品券](pages/4016434630.md) | `4016434630` | 2025-12-31 07:51:33 | 商品券（多次优惠） > API列表 > 商品券管理 |
+| 516 | [修改商品券](pages/4016434633.md) | `4016434633` | 2025-11-07 03:42:29 | 商品券（多次优惠） > API列表 > 商品券管理 |
+| 517 | [查询商品券](pages/4016434632.md) | `4016434632` | 2025-11-07 03:42:29 | 商品券（多次优惠） > API列表 > 商品券管理 |
+| 518 | [失效商品券](pages/4016434631.md) | `4016434631` | 2025-11-07 03:42:29 | 商品券（多次优惠） > API列表 > 商品券管理 |
+| 519 | [添加商品券批次组](pages/4016280622.md) | `4016280622` | 2025-11-20 03:00:43 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 520 | [查询商品券批次列表](pages/4016434641.md) | `4016434641` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 521 | [查询商品券指定批次](pages/4016434649.md) | `4016434649` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 522 | [修改商品券批次组](pages/4016280633.md) | `4016280633` | 2025-11-20 03:00:41 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 523 | [修改商品券批次组发放预算](pages/4016280642.md) | `4016280642` | 2025-11-20 03:00:40 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 524 | [批次组批量关联门店](pages/4016280620.md) | `4016280620` | 2025-11-20 03:00:37 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 525 | [批次组批量取消关联门店](pages/4016280629.md) | `4016280629` | 2025-11-20 03:00:33 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 526 | [查询批次关联门店列表](pages/4016434665.md) | `4016434665` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 527 | [预上传券Code](pages/4016434668.md) | `4016434668` | 2025-11-07 03:50:02 | 商品券（多次优惠） > API列表 > 商品券批次管理 |
+| 528 | [向用户发放商品券批次组](pages/4016280664.md) | `4016280664` | 2025-11-20 03:00:32 | 商品券（多次优惠） > API列表 > 商品券发放 |
+| 529 | [确认发放用户商品券](pages/4016435562.md) | `4016435562` | 2025-11-07 06:25:22 | 商品券（多次优惠） > API列表 > 商品券发放 |
+| 530 | [向用户预发放商品券批次组](pages/4016280670.md) | `4016280670` | 2025-12-16 08:25:19 | 商品券（多次优惠） > API列表 > 商品券发放 > 小程序发券组件 |
+| 531 | [调起小程序发券组件](pages/4016435568.md) | `4016435568` | 2025-12-23 08:54:20 | 商品券（多次优惠） > API列表 > 商品券发放 > 小程序发券组件 |
+| 532 | [核销用户商品券](pages/4016435636.md) | `4016435636` | 2025-11-07 06:28:01 | 商品券（多次优惠） > API列表 > 商品券核销 |
+| 533 | [调起小程序核销组件](pages/4016435640.md) | `4016435640` | 2025-11-07 08:58:05 | 商品券（多次优惠） > API列表 > 商品券核销 |
+| 534 | [查询用户商品券详情](pages/4016435702.md) | `4016435702` | 2025-11-07 06:31:39 | 商品券（多次优惠） > API列表 > 商品券查询 |
+| 535 | [指定券状态查询用户商品券列表](pages/4016435703.md) | `4016435703` | 2025-11-07 06:31:39 | 商品券（多次优惠） > API列表 > 商品券查询 |
+| 536 | [失效用户商品券组](pages/4016280658.md) | `4016280658` | 2025-11-20 03:00:30 | 商品券（多次优惠） > API列表 > 商品券失效与退券 |
+| 537 | [退券](pages/4016435674.md) | `4016435674` | 2025-11-07 06:30:06 | 商品券（多次优惠） > API列表 > 商品券失效与退券 |
+| 538 | [获取商品券事件通知地址](pages/4016435718.md) | `4016435718` | 2025-11-07 06:32:46 | 商品券（多次优惠） > API列表 > 商品券回调通知 |
+| 539 | [设置商品券事件通知地址](pages/4016435719.md) | `4016435719` | 2025-11-07 06:32:46 | 商品券（多次优惠） > API列表 > 商品券回调通知 |
+| 540 | [商品券回调通知](pages/4016435717.md) | `4016435717` | 2026-10-14 07:16:39 | 商品券（多次优惠） > API列表 > 商品券回调通知 |
+| 541 | [提交图片生成任务](pages/4017327752.md) | `4017327752` | 2026-01-26 03:27:42 | 商品券（多次优惠） > API列表 > 生成商品券头图 |
+| 542 | [查询图片生成任务执行结果](pages/4017327753.md) | `4017327753` | 2026-01-26 03:27:42 | 商品券（多次优惠） > API列表 > 生成商品券头图 |
+| 543 | [图片生成回调通知](pages/4017327759.md) | `4017327759` | 2026-01-26 03:27:42 | 商品券（多次优惠） > API列表 > 生成商品券头图 |
+| 544 | [小程序发券组件开发指引](pages/4016435566.md) | `4016435566` | 2026-06-10 07:28:07 | 商品券（多次优惠） > 附录 |
+| 545 | [小程序核销组件开发指引](pages/4016435642.md) | `4016435642` | 2026-04-02 14:46:11 | 商品券（多次优惠） > 附录 |
+| 546 | [品牌、服务商、appid关联关系](pages/4018984192.md) | `4018984192` | 2026-03-26 06:44:07 | 商品券（多次优惠） > 附录 |
+| 547 | [商品券可核销时间规则说明（coupon_available_period）](pages/4016676012.md) | `4016676012` | 2025-11-25 11:47:16 | 商品券（多次优惠） > 附录 |
+| 548 | [商品券客户端消息推送页面](pages/4019005741.md) | `4019005741` | 2026-03-27 06:57:49 | 商品券（多次优惠） > 附录 |
+| 549 | [商品券结构及修改说明](pages/4018984437.md) | `4018984437` | 2026-03-27 02:47:05 | 商品券（多次优惠） > 附录 |
+| 550 | [品类券头图设计规范](pages/4043213651.md) | `4043213651` | 2026-09-21 09:21:25 | 商品券（多次优惠） > 附录 |
+| 551 | [【多次优惠-全场-折扣券】API请求示例](pages/4016756283.md) | `4016756283` | 2025-12-04 07:57:31 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
+| 552 | [【多次优惠-全场-满减券】API请求示例](pages/4016756284.md) | `4016756284` | 2025-12-04 07:59:00 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
+| 553 | [【多次优惠-单品-折扣券】API请求示例](pages/4016756285.md) | `4016756285` | 2025-12-04 08:00:48 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
+| 554 | [【多次优惠-单品-满减券】API请求示例](pages/4016756286.md) | `4016756286` | 2025-12-04 08:01:18 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
+| 555 | [【多次优惠-单品-兑换券】API请求示例](pages/4016756287.md) | `4016756287` | 2025-12-04 08:01:50 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
+| 556 | [产品介绍](pages/4016628074.md) | `4016628074` | 2025-11-19 02:54:10 | 品牌门店 |
+| 557 | [开发指引](pages/4016628135.md) | `4016628135` | 2026-06-10 07:28:01 | 品牌门店 |
+| 558 | [常见问题](pages/4016705104.md) | `4016705104` | 2025-11-27 04:06:48 | 品牌门店 |
+| 559 | [创建品牌门店](pages/4015783183.md) | `4015783183` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
+| 560 | [查询品牌门店](pages/4015783153.md) | `4015783153` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
+| 561 | [查询品牌门店列表](pages/4016756674.md) | `4016756674` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
+| 562 | [更新品牌门店](pages/4015783158.md) | `4015783158` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
+| 563 | [删除品牌门店](pages/4015783113.md) | `4015783113` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
+| 564 | [暂停门店营业](pages/4016756671.md) | `4016756671` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
+| 565 | [恢复门店营业](pages/4016756672.md) | `4016756672` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
+| 566 | [绑定收款商户号](pages/4015783177.md) | `4015783177` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
+| 567 | [解绑收款商户号](pages/4015783188.md) | `4015783188` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
+| 568 | [品牌经营平台管理品牌门店](pages/4016689827.md) | `4016689827` | 2025-11-25 10:04:14 | 品牌门店 > 附录 |
+| 569 | [获得品牌已授权且在生效中的产品权限信息](pages/4017410365.md) | `4017410365` | 2026-01-29 09:12:34 | 品牌服务商授权 > API列表 |
+| 570 | [产品介绍](pages/4012072620.md) | `4012072620` | 2024-07-23 08:51:32 | 连锁品牌分账 |
+| 571 | [开发接入准备](pages/4012072625.md) | `4012072625` | 2026-05-19 09:30:42 | 连锁品牌分账 |
+| 572 | [开发指引](pages/4012072637.md) | `4012072637` | 2026-06-09 09:46:07 | 连锁品牌分账 |
+| 573 | [业务示例代码](pages/4015871675.md) | `4015871675` | 2026-06-09 09:46:50 | 连锁品牌分账 |
+| 574 | [常见问题](pages/4015981574.md) | `4015981574` | 2026-02-06 03:12:47 | 连锁品牌分账 |
+| 575 | [请求分账](pages/4012692975.md) | `4012692975` | 2025-09-29 03:46:37 | 连锁品牌分账 > API列表 |
+| 576 | [查询分账结果](pages/4012467002.md) | `4012467002` | 2025-09-29 03:45:52 | 连锁品牌分账 > API列表 |
+| 577 | [请求分账回退](pages/4012467097.md) | `4012467097` | 2025-09-29 03:43:29 | 连锁品牌分账 > API列表 |
+| 578 | [查询分账回退结果](pages/4012467011.md) | `4012467011` | 2025-09-29 03:43:57 | 连锁品牌分账 > API列表 |
+| 579 | [解冻剩余资金](pages/4012467016.md) | `4012467016` | 2025-09-29 03:43:07 | 连锁品牌分账 > API列表 |
+| 580 | [查询订单剩余待分金额](pages/4012467021.md) | `4012467021` | 2025-09-29 03:42:34 | 连锁品牌分账 > API列表 |
+| 581 | [查询最大分账比例](pages/4012467022.md) | `4012467022` | 2025-09-29 03:42:11 | 连锁品牌分账 > API列表 |
+| 582 | [添加分账接收方](pages/4012467100.md) | `4012467100` | 2025-09-29 03:41:51 | 连锁品牌分账 > API列表 |
+| 583 | [删除分账接收方](pages/4012467103.md) | `4012467103` | 2025-09-29 02:38:34 | 连锁品牌分账 > API列表 |
+| 584 | [分账动账通知](pages/4012075400.md) | `4012075400` | 2025-02-19 03:56:03 | 连锁品牌分账 > API列表 |
+| 585 | [申请分账账单](pages/4012715572.md) | `4012715572` | 2025-09-29 02:37:48 | 连锁品牌分账 > API列表 |
+| 586 | [下载账单](pages/4012076073.md) | `4012076073` | 2024-10-30 06:42:53 | 连锁品牌分账 > API列表 |
+| 587 | [分账失败处理指引](pages/4015504918.md) | `4015504918` | 2025-07-04 03:08:09 | 连锁品牌分账 > 附录 |
+| 588 | [清关报关（V2）](pages/4012851220.md) | `4012851220` | 2025-04-25 07:53:42 | 清关报关（V2） |
+| 589 | [产品介绍](pages/4012072827.md) | `4012072827` | 2025-08-25 10:00:14 | 消费者投诉2.0 |
+| 590 | [开发接入准备](pages/4012072844.md) | `4012072844` | 2026-05-19 09:30:57 | 消费者投诉2.0 |
+| 591 | [开发指引](pages/4012072858.md) | `4012072858` | 2026-06-09 09:46:03 | 消费者投诉2.0 |
+| 592 | [业务示例代码](pages/4015933338.md) | `4015933338` | 2026-06-09 09:46:01 | 消费者投诉2.0 |
+| 593 | [常见问题](pages/4016111688.md) | `4016111688` | 2026-05-19 07:41:24 | 消费者投诉2.0 |
+| 594 | [查询投诉单列表](pages/4012691285.md) | `4012691285` | 2025-09-02 02:28:31 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
+| 595 | [查询投诉单详情](pages/4012691648.md) | `4012691648` | 2025-08-28 02:43:42 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
+| 596 | [查询投诉单协商历史](pages/4012691802.md) | `4012691802` | 2025-08-28 02:43:30 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
+| 597 | [投诉通知回调](pages/4012076174.md) | `4012076174` | 2025-02-19 03:56:03 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 598 | [创建投诉通知回调地址](pages/4012458106.md) | `4012458106` | 2025-08-28 02:43:28 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 599 | [查询投诉通知回调地址](pages/4012459065.md) | `4012459065` | 2025-08-28 02:43:23 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 600 | [更新投诉通知回调地址](pages/4012459287.md) | `4012459287` | 2025-08-28 02:43:25 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 601 | [删除投诉通知回调地址](pages/4012460474.md) | `4012460474` | 2025-08-28 02:43:21 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 602 | [回复用户](pages/4012467213.md) | `4012467213` | 2025-09-01 02:27:29 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 603 | [反馈处理完成](pages/4012467217.md) | `4012467217` | 2025-09-01 02:25:00 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 604 | [更新退款审批结果](pages/4012467218.md) | `4012467218` | 2025-09-01 02:24:26 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 605 | [回复需要即时服务的投诉单](pages/4017151726.md) | `4017151726` | 2026-01-22 08:02:14 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 606 | [图片上传接口](pages/4012467222.md) | `4012467222` | 2025-09-01 02:10:00 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
+| 607 | [图片请求接口](pages/4012467223.md) | `4012467223` | 2025-09-02 02:43:19 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
+| 608 | [产品介绍](pages/4015792553.md) | `4015792553` | 2025-11-28 08:19:11 | 微信电子发票 |
+| 609 | [开发接入准备](pages/4015792554.md) | `4015792554` | 2026-09-18 02:14:46 | 微信电子发票 |
+| 610 | [开发指引](pages/4015792556.md) | `4015792556` | 2026-07-27 08:21:58 | 微信电子发票 |
+| 611 | [业务示例代码](pages/4016078358.md) | `4016078358` | 2026-06-10 07:28:02 | 微信电子发票 |
+| 612 | [常见问题](pages/4016960715.md) | `4016960715` | 2026-08-05 06:11:58 | 微信电子发票 |
+| 613 | [获取开通服务商电子发票能力邀请链接](pages/4015941495.md) | `4015941495` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 614 | [获取邀请开通的商户信息](pages/4015941524.md) | `4015941524` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 615 | [检查子商户开票功能状态](pages/4015792561.md) | `4015792561` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 616 | [创建电子发票卡券模板](pages/4015792562.md) | `4015792562` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 617 | [配置开发选项](pages/4015792563.md) | `4015792563` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 618 | [获取用户抬头填写链接](pages/4015770776.md) | `4015770776` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 619 | [获取用户填写抬头信息](pages/4015784260.md) | `4015784260` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 620 | [开具通用行业电子发票](pages/4015792574.md) | `4015792574` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 621 | [开具不动产租赁行业电子发票](pages/4015941740.md) | `4015941740` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 622 | [开具成品油行业电子发票](pages/4016760559.md) | `4016760559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 623 | [开具旅客运输行业电子发票](pages/4025863376.md) | `4025863376` | 2026-07-17 03:57:13 | 微信电子发票 > API列表 |
+| 624 | [冲红电子发票](pages/4015792575.md) | `4015792575` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 625 | [查询电子发票](pages/4015792567.md) | `4015792567` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 626 | [获取发票下载信息](pages/4015792576.md) | `4015792576` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 627 | [下载发票文件](pages/4015792569.md) | `4015792569` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 628 | [上传电子发票文件](pages/4015792580.md) | `4015792580` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 629 | [将电子发票插入微信用户卡包](pages/4015792579.md) | `4015792579` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 630 | [用户发票抬头填写完成通知](pages/4015792559.md) | `4015792559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 631 | [发票开具成功通知](pages/4015792570.md) | `4015792570` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 632 | [发票插入用户卡包成功通知](pages/4015792578.md) | `4015792578` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 633 | [发票冲红成功通知](pages/4015792571.md) | `4015792571` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 634 | [发票卡券作废通知](pages/4015792560.md) | `4015792560` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 635 | [成品油单位转换公式](pages/4016730844.md) | `4016730844` | 2026-07-27 06:19:53 | 微信电子发票 > 附录 |
+| 636 | [产品介绍](pages/4012062365.md) | `4012062365` | 2024-10-16 07:11:49 | 特约商户进件 |
+| 637 | [开发接入准备](pages/4012062375.md) | `4012062375` | 2026-09-18 02:14:30 | 特约商户进件 |
+| 638 | [开发指引](pages/4012062379.md) | `4012062379` | 2026-06-09 09:45:48 | 特约商户进件 |
+| 639 | [常见问题](pages/4016058480.md) | `4016058480` | 2026-08-05 06:17:02 | 特约商户进件 |
+| 640 | [提交申请单](pages/4012719997.md) | `4012719997` | 2025-03-26 06:58:27 | 特约商户进件 > API列表 |
+| 641 | [申请单号查询申请状态](pages/4012697052.md) | `4012697052` | 2025-03-24 04:07:15 | 特约商户进件 > API列表 |
+| 642 | [业务申请编号查询申请状态](pages/4012697168.md) | `4012697168` | 2025-03-24 04:07:17 | 特约商户进件 > API列表 |
+| 643 | [修改结算账户](pages/4012761102.md) | `4012761102` | 2025-01-22 01:35:52 | 特约商户进件 > API列表 |
+| 644 | [查询结算账户](pages/4012761113.md) | `4012761113` | 2025-01-21 03:41:29 | 特约商户进件 > API列表 |
+| 645 | [查询结算账户修改申请状态](pages/4012761120.md) | `4012761120` | 2025-01-21 03:41:31 | 特约商户进件 > API列表 |
+| 646 | [文件上传](pages/4012760490.md) | `4012760490` | 2026-05-09 07:01:44 | 特约商户进件 > API列表 |
+| 647 | [视频上传](pages/4012761084.md) | `4012761084` | 2024-11-18 09:25:56 | 特约商户进件 > API列表 |
+| 648 | [产品介绍](pages/4012064820.md) | `4012064820` | 2024-10-24 08:22:24 | 商户开户意愿确认 |
+| 649 | [开发接入准备](pages/4012064824.md) | `4012064824` | 2026-09-18 08:04:00 | 商户开户意愿确认 |
+| 650 | [开发指引](pages/4012064832.md) | `4012064832` | 2026-06-09 09:45:45 | 商户开户意愿确认 |
+| 651 | [常见问题](pages/4016644196.md) | `4016644196` | 2026-01-16 03:48:52 | 商户开户意愿确认 |
+| 652 | [提交申请单](pages/4012722388.md) | `4012722388` | 2025-01-09 03:10:33 | 商户开户意愿确认 > API列表 |
+| 653 | [撤销申请单](pages/4012697627.md) | `4012697627` | 2024-12-04 02:03:31 | 商户开户意愿确认 > API列表 |
+| 654 | [查询申请单审核结果](pages/4012697715.md) | `4012697715` | 2024-11-04 07:59:30 | 商户开户意愿确认 > API列表 |
+| 655 | [获取商户开户意愿确认状态](pages/4012467549.md) | `4012467549` | 2024-10-24 09:20:46 | 商户开户意愿确认 > API列表 |
+| 656 | [图片上传](pages/4012760509.md) | `4012760509` | 2024-11-18 09:25:43 | 商户开户意愿确认 > API列表 |
+| 657 | [产品介绍](pages/4012064844.md) | `4012064844` | 2026-03-10 07:23:55 | 商户平台处置通知 |
+| 658 | [开发接入准备](pages/4012064851.md) | `4012064851` | 2026-05-19 09:33:15 | 商户平台处置通知 |
+| 659 | [开发指引](pages/4012064853.md) | `4012064853` | 2026-06-09 09:45:42 | 商户平台处置通知 |
+| 660 | [业务示例代码](pages/4015949382.md) | `4015949382` | 2025-09-03 03:01:42 | 商户平台处置通知 |
+| 661 | [查询商户违规通知回调地址](pages/4012471327.md) | `4012471327` | 2025-08-28 09:27:26 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 662 | [修改商户违规通知回调地址](pages/4012471330.md) | `4012471330` | 2025-08-28 09:27:19 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 663 | [创建商户违规通知回调地址](pages/4012471333.md) | `4012471333` | 2025-08-28 09:27:12 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 664 | [删除商户违规通知回调地址](pages/4012471334.md) | `4012471334` | 2025-08-28 09:27:05 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 665 | [商户平台处置记录回调通知](pages/4012079216.md) | `4012079216` | 2025-02-19 03:56:03 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 666 | [产品介绍](pages/4012064898.md) | `4012064898` | 2026-05-25 07:06:33 | 不活跃商户身份核实 |
+| 667 | [开发接入准备](pages/4012064902.md) | `4012064902` | 2026-05-19 09:33:57 | 不活跃商户身份核实 |
+| 668 | [开发指引](pages/4012064909.md) | `4012064909` | 2026-06-09 09:45:41 | 不活跃商户身份核实 |
+| 669 | [常见问题](pages/4012064915.md) | `4012064915` | 2024-07-24 08:05:05 | 不活跃商户身份核实 |
+| 670 | [发起不活跃商户身份核实](pages/4012471357.md) | `4012471357` | 2025-08-08 07:33:04 | 不活跃商户身份核实 > API列表 |
+| 671 | [查询不活跃商户身份核实结果](pages/4012471359.md) | `4012471359` | 2025-08-08 08:00:48 | 不活跃商户身份核实 > API列表 |
+| 672 | [关键概念](pages/4012064904.md) | `4012064904` | 2024-10-25 02:37:34 | 不活跃商户身份核实 > 附录 |
+| 673 | [产品介绍](pages/4012165270.md) | `4012165270` | 2026-09-20 07:23:07 | 商户被管控能力及原因查询 |
+| 674 | [查询子商户管控情况](pages/4012803072.md) | `4012803072` | 2025-09-26 09:24:32 | 商户被管控能力及原因查询 > API列表 |
+| 675 | [产品介绍](pages/4016022264.md) | `4016022264` | 2025-09-17 04:03:07 | 合作伙伴订阅 |
+| 676 | [开发指引](pages/4016022266.md) | `4016022266` | 2025-09-16 03:35:57 | 合作伙伴订阅 |
+| 677 | [常见问题](pages/4016550707.md) | `4016550707` | 2026-08-05 06:17:27 | 合作伙伴订阅 |
+| 678 | [证书密钥概览](pages/4025464285.md) | `4025464285` | 2026-07-21 04:03:55 | 证书密钥概览 |
+| 679 | [产品介绍](pages/4012925323.md) | `4012925323` | 2026-05-20 03:21:30 | 微信支付公钥 |
+| 680 | [常见问题](pages/4013038589.md) | `4013038589` | 2025-03-04 07:15:22 | 微信支付公钥 |
+| 681 | [商户签名验签／加解密测试](pages/4015139289.md) | `4015139289` | 2026-04-08 03:50:21 | 微信支付公钥 > API列表 |
+| 682 | [回调接口](pages/4019605946.md) | `4019605946` | 2026-04-10 08:15:23 | 微信支付公钥 > API列表 |
+| 683 | [如何从平台证书切换成微信支付公钥](pages/4012925289.md) | `4012925289` | 2024-12-12 02:59:29 | 微信支付公钥 > 附录 |
+| 684 | [如何从微信支付公钥切换成平台证书](pages/4015419376.md) | `4015419376` | 2026-03-17 09:45:27 | 微信支付公钥 > 附录 |
+| 685 | [产品介绍](pages/4012073044.md) | `4012073044` | 2026-05-21 07:25:38 | 平台证书 |
+| 686 | [常见问题](pages/4012073263.md) | `4012073263` | 2024-11-29 09:45:35 | 平台证书 |
+| 687 | [下载平台证书](pages/4012715700.md) | `4012715700` | 2024-10-15 08:45:31 | 平台证书 > API列表 |
+| 688 | [平台证书更换操作指引](pages/4012073146.md) | `4012073146` | 2024-12-04 06:35:09 | 平台证书 > 附录 |
+| 689 | [产品介绍](pages/4012086891.md) | `4012086891` | 2026-09-18 02:12:22 | 平台收付通-电商交易解决方案 |
+| 690 | [开发接入准备](pages/4012086921.md) | `4012086921` | 2026-09-18 02:12:20 | 平台收付通-电商交易解决方案 |
+| 691 | [消费者投诉2.0](pages/4016312079.md) | `4016312079` | 2026-07-16 03:40:54 | 平台收付通-电商交易解决方案 |
+| 692 | [开发指引](pages/4012087137.md) | `4012087137` | 2026-06-16 07:46:00 | 平台收付通-电商交易解决方案 > 商户进件 |
+| 693 | [常见问题](pages/4012525423.md) | `4012525423` | 2026-05-26 08:53:06 | 平台收付通-电商交易解决方案 > 商户进件 |
+| 694 | [提交申请单](pages/4012713017.md) | `4012713017` | 2025-02-28 12:07:34 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 695 | [通过业务申请编号查询申请状态](pages/4012691376.md) | `4012691376` | 2024-11-28 06:22:29 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 696 | [通过申请单ID查询申请状态](pages/4012691469.md) | `4012691469` | 2024-11-28 06:22:27 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 697 | [修改结算账户](pages/4012761138.md) | `4012761138` | 2026-01-14 06:27:19 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 698 | [查询结算账户](pages/4012761142.md) | `4012761142` | 2026-01-14 06:27:41 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 699 | [查询结算账户修改申请状态](pages/4012761169.md) | `4012761169` | 2025-01-21 03:41:31 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 700 | [文件上传](pages/4012760432.md) | `4012760432` | 2026-05-09 07:02:14 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 701 | [产品介绍](pages/4018153750.md) | `4018153750` | 2026-06-11 07:25:17 | 平台收付通-电商交易解决方案 > 商户注销 |
+| 702 | [商户注销资格校验](pages/4016420099.md) | `4016420099` | 2025-11-05 09:41:04 | 平台收付通-电商交易解决方案 > 商户注销 > 注销预校验 > API列表 |
+| 703 | [提交注销提现申请](pages/4013892756.md) | `4013892756` | 2025-03-13 04:54:44 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
+| 704 | [商户申请单号查询申请单状态](pages/4013892759.md) | `4013892759` | 2025-09-26 02:25:46 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
+| 705 | [微信支付申请单号查询申请单状态](pages/4013892765.md) | `4013892765` | 2025-09-26 02:25:56 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
+| 706 | [常见问题](pages/4015943239.md) | `4015943239` | 2025-11-07 06:48:10 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） |
+| 707 | [提交注销申请单](pages/4012476217.md) | `4012476217` | 2025-02-17 10:16:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
+| 708 | [查询注销单状态](pages/4012476223.md) | `4012476223` | 2024-11-05 02:04:20 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
+| 709 | [图片上传](pages/4012691710.md) | `4012691710` | 2024-11-05 02:05:52 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 图片上传 |
+| 710 | [提交已注销商户号可用余额提现申请单](pages/4012488950.md) | `4012488950` | 2025-01-09 03:10:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
+| 711 | [商户提现申请单号查询提现申请单状态](pages/4012476164.md) | `4012476164` | 2024-11-05 02:15:27 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
+| 712 | [微信支付提现申请单号查询提现申请单状态](pages/4012778400.md) | `4012778400` | 2024-11-05 02:16:19 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
+| 713 | [查询指定主体子商户列表](pages/4033742105.md) | `4033742105` | 2026-08-19 02:04:07 | 平台收付通-电商交易解决方案 > 商户注销 > 商户查询 > API列表 |
+| 714 | [开发指引](pages/4012088031.md) | `4012088031` | 2026-06-10 07:28:44 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
+| 715 | [常见问题](pages/4012525474.md) | `4012525474` | 2026-05-09 08:54:23 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
+| 716 | [APP下单](pages/4012714669.md) | `4012714669` | 2024-10-24 03:39:28 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
+| 717 | [APP调起支付](pages/4012090168.md) | `4012090168` | 2025-02-20 03:00:52 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
+| 718 | [JSAPI下单](pages/4012714678.md) | `4012714678` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
+| 719 | [JSAPI调起支付](pages/4012090156.md) | `4012090156` | 2025-02-26 07:08:25 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
+| 720 | [Native下单](pages/4012714902.md) | `4012714902` | 2024-10-24 06:18:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
+| 721 | [Native调起支付](pages/4012090180.md) | `4012090180` | 2025-03-21 07:41:33 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
+| 722 | [小程序下单](pages/4012714911.md) | `4012714911` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
+| 723 | [小程序调起支付](pages/4012090181.md) | `4012090181` | 2025-02-26 07:10:30 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
+| 724 | [H5下单](pages/4012714759.md) | `4012714759` | 2024-10-24 06:27:02 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
+| 725 | [H5调起支付](pages/4012090177.md) | `4012090177` | 2024-12-23 02:14:31 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
+| 726 | [微信支付订单号查询订单](pages/4012760565.md) | `4012760565` | 2025-04-07 01:51:41 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 727 | [微信支付商户订单号查询订单](pages/4012760568.md) | `4012760568` | 2025-04-07 01:51:51 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 728 | [关闭订单](pages/4012760574.md) | `4012760574` | 2025-04-07 01:51:49 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 729 | [支付结果通知](pages/4012090195.md) | `4012090195` | 2025-04-07 01:52:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 730 | [开发指引](pages/4012089542.md) | `4012089542` | 2026-06-10 07:28:43 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
+| 731 | [常见问题](pages/4012525491.md) | `4012525491` | 2026-05-09 08:54:07 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
+| 732 | [合单下单-JSAPI](pages/4012760615.md) | `4012760615` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
+| 733 | [JSAPI调起支付](pages/4012090843.md) | `4012090843` | 2025-02-19 03:55:15 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
+| 734 | [合单下单-APP](pages/4012760622.md) | `4012760622` | 2024-11-14 08:12:11 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
+| 735 | [APP调起支付](pages/4012090949.md) | `4012090949` | 2025-03-28 10:57:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
+| 736 | [合单下单-H5](pages/4012760626.md) | `4012760626` | 2024-11-14 08:12:10 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
+| 737 | [H5调起支付](pages/4012091014.md) | `4012091014` | 2024-10-28 02:58:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
+| 738 | [合单下单-NATIVE](pages/4012760629.md) | `4012760629` | 2024-11-14 08:12:12 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
+| 739 | [Native调起支付](pages/4012091224.md) | `4012091224` | 2024-10-28 02:54:47 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
+| 740 | [合单下单-小程序](pages/4012760633.md) | `4012760633` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
+| 741 | [小程序调起支付](pages/4012091236.md) | `4012091236` | 2025-02-18 11:41:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
+| 742 | [合单查询订单](pages/4012761049.md) | `4012761049` | 2024-10-24 07:08:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
+| 743 | [合单关闭订单](pages/4012761093.md) | `4012761093` | 2024-10-24 07:09:52 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
+| 744 | [支付通知](pages/4012237246.md) | `4012237246` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
+| 745 | [开发指引](pages/4012087888.md) | `4012087888` | 2026-06-10 07:27:51 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
+| 746 | [业务示例代码](pages/4015870957.md) | `4015870957` | 2026-06-09 09:46:47 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
+| 747 | [常见问题](pages/4012525463.md) | `4012525463` | 2026-05-21 07:43:02 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
+| 748 | [请求分账](pages/4012691594.md) | `4012691594` | 2025-09-29 06:45:52 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 749 | [查询分账结果](pages/4012477734.md) | `4012477734` | 2025-09-29 02:09:30 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 750 | [请求分账回退](pages/4012477737.md) | `4012477737` | 2025-09-29 02:06:15 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 751 | [查询分账回退结果](pages/4012477740.md) | `4012477740` | 2025-09-29 02:04:34 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 752 | [解冻剩余资金](pages/4012477745.md) | `4012477745` | 2025-09-29 02:03:23 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 753 | [查询订单剩余待分金额](pages/4012477751.md) | `4012477751` | 2025-09-29 02:02:25 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 754 | [添加分账接收方](pages/4012477758.md) | `4012477758` | 2025-09-29 02:01:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 755 | [删除分账接收方](pages/4012477759.md) | `4012477759` | 2025-09-29 02:00:58 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 756 | [分账动账通知](pages/4012116672.md) | `4012116672` | 2025-02-19 03:56:03 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 757 | [分账失败处理指引](pages/4015504955.md) | `4015504955` | 2025-07-04 03:08:08 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > 附录 |
+| 758 | [业务示例代码](pages/4015593692.md) | `4015593692` | 2026-06-10 07:27:50 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
+| 759 | [常见问题](pages/4015942503.md) | `4015942503` | 2026-01-22 06:48:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
+| 760 | [请求补差](pages/4012477631.md) | `4012477631` | 2024-11-04 11:30:10 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
+| 761 | [请求补差回退](pages/4012477636.md) | `4012477636` | 2024-11-04 11:30:36 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
+| 762 | [取消补差](pages/4012477639.md) | `4012477639` | 2024-10-24 08:47:04 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
+| 763 | [业务示例代码](pages/4015217874.md) | `4015217874` | 2026-06-10 07:27:49 | 平台收付通-电商交易解决方案 > 交易退款 |
+| 764 | [申请退款](pages/4012476892.md) | `4012476892` | 2024-11-04 11:33:40 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 765 | [查询单笔退款（按微信支付退款单号）](pages/4012476908.md) | `4012476908` | 2024-11-04 11:36:44 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 766 | [查询单笔退款（按商户退款单号）](pages/4012476911.md) | `4012476911` | 2024-11-04 11:36:11 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 767 | [退款结果通知](pages/4012124635.md) | `4012124635` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 768 | [查询垫付回补结果](pages/4012476916.md) | `4012476916` | 2024-11-04 11:40:17 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 769 | [垫付退款回补](pages/4012476927.md) | `4012476927` | 2024-11-04 11:41:31 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 770 | [发起异常退款](pages/4015181616.md) | `4015181616` | 2025-06-06 08:23:46 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 771 | [常见问题](pages/4016644075.md) | `4016644075` | 2025-11-21 03:07:14 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 |
+| 772 | [查询二级商户账户实时余额](pages/4012476690.md) | `4012476690` | 2024-11-04 11:47:34 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 773 | [查询二级商户账户日终余额](pages/4012476693.md) | `4012476693` | 2024-11-04 11:47:25 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 774 | [查询平台账户实时余额](pages/4012476700.md) | `4012476700` | 2024-11-04 11:46:09 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 775 | [查询平台账户日终余额](pages/4012476702.md) | `4012476702` | 2024-11-04 11:46:15 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 776 | [业务示例代码](pages/4019899593.md) | `4019899593` | 2026-06-10 07:27:45 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
+| 777 | [常见问题](pages/4014075940.md) | `4014075940` | 2026-06-29 01:57:55 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
+| 778 | [二级商户预约提现](pages/4012476652.md) | `4012476652` | 2024-12-19 07:33:30 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 779 | [二级商户查询预约提现状态（根据商户预约提现单号查询）](pages/4012476656.md) | `4012476656` | 2024-12-19 07:33:26 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 780 | [二级商户查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476665.md) | `4012476665` | 2024-12-19 07:33:24 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 781 | [平台预约提现](pages/4012476670.md) | `4012476670` | 2024-12-19 07:33:21 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 782 | [平台查询预约提现状态（根据商户预约提现单号查询）](pages/4012476672.md) | `4012476672` | 2024-12-19 07:33:18 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 783 | [平台查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476674.md) | `4012476674` | 2024-12-19 07:33:16 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 784 | [二级商户按日终余额预约提现](pages/4013328143.md) | `4013328143` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 785 | [查询二级商户按日终余额预约提现状态](pages/4013328163.md) | `4013328163` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 786 | [按日下载提现异常文件](pages/4012476678.md) | `4012476678` | 2024-12-19 07:11:13 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 787 | [商户提现状态变更通知](pages/4013049135.md) | `4013049135` | 2025-02-24 09:49:47 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 788 | [业务示例代码](pages/4016062108.md) | `4016062108` | 2025-12-04 01:55:05 | 平台收付通-电商交易解决方案 > 账单下载 |
+| 789 | [申请交易账单](pages/4012760667.md) | `4012760667` | 2025-04-07 01:51:03 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 790 | [申请资金账单](pages/4012760672.md) | `4012760672` | 2025-04-07 01:50:55 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 791 | [申请分账账单](pages/4012761131.md) | `4012761131` | 2025-01-20 08:06:16 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 792 | [下载账单](pages/4012124894.md) | `4012124894` | 2025-04-16 09:44:14 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 793 | [申请二级商户资金账单](pages/4012760697.md) | `4012760697` | 2024-10-23 08:14:36 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 794 | [下载单个子商户/二级商户资金账单](pages/4014314390.md) | `4014314390` | 2025-04-16 03:21:56 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 795 | [业务示例代码](pages/4015593257.md) | `4015593257` | 2026-06-10 07:27:44 | 平台收付通-电商交易解决方案 > 跨境付款 |
+| 796 | [查询订单剩余可出境余额](pages/4012476109.md) | `4012476109` | 2024-11-05 02:17:34 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 797 | [申请资金出境](pages/4012476113.md) | `4012476113` | 2024-11-05 02:22:26 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 798 | [查询出境结果](pages/4012476127.md) | `4012476127` | 2024-11-05 02:23:59 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 799 | [获取购付汇账单文件下载链接](pages/4012476132.md) | `4012476132` | 2024-11-05 02:32:27 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 800 | [提交申请单](pages/4014090649.md) | `4014090649` | 2025-03-31 06:45:54 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 801 | [撤销申请单](pages/4014090672.md) | `4014090672` | 2025-03-31 06:45:49 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 802 | [查询申请单状态-使用业务单号](pages/4014090667.md) | `4014090667` | 2025-03-31 06:45:50 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 803 | [查询申请单状态-使用申请单号](pages/4014090655.md) | `4014090655` | 2025-03-31 06:45:51 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 804 | [APIv3概述](pages/4012081673.md) | `4012081673` | 2024-11-21 08:19:57 | Optional > 开发须知 |
+| 805 | [总述-APIv3如何签名和验签](pages/4012365870.md) | `4012365870` | 2024-11-21 10:50:08 | Optional > 开发须知 |
+| 806 | [基本规则](pages/4012081726.md) | `4012081726` | 2024-07-25 02:06:07 | Optional > 开发须知 > 接口规则说明 |
+| 807 | [HTTP状态码](pages/4012081727.md) | `4012081727` | 2024-07-25 02:07:36 | Optional > 开发须知 > 接口规则说明 |
+| 808 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-10-13 03:52:59 | Optional > 开发须知 > 开发参数申请和配置 |
+| 809 | [mchid与appid申请](pages/4012081990.md) | `4012081990` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 810 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 811 | [配置APIv3密钥](pages/4012081991.md) | `4012081991` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 812 | [品牌经营API开发必要参数说明](pages/4015981654.md) | `4015981654` | 2025-12-15 01:50:19 | Optional > 开发须知 > 开发参数申请和配置 |
+| 813 | [平台员工权限管理](pages/4013080349.md) | `4013080349` | 2025-09-19 01:36:32 | Optional > 开发须知 > 开发参数申请和配置 |
+| 814 | [申请商户API证书](pages/4012081992.md) | `4012081992` | 2025-10-28 03:01:36 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
+| 815 | [如何更换商户API证书？](pages/4013058943.md) | `4013058943` | 2024-11-20 03:18:41 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
+| 816 | [请求参数里带Path参数（路径参数），如何计算签名](pages/4012365862.md) | `4012365862` | 2025-02-18 08:09:32 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 817 | [请求参数里带Body参数(包体参数），如何计算签名](pages/4012365864.md) | `4012365864` | 2025-02-18 09:53:43 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 818 | [请求参数里有Query（查询参数），如何计算签名](pages/4012365865.md) | `4012365865` | 2025-02-18 09:53:41 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 819 | [图片上传接口，如何计算签名](pages/4012365863.md) | `4012365863` | 2025-03-25 03:03:49 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 820 | [APP调起支付签名](pages/4012365868.md) | `4012365868` | 2025-03-26 09:28:08 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
+| 821 | [JSAPI调起支付签名](pages/4012365867.md) | `4012365867` | 2025-03-26 09:28:07 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
+| 822 | [小程序调起支付签名](pages/4012365869.md) | `4012365869` | 2025-03-26 09:28:05 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
+| 823 | [如何使用微信支付公钥验签](pages/4013059017.md) | `4013059017` | 2024-11-20 06:55:05 | Optional > 开发须知 > 如何验签 |
+| 824 | [如何使用平台证书验签名](pages/4013059030.md) | `4013059030` | 2024-11-29 09:43:48 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
+| 825 | [如何使用签名/验签工具](pages/4012365880.md) | `4012365880` | 2024-12-27 04:05:13 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
+| 826 | [如何使用微信支付公钥加密敏感字段](pages/4013059044.md) | `4013059044` | 2025-03-19 08:49:11 | Optional > 开发须知 > 如何加解密敏感字段 |
+| 827 | [如何使用平台证书加密敏感字段](pages/4013059053.md) | `4013059053` | 2025-03-19 08:49:03 | Optional > 开发须知 > 如何加解密敏感字段 |
+| 828 | [如何使用API证书解密敏感字段](pages/4013059060.md) | `4013059060` | 2024-11-20 03:29:55 | Optional > 开发须知 > 如何加解密敏感字段 |
+| 829 | [如何解密回调报文和平台证书](pages/4012082320.md) | `4012082320` | 2024-11-29 08:22:52 | Optional > 开发须知 > 如何解密微信支付回调报文 |
+| 830 | [报错：HTTP header缺少微信支付平台证书序列号(Wechatpay-Serial)](pages/4012365874.md) | `4012365874` | 2024-11-19 09:07:14 | Optional > 开发须知 > 常见问题 |
+| 831 | [报错：Http头Authorization值格式错误，请参考《微信支付商户REST API签名规则》或者“Authorization不合法”](pages/4012365872.md) | `4012365872` | 2026-01-23 03:31:55 | Optional > 开发须知 > 常见问题 |
+| 832 | [报错：商户证书序列号有误。请使用签名私钥匹配的证书序列号](pages/4012365873.md) | `4012365873` | 2024-12-12 03:12:16 | Optional > 开发须知 > 常见问题 |
+| 833 | [报错：状态码401或者“错误的签名，验签失败”或者“签名错误，请检查后再试”](pages/4012365875.md) | `4012365875` | 2024-12-12 03:12:14 | Optional > 开发须知 > 常见问题 |
+| 834 | [调起支付报错：支付验证签名失败](pages/4012365876.md) | `4012365876` | 2025-03-26 09:28:04 | Optional > 开发须知 > 常见问题 |
+| 835 | [使用Java加载密钥时，抛出异常InvalidKeyException: Illegal key size](pages/4013059103.md) | `4013059103` | 2024-11-20 03:37:11 | Optional > 开发须知 > 常见问题 |
+| 836 | [使用Java解密时，抛出异常AEADBadTagException: Tag mismatch](pages/4013059153.md) | `4013059153` | 2024-11-20 03:38:02 | Optional > 开发须知 > 常见问题 |
+| 837 | [请求返回{"code":"PARAM_ERROR","message":"平台证书序列号Wechatpay-Serial错误"}](pages/4013059161.md) | `4013059161` | 2024-11-20 03:38:49 | Optional > 开发须知 > 常见问题 |
+| 838 | [为什么微信支付的回调缺少签名的几个HTTP头？](pages/4013059166.md) | `4013059166` | 2024-11-20 03:39:20 | Optional > 开发须知 > 常见问题 |
+| 839 | [如何在程序中加载商户API证书私钥](pages/4013059175.md) | `4013059175` | 2025-12-25 06:37:41 | Optional > 开发须知 > 常见问题 |
+| 840 | [为什么请求返回401 Unauthorized？](pages/4012082324.md) | `4012082324` | 2024-11-25 08:53:06 | Optional > 开发须知 > 常见问题 |
+| 841 | [验证微信支付响应的签名报错：签名验证失败](pages/4016241895.md) | `4016241895` | 2025-10-14 06:39:36 | Optional > 开发须知 > 常见问题 |
+| 842 | [调用接口报错：“平台私钥解密失败”](pages/4016913182.md) | `4016913182` | 2025-12-19 02:59:24 | Optional > 开发须知 > 常见问题 |
+| 843 | [跨城冗灾升级指引](pages/4012082567.md) | `4012082567` | 2025-03-21 07:37:49 | Optional > 最佳实践 |
+| 844 | [支付回调和查单实现指引](pages/4012082568.md) | `4012082568` | 2026-10-13 09:08:37 | Optional > 最佳实践 |
+| 845 | [专线商户Notify升级指引](pages/4012082569.md) | `4012082569` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
+| 846 | [回调通知注意事项](pages/4012082570.md) | `4012082570` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
+| 847 | [最佳安全实践](pages/4012082456.md) | `4012082456` | 2024-11-27 09:15:00 | Optional > 最佳实践 > API安全最佳实践 |
+| 848 | [安全漏洞checklist](pages/4013059657.md) | `4013059657` | 2024-11-27 09:14:52 | Optional > 最佳实践 > API安全最佳实践 |
+| 849 | [系统漏洞检测及修复](pages/4013059668.md) | `4013059668` | 2025-03-21 07:40:38 | Optional > 最佳实践 > API安全最佳实践 |
+| 850 | [Web漏洞检测及修复](pages/4013059740.md) | `4013059740` | 2025-03-21 08:53:52 | Optional > 最佳实践 > API安全最佳实践 |
+| 851 | [最新安全漏洞及修复](pages/4013059970.md) | `4013059970` | 2024-11-27 09:14:33 | Optional > 最佳实践 > API安全最佳实践 |
+| 852 | [密钥泄漏修复指引](pages/4012082455.md) | `4012082455` | 2024-12-24 01:54:38 | Optional > 最佳实践 > API安全最佳实践 |
+| 853 | [国家商用密码简介](pages/4012082627.md) | `4012082627` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
+| 854 | [获取国家商用密码证书和密钥](pages/4012082628.md) | `4012082628` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
+| 855 | [APIv3接口使用国家商用密码指引](pages/4012082629.md) | `4012082629` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
+| 856 | [开户银行全称对照表](pages/4012082812.md) | `4012082812` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 857 | [开户银行对照表](pages/4012082813.md) | `4012082813` | 2025-02-19 07:30:19 | Optional > 对照表 |
+| 858 | [银行类型对照表](pages/4012082814.md) | `4012082814` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 859 | [省市区编号对照表](pages/4012082815.md) | `4012082815` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 860 | [优惠费率活动对照表](pages/4012082816.md) | `4012082816` | 2024-12-26 08:48:22 | Optional > 对照表 |
+| 861 | [跨境电商二级商户费率对照表](pages/4012082817.md) | `4012082817` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 862 | [商户行业编码](pages/4012082818.md) | `4012082818` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 863 | [特殊行业ID对照表](pages/4012082819.md) | `4012082819` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 864 | [接入模式](pages/4012081931.md) | `4012081931` | 2026-06-01 06:16:40 | Optional > 名词表 |
+| 865 | [支付产品](pages/4012081932.md) | `4012081932` | 2024-07-25 02:23:51 | Optional > 名词表 |
+| 866 | [业务平台](pages/4012081933.md) | `4012081933` | 2024-07-25 02:23:51 | Optional > 名词表 |
+| 867 | [业务系统](pages/4012081934.md) | `4012081934` | 2024-07-25 02:23:51 | Optional > 名词表 |
+| 868 | [参数说明](pages/4012081935.md) | `4012081935` | 2026-10-13 09:47:01 | Optional > 名词表 |
+| 869 | [常见问题](pages/4016183684.md) | `4016183684` | 2026-08-05 06:15:10 | Optional > 名词表 |
+| 870 | [微信支付链路界面与交互规范](pages/4020527499.md) | `4020527499` | 2026-05-19 02:15:32 | Optional > 服务运营规范 |
+| 871 | [Postman调试工具](pages/4012083114.md) | `4012083114` | 2024-11-29 09:45:15 | Optional > 开发工具 |
+| 872 | [平台证书下载工具](pages/4012083115.md) | `4012083115` | 2024-11-27 09:13:57 | Optional > 开发工具 |
+| 873 | [验签工具](pages/4012083116.md) | `4012083116` | 2025-01-03 07:02:48 | Optional > 开发工具 |
+| 874 | [产品介绍](pages/4012083118.md) | `4012083118` | 2025-03-21 07:39:41 | Optional > 网络云排查 |
+| 875 | [网络问题排查指南](pages/4012083119.md) | `4012083119` | 2025-03-21 07:39:03 | Optional > 网络云排查 |
+| 876 | [常见问题](pages/4012083120.md) | `4012083120` | 2024-07-25 03:43:58 | Optional > 网络云排查 |
+| 877 | [产品介绍](pages/4012083122.md) | `4012083122` | 2024-07-25 03:43:58 | Optional > 安全医生 |
+| 878 | [诊断链接绑定指引](pages/4012083123.md) | `4012083123` | 2024-07-25 03:43:58 | Optional > 安全医生 |
+| 879 | [安全联系人设置指引](pages/4012083124.md) | `4012083124` | 2024-07-25 03:43:58 | Optional > 安全医生 |
+| 880 | [SDK概述](pages/4012083109.md) | `4012083109` | 2026-04-24 09:22:07 | Optional > SDK |
+| 881 | [使用 Java SDK](pages/4012083111.md) | `4012083111` | 2025-05-29 03:32:06 | Optional > SDK |
+| 882 | [使用 PHP SDK](pages/4012083112.md) | `4012083112` | 2025-05-29 03:32:04 | Optional > SDK |
+| 883 | [使用 Go SDK](pages/4012083113.md) | `4012083113` | 2025-05-29 03:36:58 | Optional > SDK |
 
 </details>
