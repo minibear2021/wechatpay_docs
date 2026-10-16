@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261015_052135
+**生成时间**: 20261016_051251
 **文档总数**: 883
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 2 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 6 个页面
-- 成功拉取: 8 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,507 +20,224 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.13
-+>更新时间：2026.10.15
+->更新时间：2026.10.15
++>更新时间：2026.10.16
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -706,6 +706,7 @@
- - [商品券可核销时间规则说明（coupon_available_period）](https://pay.weixin.qq.com/doc/v3/partner/4016675999.md)
- - [商品券客户端消息推送页面](https://pay.weixin.qq.com/doc/v3/partner/4019005729.md)
- - [商品券结构及修改说明](https://pay.weixin.qq.com/doc/v3/partner/4018984452.md)
-+- [品类券头图设计规范](https://pay.weixin.qq.com/doc/v3/partner/4043213639.md)
- - [券类型选型](https://pay.weixin.qq.com/doc/v3/partner/4043817598.md)
- #### API请求示例-创建商品券
- - [【单券-全场-折扣券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756270.md)
-@@ -766,6 +767,7 @@
- - [商品券可核销时间规则说明（coupon_available_period）](https://pay.weixin.qq.com/doc/v3/partner/4016676012.md)
- - [商品券客户端消息推送页面](https://pay.weixin.qq.com/doc/v3/partner/4019005741.md)
- - [商品券结构及修改说明](https://pay.weixin.qq.com/doc/v3/partner/4018984437.md)
-+- [品类券头图设计规范](https://pay.weixin.qq.com/doc/v3/partner/4043213651.md)
- #### API请求示例-创建商品券
- - [【多次优惠-全场-折扣券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756283.md)
- - [【多次优惠-全场-满减券】API请求示例](https://pay.weixin.qq.com/doc/v3/partner/4016756284.md)
 ```
-
-## 新增页面
-
-### 品类券头图设计规范
-- ID: `4043213639`
-- 路径: 商品券（单券） > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4043213639.md
-- 更新时间: 2026-09-21 09:21:27
-- 本地文件: `pages/4043213639.md`
-
-### 品类券头图设计规范
-- ID: `4043213651`
-- 路径: 商品券（多次优惠） > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4043213651.md
-- 更新时间: 2026-09-21 09:21:25
-- 本地文件: `pages/4043213651.md`
 
 ## 修改页面
 
-### 查询代金券消息通知地址
-- ID: `4012464155`
-- 路径: 代金券 > API列表 > 消息通知地址
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012464155.md
-- 更新时间变更: 2024-11-18 09:25:49 -> 2026-10-14 10:37:21
-- 本地文件: `pages/4012464155.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,8 +1,8 @@
-->更新时间：2024.11.18
-+>更新时间：2026.10.14
- 
- 通过此接口查询营销事件通知的回调URL地址
- 
--接口频率：2000QPS
-+接口频率： 2000QPS
- 
- 
- 
-@@ -15,65 +15,38 @@
- 
- 请求域名：【主域名】https://api.mch.weixin.qq.com 使用该域名将访问就近的接入点
- 
--　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/partner/4012082567.md)
-+　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
- 
- ## 请求参数
- 
- ### Header 参数
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
-+| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/merchant/4012365342.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
- | Accept | string | true | 请设置为 `application/json` |
- ### Query 参数
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| mchid | string(20) | true | **【商户号】** 微信支付商户号 |
-+| mchid | string(20) | true | 【商户号】 微信支付商户号 |
- ## 应答参数
- 
- 200 OK
- 
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| notify_url | string | true | **【通知地址】** 通知地址 |
--| mchid | string | true | **【商户号】** 微信支付商户号 |
-+| notify_url | string | true | 【通知地址】 通知地址 |
-+| appid | string | false | 【公众账号ID】 消息通知对应的appid，未设置时不返回；设置后原样返回appid，代金券核销通知将回传该appid下的用户openid。 |
-+| mchid | string | true | 【商户号】  微信支付商户号 |
- ## 错误码
- 
--### 公共错误码
-+以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
- 
- | 状态码 | 错误码 | 描述 | 解决方案 |
- | --- | --- | --- | --- |
- | 400 | PARAM\_ERROR | 参数错误 | 请根据错误提示正确传入参数 |
--| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md) |
--| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012082324.md) |
-+| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081709.md) |
-+| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012072670.md) |
- | 500 | SYSTEM\_ERROR | 系统异常，请稍后重试 | 请稍后重试 |
--
--### 业务错误码
--
--| 状态码 | 错误码 | 描述 | 解决方案 |
--| --- | --- | --- | --- |
--| 400 | APPID\_MCHID\_NOT\_MATCH | 商户号与AppID不匹配 | 请绑定调用接口的商户号和AppID后重试 |
--| 400 | INVALID\_REQUEST | OpenID与AppID不匹配 | 请使用AppID下的OpenID |
--| 400 | INVALID\_REQUEST | 活动已结束或未激活 | 请检查批次状态 |
--| 400 | INVALID\_REQUEST | 非法的商户号 | 请检查商户号是否正确 |
--| 400 | MCH\_NOT\_EXISTS | 商户号不合法 | 请输入正确的商户号 |
--| 400 | PARAM\_ERROR | 回调URL不能为空 | 请填写回调URL |
--| 400 | PARAM\_ERROR | 回调商户不能为空 | 请填写回调商户 |
--| 400 | PARAM\_ERROR | 券ID必填 | 请填写券ID |
--| 400 | PARAM\_ERROR | AppID必填 | 请输入AppID |
--| 400 | PARAM\_ERROR | OpenID必填 | 请输入OpenID |
--| 400 | PARAM\_ERROR | 页大小超过阈值 | 请不要超过最大的页大小 |
--| 400 | PARAM\_ERROR | 输入时间格式错误 | 请输入正确的时间格式 |
--| 400 | PARAM\_ERROR | 批次号必填 | 请输入批次号 |
--| 400 | PARAM\_ERROR | 商户号必填 | 请输入商户号 |
--| 400 | PARAM\_ERROR | 非法的批次状态 | 请检查批次状态 |
--| 403 | NOT\_ENOUGH | 批次预算不足 | 请补充预算 |
--| 403 | REQUEST\_BLOCKED | 调用商户无权限 | 请开通产品权限后再调用该接口 |
--| 403 | REQUEST\_BLOCKED | 商户无权发券 | 调用接口的商户号无权发券，请检查是否是自己的批次或是已授权的批次。 |
--| 403 | REQUEST\_BLOCKED | 批次不支持跨商户发券 | 该批次未做跨商户号的授权，请授权后再发放 |
--| 403 | REQUEST\_BLOCKED | 用户被限领拦截 | 用户领取已经达到上限，请调高上限或停止发放。 |
--| 403 | USER\_ACCOUNT\_ABNORMAL | 用户非法 | 该用户账号异常，无法领券。商家可联系微信支付或让用户联系微信支付客服处理。 |
--| 404 | RESOURCE\_NOT\_EXISTS | 批次不存在 | 请检查批次ID是否正确 |
--| 429 | FREQUENCY\_LIMITED | 请求过于频繁 | 稍后重试 |
- 
- 请求示例
- 
-```
-
-### 设置代金券消息通知地址
-- ID: `4012464176`
-- 路径: 代金券 > API列表 > 消息通知地址
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4012464176.md
-- 更新时间变更: 2024-11-18 09:25:40 -> 2026-10-14 10:37:20
-- 本地文件: `pages/4012464176.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,14 +1,14 @@
-->更新时间：2024.11.18
-+>更新时间：2026.10.14
- 
- 用于设置接收营销事件通知的URL，可接收营销相关的事件通知:核销通知
- 
- 注意：该接口只能创建商户号进行设置
- 
--接口频率：不区分来源 1000/min 单ip 5/min
-+接口频率： 不区分来源 1000/min 单ip 5/min
- 
--幂等规则：接口支持幂等重入
-+幂等规则： 接口支持幂等重入
- 
--接口耗时：100ms
-+接口耗时： 100ms
- 
- 
- 
-@@ -21,68 +21,42 @@
- 
- 请求域名：【主域名】https://api.mch.weixin.qq.com 使用该域名将访问就近的接入点
- 
--　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/partner/4012082567.md)
-+　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
- 
- ## 请求参数
- 
- ### Header 参数
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/partner/4012365870.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
-+| Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/merchant/4012365342.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
- | Accept | string | true | 请设置为 `application/json` |
- | Content-Type | string | true | 请设置为 `application/json` |
- ### Body 参数
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| mchid | string(20) | true | **【商户号】** 微信支付商户号<br>校验规则：该商户号必须为创建商户号进行配置 |
--| notify_url | string(256) | true | **【通知url地址】** 支付通知商户url地址。<br>校验规则：<br>1、notify\_url必须为https<br>2、地址要是一个可访问的地址<br>3、不能携带参数。示例： `https://pay.weixin.qq.com/wxpay/pay.action` |
--| switch | boolean | false | **【回调开关】** 如果商户不需要再接收营销事件通知，可通过该开关关闭。<br>枚举值：<br>true：开启推送<br>false：停止推送<br>校验规则：<br>1、该参数设置为false暂不支持使用<br>2、如果想关闭通知请在商户平台关闭券的回调通知 |
-+| mchid | string(20) | true | 【商户号】 微信支付商户号<br>校验规则：该商户号必须为创建商户号进行配置 |
-+| notify_url | string(256) | true | 【通知url地址】 支付通知商户url地址。<br>校验规则：<br>1、notify\_url必须为https<br>2、地址要是一个可访问的地址<br>3、不能携带参数。示例： “ [https://pay.weixin.qq.com/wxpay/pay.action”](https://pay.weixin.qq.com/wxpay/pay.action%E2%80%9D) |
-+| switch | boolean | false | 【回调开关】 如果商户不需要再接收营销事件通知，可通过该开关关闭。<br>枚举值：<br>true：开启推送<br>false：停止推送<br>校验规则：<br>1、该参数设置为false暂不支持使用<br>2、如果想关闭通知请在商户平台关闭券的回调通知 |
-+| appid | string(32) | false | 【公众账号ID】 公众账号ID也称 AppID，是（ [微信开放平台](https://open.weixin.qq.com/)、 [微信公众平台](https://mp.weixin.qq.com/)）为开发者提供的一个唯一标识，用于识别开发者的应用程序（APP、小程序、公众号）。开发者需要先在微信开放平台或微信公众平台中申请ID，然后在商户平台中绑定，详见： [管理商户号绑定的APPID账号](https://kf.qq.com/faq/1801116VJfua1801113QVNVz.html)。<br>传入本字段时会更新配置，可填 AppID，也可填空串。<br>1、填 AppID：代金券核销通知将回传该 AppID 下的用户 openid。<br>2、填空串：核销通知不再生成 openid。 |
- ## 应答参数
- 
- 200 OK
- 
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| update_time | string | true | **【修改时间】** 修改时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
--| notify_url | string | true | **【通知地址】** 通知地址 |
-+| update_time | string | true | 【修改时间】 修改时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
-+| notify_url | string | true | 【通知地址】 通知地址 |
-+| appid | string | false | 【公众账号ID】 消息通知对应的appid，未设置时不返回；设置后原样返回appid，代金券核销通知将回传该appid下的用户openid。 |
- ## 错误码
- 
--### 公共错误码
-+以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
- 
- | 状态码 | 错误码 | 描述 | 解决方案 |
- | --- | --- | --- | --- |
- | 400 | PARAM\_ERROR | 参数错误 | 请根据错误提示正确传入参数 |
--| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md) |
--| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012082324.md) |
-+| 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081709.md) |
-+| 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012072670.md) |
- | 500 | SYSTEM\_ERROR | 系统异常，请稍后重试 | 请稍后重试 |
--
--### 业务错误码
--
--| 状态码 | 错误码 | 描述 | 解决方案 |
--| --- | --- | --- | --- |
--| 400 | APPID\_MCHID\_NOT\_MATCH | 商户号与AppID不匹配 | 请绑定调用接口的商户号和AppID后重试 |
--| 400 | INVALID\_REQUEST | OpenID与AppID不匹配 | 请使用AppID下的OpenID |
--| 400 | INVALID\_REQUEST | 活动已结束或未激活 | 请检查批次状态 |
--| 400 | INVALID\_REQUEST | 非法的商户号 | 请检查商户号是否正确 |
--| 400 | MCH\_NOT\_EXISTS | 商户号不合法 | 请输入正确的商户号 |
--| 400 | PARAM\_ERROR | 回调URL不能为空 | 请填写回调URL |
--| 400 | PARAM\_ERROR | 回调商户不能为空 | 请填写回调商户 |
--| 400 | PARAM\_ERROR | 券ID必填 | 请填写券ID |
--| 400 | PARAM\_ERROR | AppID必填 | 请输入AppID |
--| 400 | PARAM\_ERROR | OpenID必填 | 请输入OpenID |
--| 400 | PARAM\_ERROR | 页大小超过阈值 | 请不要超过最大的页大小 |
--| 400 | PARAM\_ERROR | 输入时间格式错误 | 请输入正确的时间格式 |
--| 400 | PARAM\_ERROR | 批次号必填 | 请输入批次号 |
--| 400 | PARAM\_ERROR | 商户号必填 | 请输入商户号 |
--| 400 | PARAM\_ERROR | 非法的批次状态 | 请检查批次状态 |
--| 403 | NOT\_ENOUGH | 批次预算不足 | 请补充预算 |
--| 403 | REQUEST\_BLOCKED | 调用商户无权限 | 请开通产品权限后再调用该接口 |
--| 403 | REQUEST\_BLOCKED | 商户无权发券 | 调用接口的商户号无权发券，请检查是否是自己的批次或是已授权的批次。 |
--| 403 | REQUEST\_BLOCKED | 批次不支持跨商户发券 | 该批次未做跨商户号的授权，请授权后再发放 |
--| 403 | REQUEST\_BLOCKED | 用户被限领拦截 | 用户领取已经达到上限，请调高上限或停止发放。 |
--| 403 | USER\_ACCOUNT\_ABNORMAL | 用户非法 | 该用户账号异常，无法领券。商家可联系微信支付或让用户联系微信支付客服处理。 |
--| 404 | RESOURCE\_NOT\_EXISTS | 批次不存在 | 请检查批次ID是否正确 |
--| 429 | FREQUENCY\_LIMITED | 请求过于频繁 | 稍后重试 |
- 
- 请求示例
- 
-```
-
-### 开发指引
-- ID: `4015274639`
+### 产品介绍
+- ID: `4015274636`
 - 路径: 商家名片会员
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015274639.md
-- 更新时间变更: 2026-06-10 07:28:41 -> 2026-10-12 03:08:03
-- 本地文件: `pages/4015274639.md`
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015274636.md
+- 更新时间变更: 2026-07-09 02:33:38 -> 2026-10-15 09:11:59
+- 本地文件: `pages/4015274636.md`
 
 ```diff
 --- old.md
 +++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.06.10
-+>更新时间：2026.10.12
- 
- ## 1、开发前准备
- 
-@@ -39,8 +39,8 @@
- 
- ```mermaid
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         participant Mch as 商户系统
-         participant WxPay as 微信支付系统
- 
-@@ -49,11 +49,12 @@
-         Mch->>WxPay: 查询会员卡模板列表
-         Mch->>WxPay: 修改会员卡模板信息
-         Mch->>WxPay: 作废会员卡模板
--    end
- ```
- 
- ### 3.2、用户入会
- 
-+3.2.1、3.2.2 两种方式要求会员卡模板「是否支持用户主动入会」为 true；为 false 的卡模板仅支持 3.2.3、3.2.4 两种方式。
-+
- #### 3.2.1、【新用户】通过商家小程序/H5入会
- 
- 用户可通过小程序或H5页面进入微信支付提供的开卡组件发起入会流程，核心流程如下：
-@@ -62,8 +63,8 @@
- 
- ```mermaid
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         actor User as 用户
-         participant Mch as 商户小程序
-         participant Mch2 as 商户系统
-@@ -84,7 +85,6 @@
-         User->>Mch: 查询会员信息
-         Mch->>Mch2: 查询会员信息
-         Mch2-->>WxPay: 查询用户会员卡信息
--    end
- ```
- 
- #### 3.2.2、【新用户】通过商家名片入会
-@@ -102,7 +102,8 @@
- ```mermaid
- sequenceDiagram
-     rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         actor User as 用户
-         participant WxPay as 微信支付
-         participant Mch as 商户系统
-@@ -127,7 +128,8 @@
- ```mermaid
- sequenceDiagram
-     rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         actor User as 用户
-         participant WxPay as 微信支付
-         participant Mch as 商户小程序
-@@ -162,8 +164,8 @@
- 
- ```mermaid
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         participant Mch as 商户系统
-         participant WxPay as 微信支付
- 
-@@ -181,21 +183,16 @@
-         opt 用户会员信息不一致
-             Mch->>WxPay: 修改用户会员卡信息
-         end
--    end
- ```
- 
- #### 3.2.4、【存量会员】通过下单同步入会
- 
--商家可通过在微信支付下单接口的attach字段传入会员卡code（ `user_card_code`）来导入未开通会员的用户。下单用户若此前未开通会员卡，通过此方式可实时添加会员并自动生效一张会员卡，详细指引请参考：[实时动态传入的方式](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md#2.3%E3%80%81%E5%AE%9E%E6%97%B6%E5%8A%A8%E6%80%81%E4%BC%A0%E5%85%A5%E7%9A%84%E6%96%B9%E5%BC%8F)
+@@ -1,82 +1,51 @@
+->更新时间：2026.07.09
 -
--注意：
+-## 1、产品概述
++>更新时间：2026.10.15
++
++# 1、产品概述
+ 
+ 商家名片会员是[商家名片](https://pay.weixin.qq.com/doc/v3/partner/4016433952.md)的功能之一，在接入前需先[申请开通商家名片](https://pay.weixin.qq.com/doc/v3/partner/4016433970.md)功能。
+ 
+ 商家名片会员是微信支付为商家提供的会员经营工具，提供联动微信支付下单的会员资产变动感知，拉动入会，跳转商家小程序会员相关页面，发放会员券的能力，结合微信生态能力向品牌商家提供更丰富的会员解决方案，帮助商家提升会员运营效率。
+ 
+-## 2、产品功能
 -
--通过下单同步入会时，必须传入会员卡code字段（user\_card\_code）。
+-### 2.1、新用户入会
 -
--```mermaid
--sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber ea
-+商家可通过在微信支付下单接口的attach字段传入实时动态内容来导入未开通会员的用户。下单用户若此前未开通会员卡，通过此方式可实时添加会员并自动生效一张会员卡，详细指引请参考：[实时动态传入的方式](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md#2.3%E3%80%81%E5%AE%9E%E6%97%B6%E5%8A%A8%E6%80%81%E4%BC%A0%E5%85%A5%E7%9A%84%E6%96%B9%E5%BC%8F)
+-用户手机号作为用户开卡的必填信息，其他平台提供的通用开卡信息（如：性别、生日、地址、邮箱、城市）都是非必需的，商家可依据自身的经营情况合理使用（如需用户提供，在[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中指定即可）
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/dfcafe2bd3a45b61d6492bc644810152.png)
+-
+-#### 2.1.1、商家名片入会
+-
+-商家[开通商家名片](https://pay.weixin.qq.com/doc/v3/partner/4016433970.md)功能后，即可创建会员卡模板，创建了会员卡模板后，将直接在名片会员展示入会组件。进入商家名片的用户可以看到入会组件并进行入会。
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/15626bc7a47cd2f027f17fe0c62b99cd.png)
+-
+-进入商家名片的渠道
++# 2、产品功能
 +
-+```mermaid
-+sequenceDiagram
-+    %% xwatt: autonumber ea
-+        autonumber
-         participant Mch as 商户系统
-         participant WxPay as 微信支付
- 
-@@ -203,7 +200,6 @@
-         alt 检验attach(创建用户会员卡)
-             WxPay->>WxPay: 记录用户会员卡信息
-         end
--    end
- ```
- 
- ### 3.3、管理用户会员卡
-@@ -213,7 +209,8 @@
- ```mermaid
- sequenceDiagram
-     rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         participant Mch as 商户系统
-         participant WxPay as 微信支付系统
- 
-@@ -237,8 +234,8 @@
- 
- ```mermaid
- sequenceDiagram
--    rect rgb(255,255,255)
--        autonumber ea
-+    %% xwatt: autonumber ea
-+        autonumber
-         actor User as 微信支付用户
-         participant P2 as 商家系统
-         participant WxPay as 微信支付
-@@ -246,7 +243,6 @@
-         User->>P2: 购物
-         P2->>WxPay: 创建用户动态信息
-         User->>WxPay: 展示会员卡动态信息
--    end
- ```
- 
- ### 3.5、用户会员卡状态流转图
-```
-
-### 下单同步用户实时动态
-- ID: `4015534755`
-- 路径: 商家名片会员 > API列表 > 用户动态
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015534755.md
-- 更新时间变更: 2025-11-14 07:31:53 -> 2026-10-12 03:07:35
-- 本地文件: `pages/4015534755.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2025.11.14
-+>更新时间：2026.10.12
- 
- ## 1、能力概述
- 
-@@ -60,6 +60,8 @@
- 
- ### 2.3、实时动态传入的方式
- 
-+传入cell和card\_id后，若下单用户在该会员卡模版下没有生效中或待激活的会员卡，支付成功后将自动为其生效一张会员卡；已有会员卡的用户不会重复开卡。cell的模版ID为0（开通商家会员）、或会员卡模版未生效/已过期时不会开卡。
 +
- 会员内容基于商家原有下单请求中的attach字段，增加cell、card\_id，user\_card\_code。
- 
- 例如：abcde&cell=\[data\]&card\_id=\[data\]&user\_card\_code=\[data\]
-@@ -90,9 +92,11 @@
-   - 会员卡模版id，对应API的card\_id
- - user\_card\_code
- 
--  - 选填，如果需要导入未开通会员的用户，则需要传入 （可以用此方式实时添加会员，被标识的下单用户，若此前未开通会员卡，将自动生效一张用户会员卡，详见[3.2添加用户会员卡到商家名片的渠道](https://pay.weixin.qq.com/doc/v3/partner/4015274636.md#3.2%E3%80%81%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E4%BC%9A%E5%91%98%E5%8D%A1%E5%88%B0%E5%95%86%E5%AE%B6%E5%90%8D%E7%89%87%E7%9A%84%E6%B8%A0%E9%81%93)
-+  - 选填
- 
-   - 会员卡code，对应API的user\_card\_code
 +
-+  - 会员卡模版 code 分配类型为商家分配时，传入则以该值作为会员卡 code，不传由微信支付分配；为系统分配时，传入的值不生效。
++## 2.1、基础会员容器
++
++商家可通过开通会员卡模版，获取会员卡模版id，用于后续的会员经营活动。该会员卡模版将在微信支付商家名片上进行展示。
++
++商家仅需传入会员卡名称、小程序AppId、会员中心小程序跳转path等信息，即可创建一个会员卡模版；其余信息均为选填信息。
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/ef31beb647bd64d0b5795de4f70e37f6.png)
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/9b57aad1706b73c9ed3fa6b0a01f3ba9.png)
++
++会员卡展示的内容以商家在[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中的配置为准，未配置的信息不展示：
++
++| 展示信息 | 对应配置 | 说明 |
++| --- | --- | --- |
++| 卡名称 | `card_title` | 必填 |
++| 卡面背景 | `card_picture_url`（卡图片）、 `card_color`（卡背景颜色） | 未传卡图片时，以卡背景颜色纯色展示卡面；卡背景颜色不传时默认为 `#FFFFFF` |
++| 会员等级 | `need_display_level`、 `init_level` | 默认不展示。开启展示后，新开卡用户展示初始等级；用户的会员等级可通过[修改用户会员卡信息](https://pay.weixin.qq.com/doc/v3/partner/4015336985.md)接口，或在[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)时更新 |
++| 积分 | `points_information` | 不配置时不展示 |
++| 会员码 | `code_type` | 默认不展示任何码型 |
++| 卡片有效期 | `valid_date_information` | 默认永久有效 |
++
++- 已入会的会员可查看会员的基础信息（卡名称、会员信息、会员等级、卡积分、会员码）及可用的券。针对卡面、积分、会员码都支持配置跳转商家小程序自身页面（[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中指定）。
++
++- 支持与不支持用户主动入会的会员卡，展示内容的规则一致；区别仅在于用户未入会时：支持用户主动入会的会员卡展示入会入口，不支持用户主动入会的会员卡不展示入会入口，用户点击卡面跳转商家小程序（详见 2.3「入会模式」）。
++
++- 多张会员卡的展示顺序：同一品牌下存在多张生效中的会员卡时，置顶会员卡（ `need_pinned` 为 `true`）优先展示，多张置顶卡按更新时间倒序排序；其余会员卡按创建时间倒序排序。
++
++
++\*进入商家名片的渠道
  
- #### 2.3.1 cell字段
+ - 支付凭证跳转商家名片（需联系微信支付运营申请开通）：用户交易后，微信支付下发「支付凭证」，用户点击支付凭证即可跳转商家名片
  
-```
-
-### 商品券回调通知
-- ID: `4015780862`
-- 路径: 商品券（单券） > API列表 > 商品券回调通知
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015780862.md
-- 更新时间变更: 2026-08-13 02:06:00 -> 2026-10-14 07:17:05
-- 本地文件: `pages/4015780862.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.08.13
-+>更新时间：2026.10.14
  
- ## 一、回调描述
+ ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/728a626275ca230c746cfe3e36f60483.png)
  
-@@ -176,7 +176,7 @@
- | unionid | string | true | 【用户UnionID】 领券用户在AppID所属微信开放平台账号下的唯一用户标识，详见《[UnionID机制说明](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)》 |
- | receive_time | string | true | 【领券时间】 用户领券时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | send_request_no | string | true | 【发券请求单号】 发券时传入的请求流水号 |
--| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li></ul> |
-+| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li><li>`STICKER_GIFT`: 贴图有礼，通过贴图有礼渠道发放</li></ul> |
- | valid_begin_time | string | true | 【有效期开始时间】 用户商品券可用开始时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | valid_end_time | string | true | 【有效期结束时间】 用户商品券可用结束时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | phone_number | string | false | 【领券手机号】用户授权的领券手机号，用户授权时才会提供此字段。 |
-```
-
-### 商品券回调通知
-- ID: `4016435717`
-- 路径: 商品券（多次优惠） > API列表 > 商品券回调通知
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4016435717.md
-- 更新时间变更: 2026-08-13 02:05:58 -> 2026-10-14 07:16:39
-- 本地文件: `pages/4016435717.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.08.13
-+>更新时间：2026.10.14
+-- 「摇优惠」入口跳转商家名片：通过「微信支付号」底部「摇优惠」入口进入「喜欢的商家」列表，点击具体的商家，即可跳转「商家名片」
+-
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/acb49415becbbcb9168574c256fbf9b2.png)
+-
+-注意
+-
+-商家名片中默认有‘优惠’入口，当商家有一张生效中的会员卡模板时，‘优惠’入口会升级为‘会员’入口。
+-
+-#### 2.1.2、商家小程序/H5入会
+-
+-商户可在自身[小程序](https://pay.weixin.qq.com/doc/v3/partner/4015273633.md)或[H5](https://pay.weixin.qq.com/doc/v3/partner/4015331476.md)页面（公众号），通过微信支付提供的入会组件引导用户完成入会流程。
+-
+-| 商家在[小程序](https://pay.weixin.qq.com/doc/v3/partner/4015273633.md)/[H5](https://pay.weixin.qq.com/doc/v3/partner/4015331476.md)入会组件引导用户开通会员 | 会员开通成功后会通知用户 | 用户可以通过会员开通成功通知，<br>进入商家名片主页 |
+-| --- | --- | --- |
+-| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/11e79d0bb2f84613fa719c85f6d7c0d7.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/cb6d6f2569d01059e1ccef40035f3a79.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c31375ea272dc48ee9ad06af91dac42a.png) |
+-
+-#### 2.1.3、入会有礼活动入会
+-
+-- 商家可通过入会有礼活动在商家名片、支付凭证cell、支付完成页引导用户入会，提高用户入会的转化率（配置入会有礼活动请联系微信支付运营）。
+-
+-- 入会有礼支持商家配置多张商品券（最多6张），作为入会有礼的礼品，将在用户入会成功后直接发放给用户。用户可在商家名片-会员中查看并使用。
+-
+-
+-注意
+-
+-商家在微信支付下单接口传入对应的信息且当前有关联的入会有礼活动，支付凭证cell才会展示入会入口。详见[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/156176c0bb6d610e03b0064244a0fecd.png)
+-
+-### 2.2、存量会员导入
+-
+-针对商家侧的存量会员，可通过OPENID导入、下单同步入会两种方式将存量会员导入至商家名片
+-
+-- OPENID导入：商家可通过用户在微信公众号/小程序内的OPENID，将存量会员通过[根据OPENID导入用户会员卡](https://pay.weixin.qq.com/doc/v3/partner/4015336981.md)接口导入至微信支付的商家名片。
+-
+-- 下单同步入会：商家可通过在微信支付下单接口的attach字段传入会员卡code（ `user_card_code`）来导入未开通会员的用户。下单用户若此前未开通会员卡，通过此方式可实时添加会员并自动生效一张会员卡，详细指引请参考：[实时动态传入的方式](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md#2.3%E3%80%81%E5%AE%9E%E6%97%B6%E5%8A%A8%E6%80%81%E4%BC%A0%E5%85%A5%E7%9A%84%E6%96%B9%E5%BC%8F)
+-
+-
+-### 2.3、会员信息展示&管理
+-
+-#### 2.3.1、会员卡信息
+-
+-已入会的会员可查看会员的基础信息（卡名称、会员信息、会员等级、卡片有效期、卡积分，储值，会员码）及可用的券，针对卡面、积分、储值、会员码都支持配置跳转商家小程序自身页面（[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中指定）
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/ef31beb647bd64d0b5795de4f70e37f6.png)
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/9b57aad1706b73c9ed3fa6b0a01f3ba9.png)
+-
+-#### 2.3.2、会员卡动态
++## 2.2、会员动态
  
- ## 一、回调描述
+ - 会员卡动态是针对积分的变更信息，平台提供消息赋能，提供给商家告知用户的运营能力。
  
-@@ -178,7 +178,7 @@
- | unionid | string | true | 【用户UnionID】 领券用户在AppID所属微信开放平台账号下的唯一用户标识，详见《[UnionID机制说明](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/union-id.html)》 |
- | receive_time | string | true | 【领券时间】 用户领券时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | send_request_no | string | true | 【发券请求单号】 发券时传入的请求流水号 |
--| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li></ul> |
-+| send_channel | string | true | 【发券渠道】 描述用户券是经由什么渠道发送的<br>可选取值<br><ul><li>`BRAND_MANAGE`: 摇一摇有优惠，通过摇一摇有优惠渠道发放</li><li>`API`: 服务商自主发券，服务商通过发券接口自主发券到商家名片</li><li>`RECEIVE_COMPONENT`: 小程序领券组件，服务商通过小程序领券组件发券</li><li>`MEMBER`: 会员，品牌方通过会员相关活动或渠道进行发券</li><li>`STICKER_GIFT`: 贴图有礼，通过贴图有礼渠道发放</li></ul> |
- | valid_begin_time | string | true | 【有效期开始时间】 用户商品券可用开始时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | valid_end_time | string | true | 【有效期结束时间】 用户商品券可用结束时间。遵循[rfc3339标准格式](https://www.rfc-editor.org/rfc/rfc3339.html)，格式为yyyy-MM-DDTHH:mm:ss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss表示时分秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间） |
- | phone_number | string | false | 【领券手机号】用户授权的领券手机号，用户授权时才会提供此字段。 |
+@@ -84,21 +53,101 @@
+ 
+ - 动态分为实时动态和异步动态。
+ 
+-  - 实时动态可以通过支付凭证透传给用户，并联动在商家名片会员卡卡面展示。详见[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力
++  - 会员支付实时动态：商家在调用微信支付下单接口时同步传入用户的会员实时动态，用户完成支付后，微信支付将在「支付凭证」中向用户展示本次支付相关的会员信息变动，并联动在商家名片会员卡卡面展示，让用户在支付时即可感知会员身份与会员资产变化。详见[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力
+ 
+   - 异步动态将不会联动支付凭证等渠道展示。仅会展示在会员卡卡面上。详见[创建用户动态信息](https://pay.weixin.qq.com/doc/v3/partner/4015336987.md)接口
+ 
+-| 实时动态<br>通过[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力实现 | 异步动态<br>通过[创建用户动态信息](https://pay.weixin.qq.com/doc/v3/partner/4015336987.md)接口实现 |
++| 会员支付：实时动态<br>通过[下单同步用户实时动态](https://pay.weixin.qq.com/doc/v3/partner/4015534755.md)能力实现 | 异步动态<br>通过[创建用户动态信息](https://pay.weixin.qq.com/doc/v3/partner/4015336987.md)接口实现 |
+ | --- | --- |
+ | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/761d9e43b4b26856d1cb36129dffc2b5.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/7b86d75b6f9389ece7a4e986efdbd8ac.png) |
+ 
+-### 2.4、会员券
+-
+-商家可以给已经入会的用户[塞入商品券（单券）](https://pay.weixin.qq.com/doc/v3/partner/4015781605.md)，[塞入商品券（多次优惠）](https://pay.weixin.qq.com/doc/v3/partner/4016280664.md)。塞券的时候标注会员信息，用户将会看到有会员标识的商品券，提升会员权益感知。
+-
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c06e1078b45562c4eb8549ab233541ce.png)
+-
+-### 2.5、会员码拉起微信支付付款码（暂不支持）
++## 2.3、新用户入会
++
++用户手机号作为用户开卡的必填信息，其他平台提供的通用开卡信息（如：性别、生日、地址、邮箱、城市）都是非必需的，商家可依据自身的经营情况合理使用（如需用户提供，在[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)接口中指定即可）
++
++### 2.3.1、入会模式
++
++商家在[创建会员卡模板](https://pay.weixin.qq.com/doc/v3/partner/4015336970.md)时，可通过「是否支持用户主动入会」（ `support_user_active_join`）字段设置会员卡的入会模式，不传时默认为 `true`。
++
++| 对比项 | 支持用户主动入会（ `true`） | 不支持用户主动入会（ `false`） |
++| --- | --- | --- |
++| 用户开通方式 | 用户可通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会组件填写开卡信息并开通；商家也可通过导入等方式为用户开通 | 用户不能在微信支付内主动开通，只能由商家通过导入等方式开通（见 2.4） |
++| 商家名片展示 | 用户未入会时展示入会入口；已入会时展示会员卡信息 | 不展示入会入口，直接展示会员卡；用户点击卡面跳转商家小程序 |
++| 创建模板时额外必填 | 会员权益（ `benefits`）、回调地址（ `notify_url`）、商家法务协议（ `legal_agreement`） | 无需填写上述字段 |
++| 开卡结果同步 | 需同步会员开通结果（见 3.1） | 不涉及 |
++| 适用场景 | 有独立入会诉求的会员卡，如以线下门店为主的零售会员卡 | 以商家小程序为中心的会员卡，如线上、餐饮类会员卡；付费会员卡 |
++
++注意：
++
++- `support_user_active_join` 为 `true` 时，若未填写会员权益、回调地址、商家法务协议，接口将返回错误。若不需要用户在微信支付内主动开通，请将该字段设为 `false`。
++
++- 两种模式下，会员中心信息（ `member_information`）均为必填，用户点击会员卡卡面将跳转至该页面。
++
++- 付费会员卡（ `purchase_membership` 为 `true`）暂不支持用户主动入会，请将 `support_user_active_join` 设为 `false`，详见 2.6。
++
++
++### 2.3.2、用户主动入会方式
++
++#### 商家名片入会
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/15626bc7a47cd2f027f17fe0c62b99cd.png)
++
++商家[开通商家名片](https://pay.weixin.qq.com/doc/v3/partner/4016433970.md)功能后，即可创建会员卡模板。存在生效中的会员卡模板时，商家名片将展示该会员卡：
++
++- 支持用户主动入会的会员卡：用户未入会时展示入会组件，用户可在商家名片内完成入会；
++
++- 不支持用户主动入会的会员卡：不展示入会入口，直接展示会员卡，用户点击卡面进入商家小程序的会员中心页面，由商家小程序承接入会及会员服务。
++
++
++进入商家名片的渠道
++
++- 支付凭证跳转商家名片（需联系微信支付运营申请开通）：用户交易后，微信支付下发「支付凭证」，用户点击支付凭证即可跳转商家名片
++
++- 「摇优惠」入口跳转商家名片：通过「微信支付号」底部「摇优惠」入口进入「喜欢的商家」列表，点击具体的商家，即可跳转「商家名片」
++
++
++注意：
++
++商家名片中默认有‘优惠’入口，当商家有一张生效中的会员卡模板时，‘优惠’入口会升级为‘会员’入口。
++
++#### 商家小程序/H5入会
++
++商户可在自身[小程序](https://pay.weixin.qq.com/doc/v3/partner/4015273633.md)或[H5](https://pay.weixin.qq.com/doc/v3/partner/4015331476.md)页面（公众号），通过微信支付提供的入会组件引导用户完成入会流程。
++
++| 商家在[小程序](https://pay.weixin.qq.com/doc/v3/partner/4015273633.md)/[H5](https://pay.weixin.qq.com/doc/v3/partner/4015331476.md)入会组件引导用户开通会员 | 会员开通成功后会通知用户 | 用户可以通过会员开通成功通知，<br>进入商家名片主页 |
++| --- | --- | --- |
++| ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/11e79d0bb2f84613fa719c85f6d7c0d7.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/cb6d6f2569d01059e1ccef40035f3a79.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c31375ea272dc48ee9ad06af91dac42a.png) |
++
+... 已截断其余 112 行 diff
 ```
 
 ## 附录：所有页面清单
@@ -958,7 +675,7 @@
 | 426 | [查询已生效交易连接名片规则](pages/4016366785.md) | `4016366785` | 2025-10-30 09:56:20 | 商家名片 > API列表 > 交易连接名片 |
 | 427 | [根据业务申请编号查询添加申请状态](pages/4016366816.md) | `4016366816` | 2025-10-30 09:56:20 | 商家名片 > API列表 > 交易连接名片 |
 | 428 | [商家名片&交易连接名片配置指引](pages/4016433970.md) | `4016433970` | 2026-04-02 12:57:33 | 商家名片 > 附录 |
-| 429 | [产品介绍](pages/4015274636.md) | `4015274636` | 2026-07-09 02:33:38 | 商家名片会员 |
+| 429 | [产品介绍](pages/4015274636.md) | `4015274636` | 2026-10-15 09:11:59 | 商家名片会员 |
 | 430 | [开发指引](pages/4015274639.md) | `4015274639` | 2026-10-12 03:08:03 | 商家名片会员 |
 | 431 | [常见问题](pages/4017418554.md) | `4017418554` | 2026-01-30 07:18:54 | 商家名片会员 |
 | 432 | [图片上传](pages/4015900513.md) | `4015900513` | 2025-11-14 07:32:05 | 商家名片会员 > API列表 |
