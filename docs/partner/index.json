@@ -1253,14 +1253,14 @@
       "docId": "4016824704",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824704.md",
-      "updateTime": "1789697706",
+      "updateTime": "1792664604",
       "fullPath": "医保支付（服务商模式）"
     },
     {
       "docId": "4017149893",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4017149893.md",
-      "updateTime": "1781233205",
+      "updateTime": "1792651831",
       "fullPath": "医保支付（服务商模式）"
     },
     {
@@ -1330,7 +1330,7 @@
       "docId": "4016971494",
       "title": "申请医保支付权限",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016971494.md",
-      "updateTime": "1789697703",
+      "updateTime": "1792671506",
       "fullPath": "医保支付（服务商模式） > 附录"
     },
     {
@@ -1372,7 +1372,7 @@
       "docId": "4016824703",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824703.md",
-      "updateTime": "1781233188",
+      "updateTime": "1792651828",
       "fullPath": "医保支付（间连模式）"
     },
     {
@@ -1442,7 +1442,7 @@
       "docId": "4016824701",
       "title": "申请医保支付权限",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016824701.md",
-      "updateTime": "1789697701",
+      "updateTime": "1792491795",
       "fullPath": "医保支付（间连模式） > 附录"
     },
     {
@@ -1897,14 +1897,14 @@
       "docId": "4012586133",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012586133.md",
-      "updateTime": "1789697695",
+      "updateTime": "1792464814",
       "fullPath": "微信支付分"
     },
     {
       "docId": "4012586134",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012586134.md",
-      "updateTime": "1789697693",
+      "updateTime": "1792464880",
       "fullPath": "微信支付分"
     },
     {
@@ -2184,7 +2184,7 @@
       "docId": "4012085711",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012085711.md",
-      "updateTime": "1780991903",
+      "updateTime": "1792397528",
       "fullPath": "微信支付分停车服务"
     },
     {
@@ -2457,7 +2457,7 @@
       "docId": "4012071998",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012071998.md",
-      "updateTime": "1780998425",
+      "updateTime": "1792398413",
       "fullPath": "委托营销"
     },
     {
@@ -2744,7 +2744,7 @@
       "docId": "4012076040",
       "title": "免开发版本操作指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076040.md",
-      "updateTime": "1789697689",
+      "updateTime": "1792491808",
       "fullPath": "支付即服务 > 附录"
     },
     {
@@ -2765,7 +2765,7 @@
       "docId": "4012072158",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072158.md",
-      "updateTime": "1789697684",
+      "updateTime": "1792491787",
       "fullPath": "点金计划"
     },
     {
@@ -2835,7 +2835,7 @@
       "docId": "4016985537",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016985537.md",
-      "updateTime": "1789697663",
+      "updateTime": "1792484432",
       "fullPath": "品牌入驻"
     },
     {
@@ -3150,7 +3150,7 @@
       "docId": "4016060552",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016060552.md",
-      "updateTime": "1789697658",
+      "updateTime": "1792486000",
       "fullPath": "摇一摇有优惠"
     },
     {
@@ -4137,7 +4137,7 @@
       "docId": "4012072858",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012072858.md",
-      "updateTime": "1780998363",
+      "updateTime": "1792468313",
       "fullPath": "消费者投诉2.0"
     },
     {
@@ -4263,7 +4263,7 @@
       "docId": "4015792554",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015792554.md",
-      "updateTime": "1789697686",
+      "updateTime": "1792491792",
       "fullPath": "微信电子发票"
     },
     {
@@ -4459,7 +4459,7 @@
       "docId": "4012062375",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012062375.md",
-      "updateTime": "1789697670",
+      "updateTime": "1792491677",
       "fullPath": "特约商户进件"
     },
     {
@@ -4543,14 +4543,14 @@
       "docId": "4012064824",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064824.md",
-      "updateTime": "1789718640",
+      "updateTime": "1792667343",
       "fullPath": "商户开户意愿确认"
     },
     {
       "docId": "4012064832",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064832.md",
-      "updateTime": "1780998345",
+      "updateTime": "1792482991",
       "fullPath": "商户开户意愿确认"
     },
     {
@@ -4613,7 +4613,7 @@
       "docId": "4012064853",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064853.md",
-      "updateTime": "1780998342",
+      "updateTime": "1792483411",
       "fullPath": "商户平台处置通知"
     },
     {
@@ -4711,7 +4711,7 @@
       "docId": "4012165270",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012165270.md",
-      "updateTime": "1789888987",
+      "updateTime": "1792484020",
       "fullPath": "商户被管控能力及原因查询"
     },
     {
@@ -4823,14 +4823,14 @@
       "docId": "4012086891",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012086891.md",
-      "updateTime": "1789697542",
+      "updateTime": "1792491661",
       "fullPath": "平台收付通-电商交易解决方案"
     },
     {
       "docId": "4012086921",
       "title": "开发接入准备",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012086921.md",
-      "updateTime": "1789697540",
+      "updateTime": "1792491657",
       "fullPath": "平台收付通-电商交易解决方案"
     },
     {
