@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20261026_053006
+**生成时间**: 20261027_054526
 **文档总数**: 535
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,107 +9,180 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 1 个页面
-- 成功拉取: 1 个页面
+- 修改: 2 个页面
+- 成功拉取: 2 个页面
 - 拉取失败: 0 个页面
-- llms.txt 变更: 是
-
-## llms.txt 变更
-
-```diff
---- llms_old.txt
-+++ llms.txt
-@@ -1,4 +1,4 @@
-->更新时间：2026.10.24
-+>更新时间：2026.10.26
- 
- # 微信支付商户平台文档中心
- 
-```
+- llms.txt 变更: 否
 
 ## 修改页面
 
-### 申请医保支付权限
-- ID: `4016824675`
-- 路径: 医保支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4016824675.md
-- 更新时间变更: 2026-10-20 10:23:18 -> 2026-10-26 03:09:52
-- 本地文件: `pages/4016824675.md`
+### 开发指引
+- ID: `4012084207`
+- 路径: 代金券
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md
+- 更新时间变更: 2026-06-09 07:59:04 -> 2026-10-26 06:34:10
+- 本地文件: `pages/4012084207.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.20
+->更新时间：2026.06.09
 +>更新时间：2026.10.26
  
- ## 概览
+ ## 1. 接口规则
  
-@@ -37,7 +37,63 @@
+@@ -18,36 +18,32 @@
  
- ![](https://docimg3.docs.qq.com/image/9i-izOJKaq4MS8k21uCcTQ.png?w=1280&h=601.1870967741935)
- 
--![](https://docimg1.docs.qq.com/image/dVjWZbiq7lI2bQpj5U64Aw.png?w=948&h=1594)
-+```mermaid
-+swimlane-beta TD
-+  subgraph Customer[注册]
+ ```mermaid
+ sequenceDiagram
+-    rect rgb(255,255,255)
+-        autonumber
+-        actor Mch as 商户
+-        participant Mch2 as 商户系统
+-        participant WxPay as 微信支付
+-
+-        Mch->>Mch2: 1、请求创建代金券
+-        Mch2->>WxPay: 2、调用创建代金券批次接口
+-        WxPay->>WxPay: 3、校验并产生批次号
+-        WxPay-->>Mch2: 4、返回代金券批次
+-        Mch2-->>Mch: 5、获得代金券批次号
+-        Mch->>Mch2: 6、确认并激活代金券批次
+-        Mch2->>WxPay: 7、请求激活代金券批次接口
+-        WxPay->>WxPay: 8、校验并更新批次状态
+-        WxPay-->>Mch2: 9、返回代金券批次状态
+-        Mch2-->>Mch: 10、获得代金券批次状态
+-        Mch->>Mch2: 11、请求发放代金券
+-        Mch2->>WxPay: 12、请求发放代金券批次接口
+-        WxPay->>WxPay: 13、校验并发放代金券
+-        WxPay-->>Mch2: 14、返回发放结果
+-        Mch2-->>Mch: 15、获取代金券发放结果
+-
+-        alt 管理券
+-            Mch->>Mch2: 16、查询代金券
+-            Mch2->>WxPay: 17、调用相应接口
+-            WxPay->>WxPay: 18、校验并查询
+-            WxPay-->>Mch2: 19、返回结果
+-            Mch2-->>Mch: 20、获取结果
+-        end
+-    end
++  autonumber
++  actor p0 as 商户
++  participant p1 as 商户系统
++  participant p2 as 微信支付
++  p0->>p1: 请求创建代金券
++  p1->>p2: 调用创建代金券批次接口
++  p2->>p2: 校验并产生批次号
++  p2-->>p1: 代金券批次
++  p1-->>p0: 代金券批次号
++  p0->>p1: 确认并激活代金券批次
++  p1->>p2: 请求激活代金券批次接口
++  p2->>p2: 校验并更新批次状态
++  p2-->>p1: 代金券批次状态
++  p1-->>p0: 获得代金券批次状态
++  p0->>p1: 请求发放代金券
++  p1->>p2: 请求发放代金券批次接口
++  p2->>p2: 校验并发放代金券
++  p2-->>p1: 发放结果
++  p1-->>p0: 获取代金券发放结果
++  alt 管理券
++    p0->>p1: 查询代金券
++    p1->>p2: 调用相应接口
++    p2->>p2: 校验并查询
++    p2-->>p1: 结果
++    p1-->>p0: 获取结果
 +  end
-+  subgraph System[单位账号登录]
-+    B[单位登录]
-+  end
-+    subgraph SG1[经办人账号登录]
-+    end
-+    SG1
-+    Customer
-+    C([开始])
-+    C@{ parent: Customer }
-+    A[单位注册]
-+    A@{ parent: Customer }
-+    C --> A
-+    D[绑定经办人]
-+    D@{ parent: Customer }
-+    A --> D
-+    E[注册完成]
-+    E@{ parent: Customer }
-+    D --> E
-+    E --> B
-+    F[单位管理首页]
-+    F@{ parent: System }
-+    B --> F
-+    G[资质认证]
-+    G@{ parent: System }
-+    F --> G
-+    H[新增经办人]
-+    H@{ parent: System }
-+    G --> H
-+    I[经办人授权]
-+    I@{ parent: System }
-+    H --> I
-+    J[单位登出]
-+    J@{ parent: System }
-+    I --> J
-+    K[经办人登录]
-+    K@{ parent: SG1 }
-+    I --> K
-+    L[经办人单位管理页面]
-+    L@{ parent: SG1 }
-+    K --> L
-+    M[选择办理业务的单位]
-+    M@{ parent: SG1 }
-+    L --> M
-+    N["业务查询/办理"]
-+    N@{ parent: SG1 }
-+    M --> N
-+    O[经办人登出]
-+    O@{ parent: SG1 }
-+    N --> O
-+    P([结束])
-+    P@{ parent: SG1 }
-+    O --> P
-+```
+ ```
  
- 1.2.2. 医保移动支付进行申请时，要填入申请的应用名称、线上业务类型、第三方渠道（微信）等信息进行在线申请。提交在线申请后，市-省-国家局进行审批通过后，下载反馈单，可获取到对应的业务参数机构渠道认证编码、线上业务类型编码（如果是支付使用，用04107）、第三方渠道应用名称、应用ID和应用密钥等。
+ 重点步骤说明：
+```
+
+### 建立合作关系
+- ID: `4012380498`
+- 路径: 委托营销 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012380498.md
+- 更新时间变更: 2024-08-26 03:01:30 -> 2026-10-16 01:53:59
+- 本地文件: `pages/4012380498.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,3 +1,5 @@
++>更新时间：2026.10.16
++
+ 建立合作关系接口主要为商户提供营销资源的授权能力，可授权给其他商户或小程序，方便商户间的互利合作。
  
+ 
+@@ -21,37 +23,37 @@
+ | Authorization | string | true | 请参考 [签名认证](https://pay.weixin.qq.com/doc/v3/merchant/4012365342.md#%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E5%90%8E%E7%AB%AF%E7%AD%BE%E5%90%8D) 生成认证信息 |
+ | Accept | string | true | 请设置为 `application/json` |
+ | Content-Type | string | true | 请设置为 `application/json` |
+-| Idempotency-Key | string | true | 【业务请求幂等值】商户侧需保持唯一性，可包含英文字母，数字，｜，\_，\*，-等内容，不允许出现其他不合法符号 |
++| Idempotency-Key | string | true | 【业务请求幂等值】 商户侧需保持唯一性，可包含英文字母，数字，｜，\_，\*，-等内容，不允许出现其他不合法符号 |
+ ### Body 参数
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| partner | object | true | 【合作方信息】合作方信息 |
+-| partner.type | string | true | 【合作方类别】合作方类别，枚举值见文档<br>可选取值：<br><ul><li>`APPID`: 合作方为Appid</li></ul><br><ul><li>`MERCHANT`: 合作方为商户</li></ul> |
+-| partner.appid | string(32) | false | 【合作方Appid】合作方Appid,合作方类别为APPID时必填 |
+-| partner.merchant_id | string(15) | false | 【合作方商户ID】合作方商户ID，合作方类别为MERCHANT时必填 |
+-| authorized_data | object | true | 【被授权数据】被授权数据 |
+-| authorized_data.business_type | string | true | 【授权业务类别】授权业务类别，枚举值见文档<br>可选取值：<br><ul><li>`FAVOR_STOCK`: 授权业务类型-代金券批次</li></ul><br><ul><li>`BUSIFAVOR_STOCK`: 授权业务类型-商家券批次</li></ul> |
+-| authorized_data.stock_id | string(20) | false | 【授权批次ID】授权批次ID，授权业务类别为券批次时必填 |
++| partner | object | true | 【合作方信息】 合作方信息 |
++| partner.type | string | true | 【合作方类别】 合作方类别，枚举值见文档<br>可选取值<br><ul><li>`APPID`:  合作方为Appid</li><li>`MERCHANT`:  合作方为商户</li></ul> |
++| partner.appid | string(32) | false | 【合作方Appid】 合作方Appid，合作方类别为APPID时必填，需要与 `stock_id` 对应的“归属商户号”存在绑定关系，详见： [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4016328613.md) |
++| partner.merchant_id | string(15) | false | 【合作方商户ID】 合作方商户ID，合作方类别为MERCHANT时必填 |
++| authorized_data | object | true | 【被授权数据】 被授权数据 |
++| authorized_data.business_type | string | true | 【授权业务类别】 授权业务类别，枚举值见文档<br>可选取值<br><ul><li>`FAVOR_STOCK`:  授权业务类型-代金券批次</li><li>`BUSIFAVOR_STOCK`:  授权业务类型-商家券批次</li></ul> |
++| authorized_data.stock_id | string(20) | false | 【授权批次ID】 授权批次ID，授权业务类别为券批次时必填 |
+ ## 应答参数
+ 
+ 200 OK
+ 
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+-| partner | object | true | 【合作方信息】合作方信息 |
+-| partner.type | string | true | 【合作方类别】合作方类别，枚举值见文档<br>可选取值：<br><ul><li>`APPID`: 合作方为Appid</li></ul><br><ul><li>`MERCHANT`: 合作方为商户</li></ul> |
+-| partner.appid | string(32) | false | 【合作方Appid】合作方Appid,合作方类别为APPID时必填 |
+-| partner.merchant_id | string(15) | false | 【合作方商户ID】合作方商户ID，合作方类别为MERCHANT时必填 |
+-| authorized_data | object | true | 【被授权数据】被授权数据 |
+-| authorized_data.business_type | string | true | 【授权业务类别】授权业务类别，枚举值见文档<br>可选取值：<br><ul><li>`FAVOR_STOCK`: 授权业务类型-代金券批次</li></ul><br><ul><li>`BUSIFAVOR_STOCK`: 授权业务类型-商家券批次</li></ul> |
+-| authorized_data.stock_id | string(20) | false | 【授权批次ID】授权批次ID，授权业务类别为券批次时必填 |
+-| state | string | true | 【合作状态】合作状态，枚举值见文档<br>可选取值：<br><ul><li>`ESTABLISHED`: 合作状态-已建立</li></ul><br><ul><li>`TERMINATED`: 合作状态-已终止</li></ul> |
+-| build_time | string(32) | true | 【建立合作关系时间】建立合作关系时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.sss表示时分秒毫秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35.120+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
+-| create_time | string(32) | true | 【创建时间】创建时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.sss表示时分秒毫秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35.120+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
+-| update_time | string(32) | true | 【更新时间】更新时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.sss表示时分秒毫秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35.120+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
++| partner | object | true | 【合作方信息】 合作方信息 |
++| partner.type | string | true | 【合作方类别】 合作方类别，枚举值见文档<br>可选取值<br><ul><li>`APPID`:  合作方为Appid</li><li>`MERCHANT`:  合作方为商户</li></ul> |
++| partner.appid | string(32) | false | 【合作方Appid】 合作方Appid，合作方类别为APPID时必填，需要与 `stock_id` 对应的“归属商户号”存在绑定关系，详见： [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4016328613.md) |
++| partner.merchant_id | string(15) | false | 【合作方商户ID】 合作方商户ID，合作方类别为MERCHANT时必填 |
++| authorized_data | object | true | 【被授权数据】 被授权数据 |
++| authorized_data.business_type | string | true | 【授权业务类别】 授权业务类别，枚举值见文档<br>可选取值<br><ul><li>`FAVOR_STOCK`:  授权业务类型-代金券批次</li><li>`BUSIFAVOR_STOCK`:  授权业务类型-商家券批次</li></ul> |
++| authorized_data.stock_id | string(20) | false | 【授权批次ID】 授权批次ID，授权业务类别为券批次时必填 |
++| state | string | true | 【合作状态】 合作状态，枚举值见文档<br>可选取值<br><ul><li>`ESTABLISHED`:  合作状态-已建立</li><li>`TERMINATED`:  合作状态-已终止</li></ul> |
++| build_time | string(32) | true | 【建立合作关系时间】 建立合作关系时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.sss表示时分秒毫秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35.120+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
++| create_time | string(32) | true | 【创建时间】 创建时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.sss表示时分秒毫秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35.120+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
++| update_time | string(32) | true | 【更新时间】 更新时间，遵循 [rfc3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式，格式为yyyy-MM-DDTHH:mm:ss.sss+TIMEZONE，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.sss表示时分秒毫秒，TIMEZONE表示时区（+08:00表示东八区时间，领先UTC 8小时，即北京时间）。例如：2015-05-20T13:29:35.120+08:00表示，北京时间2015年5月20日 13点29分35秒。 |
+ ## 错误码
+ 
+-### 公共错误码
++以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/merchant/4012081709.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
+ 
+ | 状态码 | 错误码 | 描述 | 解决方案 |
+ | --- | --- | --- | --- |
+@@ -59,11 +61,6 @@
+ | 400 | INVALID\_REQUEST | HTTP 请求不符合微信支付 APIv3 接口规则 | 请参阅 [接口规则](https://pay.weixin.qq.com/doc/v3/merchant/4012081709.md) |
+ | 401 | SIGN\_ERROR | 验证不通过 | 请参阅 [签名常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012072670.md) |
+ | 500 | SYSTEM\_ERROR | 系统异常，请稍后重试 | 请稍后重试 |
+-
+-### 业务错误码
+-
+-| 状态码 | 错误码 | 描述 | 解决方案 |
+-| --- | --- | --- | --- |
+ | 400 | APPID\_MCHID\_NOT\_MATCH | appid与mchid不匹配 | 请确认appid是否正确填写 |
+ | 400 | INVALID\_REQUEST | 请求参数符合参数格式，但不符合业务规则 | 根据错误提示，传入符合业务规则的参数 |
+ | 400 | MCH\_NOT\_EXISTS | 商户号不存在 | 请确认发券商户号信息是否有误 |
 ```
 
 ## 附录：所有页面清单
@@ -476,7 +549,7 @@
 | 355 | [现金红包（V2）](pages/4012647471.md) | `4012647471` | 2025-04-25 08:11:06 | 现金红包（V2） |
 | 356 | [产品介绍](pages/4012084079.md) | `4012084079` | 2025-10-14 07:17:46 | 代金券 |
 | 357 | [开发接入准备](pages/4012084133.md) | `4012084133` | 2026-05-19 08:07:01 | 代金券 |
-| 358 | [开发指引](pages/4012084207.md) | `4012084207` | 2026-06-09 07:59:04 | 代金券 |
+| 358 | [开发指引](pages/4012084207.md) | `4012084207` | 2026-10-26 06:34:10 | 代金券 |
 | 359 | [常见问题](pages/4015880636.md) | `4015880636` | 2025-10-14 06:41:01 | 代金券 |
 | 360 | [业务示例代码](pages/4015894256.md) | `4015894256` | 2026-05-19 08:07:01 | 代金券 |
 | 361 | [核销事件回调通知](pages/4012285250.md) | `4012285250` | 2025-02-19 03:51:54 | 代金券 > API列表 |
@@ -499,7 +572,7 @@
 | 378 | [产品介绍](pages/4012063104.md) | `4012063104` | 2024-07-23 07:30:20 | 委托营销 |
 | 379 | [开发接入准备](pages/4012063130.md) | `4012063130` | 2026-05-19 08:10:42 | 委托营销 |
 | 380 | [开发指引](pages/4012063233.md) | `4012063233` | 2026-10-19 08:26:15 | 委托营销 |
-| 381 | [建立合作关系](pages/4012380498.md) | `4012380498` | 2024-08-26 03:01:30 | 委托营销 > API列表 |
+| 381 | [建立合作关系](pages/4012380498.md) | `4012380498` | 2026-10-16 01:53:59 | 委托营销 > API列表 |
 | 382 | [查询合作关系列表](pages/4012380536.md) | `4012380536` | 2024-09-02 03:15:51 | 委托营销 > API列表 |
 | 383 | [产品介绍](pages/4012064295.md) | `4012064295` | 2025-11-11 11:19:33 | 支付有礼 |
 | 384 | [开发接入准备](pages/4012064330.md) | `4012064330` | 2026-05-19 08:10:58 | 支付有礼 |
