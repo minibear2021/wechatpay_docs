@@ -1,5 +1,5 @@
 {
-  "totalNodes": 535,
+  "totalNodes": 556,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -57,6 +57,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md",
       "updateTime": "1791897322",
+      "fullPath": "JSAPI支付"
+    },
+    {
+      "docId": "4054250943",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054250943.md",
+      "updateTime": "1793367847",
       "fullPath": "JSAPI支付"
     },
     {
@@ -354,6 +361,13 @@
       "fullPath": "H5支付"
     },
     {
+      "docId": "4054257691",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257691.md",
+      "updateTime": "1793366246",
+      "fullPath": "H5支付"
+    },
+    {
       "docId": "4012791845",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791845.md",
@@ -515,6 +529,13 @@
       "fullPath": "Native支付"
     },
     {
+      "docId": "4054257695",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257695.md",
+      "updateTime": "1793366220",
+      "fullPath": "Native支付"
+    },
+    {
       "docId": "4012791890",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791890.md",
@@ -652,6 +673,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791911.md",
       "updateTime": "1780998435",
+      "fullPath": "小程序支付"
+    },
+    {
+      "docId": "4054257696",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257696.md",
+      "updateTime": "1793365994",
       "fullPath": "小程序支付"
     },
     {
@@ -914,6 +942,13 @@
       "fullPath": "APP合单支付"
     },
     {
+      "docId": "4054257689",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257689.md",
+      "updateTime": "1793369230",
+      "fullPath": "APP合单支付"
+    },
+    {
       "docId": "4013420906",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013420906.md",
@@ -1023,6 +1058,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078230.md",
       "updateTime": "1780998420",
+      "fullPath": "H5合单支付"
+    },
+    {
+      "docId": "4054257692",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257692.md",
+      "updateTime": "1793366012",
       "fullPath": "H5合单支付"
     },
     {
@@ -1250,6 +1292,13 @@
       "fullPath": "小程序合单支付"
     },
     {
+      "docId": "4054257697",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257697.md",
+      "updateTime": "1793365876",
+      "fullPath": "小程序合单支付"
+    },
+    {
       "docId": "4013421468",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421468.md",
@@ -1397,6 +1446,13 @@
       "fullPath": "医保支付"
     },
     {
+      "docId": "4054257698",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257698.md",
+      "updateTime": "1793365963",
+      "fullPath": "医保支付"
+    },
+    {
       "docId": "4016781466",
       "title": "医保自费混合收款下单",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016781466.md",
@@ -1509,6 +1565,13 @@
       "fullPath": "医保一码付"
     },
     {
+      "docId": "4054257621",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257621.md",
+      "updateTime": "1793365806",
+      "fullPath": "医保一码付"
+    },
+    {
       "docId": "4026379305",
       "title": "签约入口说明",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026379305.md",
@@ -1541,6 +1604,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071031.md",
       "updateTime": "1791896586",
+      "fullPath": "订单退款"
+    },
+    {
+      "docId": "4054257701",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257701.md",
+      "updateTime": "1793365780",
       "fullPath": "订单退款"
     },
     {
@@ -1614,6 +1684,13 @@
       "fullPath": "下载账单"
     },
     {
+      "docId": "4054257699",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257699.md",
+      "updateTime": "1793369681",
+      "fullPath": "下载账单"
+    },
+    {
       "docId": "4013071254",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071254.md",
@@ -1681,6 +1758,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068033.md",
       "updateTime": "1780991907",
+      "fullPath": "分账"
+    },
+    {
+      "docId": "4054257702",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257702.md",
+      "updateTime": "1793365646",
       "fullPath": "分账"
     },
     {
@@ -1800,6 +1884,13 @@
       "title": "业务示例代码",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4018940876.md",
       "updateTime": "1776936175",
+      "fullPath": "商家转账"
+    },
+    {
+      "docId": "4054257704",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257704.md",
+      "updateTime": "1793365614",
       "fullPath": "商家转账"
     },
     {
@@ -2111,6 +2202,13 @@
       "fullPath": "微信支付分"
     },
     {
+      "docId": "4054257620",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257620.md",
+      "updateTime": "1793365696",
+      "fullPath": "微信支付分"
+    },
+    {
       "docId": "4012587200",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012587200.md",
@@ -2384,6 +2482,13 @@
       "fullPath": "微信支付分停车服务"
     },
     {
+      "docId": "4054257703",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257703.md",
+      "updateTime": "1793365588",
+      "fullPath": "微信支付分停车服务"
+    },
+    {
       "docId": "4016183517",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016183517.md",
@@ -2507,6 +2612,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md",
       "updateTime": "1792996450",
+      "fullPath": "代金券"
+    },
+    {
+      "docId": "4054257705",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257705.md",
+      "updateTime": "1793359625",
       "fullPath": "代金券"
     },
     {
@@ -2776,6 +2888,13 @@
       "fullPath": "小程序发券插件"
     },
     {
+      "docId": "4054257707",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257707.md",
+      "updateTime": "1793365320",
+      "fullPath": "小程序发券插件"
+    },
+    {
       "docId": "4012285674",
       "title": "小程序发券插件",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012285674.md",
@@ -2822,6 +2941,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068086.md",
       "updateTime": "1780991940",
+      "fullPath": "智慧商圈"
+    },
+    {
+      "docId": "4054257708",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257708.md",
+      "updateTime": "1793365365",
       "fullPath": "智慧商圈"
     },
     {
@@ -2993,6 +3119,13 @@
       "fullPath": "消费者投诉2.0"
     },
     {
+      "docId": "4054257710",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257710.md",
+      "updateTime": "1793369627",
+      "fullPath": "消费者投诉2.0"
+    },
+    {
       "docId": "4016111664",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4016111664.md",
@@ -3112,6 +3245,13 @@
       "fullPath": "微信支付公钥"
     },
     {
+      "docId": "4054257713",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257713.md",
+      "updateTime": "1793365059",
+      "fullPath": "微信支付公钥"
+    },
+    {
       "docId": "4013038816",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013038816.md",
@@ -3151,6 +3291,13 @@
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md",
       "updateTime": "1779247197",
+      "fullPath": "平台证书"
+    },
+    {
+      "docId": "4054257711",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4054257711.md",
+      "updateTime": "1793365297",
       "fullPath": "平台证书"
     },
     {
