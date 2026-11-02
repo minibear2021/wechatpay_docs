@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261101_065702
+**生成时间**: 20261102_065642
 **文档总数**: 906
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 23 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 23 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,359 +20,176 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.30
-+>更新时间：2026.10.31
+->更新时间：2026.10.31
++>更新时间：2026.11.02
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -29,6 +29,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012069852.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012069853.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012069859.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054250946.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013334850.md)
- ### API列表
- - [JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)
-@@ -53,6 +54,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013080227.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013080228.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080246.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257714.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013080245.md)
- ### API列表
- - [APP下单](https://pay.weixin.qq.com/doc/v3/partner/4013080231.md)
-@@ -77,6 +79,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012074916.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012074917.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012074915.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257717.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013336079.md)
- ### API列表
- - [H5下单](https://pay.weixin.qq.com/doc/v3/partner/4012738604.md)
-@@ -103,6 +106,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012076267.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012076268.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012076269.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257719.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013352076.md)
- ### API列表
- - [Native下单](https://pay.weixin.qq.com/doc/v3/partner/4012738659.md)
-@@ -126,6 +130,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012085810.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012076731.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012076732.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257720.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013352071.md)
- ### API列表
- - [JSAPI/小程序下单](https://pay.weixin.qq.com/doc/v3/partner/4012759974.md)
-@@ -149,6 +154,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079332.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013461849.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166834.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257619.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462212.md)
- ### API列表
- - [JSAPI合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012757938.md)
-@@ -170,6 +176,7 @@
- 
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079331.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166832.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257716.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013461863.md)
- ### API列表
- - [APP合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758021.md)
-@@ -227,6 +234,7 @@
- 
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012079334.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012166836.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257721.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013462619.md)
- ### API列表
- - [小程序合单下单](https://pay.weixin.qq.com/doc/v3/partner/4012758246.md)
-@@ -247,6 +255,7 @@
- - [产品介绍 ](https://pay.weixin.qq.com/doc/v3/partner/4016824698.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4016824704.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4017149893.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257722.md)
- ### API列表
- #### 医保自费混合订单
- - [医保自费混合收款下单](https://pay.weixin.qq.com/doc/v3/partner/4012503131.md)
-@@ -271,6 +280,7 @@
- - [产品介绍 ](https://pay.weixin.qq.com/doc/v3/partner/4018300086.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4018300089.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4016824703.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257723.md)
- ### API列表
- #### 医保自费混合订单
- - [医保自费混合收款下单](https://pay.weixin.qq.com/doc/v3/partner/4018300080.md)
-@@ -293,6 +303,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4027117103.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4027117104.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4027117105.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257725.md)
- ### 附录
- - [签约入口说明](https://pay.weixin.qq.com/doc/v3/partner/4027117109.md)
- - [申请一码付权限](https://pay.weixin.qq.com/doc/v3/partner/4027117107.md)
-@@ -304,6 +315,7 @@
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4013080630.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)
- - [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015217325.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257729.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013080629.md)
- ### API列表
- - [申请退款](https://pay.weixin.qq.com/doc/v3/partner/4013080625.md)
-@@ -319,6 +331,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4013080592.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)
- - [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015988147.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257727.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013080602.md)
- ### API列表
- - [申请所有/单个特约商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013080595.md)
-@@ -335,6 +348,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072582.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072589.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072601.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257730.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4014547107.md)
- ### API列表
- - [请求分账](https://pay.weixin.qq.com/doc/v3/partner/4012690683.md)
-@@ -355,6 +369,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4019514964.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4019515014.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4020339052.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257726.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4019514982.md)
- ### API列表
- - [提交停车场进件申请](https://pay.weixin.qq.com/doc/v3/partner/4019557780.md)
-@@ -374,6 +389,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012586132.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012586133.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012586134.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257731.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012586139.md)
- ### API列表
- - [创建支付分订单](https://pay.weixin.qq.com/doc/v3/partner/4013138534.md)
-@@ -426,6 +442,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012085549.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012085632.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012085711.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257732.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016183529.md)
- ### API列表
- #### 停车入场
-@@ -456,6 +473,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012087800.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012087801.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012087802.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257733.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4015880931.md)
- ### API列表
- - [核销事件回调通知](https://pay.weixin.qq.com/doc/v3/partner/4012285807.md)
-@@ -509,6 +527,7 @@
- 
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072233.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072234.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257736.md)
- ### API列表
- - [小程序发券插件](https://pay.weixin.qq.com/doc/v3/partner/4012285878.md)
- ## H5发券
-@@ -524,6 +543,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012075220.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012075231.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012075386.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257737.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016111726.md)
- ### API列表
- - [商圈会员积分服务授权结果通知](https://pay.weixin.qq.com/doc/v3/partner/4012076406.md)
-@@ -831,6 +851,7 @@
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072844.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072858.md)
- - [业务示例代码](https://pay.weixin.qq.com/doc/v3/partner/4015933338.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257738.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016111688.md)
- ### API列表
- #### 主动查询投诉信息
-@@ -957,6 +978,7 @@
- > 微信支付公钥可用于验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加解密，保障交易与数据安全。商户在 API 安全页面申请下载，一次申请永久有效。
- 
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012925323.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257740.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4013038589.md)
- ### API列表
- - [商户签名验签／加解密测试](https://pay.weixin.qq.com/doc/v3/partner/4015139289.md)
-@@ -968,6 +990,7 @@
- > 平台证书与微信支付公钥作用相同，用于验签与敏感字段加解密，保障交易与数据安全，但每次申请的有效期为5年，即每5年，商户需要更换一次证书，可与微信支付公钥切换使用。
- 
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257739.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012073263.md)
- ### API列表
- - [下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)
 ```
 
-## 新增页面
+## 修改页面
 
-### 接入易错点
-- ID: `4054250946`
+### 开发指引
+- ID: `4012069859`
 - 路径: JSAPI支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054250946.md
-- 更新时间: 2026-10-30 14:06:52
-- 本地文件: `pages/4054250946.md`
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4012069859.md
+- 更新时间变更: 2026-10-13 13:29:46 -> 2026-11-02 03:09:17
+- 本地文件: `pages/4012069859.md`
 
-### 接入易错点
-- ID: `4054257714`
-- 路径: APP支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257714.md
-- 更新时间: 2026-10-30 13:29:24
-- 本地文件: `pages/4054257714.md`
-
-### 接入易错点
-- ID: `4054257717`
-- 路径: H5支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257717.md
-- 更新时间: 2026-10-30 13:29:09
-- 本地文件: `pages/4054257717.md`
-
-### 接入易错点
-- ID: `4054257719`
-- 路径: Native支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257719.md
-- 更新时间: 2026-10-30 14:15:36
-- 本地文件: `pages/4054257719.md`
-
-### 接入易错点
-- ID: `4054257720`
-- 路径: 小程序支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257720.md
-- 更新时间: 2026-10-30 13:25:53
-- 本地文件: `pages/4054257720.md`
-
-### 接入易错点
-- ID: `4054257619`
-- 路径: JSAPI合单支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257619.md
-- 更新时间: 2026-10-30 13:29:40
-- 本地文件: `pages/4054257619.md`
-
-### 接入易错点
-- ID: `4054257716`
-- 路径: APP合单支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257716.md
-- 更新时间: 2026-10-30 13:28:33
-- 本地文件: `pages/4054257716.md`
-
-### 接入易错点
-- ID: `4054257721`
-- 路径: 小程序合单支付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257721.md
-- 更新时间: 2026-10-30 13:26:03
-- 本地文件: `pages/4054257721.md`
-
-### 接入易错点
-- ID: `4054257722`
-- 路径: 医保支付（服务商模式）
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257722.md
-- 更新时间: 2026-10-30 13:25:18
-- 本地文件: `pages/4054257722.md`
-
-### 接入易错点
-- ID: `4054257723`
-- 路径: 医保支付（间连模式）
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257723.md
-- 更新时间: 2026-10-30 14:15:25
-- 本地文件: `pages/4054257723.md`
-
-### 接入易错点
-- ID: `4054257725`
-- 路径: 医保一码付
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257725.md
-- 更新时间: 2026-10-30 13:24:22
-- 本地文件: `pages/4054257725.md`
-
-### 接入易错点
-- ID: `4054257729`
-- 路径: 订单退款
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257729.md
-- 更新时间: 2026-10-30 13:23:43
-- 本地文件: `pages/4054257729.md`
-
-### 接入易错点
-- ID: `4054257727`
-- 路径: 下载账单
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257727.md
-- 更新时间: 2026-10-30 14:14:58
-- 本地文件: `pages/4054257727.md`
-
-### 接入易错点
-- ID: `4054257730`
-- 路径: 分账
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257730.md
-- 更新时间: 2026-10-30 13:24:12
-- 本地文件: `pages/4054257730.md`
-
-### 接入易错点
-- ID: `4054257726`
-- 路径: 停车缴费服务
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257726.md
-- 更新时间: 2026-10-30 13:24:53
-- 本地文件: `pages/4054257726.md`
-
-### 接入易错点
-- ID: `4054257731`
-- 路径: 微信支付分
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257731.md
-- 更新时间: 2026-10-30 13:22:44
-- 本地文件: `pages/4054257731.md`
-
-### 接入易错点
-- ID: `4054257732`
-- 路径: 微信支付分停车服务
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257732.md
-- 更新时间: 2026-10-30 13:22:03
-- 本地文件: `pages/4054257732.md`
-
-### 接入易错点
-- ID: `4054257733`
-- 路径: 代金券
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257733.md
-- 更新时间: 2026-10-31 09:44:18
-- 本地文件: `pages/4054257733.md`
-
-### 接入易错点
-- ID: `4054257736`
-- 路径: 小程序发券插件
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257736.md
-- 更新时间: 2026-10-30 13:21:43
-- 本地文件: `pages/4054257736.md`
-
-### 接入易错点
-- ID: `4054257737`
-- 路径: 智慧商圈
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257737.md
-- 更新时间: 2026-10-30 13:19:25
-- 本地文件: `pages/4054257737.md`
-
-### 接入易错点
-- ID: `4054257738`
-- 路径: 消费者投诉2.0
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257738.md
-- 更新时间: 2026-10-30 14:13:17
-- 本地文件: `pages/4054257738.md`
-
-### 接入易错点
-- ID: `4054257740`
-- 路径: 微信支付公钥
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257740.md
-- 更新时间: 2026-10-30 13:18:21
-- 本地文件: `pages/4054257740.md`
-
-### 接入易错点
-- ID: `4054257739`
-- 路径: 平台证书
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257739.md
-- 更新时间: 2026-10-30 13:18:46
-- 本地文件: `pages/4054257739.md`
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.10.13
++>更新时间：2026.11.02
+ 
+ ## 1、接口接入清单
+ 
+@@ -53,7 +53,6 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-%% xwatt: autonumber ea
+   autonumber
+   actor p0 as 用户
+   participant p1 as 服务商/子商户前端页面(微信浏览器打开)
+@@ -63,7 +62,7 @@
+   p1->>p2: 发送下单请求
+   p2->>p3: 调用JSAPI下单接口
+   p3-->>p2: 下单成功返回prepay_id
+-  p2-->>p1: 返回JSAPI拉起支付所需参数
++  p2-->>p1: JSAPI拉起支付所需参数
+ ```
+ 
+ 下单接口关键参数说明：
+@@ -96,12 +95,12 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-        actor User as 用户
+-        participant Mch as 服务商/子商户前端页面(微信浏览器打开)
+-        participant SP as 服务商后端
+-        participant WxPay as 微信支付系统
+-
+-        Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
++  autonumber
++  actor p0 as 用户
++  participant p1 as 服务商/子商户前端页面(微信浏览器打开)
++  participant p2 as 微信支付系统
++  participant p3 as 服务商后端
++  p1->>p2: 调用微信浏览器内置对象方法拉起微信收银台
+ ```
+ 
+ ### 2.3、用户支付结果确认（查单、支付成功回调通知）
+@@ -120,35 +119,29 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-    %% xwatt: autonumber ea
+-        autonumber
+-        actor User as 用户
+-        participant Mch as 服务商/子商户前端页面(微信浏览器打开)
+-        participant SP as 服务商后端
+-        participant WxPay as 微信支付系统
+-
+-        WxPay-->>Mch: 用户返回服务商/子商户前端页面(前端会有回调function)
+-        Mch->>SP: 查单确认订单状态
+-        SP->>WxPay: 调用微信查单接口
+-        WxPay-->>SP: 返回订单状态
+-        SP-->>Mch: 返回订单状态
+-        Mch-->>User: 根据订单状态展示支付结果
+-
+-        alt 支付成功
+-            WxPay->>SP: 支付成功回调通知
+-        end
+-
+-        alt 未收到支付成功回调
+-            SP->>WxPay: 调用微信查单接口轮询查单
+-            WxPay-->>SP: 返回订单状态
+-
+-            alt 超过一定时间查单仍是未支付状态
+-                SP->>WxPay: 调用微信关单接口
+-                WxPay-->>SP: 返回关单结果
+-                SP->>SP: 订单当作失败终态处理
+-            end
+-
+-        end
++  autonumber
++  actor p0 as 用户
++  participant p1 as 服务商/子商户前端页面(微信浏览器打开)
++  participant p2 as 微信支付系统
++  participant p3 as 服务商后端
++  p2-->>p1: 用户返回服务商/子商户前端页面
++  p1->>p3: 查单确认订单状态
++  p3->>p2: 调用微信查单接口
++  p2-->>p3: 订单状态
++  p3-->>p1: 订单状态
++  p1-->>p0: 根据订单状态展示支付结果
++  alt 支付成功
++    p2->>p3: 支付成功回调通知
++  end
++  alt 未收到支付成功回调
++    p3->>p2: 调用微信查单接口轮询查单
++    p2-->>p3: 订单状态
++    alt 超过一定时间查单仍是未支付状态
++      p3->>p2: 调用微信关单接口
++      p2-->>p3: 关单结果
++      p3->>p3: 订单当作失败终态处理
++    end
++  end
+ ```
+ 
+ ### 2.4、商户对账（申请交易账单、申请资金账单、下载账单）
+@@ -162,23 +155,21 @@
+ ## 3、普通支付订单状态流转图
+ 
+ ```mermaid
+-%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
+ stateDiagram-v2
+-    direction LR
+-    state "trade_state：NOTPAY（未支付）" as S2
+-    state "trade_state：SUCCESS（支付成功）" as S3
+-    state "trade_state：REFUND（转入退款）" as S4
+-    state "trade_state：CLOSED（已关闭）" as S5
+-
+-    [*] --> S2: 服务商调用JSAPI/小程序支付下单接口生成订单
+-    S2 --> S3: 用户支付成功
+-    S2 --> S5: 订单超过7天未支付<br/>微信侧进行自动关单
+-    S2 --> S5: 7天内服务商可对未支付的订单调用关闭订单接口
+-    S3 --> S4: 调用申请退款接口申请成功<br/>(支付成功后1年内可申请退款)
+-    note right of S2 : 用户支付失败<br/>常见支付失败原因有：余额不足、用户风控、支付密码错误、超过服务商设置的最晚支付时间（即下单设置的time_expire）等
+-    S3 --> [*]
+-    S5 --> [*]
+-    S4 --> [*]
++  state "trade_state：NOTPAY（未支付）" as S0
++  state "trade_state：SUCCESS（支付成功）" as S1
++  state "trade_state：REFUND（转入退款）" as S2
++  state "trade_state：CLOSED（已关闭）" as S3
++  [*] --> S0 : 服务商调用JSAPI/小程序支付下单接口生成订单
++  S0 --> S1 : 用户支付成功
++  S1 --> S2 : 调用申请退款接口申请成功  (支付成功后1年内可申请退款)
++  S0 --> S3 : 7天内服务商可对未支付的订单 调用关闭订单接口
++  S0 --> S0 : 用户支付失败
++  S0 --> S3 : 订单超过7天未支付，微信侧进行自动关单
++  S2 --> [*]
++  S3 --> [*]
++  S1 --> [*]
++  note: 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过服务商设置的最晚支付时间（即下单设置的time_expire）等
+ ```
+ 
+ 1、服务商调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)接口下单成功后，服务商可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/partner/4012739008.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/partner/4012082568.md)。
+@@ -233,8 +224,8 @@
+ 
+ ### 退款
+ 
+-退款注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)。
++业务如果涉及退款，必须参考退款开发指引和接入易错点进行对接，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080623.md)[接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257729.md)。
+ 
+ ### 对账
+ 
+-对账注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)。
++业务如果涉及对账，必须参考对账开发指引和接入易错点进行对接，见[开发指引](https://pay.weixin.qq.com/doc/v3/partner/4013080593.md)[接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4054257727.md)。
+```
 
 ## 附录：所有页面清单
 
@@ -388,7 +205,7 @@
 | 5 | [刷脸支付](pages/4012851199.md) | `4012851199` | 2024-10-28 07:53:13 | 刷脸支付 |
 | 6 | [产品介绍](pages/4012069852.md) | `4012069852` | 2026-05-21 03:22:54 | JSAPI支付 |
 | 7 | [开发接入准备](pages/4012069853.md) | `4012069853` | 2026-10-13 13:00:01 | JSAPI支付 |
-| 8 | [开发指引](pages/4012069859.md) | `4012069859` | 2026-10-13 13:29:46 | JSAPI支付 |
+| 8 | [开发指引](pages/4012069859.md) | `4012069859` | 2026-11-02 03:09:17 | JSAPI支付 |
 | 9 | [接入易错点](pages/4054250946.md) | `4054250946` | 2026-10-30 14:06:52 | JSAPI支付 |
 | 10 | [常见问题](pages/4013334850.md) | `4013334850` | 2026-08-05 06:16:19 | JSAPI支付 |
 | 11 | [JSAPI下单](pages/4012738519.md) | `4012738519` | 2026-10-11 07:44:07 | JSAPI支付 > API列表 |
