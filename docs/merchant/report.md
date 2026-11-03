@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20261102_065636
+**生成时间**: 20261103_071936
 **文档总数**: 555
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
 ## 变更概览
 
 - 新增: 0 个页面
-- 删除: 1 个页面
-- 修改: 1 个页面
-- 成功拉取: 1 个页面
+- 删除: 0 个页面
+- 修改: 0 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,208 +20,11 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.10.31
-+>更新时间：2026.11.02
+->更新时间：2026.11.02
++>更新时间：2026.11.03
  
  # 微信支付商户平台文档中心
  
-@@ -500,7 +500,6 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012084079.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4012084133.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md)
--- [接入易错点](https://pay.weixin.qq.com/doc/v3/merchant/4054257705.md)
- - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4015880636.md)
- - [业务示例代码](https://pay.weixin.qq.com/doc/v3/merchant/4015894256.md)
- ### API列表
-```
-
-## 删除页面
-
-- **接入易错点** (`4054257705`)
-  - 原路径: 代金券
-  - 原 URL: https://pay.weixin.qq.com/doc/v3/merchant/4054257705.md
-  - 原更新时间: 2026-10-30 11:27:05
-
-## 修改页面
-
-### 开发指引
-- ID: `4012791870`
-- 路径: JSAPI支付
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md
-- 更新时间变更: 2026-10-13 13:15:22 -> 2026-11-02 03:09:39
-- 本地文件: `pages/4012791870.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.10.13
-+>更新时间：2026.11.02
- 
- ## 1、接口接入清单
- 
-@@ -53,16 +53,16 @@
- 
- ```mermaid
- sequenceDiagram
--    actor User as 用户
--    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
--    participant Mch2@{ type: control } as 商户后端
--    participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
--
--	User->>Mch: 用户下单
--	Mch->>Mch2: 发送下单请求
--	Mch2->>WxPay: 调用JSAPI下单接口
--	WxPay-->>Mch2: 下单成功返回prepay_id
--	Mch2-->>Mch: 返回JSAPI拉起支付所需参数
-+  autonumber
-+  actor p0 as 用户
-+  participant p1 as 商户前端页面(微信浏览器打开)
-+  participant p2 as 商户后端
-+  participant p3 as 微信支付系统
-+  p0->>p1: 用户下单
-+  p1->>p2: 发送下单请求
-+  p2->>p3: 调用JSAPI下单接口
-+  p3-->>p2: 下单成功返回prepay_id
-+  p2-->>p1: JSAPI拉起支付所需参数
- ```
- 
- 下单接口关键参数说明：
-@@ -89,12 +89,12 @@
- 
- ```mermaid
- sequenceDiagram
--    actor User as 用户
--    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
--    participant Mch2@{ type: control } as 商户后端
--    participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
--
--	Mch->>WxPay: 调用微信浏览器内置对象方法拉起微信收银台
-+  autonumber
-+  actor p0 as 用户
-+  participant p1 as 商户前端页面(微信浏览器打开)
-+  participant p2 as 微信支付系统
-+  participant p3 as 商户后端
-+  p1->>p2: 调用微信浏览器内置对象方法拉起微信收银台
- ```
- 
- ### 2.3、用户支付结果确认（查单、支付成功回调通知）
-@@ -113,35 +113,29 @@
- 
- ```mermaid
- sequenceDiagram
--    %% xwatt: autonumber ea
--    autonumber
--    actor User as 用户
--    participant Mch@{ type: boundary } as 商户前端页面(微信浏览器打开)
--    participant Mch2@{ type: control }  as 商户后端
--    participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
--
--    WxPay-->>Mch: 用户返回商户前端页面(前端会有回调function)
--    Mch->>Mch2: 查单确认订单状态
--    Mch2->>WxPay: 调用微信查单接口
--    WxPay-->>Mch2: 返回订单状态
--    Mch2-->>Mch: 返回订单状态
--    Mch-->>User: 根据订单状态展示支付结果
--
--    alt 支付成功
--    	WxPay->>Mch2: 支付成功回调通知
-+  autonumber
-+  actor p0 as 用户
-+  participant p1 as 商户前端页面(微信浏览器打开)
-+  participant p2 as 微信支付系统
-+  participant p3 as 商户后端
-+  p2-->>p1: 用户返回商户前端页面
-+  p1->>p3: 查单确认订单状态
-+  p3->>p2: 调用微信查单接口
-+  p2-->>p3: 订单状态
-+  p3-->>p1: 订单状态
-+  p1-->>p0: 根据订单状态展示支付结果
-+  alt 支付成功
-+    p2->>p3: 支付成功回调通知
-+  end
-+  alt 未收到支付成功回调
-+    p3->>p2: 调用微信查单接口轮询查单
-+    p2-->>p3: 订单状态
-+    alt 超过一定时间查单仍是未支付状态
-+      p3->>p2: 调用微信关单接口
-+      p2-->>p3: 关单结果
-+      p3->>p3: 订单当作失败终态处理
-     end
--
--    alt 未收到支付成功回调
--      Mch2->>WxPay: 调用微信查单接口轮询查单
--      WxPay-->>Mch2: 返回订单状态
--
--      alt 超过一定时间查单仍是未支付状态
--        Mch2->>WxPay: 调用微信关单接口
--        WxPay-->>Mch2: 返回关单结果
--        Mch2->>Mch2: 订单当作失败终态处理
--      end
--
--    end
-+  end
- ```
- 
- ### 2.4、对账（申请交易账单、申请资金账单、下载账单）
-@@ -159,27 +153,21 @@
- ### 3、普通支付订单状态流转图
- 
- ```mermaid
--%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
- stateDiagram-v2
--    direction LR
--    state "trade_state：NOTPAY（未支付）" as trade_state
--    state "trade_state：CLOSED（已关闭）" as S1
--    state "trade_state：SUCCESS（支付成功）" as S2
--    state "trade_state：REFUND（转入退款）" as S3
--
--
--    trade_state --> S2: 用户支付成功
--    trade_state --> S1: 订单超过7天未支付<br/>微信侧进行自动关单
--    S2 --> S3: 调用申请退款接口申请成功 (支付成功后1年内可申请退款)
--    trade_state --> S1: 7天内商户可对未支付的订单调用关闭订单接口
--    note right of trade_state
--    	用户支付失败 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
--    end note
--
--    S3 --> [*]
--    S1 --> [*]
--    S2 --> [*]
--    [*] --> trade_state: 商户调用JSAPI下单接口生成订单
-+  state "trade_state：NOTPAY（未支付）" as S0
-+  state "trade_state：CLOSED（已关闭）" as S1
-+  state "trade_state：SUCCESS（支付成功）" as S2
-+  state "trade_state：REFUND（转入退款）" as S3
-+  S0 --> S1 : 7天内商户可对未支付的订单 调用关闭订单接口
-+  S0 --> S2 : 用户支付成功
-+  S2 --> S3 : 调用申请退款接口申请成功  (支付成功后1年内可申请退款)
-+  S0 --> S1 : 订单超过7天未支付，微信侧进行自动关单
-+  S3 --> [*]
-+  S1 --> [*]
-+  S2 --> [*]
-+  [*] --> S0 : 商户调用JSAPI下单接口生成订单
-+  S0 --> S0 : 用户支付失败
-+  note: 常见支付失败原因有：余额不足、用户风控、支付密码错误、超过商户设置的最晚支付时间（即下单设置的time_expire）等
- ```
- 
- 1、商户调用[JSAPI下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)接口下单成功后，商户可以调用[查询订单](https://pay.weixin.qq.com/doc/v3/merchant/4012791859.md)接口来确认订单状态，详情请参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
-@@ -230,12 +218,12 @@
- 
- ### 支付回调、查单
- 
--支付回调、查单注意事项，见[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)。
-+JSAPI需要接入支付回调、查单，必须参考[支付回调和查单实现指引](https://pay.weixin.qq.com/doc/v3/merchant/4012075249.md)实现。
- 
- ### 退款
- 
--退款注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071031.md)。
-+业务如果涉及退款，必须参考退款开发指引和接入易错点进行对接[开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071031.md)[接入易错点](https://pay.weixin.qq.com/doc/v3/merchant/4054257701.md)
- 
- ### 对账
- 
--对账注意事项，见[开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071218.md)。
-+业务如果涉及对账，必须参考对账开发指引和接入易错点进行对接见[开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071218.md)[接入易错点](https://pay.weixin.qq.com/doc/v3/merchant/4054257699.md)
 ```
 
 ## 附录：所有页面清单
