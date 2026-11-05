@@ -1,5 +1,5 @@
 {
-  "totalNodes": 906,
+  "totalNodes": 907,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -2622,6 +2622,13 @@
       "fullPath": "支付有礼"
     },
     {
+      "docId": "4055251397",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4055251397.md",
+      "updateTime": "1793847232",
+      "fullPath": "支付有礼"
+    },
+    {
       "docId": "4012760270",
       "title": "图片上传（营销专用）",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012760270.md",
@@ -3171,7 +3178,7 @@
       "docId": "4015336970",
       "title": "创建会员卡模板",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015336970.md",
-      "updateTime": "1754016806",
+      "updateTime": "1793778224",
       "fullPath": "商家名片会员 > API列表 > 会员卡模板管理"
     },
     {
@@ -3269,7 +3276,7 @@
       "docId": "4015283692",
       "title": "会员卡事件通知",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015283692.md",
-      "updateTime": "1755511733",
+      "updateTime": "1793778244",
       "fullPath": "商家名片会员 > API列表 > 事件通知"
     },
     {

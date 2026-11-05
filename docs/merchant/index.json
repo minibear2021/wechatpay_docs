@@ -1,5 +1,5 @@
 {
-  "totalNodes": 555,
+  "totalNodes": 558,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -211,6 +211,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013070176.md",
       "updateTime": "1780991880",
+      "fullPath": "APP支付"
+    },
+    {
+      "docId": "4055251379",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4055251379.md",
+      "updateTime": "1793849116",
       "fullPath": "APP支付"
     },
     {
@@ -820,6 +827,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md",
       "updateTime": "1780998433",
+      "fullPath": "JSAPI合单支付"
+    },
+    {
+      "docId": "4055251388",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4055251388.md",
+      "updateTime": "1793847259",
       "fullPath": "JSAPI合单支付"
     },
     {
@@ -2612,6 +2626,13 @@
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md",
       "updateTime": "1792996450",
+      "fullPath": "代金券"
+    },
+    {
+      "docId": "4055251396",
+      "title": "接入易错点",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4055251396.md",
+      "updateTime": "1793669822",
       "fullPath": "代金券"
     },
     {

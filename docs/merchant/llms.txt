@@ -1,4 +1,4 @@
->更新时间：2026.11.03
+>更新时间：2026.11.05
 
 # 微信支付商户平台文档中心
 
@@ -56,6 +56,7 @@
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4013070158.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015478291.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4013070176.md)
+- [接入易错点](https://pay.weixin.qq.com/doc/v3/merchant/4055251379.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013070182.md)
 ### API列表
 - [APP下单](https://pay.weixin.qq.com/doc/v3/merchant/4013070347.md)
@@ -163,6 +164,7 @@
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012077221.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4015764634.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012078634.md)
+- [接入易错点](https://pay.weixin.qq.com/doc/v3/merchant/4055251388.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4013421298.md)
 ### API列表
 - [JSAPI合单下单](https://pay.weixin.qq.com/doc/v3/merchant/4012556926.md)
@@ -500,6 +502,7 @@
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012084079.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4012084133.md)
 - [开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012084207.md)
+- [接入易错点](https://pay.weixin.qq.com/doc/v3/merchant/4055251396.md)
 - [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4015880636.md)
 - [业务示例代码](https://pay.weixin.qq.com/doc/v3/merchant/4015894256.md)
 ### API列表
