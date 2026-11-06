@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261105_072831
+**生成时间**: 20261106_072800
 **文档总数**: 907
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 1 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 2 个页面
-- 成功拉取: 3 个页面
+- 修改: 6 个页面
+- 成功拉取: 6 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,264 +20,196 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.04
-+>更新时间：2026.11.05
+->更新时间：2026.11.05
++>更新时间：2026.11.06
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -511,6 +511,7 @@
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012072117.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012072118.md)
- - [开发指引](https://pay.weixin.qq.com/doc/v3/partner/4012072119.md)
-+- [接入易错点](https://pay.weixin.qq.com/doc/v3/partner/4055251397.md)
- ### API列表
- - [图片上传（营销专用）](https://pay.weixin.qq.com/doc/v3/partner/4012760270.md)
- #### 支付有礼活动
 ```
-
-## 新增页面
-
-### 接入易错点
-- ID: `4055251397`
-- 路径: 支付有礼
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4055251397.md
-- 更新时间: 2026-11-05 02:53:52
-- 本地文件: `pages/4055251397.md`
 
 ## 修改页面
 
-### 创建会员卡模板
-- ID: `4015336970`
-- 路径: 商家名片会员 > API列表 > 会员卡模板管理
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015336970.md
-- 更新时间变更: 2025-08-01 02:53:26 -> 2026-11-04 07:43:44
-- 本地文件: `pages/4015336970.md`
+### 接入易错点
+- ID: `4054250946`
+- 路径: JSAPI支付
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4054250946.md
+- 更新时间变更: 2026-10-30 14:06:52 -> 2026-11-05 08:11:23
+- 本地文件: `pages/4054250946.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2025.08.01
-+>更新时间：2026.11.04
+->更新时间：2026.10.30
++>更新时间：2026.11.05
  
- 通过此接口可以创建一张会员卡模板，创建成功将获得会员卡模板ID
+ ## 一、场景与调用入口
  
-@@ -15,7 +15,7 @@
+@@ -58,7 +58,7 @@
+ | 注意事项 | 说明、正确应该怎么做 | 不做会怎么样 |
+ | --- | --- | --- |
+ | 使用 JS-SDK 调起支付前须先完成 `wx.config`，并在 `wx.ready` 回调中调用 | 说明： `wx.config` 用于校验当前页面并注入本次要用的 JS 接口权限，是异步过程；用 `wx.chooseWXPay` 拉起收银台时， `jsApiList` 必须包含 `chooseWXPay`，且须等 `wx.ready` 触发后再调用，在此之前调用权限尚未注入。<br>正确应该怎么做：① 页面引入 JS-SDK 后先由服务端下发签名等参数并调用 `wx.config`，确认 `wx.config` 成功通过；② `jsApiList` 中显式声明 `chooseWXPay`；③ 页面加载完成即需拉起支付的，把 `wx.chooseWXPay` 写在 `wx.ready` 回调函数内，由用户点击触发的也须在 `wx.ready` 之后执行；④ 在真机微信内置浏览器中验证，不在模拟器或外部浏览器中验证。<br>典型反例：把 `wx.chooseWXPay` 写在 `wx.config` 之后但未放进 `wx.ready` 回调， `config` 异步未完成时即调起。 见 [4012791870-JSAPI支付开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md)、 [JS-SDK 使用说明](https://developers.weixin.qq.com/doc/service/guide/h5/jssdk.md)、 [4020401138-JS-SDK使用权限签名](https://pay.weixin.qq.com/doc/v3/merchant/4020401138.md) | 首次可能偶尔调起成功、之后每次调起均报 `the permission value is offline verifying`，支付功能整体不可用。 |
+-| 调起支付的 `package` 参数须为 `prepay_id=xxx` 格式且不可为空 | 说明：调起支付时 `package` 取的是下单接口返回的 `prepay_id`，格式为 `prepay_id=` 后直接拼接该值，不是只传 `prepay_id` 本身，也不能为空。<br>正确应该怎么做：① 服务端下单成功后把 `prepay_id` 原样保存并返回给前端；② 前端构造调起参数时按 `package: "prepay_id=wx201222229874569b201de80e089456213"` 的格式拼装；③ 用户关闭收银台后重新发起时，先复用未过期的 `prepay_id`，已过期则用原 `out_trade_no` 和原参数重新下单取新的 `prepay_id`。 见 [4012791870-JSAPI支付开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md)、 [4012791857-JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md) | 前端报「调用支付JSAPI缺少参数:total\_fee」，无法拉起收银台。 |
++| 调起支付的 `package` 参数须为 `prepay_id=xxx` 格式且不可为空 | 说明：调起支付时 `package` 取的是下单接口返回的 `prepay_id`，格式为 `prepay_id=` 后直接拼接该值，不是只传 `prepay_id` 本身，也不能为空。<br>正确应该怎么做：① 服务端下单成功后把 `prepay_id` 原样保存并返回给前端；② 前端构造调起参数时按 `package: "prepay_id=xxx"` 的格式拼装；③ 用户关闭收银台后重新发起时，先复用未过期的 `prepay_id`，已过期则用原 `out_trade_no` 和原参数重新下单取新的 `prepay_id`。 见 [4012791870-JSAPI支付开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md)、 [4012791857-JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md) | 前端报「调用支付JSAPI缺少参数:total\_fee」，无法拉起收银台。 |
+ | 调起支付参数 `appId` 须与下单 `appid` 及当前实际调起支付的公众号一致 | 说明：调起支付参数 `appId` 须填写下单接口传入的 `appid`，且必须与当前实际调起支付的公众号一致；服务商模式下填写下单时传入的 `sp_appid` 或 `sub_appid`，当前实际调起支付的公众号必须是二者之一。<br>正确应该怎么做：① 后端下单时记录本次实际使用的 `appid`（服务商模式为 `sp_appid` 或 `sub_appid`）并随订单落库；② 由后端用同一个值生成调起支付参数中的 `appId`，不使用前端页面或路由中携带的 appid，也不跨主体取值；③ 联调前确认当前页面所属公众号与下单使用的 appid 为同一账号。<br>典型反例：后端按商户配置取 appid 下单，前端按当前页面所属公众号另取一个 appid 拼装调起参数。 见 [4012791857-JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)、 [4012069855-JSAPI调起支付（服务商）](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md)、 [4012791870-JSAPI支付开发指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791870.md)、 [4012069859-JSAPI支付开发指引（服务商）](https://pay.weixin.qq.com/doc/v3/partner/4012069859.md) | 无法调起支付，或提示账号不一致，用户无法完成付款。 |
+ | 下单接口的 `appid` 与调起支付的 `appId` 参数名不同，须分别按各接口文档拼写 | 说明：该参数在 JSAPI 下单接口的请求包体中为全小写 `appid`（服务商模式为 `sp_appid` / `sub_appid`），在 JSAPI 调起支付的前端参数与签名串中为驼峰 `appId`；调起支付其余参数 `timeStamp`、 `nonceStr`、 `signType`、 `paySign` 同样为驼峰命名。两处取值必须相同，拼写须各自遵循所属接口的字段定义。<br>正确应该怎么做：① 后端调用下单接口时按文档写 `appid`（服务商模式写 `sp_appid`、 `sub_appid`）；② 后端生成调起支付参数并计算 `paySign` 时，按文档写 `appId`、 `timeStamp`、 `nonceStr`、 `signType`；③ 不把下单请求体原样透传给前端当作调起参数，也不在签名串与调起参数之间混用大小写。<br>典型反例：直接把下单请求体的 `appid` 作为调起参数传给前端，导致调起参数中缺少 `appId`。 见 [4012791856-JSAPI下单](https://pay.weixin.qq.com/doc/v3/merchant/4012791856.md)、 [4012738519-JSAPI下单（服务商）](https://pay.weixin.qq.com/doc/v3/partner/4012738519.md)、 [4012791857-JSAPI调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791857.md)、 [4012069855-JSAPI调起支付（服务商）](https://pay.weixin.qq.com/doc/v3/partner/4012069855.md) | 调起参数缺少 `appId` 导致无法拉起收银台；签名串与调起参数命名不一致时 `paySign` 校验不通过，支付失败。 |
  
- 　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
- 
--接口限频：10/秒（商户号维度）
-+接口限频：100/秒（商户号维度）
- 
- ## 请求参数
- 
-@@ -33,44 +33,26 @@
- | appid | string(32) | true | 【商家AppID】 商家的AppID，可以是服务号、订阅号、公众号、小程序的AppID。1、该AppID用于获取会员OpenID。2、该AppID需要与会员卡归属品牌有B-A关系。 |
- | card_type | string | true | 【会员卡类型】 支持付费、普通、储值 3 种类型。目前仅支持普通会员卡，填写付费和储值类型时会返回错误。<br>可选取值<br><ul><li>`PURCHASE`:  付费</li><li>`NORMAL`:  普通</li><li>`BALANCE`:  储值</li></ul> |
- | card_title | string(10) | true | 【卡名称】 1.可用于展示在卡面的名称 2.支持最长10个中文字 3.支持中文字、英文字符、标点 |
--| card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制 |
--| card_picture_url | string(256) | true | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。 |
--| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code；（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。 2、会员卡code分配模式若为“系统分配”，不支持修改为“商家分配”。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
--| code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。当会员码展示类型为跳转商家小程序时，必填 `code_jump_information`。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
--| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
--| code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
--| code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
--| benefits | string(32) | true | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
--| notify_url | string(256) | true | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
-+| card_color | string(7) | false | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制。不传时默认为 `#FFFFFF`。 |
-+| card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
-+| code_mode | string | false | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、不传时默认为系统分配（ `SYSTEM_ALLOCATE`）。<br>3、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
-+| code_type | string | false | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。当会员码展示类型为跳转商家小程序时，必填 `code_jump_information`。不传时默认为不显示任何码型（ `NONE_CODE`）。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
-+| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。<br>属性<br>jump\_appid 选填  string(32)<br>【会员码跳转AppID】 会员码跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【会员码跳转路径】 会员码跳转的小程序路径 |
-+| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
-+| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
- | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
- | need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false）。在查询结果中会返回该字段。 |
- | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。若该值不为空，则会返回该字段。 |
- | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话。若该值不为空，则会返回该字段。 |
--| legal_agreement | string(20480) | true | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。 |
--| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
--| valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
--| valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
--| valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
--| valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
--| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息 |
--| member_information.jump_appid | string(32) | true | 【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID |
--| member_information.jump_path | string(128) | true | 【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
--| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。 |
--| points_information.jump_appid | string(32) | false | 【积分跳转AppID】 会员积分跳转的小程序AppID |
--| points_information.jump_path | string(128) | false | 【积分跳转路径】 会员积分跳转的小程序路径 |
--| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。 |
--| balance_information.jump_appid | string(32) | false | 【储值小程序AppID】 点击储值额跳转的小程序AppID |
--| balance_information.jump_path | string(128) | false | 【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
--| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。若该值不为空，则会返回该字段。 |
--| purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
--| purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
--| purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
--| user_information | object | false | 【用户开卡信息】 要求用户在开通会员卡时必须填写的信息。若用户不填写则不允许开通会员卡。 |
--| user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
--| user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
--| user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
--| user_information.custom_field_list.name | string(32) | false | 【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。 |
--| user_information.custom_field_list.values | array[string(8)] | false | 【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
-+| legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
-+| valid_date_information | object | false | 【会员卡有效期】 会员卡有效期。不传时默认为永久有效。<br>属性<br>type 必填  string<br>【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br>- `FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效<br>- `FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效<br>- `PERMANENT`:  会员卡激活后永久有效<br>* * *<br>available\_begin\_time 选填  string<br>【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_end\_time 选填  string<br>【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_day\_after\_receive 选填  integer<br>【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
-+| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息<br>属性<br>jump\_appid 必填  string(32)<br>【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID<br>* * *<br>jump\_path 必填  string(128)<br>【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
-+| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。<br>属性<br>jump\_appid 选填  string(32)<br>【积分跳转AppID】 会员积分跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【积分跳转路径】 会员积分跳转的小程序路径 |
-+| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。<br>属性<br>jump\_appid 选填  string(32)<br>【储值小程序AppID】 点击储值额跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
-+| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。若该值不为空，则会返回该字段。<br>属性<br>price 选填  integer<br>【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分）<br>* * *<br>jump\_appid 选填  string(32)<br>【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID<br>* * *<br>jump\_path 选填  string(128)<br>【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
-+| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。<br>属性<br>common\_field\_list 选填  array\[string\]<br>【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br>- `USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。<br>- `USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名<br>- `USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。<br>- `USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址<br>- `USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。<br>- `USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。<br>* * *<br>custom\_field\_list 选填  array\[object\]<br>【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。<br>属性<br>type 选填  string<br>【字段类型】 选择所需的字段类型<br>可选取值<br>- `CHECK_BOX`:  用户可从商家提供的选项中选择多项<br>- `RADIO`:  用户可从商家提供的选项中选择一项<br>* * *<br>name 选填  string(32)<br>【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>* * *<br>values 选填  array\[string(8)\]<br>【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
-+| support_user_active_join | boolean | false | 【是否支持用户主动入会】 是否允许用户在微信支付内主动开通这张会员卡。不传时默认为 true。为 true 时，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；会员权益、回调地址、商家法务协议必填。为 false 时，用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
-+| purchase_membership | boolean | false | 【是否为付费会员】 标记这张会员卡是否为付费会员。不传时为 false。本字段仅作标记，为 true 不要求填写付费会员价格和跳转信息。 |
- ## 应答参数
- 
- 200 OK
-@@ -84,46 +66,28 @@
- | card_type | string | true | 【会员卡类型】 支持付费、普通、储值 3 种类型。目前仅支持普通会员卡，填写付费和储值类型时会返回错误。<br>可选取值<br><ul><li>`PURCHASE`:  付费</li><li>`NORMAL`:  普通</li><li>`BALANCE`:  储值</li></ul> |
- | card_title | string(10) | true | 【卡名称】 1.可用于展示在卡面的名称 2.支持最长10个中文字 3.支持中文字、英文字符、标点 |
- | card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制 |
--| card_picture_url | string(256) | true | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。 |
--| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code；（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code 2、会员卡code分配模式若为“系统分配”，不支持修改为“商家分配”。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
-+| card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
-+| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
- | code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
--| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
--| code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
--| code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
--| benefits | string(32) | true | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
--| notify_url | string(256) | true | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
-+| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。<br>属性<br>jump\_appid 选填  string(32)<br>【会员码跳转AppID】 会员码跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【会员码跳转路径】 会员码跳转的小程序路径 |
-+| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
-+| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
- | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
- | need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false） |
- | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。 |
- | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
--| legal_agreement | string(20480) | true | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。 |
--| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
--| valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
--| valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
--| valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
--| valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
--| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息 |
--| member_information.jump_appid | string(32) | true | 【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID |
--| member_information.jump_path | string(128) | true | 【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
--| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。 |
--| points_information.jump_appid | string(32) | false | 【积分跳转AppID】 会员积分跳转的小程序AppID |
--| points_information.jump_path | string(128) | false | 【积分跳转路径】 会员积分跳转的小程序路径 |
--| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。 |
--| balance_information.jump_appid | string(32) | false | 【储值小程序AppID】 点击储值额跳转的小程序AppID |
--| balance_information.jump_path | string(128) | false | 【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
--| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。 |
--| purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
--| purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
--| purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
--| user_information | object | false | 【用户开卡信息】 要求用户在开通会员卡时必须填写的信息。若用户不填写则不允许开通会员卡。 |
--| user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
--| user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
--| user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
--| user_information.custom_field_list.name | string(32) | false | 【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。 |
--| user_information.custom_field_list.values | array[string(8)] | false | 【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
-+| legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
-+| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期<br>属性<br>type 必填  string<br>【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br>- `FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效<br>- `FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效<br>- `PERMANENT`:  会员卡激活后永久有效<br>* * *<br>available\_begin\_time 选填  string<br>【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_end\_time 选填  string<br>【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_day\_after\_receive 选填  integer<br>【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
-+| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息<br>属性<br>jump\_appid 必填  string(32)<br>【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID<br>* * *<br>jump\_path 必填  string(128)<br>【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
-+| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。<br>属性<br>jump\_appid 选填  string(32)<br>【积分跳转AppID】 会员积分跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【积分跳转路径】 会员积分跳转的小程序路径 |
-+| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。<br>属性<br>jump\_appid 选填  string(32)<br>【储值小程序AppID】 点击储值额跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
-+| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。<br>属性<br>price 选填  integer<br>【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分）<br>* * *<br>jump\_appid 选填  string(32)<br>【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID<br>* * *<br>jump\_path 选填  string(128)<br>【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
-+| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。<br>属性<br>common\_field\_list 选填  array\[string\]<br>【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br>- `USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。<br>- `USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名<br>- `USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。<br>- `USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址<br>- `USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。<br>- `USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。<br>* * *<br>custom\_field\_list 选填  array\[object\]<br>【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。<br>属性<br>type 选填  string<br>【字段类型】 选择所需的字段类型<br>可选取值<br>- `CHECK_BOX`:  用户可从商家提供的选项中选择多项<br>- `RADIO`:  用户可从商家提供的选项中选择一项<br>* * *<br>name 选填  string(32)<br>【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>* * *<br>values 选填  array\[string(8)\]<br>【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
- | state | string | true | 【状态】 会员卡状态信息<br>可选取值<br><ul><li>`CARD_EFFECTIVE`:  生效中</li><li>`CARD_INVALID`:  已失效</li></ul> |
- | create_time | string | true | 【创建时间】 创建会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
- | modify_time | string | true | 【更新时间】 更新会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
-+| support_user_active_join | boolean | false | 【是否支持用户主动入会】 true 表示允许用户在微信支付内主动开通这张会员卡，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；false 表示用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
-+| purchase_membership | boolean | false | 【是否为付费会员】 true 表示该会员卡是付费会员，false 表示不是。 |
- ## 错误码
- 
- 以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
-@@ -136,6 +100,7 @@
- | 500 | SYSTEM\_ERROR | 系统异常，请稍后重试 | 请稍后重试 |
- | 400 | PARAM\_ERROR | 是否展示会员等级为 true，必填会员初始等级信息 | 请填写会员初始等级信息 |
- | 400 | PARAM\_ERROR | 是否展示会员等级为 false，不允许填写会员初始等级信息 | 请移除会员初始等级信息 |
-+| 400 | PARAM\_ERROR | 是否支持用户主动入会为 true 时，必须填写会员权益、回调地址、商家法务协议 | 请补齐会员权益、回调地址、商家法务协议；若不需要用户在微信支付内主动开通，请将是否支持用户主动入会设为 false |
- | 400 | PARAM\_ERROR | 会员码型为跳转商家小程序，必填会员码跳转信息 | 请填写会员码跳转小程序所需的信息 |
- | 400 | PARAM\_ERROR | 会员码型不是跳转商家小程序，不允许填写会员码跳转信息 | 请移除会员码跳转信息，或将会员码型设置为跳转商家小程序 |
- | 400 | PARAM\_ERROR | 非储值会员卡，不允许填写储值小程序信息 | 请移除储值小程序相关信息 |
-@@ -232,7 +197,9 @@
-   },
-   "state" : "CARD_EFFECTIVE",
-   "create_time" : "2020-05-20T13:29:35.120+08:00",
--  "modify_time" : "2020-05-20T13:29:35.120+08:00"
-+  "modify_time" : "2020-05-20T13:29:35.120+08:00",
-+  "support_user_active_join" : true,
-+  "purchase_membership" : false
- }
- 
- ```
 ```
 
-### 会员卡事件通知
-- ID: `4015283692`
-- 路径: 商家名片会员 > API列表 > 事件通知
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015283692.md
-- 更新时间变更: 2025-08-18 10:08:53 -> 2026-11-04 07:44:04
-- 本地文件: `pages/4015283692.md`
+### 接入易错点
+- ID: `4054257717`
+- 路径: H5支付
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257717.md
+- 更新时间变更: 2026-10-30 13:29:09 -> 2026-11-05 08:10:31
+- 本地文件: `pages/4054257717.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2025.08.18
-+>更新时间：2026.11.04
+->更新时间：2026.10.30
++>更新时间：2026.11.05
  
- ## 一、回调描述
+ ## 一、AppID 与商户号绑定
  
-@@ -25,14 +25,9 @@
- | --- |  --- | --- | --- |
- | id | string(36) | true | 【通知ID】通知的唯一ID。 |
- | create_time | string(32) | true | 【通知创建时间】通知创建的时间，遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式(如：2015-05-20T13:29:35+08:00)。 |
--| event_type | string(32) | true | 【通知类型】会员卡回调通知类型，枚举值：<br>BRAND\_MEMBER\_CARD\_SP.USER\_CARD.CREATE：用户开通会员卡<br>BRAND\_MEMBER\_CARD\_SP.USER\_CARD.DELETE：用户删除会员卡 |
-+| event_type | string | true | 【通知类型】会员卡回调通知类型，枚举值：<br>BRAND\_MEMBER\_CARD\_SP.USER\_CARD.CREATE：用户开通会员卡<br>BRAND\_MEMBER\_CARD\_SP.USER\_CARD.DELETE：用户删除会员卡 |
- | resource_type | string(32) | true | 【通知数据类型】通知的资源数据类型，为encrypt-resource。 |
--| resource | object | true | 【通知资源数据】通知资源数据。 |
--| resource.algorithm | string(32) | true | 【加密算法类型】对开启结果数据进行加密的加密算法，目前只支持AEAD\_AES\_256\_GCM。 |
--| resource.ciphertext | string | true | 【数据密文】Base64编码后的开启/停用结果数据密文。 |
--| resource.associated_data | string(16) | false | 【附加数据】附加数据。 |
--| resource.original_type | string(16) | true | 【原始回调类型】原始回调类型，为user\_card。 |
--| resource.nonce | string(16) | true | 【随机串】加密使用的随机串。 |
-+| resource | object | true | 【通知资源数据】通知资源数据。<br>属性<br>algorithm必填 string(32)<br>【加密算法类型】对开启结果数据进行加密的加密算法，目前只支持AEAD\_AES\_256\_GCM。<br>* * *<br>ciphertext必填 string<br>【数据密文】Base64编码后的开启/停用结果数据密文。<br>* * *<br>associated\_data选填 string(16)<br>【附加数据】附加数据。<br>* * *<br>original\_type必填 string(16)<br>【原始回调类型】原始回调类型，为user\_card。<br>* * *<br>nonce必填 string(16)<br>【随机串】加密使用的随机串。 |
- | summary | string(64) | true | 【回调摘要】回调摘要 |
+@@ -67,4 +67,4 @@
  
- 用户开通会员卡通知
-@@ -156,7 +151,7 @@
+ | 注意事项 | 说明、正确应该怎么做 | 不做会怎么样 |
+ | --- | --- | --- |
+-| App 内嵌 H5 支付跳回 App 的 `redirect_url` 须经微信侧单独配置 | 说明： `redirect_url` 用于指定支付完成后返回的页面，其域名须为商户平台已配置的 H5 支付域名并做 urlencode；在商户 App 内嵌 webview 使用 H5 支付时，支付完成后跳转回 App 还需要微信侧对该 `redirect_url` 做单独配置。<br>正确应该怎么做：① 在商户平台【产品中心 -> 开发配置 -\> H5支付】配置支付域名；② 拼接 `redirect_url` 时使用与配置完全一致的域名（已配置主域名时不能改用其子域名），并对取值做 urlencode；③ 属于 App 内嵌场景且需跳回 App 的，按微信支付侧要求收集配置资料（商户名、商户号、App Scheme、User-Agent 等）并以邮件形式提交，由微信侧完成 `redirect_url` 配置后再上线。<br>典型反例：商户平台只配置了主域名（如 `sf-express.com`），却把子域名（如 `hkcard.sit.sf-express.com`）拼成 `redirect_url`；或认为下单时拼了 `redirect_url` 就能直接跳回 App。<br>见 [4012791835-H5调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791835.md)、 [4013287193-配置H5支付域名](https://pay.weixin.qq.com/doc/v3/merchant/4013287193.md)。 | 用户已在微信收银台完成支付，但页面未跳转回商户 App 或指定页面，用户看不到支付结果，商户需逐笔人工核对订单状态。 |
++| App 内嵌 H5 支付跳回 App 的 `redirect_url` 须经微信侧单独配置 | 说明： `redirect_url` 用于指定支付完成后返回的页面，其域名须为商户平台已配置的 H5 支付域名并做 urlencode；在商户 App 内嵌 webview 使用 H5 支付时，支付完成后跳转回 App 还需要微信侧对该 `redirect_url` 做单独配置。<br>正确应该怎么做：① 在商户平台【产品中心 -> 开发配置 -\> H5支付】配置支付域名；② 拼接 `redirect_url` 时使用与配置完全一致的域名（已配置主域名时不能改用其子域名），并对取值做 urlencode；③ 属于 App 内嵌场景且需跳回 App 的，按微信支付侧要求收集配置资料（商户名、商户号、App Scheme、User-Agent 等）并以邮件形式提交，由微信侧完成 `redirect_url` 配置后再上线。<br>典型反例：商户平台只配置了主域名（如 `example.com`），却把子域名（如 `sub.example.com`）拼成 `redirect_url`；或认为下单时拼了 `redirect_url` 就能直接跳回 App。<br>见 [4012791835-H5调起支付](https://pay.weixin.qq.com/doc/v3/merchant/4012791835.md)、 [4013287193-配置H5支付域名](https://pay.weixin.qq.com/doc/v3/merchant/4013287193.md)。 | 用户已在微信收银台完成支付，但页面未跳转回商户 App 或指定页面，用户看不到支付结果，商户需逐笔人工核对订单状态。 |
+```
+
+### 接入易错点
+- ID: `4054257720`
+- 路径: 小程序支付
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257720.md
+- 更新时间变更: 2026-10-30 13:25:53 -> 2026-11-05 08:11:04
+- 本地文件: `pages/4054257720.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,10 +1,10 @@
+->更新时间：2026.10.30
++>更新时间：2026.11.05
  
- | 参数名 | 类型 | 必填 | 描述 |
- | --- |  --- | --- | --- |
--| user_card_code | string(32) | false | 【会员卡code】 会员在会员卡模板ID下的唯一标识，用户领取会员卡后获得的code。只能填写数字／英文／半角标点。在用户开通会员卡的事件通知中，若商户选择会员卡code分配类型为MERCHANT\_ALLOCATE，则该字段为空；若商户选择会员卡code分配类型为SYSTEM\_ALLOCATE，则该字段不为空。在用户删除会员卡的事件通知中，若商户选择会员卡code分配类型为MERCHANT\_ALLOCATE，且商家未同步开卡结果，则该字段为空；若商户选择会员卡code分配类型为SYSTEM\_ALLOCATE，则该字段不为空。 |
-+| user_card_code | string(32) | false | 【会员卡code】 会员在会员卡模板下的唯一标识，用户领取会员卡后获得，由数字、英文字母、半角标点组成。<br>1、用户开通会员卡事件（ `BRAND_MEMBER_CARD_SP.USER_CARD.CREATE`）：按创建会员卡模板时设置的 `code_mode` 返回。 `code_mode` 为 `SYSTEM_ALLOCATE` 时返回平台分配的会员卡code；为 `MERCHANT_ALLOCATE` 时不返回，会员卡code由服务商在调用「同步会员开通结果」接口时传入。<br>2、用户删除会员卡事件（ `BRAND_MEMBER_CARD_SP.USER_CARD.DELETE`）：用户会员卡已有会员卡code时返回，否则不返回。 |
- | card_id | string(32) | true | 【会员卡模板ID】 商家创建微信会员卡模板成功后系统返回的会员卡模板ID。 |
- | openid | string(128) | true | 【用户标识】 用户在品牌商家会员卡模板AppID下的唯一标识。 |
- | card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，带有'#'前缀的十六进制（如#FFFF00）。 |
-@@ -165,19 +160,9 @@
- | card_type | string | true | 【会员卡类型】 标识会员卡类型。<br>枚举值：<br>PURCHASE：付费<br>NORMAL：普通<br>BALANCE：储值 |
- | phone_number | string(32) | false | 【手机号】 注册会员的手机号码，当用户微信有绑定手机号时返回，没有时不返回。 |
- | level | string(10) | false | 【用户会员等级】 等级描述，该值由商户自定义，品牌商户可在修改用户会员卡时设置该值，该值不为空则会返回给商户。 |
--| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
--| valid_date_information.type | string | true | 【有效期类型】有效期类型。<br>枚举值：<br>FIX\_TIME\_RANGE：固定时间范围内有效<br>FIX\_TERM：相对时间范围内有效<br>PERMANENT：永久有效 |
--| valid_date_information.available_begin_time | string(32) | false | 【有效期开始时间】type为FIX\_TERM\_RANGE时专用，表示有效期开始时间。遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式(如：2015-05-20T13:29:35+08:00)。 |
--| valid_date_information.available_end_time | string(32) | false | 【有效期结束时间】type为FIX\_TERM\_RANGE时专用，表示有效期结束时间。遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式(如：2015-05-20T13:29:35+08:00)。 |
--| valid_date_information.available_day_after_receive | uint32 | false | 【领取后N天内有效】type为FIX\_TERM时专用，表示领取后N天内有效。最长不超过30年。 |
-+| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期<br>属性<br>type 必填 string<br>【有效期类型】有效期类型。<br>枚举值：<br>FIX\_TIME\_RANGE：固定时间范围内有效<br>FIX\_TERM：相对时间范围内有效<br>PERMANENT：永久有效<br>* * *<br>available\_begin\_time 选填 string(32)<br>【有效期开始时间】type为FIX\_TERM\_RANGE时专用，表示有效期开始时间。遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式(如：2015-05-20T13:29:35+08:00)。<br>* * *<br>available\_end\_time 选填 string(32)<br>【有效期结束时间】type为FIX\_TERM\_RANGE时专用，表示有效期结束时间。遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式(如：2015-05-20T13:29:35+08:00)。<br>* * *<br>available\_day\_after\_receive 选填 uint32<br>【领取后N天内有效】type为FIX\_TERM时专用，表示领取后N天内有效。最长不超过30年。 |
- | pickup_time | string(32) | true | 【领取时间】 用户领取会员卡的时间。遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式(如：2015-05-20T13:29:35+08:00)。 |
--| user_information | object | false | 【用户开卡时填写的个人信息】 个人信息。若商户要求用户领卡时填写个人信息，则返回给商户。 |
--| user_information.common_field_list | array[object] | false | 【平台提供的通用开卡信息字段】包含性别、手机、头像、昵称、姓名等基本信息字段。商户会员卡模板中指定了需要填写的用户信息，则返回给商户。 |
--| user_information.common_field_list.name | string(128) | false | 【平台提供的通用开卡信息字段名称】平台提供的通用开卡信息字段名称。商户会员卡模板中指定了需要填写的名称，则返回给商户。枚举值：<br>USER\_FORM\_FLAG\_SEX：性别<br>USER\_FORM\_FLAG\_NAME：姓名<br>USER\_FORM\_FLAG\_BIRTHDAY：生日<br>USER\_FORM\_FLAG\_ADDRESS：地址<br>USER\_FORM\_FLAG\_EMAIL：邮箱<br>USER\_FORM\_FLAG\_CITY：城市 |
--| user_information.common_field_list.value | string(128) | false | 【平台提供的通用开卡信息字段】平台提供的通用开卡信息字段，用户在开卡时填写的信息。商户会员卡模板中指定了需要填写的名称，则将该值返回给商户。 |
--| user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】商家自定义的开卡信息字段。商户会员卡模板中指定了用户领取会员卡时需要填写的自定义信息，则返回给商户。 |
--| user_information.custom_field_list.name | string(128) | false | 【字段名称】字段名称。商户会员卡模板中指定了用户领取会员卡时需要填写的自定义信息，则将名称返回给商户。 |
--| user_information.custom_field_list.user_chosen_values | array[string(8)] | false | 【字段值】用户选择的字段值列表，最多10个。商户会员卡模板中指定了用户领取会员卡时需要填写的自定义信息，则将用户选择的结果通知给商户。 |
-+| user_information | object | false | 【用户开卡时填写的个人信息】 个人信息。若商户要求用户领卡时填写个人信息，则返回给商户。<br>属性<br>common\_field\_list 选填 array\[object\]<br>【平台提供的通用开卡信息字段】包含性别、手机、头像、昵称、姓名等基本信息字段。商户会员卡模板中指定了需要填写的用户信息，则返回给商户。<br>属性<br>name 选填 string(128)<br>【平台提供的通用开卡信息字段名称】平台提供的通用开卡信息字段名称。商户会员卡模板中指定了需要填写的名称，则返回给商户。枚举值：<br>USER\_FORM\_FLAG\_SEX：性别<br>USER\_FORM\_FLAG\_NAME：姓名<br>USER\_FORM\_FLAG\_BIRTHDAY：生日<br>USER\_FORM\_FLAG\_ADDRESS：地址<br>USER\_FORM\_FLAG\_EMAIL：邮箱<br>USER\_FORM\_FLAG\_CITY：城市<br>* * *<br>value 选填 string(128)<br>【平台提供的通用开卡信息字段】平台提供的通用开卡信息字段，用户在开卡时填写的信息。商户会员卡模板中指定了需要填写的名称，则将该值返回给商户。<br>* * *<br>custom\_field\_list 选填 array\[object\]<br>【商家自定义的开卡信息字段】商家自定义的开卡信息字段。商户会员卡模板中指定了用户领取会员卡时需要填写的自定义信息，则返回给商户。<br>属性<br>name 选填 string(128)<br>【字段名称】字段名称。商户会员卡模板中指定了用户领取会员卡时需要填写的自定义信息，则将名称返回给商户。<br>* * *<br>user\_chosen\_values 选填 array\[string(8)\]<br>【字段值】用户选择的字段值列表，最多10个。商户会员卡模板中指定了用户领取会员卡时需要填写的自定义信息，则将用户选择的结果通知给商户。 |
- | attach | string(256) | false | 【商家数据包】 商家在创建用户会员卡时可传入自定义数据包，该数据对用户不可见，用于存储商家自定义信息，其总长度限制在256字符以内。此接口和查询用户会员卡详情时会将此字段返回给商家。 |
- | user_card_state | string(32) | true | 【用户会员卡状态】 用户会员卡状态。<br>枚举值：<br>UNACTIVATED：已领卡（未激活）<br>EFFECTIVE：生效中<br>EXPIRED：已过期<br>INVALID：已失效 |
- | invalid_reason | string(256) | false | 【作废原因】 会员卡作废时传入的原因。当商户作废会员卡时传入，则该值会返回给商户。 |
+ ## 一、经营场景与类目合规
+ 
+ | 注意事项 | 说明、正确应该怎么做 | 不做会怎么样 |
+ | --- | --- | --- |
+-| 不得由外部 App 或网页跳转小程序收银台完成交易 | 说明：小程序支付仅支持在微信内的小程序场景发起并调起；由商户自有 App 或外部 H5 网页跳转到微信小程序后再调起支付，不在小程序支付支持的场景范围内，该业务模式存在资金安全风险。外部 APP 或 H5 场景不跳转小程序收银台，须按对应支付产品单独设计支付链路；逾期未整改会被关闭「外部跳转小程序支付」权限。<br>正确应该怎么做：① 经营场景为小程序且在微信内打开的，在小程序内调用 JSAPI/小程序下单接口获取 `prepay_id`，再用 `wx.requestPayment` 调起支付；② 经营场景为外部 App 的，按 APP 场景申请开通 APP 支付权限并接入 APP 下单接口；③ 经营场景为外部浏览器网页的，使用 H5 支付；不以跳转小程序的方式绕行。<br>典型反例：在商户自有 App 内通过开放平台「App 拉起小程序」能力跳转至微信小程序，再在小程序内调起微信支付。见 [4012791910-小程序支付常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012791910.md)、 [4013352071-小程序支付常见问题（服务商）](https://pay.weixin.qq.com/doc/v3/partner/4013352071.md)、 [4013080231-APP下单](https://pay.weixin.qq.com/doc/v3/partner/4013080231.md)、 [小程序交易异常自查与申诉指引-腾讯客服](https://kf.qq.com/faq/260713mYRf6n260713aMVVb2.html) | 下单接口可正常返回 `prepay_id`，但在调起支付阶段报错，提示「当前商户该支付方式存在异常，暂时无法支付」，用户无法完成付款，商户小程序还可能被按交易异常处置。 |
++| 不得由外部 App 或网页跳转小程序收银台完成交易 | 说明：小程序支付仅支持在微信内的小程序场景发起并调起；由商户自有 App 或外部 H5 网页跳转到微信小程序后再调起支付，不在小程序支付支持的场景范围内。外部 APP 或 H5 场景不跳转小程序收银台，须按对应支付产品单独设计支付链路；逾期未整改会被关闭「外部跳转小程序支付」权限。<br>正确应该怎么做：① 经营场景为小程序且在微信内打开的，在小程序内调用 JSAPI/小程序下单接口获取 `prepay_id`，再用 `wx.requestPayment` 调起支付；② 经营场景为外部 App 的，按 APP 场景申请开通 APP 支付权限并接入 APP 下单接口；③ 经营场景为外部浏览器网页的，使用 H5 支付；不以跳转小程序的方式绕行。<br>典型反例：在商户自有 App 内通过开放平台「App 拉起小程序」能力跳转至微信小程序，再在小程序内调起微信支付。见 [4012791910-小程序支付常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012791910.md)、 [4013352071-小程序支付常见问题（服务商）](https://pay.weixin.qq.com/doc/v3/partner/4013352071.md)、 [4013080231-APP下单](https://pay.weixin.qq.com/doc/v3/partner/4013080231.md)、 [小程序交易异常自查与申诉指引-腾讯客服](https://kf.qq.com/faq/260713mYRf6n260713aMVVb2.html) | 下单接口可正常返回 `prepay_id`，但在调起支付阶段报错，提示「当前商户该支付方式存在异常，暂时无法支付」，用户无法完成付款，商户小程序还可能被按交易异常处置。 |
+ 
+ ## 二、AppID、OpenID 与用户身份
+ 
+```
+
+### 产品介绍
+- ID: `4015274636`
+- 路径: 商家名片会员
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015274636.md
+- 更新时间变更: 2026-10-15 09:11:59 -> 2026-11-05 07:18:49
+- 本地文件: `pages/4015274636.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.10.15
++>更新时间：2026.11.05
+ 
+ # 1、产品概述
+ 
+@@ -188,6 +188,34 @@
+ 
+ ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/dc8dd669e831edc9916bc59eab8b5f1c.png)
+ 
++## 2.8、支付后入会有礼消息（暂不开放）
++
++用户在扫码盒子或刷掌设备支付完成后，如用户非商家会员，下发“入会有礼”消息通知（创建过至少一张会员卡），用户点击消息完成入会并发放入会礼（需联系微信支付运营申请开通）。
++
++### 2.8.1、完整流程概览
++
++### ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b3d07094a9978d39ad4c21ee2b07bcb0.png)
++
++### 2.8.2、入会礼配置
++
++提供以下内容，联系微信支付运营
++
++【入会有礼】活动配置模板：
++
++|     |     |
++| --- | --- |
++| 字段名 | 填写说明 |
++| 品牌名称 | — |
++| 品牌 ID | — |
++| 会员卡模板 ID | — |
++| 活动名称 | — |
++| 活动起止时间 | 格式：YYYY-MM-DD 至 YYYY-MM-DD |
++| 商品券 ID | — |
++| 批次 ID | — |
++| 优惠名称 | — |
++| 灰度设备SN | 如果有需要对设备进行灰度，可提供SN列表，灰度期间仅对指定设备扫码的用户触发入会有礼消息。灰度结束后可申请放开全量 |
++| 灰度用户微信号/订单号 列表 | 如果有需要对用户进行灰度，可提供测试用户列表（可提供测试用户的微信号，或提供用户一笔420开头的微信支付订单号），灰度期间仅对指定用户触发入会有礼消息。灰度结束后可申请放开全量 |
++
+ # 3、注意事项
+ 
+ ## 3.1、在商家名片入会后需同步平台开通状态
+```
+
+### 常见问题
+- ID: `4016111688`
+- 路径: 消费者投诉2.0
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016111688.md
+- 更新时间变更: 2026-05-19 07:41:24 -> 2026-11-05 09:31:00
+- 本地文件: `pages/4016111688.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.05.19
++>更新时间：2026.11.05
+ 
+ #### Q：创建投诉通知回调地址返回{"code": "INVALID\_REQUEST", "message": "Http头缺少Accept或User-Agent"}
+ 
+@@ -82,7 +82,7 @@
+ 
+ #### Q：调用 [回复投诉](https://pay.weixin.qq.com/doc/v3/partner/4012467213.md) 接口时返回“当前投诉单已达单次回复上限，请等待用户回复”，具体限制规则是什么？
+ 
+-A：单次限制：在用户下次回复前，商家最多可回复 20 条。累计限制：单笔投诉单双方消息总量达到 2000 条后，将触发总上限。
++A：单次限制：在用户下次回复前，商家最多可回复 20 条。累计限制：单笔投诉单双方消息总量达到 2000 条后，将触发总额上限。
+ 
+ #### Q：商户平台展示的“升级投诉单数”是否仅统计用户当日发起投诉且当日升级的工单量？
+ 
+```
+
+### 接入易错点
+- ID: `4054257739`
+- 路径: 平台证书
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4054257739.md
+- 更新时间变更: 2026-10-30 13:18:46 -> 2026-11-05 08:10:05
+- 本地文件: `pages/4054257739.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.10.30
++>更新时间：2026.11.05
+ 
+ ## 一、验签模式与证书类型的区分
+ 
+@@ -18,7 +18,7 @@
+ | 注意事项 | 说明、正确应该怎么做 | 不做会怎么样 |
+ | --- | --- | --- |
+ | 平台证书到期前须完成平滑切换 | 说明：平台证书用于 APIv3 应答与回调通知验签，也用于部分接口敏感字段加密；每张平台证书有效期为 5 年，到期前必须更换。平台证书更换期间新旧两份证书同时有效，微信支付会按灰度比例使用其中一份签名，并在应答或回调的 `Wechatpay-Serial` 请求头中声明本次所用证书序列号，商户须用对应证书验签；也可按官方指引切换为无物理有效期的微信支付公钥。<br>正确应该怎么做：① 排查所有使用该商户号的 V3 业务系统，确认其已实现多平台证书验签，并能按 `Wechatpay-Serial` 选择对应证书；② 通过平台证书下载接口获取并保存全部有效期内的新旧平台证书，不要硬编码单张证书；③ 新证书下发并完成部署后，由超级管理员登录商户平台，进入「账户中心 → API安全 → 平台证书 → 管理证书」，开启手动灰度，先设置较小比例，观察业务正常后逐步提升至 100%，出现异常可随时终止灰度；④ 若评估不再使用平台证书，按「如何从平台证书切换成微信支付公钥」改造验签和敏感字段加解密，再在商户平台完成切换。<br>典型反例：始终使用单张固定平台证书验签；或未确认全部业务系统均已获取并部署新旧两份证书就开启灰度。<br>见 [4012068814-产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md)、 [4012068829-平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068829.md)、 [4012069411-常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012069411.md)、 [4012071382-如何解密回调报文和平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012071382.md)、 [4012072428-申请商户API证书](https://pay.weixin.qq.com/doc/v3/merchant/4012072428.md)、 [4012073044-产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012073044.md)、 [4012073146-平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/partner/4012073146.md)、 [4012073263-常见问题](https://pay.weixin.qq.com/doc/v3/partner/4012073263.md)、 [4012076524-平台证书下载工具](https://pay.weixin.qq.com/doc/v3/merchant/4012076524.md)、 [4012081606-APIv3概述](https://pay.weixin.qq.com/doc/v3/merchant/4012081606.md)、 [4012153196-微信支付公钥产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012153196.md)、 [4012154180-如何从平台证书切换成微信支付公钥](https://pay.weixin.qq.com/doc/v3/merchant/4012154180.md)、 [4012551764-下载平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)、 [4013053057-如何更换商户API证书](https://pay.weixin.qq.com/doc/v3/merchant/4013053057.md)、 [4013053420-如何使用平台证书验签名](https://pay.weixin.qq.com/doc/v3/merchant/4013053420.md)、 [4024350132-证书密钥概览](https://pay.weixin.qq.com/doc/v3/merchant/4024350132.md) | 旧平台证书到期后，APIv3 应答与回调通知验签失败，敏感字段加解密异常，导致支付、退款、账单下载及相关回调处理中断；平台证书下载接口可能返回「平台证书已过期失效」及 `NOT_ENOUGH`。 |
+-| 同一商户号全部V3系统须统一适配换证 | 说明：平台证书更换期间会同时存在新旧两份有效证书，系统需要能自动获取或部署多张证书，并根据报文中的 `Wechatpay-Serial` 选择对应证书验签；微信支付官方 SDK 已支持平台证书平滑切换。<br>正确应该怎么做：① 清点同一商户号下所有调用 APIv3 的系统，包括支付、退款、支付结果回调和敏感字段加解密链路；② 每个系统均实现定期更新平台证书，不硬编码单一证书；③ 保存有效期内的多张平台证书，并按 `Wechatpay-Serial` 路由验签；④ 使用官方 SDK 时，同时核对实际调用的 SDK 组件、版本和初始化方式；⑤ 所有系统完成改造并验证后，再生成或下发新平台证书并启动灰度；⑥ 若系统只能部署一份证书且无改造能力，只能按指引停服后一次性更换，该方式风险较高，应优先完成多证书改造。<br>典型反例：只升级主支付系统，其他独立服务仍固定使用旧平台证书，就启动整商户号灰度。<br>见 [4012068814-产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md)、 [4012068829-平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068829.md)、 [4012069411-常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012069411.md)、 [4012551764-下载平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)、 [4024350132-证书密钥概览](https://pay.weixin.qq.com/doc/v3/merchant/4024350132.md) | 灰度切到新证书后，未完成改造的系统无法验签，支付应答、回调或退款处理会失败；采用单证书停服替换时，切换窗口内全部交易还会中断。 |
++| 同一商户号全部V3系统须统一适配换证 | 说明：平台证书更换期间会同时存在新旧两份有效证书，系统需要能自动获取或部署多张证书，并根据报文中的 `Wechatpay-Serial` 选择对应证书验签；微信支付官方 SDK 已支持平台证书平滑切换。<br>正确应该怎么做：① 清点同一商户号下所有调用 APIv3 的系统，包括支付、退款、支付结果回调和敏感字段加解密链路；② 每个系统均实现定期更新平台证书，不硬编码单一证书；③ 保存有效期内的多张平台证书，并按 `Wechatpay-Serial` 路由验签；④ 使用官方 SDK 时，同时核对实际调用的 SDK 组件、版本和初始化方式；⑤ 所有系统完成改造并验证后，再生成或下发新平台证书并启动灰度；⑥ 若系统只能部署一份证书且无改造能力，只能按指引停服后一次性更换，应优先完成多证书改造。<br>典型反例：只升级主支付系统，其他独立服务仍固定使用旧平台证书，就启动整商户号灰度。<br>见 [4012068814-产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md)、 [4012068829-平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068829.md)、 [4012069411-常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012069411.md)、 [4012551764-下载平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)、 [4024350132-证书密钥概览](https://pay.weixin.qq.com/doc/v3/merchant/4024350132.md) | 灰度切到新证书后，未完成改造的系统无法验签，支付应答、回调或退款处理会失败；采用单证书停服替换时，切换窗口内全部交易还会中断。 |
+ | 仅支持单证书时须部署新证书后一次切换 | 说明：系统不支持同时部署多张平台证书时，无法执行按 `Wechatpay-Serial` 选证验签的平滑切换，只能在停止服务期间一次性替换证书。<br>正确应该怎么做：① 优先改造为下载并缓存多张证书、按 `Wechatpay-Serial` 选择对应证书验签；② 确需使用单证书方案时，在业务窗口停止服务，部署新平台证书；③ 在商户平台启动灰度并直接设置 100%，确认微信支付全部使用新证书签名；④ 完成验证后再恢复服务。<br>典型反例：系统只能读取一份固定证书，却直接启动部分灰度，导致部分应答已改用新证书时本地仍只有旧证书。<br>见 [4012068814-产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4012068814.md)、 [4012068829-平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068829.md)、 [4012069411-常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4012069411.md)、 [4012551764-下载平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)、 [4013053420-如何使用平台证书验签名](https://pay.weixin.qq.com/doc/v3/merchant/4013053420.md) | 新旧证书切换期间会出现验签失败；若在新证书尚未部署时让旧证书到期，系统会自动使用新证书签名，APIv3 支付、退款及回调处理会持续失败。 |
+ 
+ ## 四、APIv3密钥用途与重置
 ```
 
 ## 附录：所有页面清单
@@ -295,7 +227,7 @@
 | 6 | [产品介绍](pages/4012069852.md) | `4012069852` | 2026-05-21 03:22:54 | JSAPI支付 |
 | 7 | [开发接入准备](pages/4012069853.md) | `4012069853` | 2026-10-13 13:00:01 | JSAPI支付 |
 | 8 | [开发指引](pages/4012069859.md) | `4012069859` | 2026-11-02 03:09:17 | JSAPI支付 |
-| 9 | [接入易错点](pages/4054250946.md) | `4054250946` | 2026-10-30 14:06:52 | JSAPI支付 |
+| 9 | [接入易错点](pages/4054250946.md) | `4054250946` | 2026-11-05 08:11:23 | JSAPI支付 |
 | 10 | [常见问题](pages/4013334850.md) | `4013334850` | 2026-08-05 06:16:19 | JSAPI支付 |
 | 11 | [JSAPI下单](pages/4012738519.md) | `4012738519` | 2026-10-11 07:44:07 | JSAPI支付 > API列表 |
 | 12 | [JSAPI调起支付](pages/4012069855.md) | `4012069855` | 2025-02-26 07:08:25 | JSAPI支付 > API列表 |
@@ -335,7 +267,7 @@
 | 46 | [产品介绍](pages/4012074916.md) | `4012074916` | 2026-05-21 03:26:43 | H5支付 |
 | 47 | [开发接入准备](pages/4012074917.md) | `4012074917` | 2026-05-19 08:36:25 | H5支付 |
 | 48 | [开发指引](pages/4012074915.md) | `4012074915` | 2026-06-09 09:46:10 | H5支付 |
-| 49 | [接入易错点](pages/4054257717.md) | `4054257717` | 2026-10-30 13:29:09 | H5支付 |
+| 49 | [接入易错点](pages/4054257717.md) | `4054257717` | 2026-11-05 08:10:31 | H5支付 |
 | 50 | [常见问题](pages/4013336079.md) | `4013336079` | 2026-09-01 07:43:14 | H5支付 |
 | 51 | [H5下单](pages/4012738604.md) | `4012738604` | 2025-03-31 06:14:50 | H5支付 > API列表 |
 | 52 | [H5调起支付](pages/4012085683.md) | `4012085683` | 2024-12-23 02:14:31 | H5支付 > API列表 |
@@ -376,7 +308,7 @@
 | 87 | [产品介绍](pages/4012085810.md) | `4012085810` | 2026-05-21 03:31:05 | 小程序支付 |
 | 88 | [开发接入准备](pages/4012076731.md) | `4012076731` | 2026-05-19 08:36:53 | 小程序支付 |
 | 89 | [开发指引](pages/4012076732.md) | `4012076732` | 2026-06-09 09:46:05 | 小程序支付 |
-| 90 | [接入易错点](pages/4054257720.md) | `4054257720` | 2026-10-30 13:25:53 | 小程序支付 |
+| 90 | [接入易错点](pages/4054257720.md) | `4054257720` | 2026-11-05 08:11:04 | 小程序支付 |
 | 91 | [常见问题](pages/4013352071.md) | `4013352071` | 2026-08-05 09:20:10 | 小程序支付 |
 | 92 | [JSAPI/小程序下单](pages/4012759974.md) | `4012759974` | 2025-03-31 06:14:54 | 小程序支付 > API列表 |
 | 93 | [小程序调起支付](pages/4012085827.md) | `4012085827` | 2025-02-26 07:10:30 | 小程序支付 > API列表 |
@@ -736,7 +668,7 @@
 | 447 | [查询已生效交易连接名片规则](pages/4016366785.md) | `4016366785` | 2025-10-30 09:56:20 | 商家名片 > API列表 > 交易连接名片 |
 | 448 | [根据业务申请编号查询添加申请状态](pages/4016366816.md) | `4016366816` | 2025-10-30 09:56:20 | 商家名片 > API列表 > 交易连接名片 |
 | 449 | [商家名片&交易连接名片配置指引](pages/4016433970.md) | `4016433970` | 2026-04-02 12:57:33 | 商家名片 > 附录 |
-| 450 | [产品介绍](pages/4015274636.md) | `4015274636` | 2026-10-15 09:11:59 | 商家名片会员 |
+| 450 | [产品介绍](pages/4015274636.md) | `4015274636` | 2026-11-05 07:18:49 | 商家名片会员 |
 | 451 | [开发指引](pages/4015274639.md) | `4015274639` | 2026-10-12 03:08:03 | 商家名片会员 |
 | 452 | [常见问题](pages/4017418554.md) | `4017418554` | 2026-01-30 07:18:54 | 商家名片会员 |
 | 453 | [图片上传](pages/4015900513.md) | `4015900513` | 2025-11-14 07:32:05 | 商家名片会员 > API列表 |
@@ -901,7 +833,7 @@
 | 612 | [开发指引](pages/4012072858.md) | `4012072858` | 2026-10-20 03:51:53 | 消费者投诉2.0 |
 | 613 | [业务示例代码](pages/4015933338.md) | `4015933338` | 2026-06-09 09:46:01 | 消费者投诉2.0 |
 | 614 | [接入易错点](pages/4054257738.md) | `4054257738` | 2026-10-30 14:13:17 | 消费者投诉2.0 |
-| 615 | [常见问题](pages/4016111688.md) | `4016111688` | 2026-05-19 07:41:24 | 消费者投诉2.0 |
+| 615 | [常见问题](pages/4016111688.md) | `4016111688` | 2026-11-05 09:31:00 | 消费者投诉2.0 |
 | 616 | [查询投诉单列表](pages/4012691285.md) | `4012691285` | 2025-09-02 02:28:31 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
 | 617 | [查询投诉单详情](pages/4012691648.md) | `4012691648` | 2025-08-28 02:43:42 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
 | 618 | [查询投诉单协商历史](pages/4012691802.md) | `4012691802` | 2025-08-28 02:43:30 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
@@ -995,7 +927,7 @@
 | 706 | [如何从平台证书切换成微信支付公钥](pages/4012925289.md) | `4012925289` | 2024-12-12 02:59:29 | 微信支付公钥 > 附录 |
 | 707 | [如何从微信支付公钥切换成平台证书](pages/4015419376.md) | `4015419376` | 2026-03-17 09:45:27 | 微信支付公钥 > 附录 |
 | 708 | [产品介绍](pages/4012073044.md) | `4012073044` | 2026-05-21 07:25:38 | 平台证书 |
-| 709 | [接入易错点](pages/4054257739.md) | `4054257739` | 2026-10-30 13:18:46 | 平台证书 |
+| 709 | [接入易错点](pages/4054257739.md) | `4054257739` | 2026-11-05 08:10:05 | 平台证书 |
 | 710 | [常见问题](pages/4012073263.md) | `4012073263` | 2024-11-29 09:45:35 | 平台证书 |
 | 711 | [下载平台证书](pages/4012715700.md) | `4012715700` | 2024-10-15 08:45:31 | 平台证书 > API列表 |
 | 712 | [平台证书更换操作指引](pages/4012073146.md) | `4012073146` | 2024-12-04 06:35:09 | 平台证书 > 附录 |
