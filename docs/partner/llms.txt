@@ -1,4 +1,4 @@
->更新时间：2026.11.06
+>更新时间：2026.11.10
 
 # 微信支付合作伙伴平台文档中心
 
@@ -975,6 +975,9 @@
 - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016550707.md)
 ## 证书密钥概览
 - [证书密钥概览](https://pay.weixin.qq.com/doc/v3/partner/4025464285.md)
+## 商户API证书
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4057926576.md)
+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4058384718.md)
 ## 微信支付公钥
 > 微信支付公钥可用于验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加解密，保障交易与数据安全。商户在 API 安全页面申请下载，一次申请永久有效。
 
@@ -997,6 +1000,8 @@
 - [下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)
 ### 附录
 - [平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/partner/4012073146.md)
+## APIv3密钥
+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4057926638.md)
 ## 平台收付通-电商交易解决方案
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012086891.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012086921.md)

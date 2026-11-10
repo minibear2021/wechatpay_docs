@@ -1,5 +1,5 @@
 {
-  "totalNodes": 907,
+  "totalNodes": 910,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -4904,6 +4904,20 @@
       "fullPath": "证书密钥概览"
     },
     {
+      "docId": "4057926576",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4057926576.md",
+      "updateTime": "1794218728",
+      "fullPath": "商户API证书"
+    },
+    {
+      "docId": "4058384718",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4058384718.md",
+      "updateTime": "1794279810",
+      "fullPath": "商户API证书"
+    },
+    {
       "docId": "4012925323",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012925323.md",
@@ -4986,6 +5000,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012073146.md",
       "updateTime": "1733294109",
       "fullPath": "平台证书 > 附录"
+    },
+    {
+      "docId": "4057926638",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4057926638.md",
+      "updateTime": "1794218753",
+      "fullPath": "APIv3密钥"
     },
     {
       "docId": "4012086891",
