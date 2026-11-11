@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261110_075020
-**文档总数**: 910
+**生成时间**: 20261111_071751
+**文档总数**: 908
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 3 个页面
-- 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 3 个页面
+- 新增: 0 个页面
+- 删除: 2 个页面
+- 修改: 6 个页面
+- 成功拉取: 6 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,59 +20,584 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.06
-+>更新时间：2026.11.10
+->更新时间：2026.11.10
++>更新时间：2026.11.11
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -975,6 +975,9 @@
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016550707.md)
- ## 证书密钥概览
- - [证书密钥概览](https://pay.weixin.qq.com/doc/v3/partner/4025464285.md)
-+## 商户API证书
-+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4057926576.md)
-+- [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4058384718.md)
- ## 微信支付公钥
- > 微信支付公钥可用于验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加解密，保障交易与数据安全。商户在 API 安全页面申请下载，一次申请永久有效。
- 
-@@ -997,6 +1000,8 @@
- - [下载平台证书](https://pay.weixin.qq.com/doc/v3/partner/4012715700.md)
+@@ -809,8 +809,6 @@
+ - [删除品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783113.md)
+ - [暂停门店营业](https://pay.weixin.qq.com/doc/v3/partner/4016756671.md)
+ - [恢复门店营业](https://pay.weixin.qq.com/doc/v3/partner/4016756672.md)
+-- [绑定收款商户号](https://pay.weixin.qq.com/doc/v3/partner/4015783177.md)
+-- [解绑收款商户号](https://pay.weixin.qq.com/doc/v3/partner/4015783188.md)
  ### 附录
- - [平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/partner/4012073146.md)
-+## APIv3密钥
-+- [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4057926638.md)
- ## 平台收付通-电商交易解决方案
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4012086891.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4012086921.md)
+ - [品牌经营平台管理品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4016689827.md)
+ ## 品牌服务商授权
 ```
 
-## 新增页面
+## 删除页面
 
-### 产品介绍
-- ID: `4057926576`
-- 路径: 商户API证书
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4057926576.md
-- 更新时间: 2026-11-09 10:05:28
-- 本地文件: `pages/4057926576.md`
+- **绑定收款商户号** (`4015783177`)
+  - 原路径: 品牌门店 > API列表
+  - 原 URL: https://pay.weixin.qq.com/doc/v3/partner/4015783177.md
+  - 原更新时间: 2025-12-02 11:35:44
 
-### 常见问题
-- ID: `4058384718`
-- 路径: 商户API证书
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4058384718.md
-- 更新时间: 2026-11-10 03:03:30
-- 本地文件: `pages/4058384718.md`
+- **解绑收款商户号** (`4015783188`)
+  - 原路径: 品牌门店 > API列表
+  - 原 URL: https://pay.weixin.qq.com/doc/v3/partner/4015783188.md
+  - 原更新时间: 2025-12-02 11:35:44
 
-### 产品介绍
-- ID: `4057926638`
-- 路径: APIv3密钥
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4057926638.md
-- 更新时间: 2026-11-09 10:05:53
-- 本地文件: `pages/4057926638.md`
+## 修改页面
+
+### 创建会员卡模板
+- ID: `4015336970`
+- 路径: 商家名片会员 > API列表 > 会员卡模板管理
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015336970.md
+- 更新时间变更: 2026-11-04 07:43:44 -> 2026-11-11 06:32:15
+- 本地文件: `pages/4015336970.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.11.04
++>更新时间：2026.11.11
+ 
+ 通过此接口可以创建一张会员卡模板，创建成功将获得会员卡模板ID
+ 
+@@ -37,7 +37,9 @@
+ | card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
+ | code_mode | string | false | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、不传时默认为系统分配（ `SYSTEM_ALLOCATE`）。<br>3、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
+ | code_type | string | false | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。当会员码展示类型为跳转商家小程序时，必填 `code_jump_information`。不传时默认为不显示任何码型（ `NONE_CODE`）。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
+-| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。<br>属性<br>jump\_appid 选填  string(32)<br>【会员码跳转AppID】 会员码跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【会员码跳转路径】 会员码跳转的小程序路径 |
++| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
++| code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
++| code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+ | benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+@@ -45,12 +47,30 @@
+ | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。若该值不为空，则会返回该字段。 |
+ | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话。若该值不为空，则会返回该字段。 |
+ | legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+-| valid_date_information | object | false | 【会员卡有效期】 会员卡有效期。不传时默认为永久有效。<br>属性<br>type 必填  string<br>【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br>- `FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效<br>- `FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效<br>- `PERMANENT`:  会员卡激活后永久有效<br>* * *<br>available\_begin\_time 选填  string<br>【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_end\_time 选填  string<br>【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_day\_after\_receive 选填  integer<br>【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+-| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息<br>属性<br>jump\_appid 必填  string(32)<br>【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID<br>* * *<br>jump\_path 必填  string(128)<br>【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
+-| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。<br>属性<br>jump\_appid 选填  string(32)<br>【积分跳转AppID】 会员积分跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【积分跳转路径】 会员积分跳转的小程序路径 |
+-| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。<br>属性<br>jump\_appid 选填  string(32)<br>【储值小程序AppID】 点击储值额跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
+-| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。若该值不为空，则会返回该字段。<br>属性<br>price 选填  integer<br>【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分）<br>* * *<br>jump\_appid 选填  string(32)<br>【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID<br>* * *<br>jump\_path 选填  string(128)<br>【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。<br>属性<br>common\_field\_list 选填  array\[string\]<br>【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br>- `USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。<br>- `USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名<br>- `USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。<br>- `USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址<br>- `USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。<br>- `USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。<br>* * *<br>custom\_field\_list 选填  array\[object\]<br>【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。<br>属性<br>type 选填  string<br>【字段类型】 选择所需的字段类型<br>可选取值<br>- `CHECK_BOX`:  用户可从商家提供的选项中选择多项<br>- `RADIO`:  用户可从商家提供的选项中选择一项<br>* * *<br>name 选填  string(32)<br>【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>* * *<br>values 选填  array\[string(8)\]<br>【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
++| valid_date_information | object | false | 【会员卡有效期】 会员卡有效期。不传时默认为永久有效。 |
++| valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
++| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息 |
++| member_information.jump_appid | string(32) | true | 【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID |
++| member_information.jump_path | string(128) | true | 【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
++| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。 |
++| points_information.jump_appid | string(32) | false | 【积分跳转AppID】 会员积分跳转的小程序AppID |
++| points_information.jump_path | string(128) | false | 【积分跳转路径】 会员积分跳转的小程序路径 |
++| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。若该值不为空，则会返回该字段。 |
++| balance_information.jump_appid | string(32) | false | 【储值小程序AppID】 点击储值额跳转的小程序AppID |
++| balance_information.jump_path | string(128) | false | 【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
++| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。若该值不为空，则会返回该字段。 |
++| purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
++| purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
++| purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
++| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
++| user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
++| user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
++| user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
++| user_information.custom_field_list.name | string(32) | false | 【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。 |
++| user_information.custom_field_list.values | array[string(8)] | false | 【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
+ | support_user_active_join | boolean | false | 【是否支持用户主动入会】 是否允许用户在微信支付内主动开通这张会员卡。不传时默认为 true。为 true 时，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；会员权益、回调地址、商家法务协议必填。为 false 时，用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
+ | purchase_membership | boolean | false | 【是否为付费会员】 标记这张会员卡是否为付费会员。不传时为 false。本字段仅作标记，为 true 不要求填写付费会员价格和跳转信息。 |
+ ## 应答参数
+@@ -69,7 +89,9 @@
+ | card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
+ | code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
+ | code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
+-| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。<br>属性<br>jump\_appid 选填  string(32)<br>【会员码跳转AppID】 会员码跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【会员码跳转路径】 会员码跳转的小程序路径 |
++| code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
++| code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
++| code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+ | benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+@@ -77,12 +99,30 @@
+ | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。 |
+ | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
+ | legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+-| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期<br>属性<br>type 必填  string<br>【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br>- `FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效<br>- `FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效<br>- `PERMANENT`:  会员卡激活后永久有效<br>* * *<br>available\_begin\_time 选填  string<br>【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_end\_time 选填  string<br>【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。<br>* * *<br>available\_day\_after\_receive 选填  integer<br>【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+-| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息<br>属性<br>jump\_appid 必填  string(32)<br>【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID<br>* * *<br>jump\_path 必填  string(128)<br>【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
+-| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。<br>属性<br>jump\_appid 选填  string(32)<br>【积分跳转AppID】 会员积分跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【积分跳转路径】 会员积分跳转的小程序路径 |
+-| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。<br>属性<br>jump\_appid 选填  string(32)<br>【储值小程序AppID】 点击储值额跳转的小程序AppID<br>* * *<br>jump\_path 选填  string(128)<br>【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
+-| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。<br>属性<br>price 选填  integer<br>【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分）<br>* * *<br>jump\_appid 选填  string(32)<br>【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID<br>* * *<br>jump\_path 选填  string(128)<br>【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。<br>属性<br>common\_field\_list 选填  array\[string\]<br>【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br>- `USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。<br>- `USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名<br>- `USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。<br>- `USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址<br>- `USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。<br>- `USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。<br>* * *<br>custom\_field\_list 选填  array\[object\]<br>【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。<br>属性<br>type 选填  string<br>【字段类型】 选择所需的字段类型<br>可选取值<br>- `CHECK_BOX`:  用户可从商家提供的选项中选择多项<br>- `RADIO`:  用户可从商家提供的选项中选择一项<br>* * *<br>name 选填  string(32)<br>【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>* * *<br>values 选填  array\[string(8)\]<br>【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
++| valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
++| valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
++| member_information | object | true | 【会员中心信息】 用户点击会员卡卡面的跳转信息 |
++| member_information.jump_appid | string(32) | true | 【会员中心跳转AppID】 用户点击会员卡卡面后跳转的小程序AppID |
++| member_information.jump_path | string(128) | true | 【会员中心跳转路径】 用户点击会员卡卡面后跳转的小程序路径 |
++| points_information | object | false | 【积分信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。 |
++| points_information.jump_appid | string(32) | false | 【积分跳转AppID】 会员积分跳转的小程序AppID |
++| points_information.jump_path | string(128) | false | 【积分跳转路径】 会员积分跳转的小程序路径 |
++| balance_information | object | false | 【储值信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息。否则不启动该功能。 |
++| balance_information.jump_appid | string(32) | false | 【储值小程序AppID】 点击储值额跳转的小程序AppID |
++| balance_information.jump_path | string(128) | false | 【储值小程序路径】 点击储值额跳转的小程序页面路径，建议为储值充值页面 |
++| purchase_information | object | false | 【付费会员信息】 若商家名片会员卡使用该功能，需传入跳转商家小程序的信息及会员价格。否则不启动该功能。 |
++| purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
++| purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
++| purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
++| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
++| user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
++| user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
++| user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
++| user_information.custom_field_list.name | string(32) | false | 【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。 |
++| user_information.custom_field_list.values | array[string(8)] | false | 【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
+ | state | string | true | 【状态】 会员卡状态信息<br>可选取值<br><ul><li>`CARD_EFFECTIVE`:  生效中</li><li>`CARD_INVALID`:  已失效</li></ul> |
+ | create_time | string | true | 【创建时间】 创建会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | modify_time | string | true | 【更新时间】 更新会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+```
+
+### 查询会员卡模板列表
+- ID: `4015336976`
+- 路径: 商家名片会员 > API列表 > 会员卡模板管理
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015336976.md
+- 更新时间变更: 2025-08-01 02:53:26 -> 2026-11-11 06:30:44
+- 本地文件: `pages/4015336976.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.08.01
++>更新时间：2026.11.11
+ 
+ 通过此接口可查询指定某品牌的所有会员卡模板列表
+ 
+@@ -15,7 +15,7 @@
+ 
+ 　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
+ 
+-接口限频：10/秒（商户号维度）
++接口限频：100/秒（商户号维度）
+ 
+ ## 请求参数
+ 
+@@ -45,21 +45,21 @@
+ | data.card_type | string | true | 【会员卡类型】 支持付费、普通、储值 3 种类型。目前仅支持普通会员卡，填写付费和储值类型时会返回错误。<br>可选取值<br><ul><li>`PURCHASE`:  付费</li><li>`NORMAL`:  普通</li><li>`BALANCE`:  储值</li></ul> |
+ | data.card_title | string(10) | true | 【卡名称】 1.可用于展示在卡面的名称 2.支持最长10个中文字 3.支持中文字、英文字符、标点 |
+ | data.card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制 |
+-| data.card_picture_url | string(256) | true | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。 |
+-| data.code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code；（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code 2、会员卡code分配模式若为“系统分配”，不支持修改为“商家分配”。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
++| data.card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
++| data.code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
+ | data.code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
+ | data.code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
+ | data.code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
+ | data.code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+-| data.benefits | string(32) | true | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
+-| data.notify_url | string(256) | true | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
++| data.benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
++| data.notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | data.need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+ | data.need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false） |
+ | data.init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。 |
+ | data.service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
+-| data.legal_agreement | string(20480) | true | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。 |
++| data.legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | data.valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
+-| data.valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| data.valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
+ | data.valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | data.valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | data.valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+@@ -76,7 +76,7 @@
+ | data.purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
+ | data.purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
+ | data.purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| data.user_information | object | false | 【用户开卡信息】 要求用户在开通会员卡时必须填写的信息。若用户不填写则不允许开通会员卡。 |
++| data.user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
+ | data.user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
+ | data.user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
+ | data.user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
+@@ -85,6 +85,8 @@
+ | data.state | string | true | 【状态】 会员卡状态信息<br>可选取值<br><ul><li>`CARD_EFFECTIVE`:  生效中</li><li>`CARD_INVALID`:  已失效</li></ul> |
+ | data.create_time | string | true | 【创建时间】 创建会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | data.modify_time | string | true | 【更新时间】 更新会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| data.support_user_active_join | boolean | false | 【是否支持用户主动入会】 true 表示允许用户在微信支付内主动开通这张会员卡，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；false 表示用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
++| data.purchase_membership | boolean | false | 【是否为付费会员】 true 表示该会员卡是付费会员，false 表示不是。 |
+ | total_count | integer | true | 【总数量】 总数量 |
+ | offset | integer | true | 【分页开始位置】 该次请求的分页开始位置，从0开始计数，例如offset=10，表示从第11条记录开始返回。 |
+ | limit | integer | true | 【分页大小】 分页大小，范围为1~20 |
+@@ -175,7 +177,9 @@
+       },
+       "state" : "CARD_EFFECTIVE",
+       "create_time" : "2020-05-20T13:29:35.120+08:00",
+-      "modify_time" : "2020-05-20T13:29:35.120+08:00"
++      "modify_time" : "2020-05-20T13:29:35.120+08:00",
++      "support_user_active_join" : true,
++      "purchase_membership" : false
+     }
+   ],
+   "total_count" : 20,
+```
+
+### 查询会员卡模板信息
+- ID: `4015336974`
+- 路径: 商家名片会员 > API列表 > 会员卡模板管理
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015336974.md
+- 更新时间变更: 2025-08-01 02:53:26 -> 2026-11-11 06:34:35
+- 本地文件: `pages/4015336974.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.08.01
++>更新时间：2026.11.11
+ 
+ 通过此接口可查询指定会员卡模板的所有信息
+ 
+@@ -15,7 +15,7 @@
+ 
+ 　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
+ 
+-接口限频：10/秒（商户号维度）
++接口限频：100/秒（商户号维度）
+ 
+ ## 请求参数
+ 
+@@ -45,21 +45,21 @@
+ | card_type | string | true | 【会员卡类型】 支持付费、普通、储值 3 种类型。目前仅支持普通会员卡，填写付费和储值类型时会返回错误。<br>可选取值<br><ul><li>`PURCHASE`:  付费</li><li>`NORMAL`:  普通</li><li>`BALANCE`:  储值</li></ul> |
+ | card_title | string(10) | true | 【卡名称】 1.可用于展示在卡面的名称 2.支持最长10个中文字 3.支持中文字、英文字符、标点 |
+ | card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制 |
+-| card_picture_url | string(256) | true | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。 |
+-| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code；（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code 2、会员卡code分配模式若为“系统分配”，不支持修改为“商家分配”。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
++| card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
++| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
+ | code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
+ | code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
+ | code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
+ | code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+-| benefits | string(32) | true | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
+-| notify_url | string(256) | true | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
++| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
++| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+ | need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false） |
+ | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。 |
+ | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
+-| legal_agreement | string(20480) | true | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。 |
++| legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
+-| valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
+ | valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+@@ -76,7 +76,7 @@
+ | purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
+ | purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
+ | purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| user_information | object | false | 【用户开卡信息】 要求用户在开通会员卡时必须填写的信息。若用户不填写则不允许开通会员卡。 |
++| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
+ | user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
+ | user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
+ | user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
+@@ -85,6 +85,8 @@
+ | state | string | true | 【状态】 会员卡状态信息<br>可选取值<br><ul><li>`CARD_EFFECTIVE`:  生效中</li><li>`CARD_INVALID`:  已失效</li></ul> |
+ | create_time | string | true | 【创建时间】 创建会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | modify_time | string | true | 【更新时间】 更新会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| support_user_active_join | boolean | false | 【是否支持用户主动入会】 true 表示允许用户在微信支付内主动开通这张会员卡，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；false 表示用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
++| purchase_membership | boolean | false | 【是否为付费会员】 true 表示该会员卡是付费会员，false 表示不是。 |
+ ## 错误码
+ 
+ 以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
+@@ -171,7 +173,9 @@
+   },
+   "state" : "CARD_EFFECTIVE",
+   "create_time" : "2020-05-20T13:29:35.120+08:00",
+-  "modify_time" : "2020-05-20T13:29:35.120+08:00"
++  "modify_time" : "2020-05-20T13:29:35.120+08:00",
++  "support_user_active_join" : true,
++  "purchase_membership" : false
+ }
+ 
+ ```
+```
+
+### 修改会员卡模板信息
+- ID: `4015336977`
+- 路径: 商家名片会员 > API列表 > 会员卡模板管理
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015336977.md
+- 更新时间变更: 2025-08-01 02:53:26 -> 2026-11-11 06:35:06
+- 本地文件: `pages/4015336977.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.08.01
++>更新时间：2026.11.11
+ 
+ 更新会员卡的信息，包括基本信息、储值信息、开卡信息等
+ 
+@@ -15,7 +15,7 @@
+ 
+ 　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
+ 
+-接口限频：10/秒（商户号维度）
++接口限频：100/秒（商户号维度）
+ 
+ ## 请求参数
+ 
+@@ -39,13 +39,13 @@
+ | code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
+ | code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
+ | code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+-| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
+-| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
++| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必须已填写或在本次补齐，不能改成空。不传表示不修改。 |
++| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必须已填写或在本次补齐，不能改成空。不传表示不修改。 |
+ | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+ | need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false） |
+ | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
+ | valid_date_information | object | false | 【会员卡有效期】 会员卡有效期 |
+-| valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
+ | valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+@@ -62,12 +62,16 @@
+ | purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
+ | purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
+ | purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| user_information | object | false | 【用户开卡信息】 设置用户在开通会员卡时必须填写的信息 |
++| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
+ | user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
+ | user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
+ | user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
+ | user_information.custom_field_list.name | string(32) | false | 【字段名称】 信息项的名称。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。 |
+ | user_information.custom_field_list.values | array[string(8)] | false | 【字段值】 信息项的值列表。<br>特殊规则：列表最多支持10个，单个列表限制8个字符。若商户创建会员卡模板时设置该值，则查询结果中会返回给商户。 |
++| legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必须已填写或在本次补齐，不能改成空。不传表示不修改。 |
++| init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。修改后「是否展示会员等级」为 true 时，必须已有会员初始等级或在本次填写，作为新用户开卡后的初始等级，与是否支持用户主动入会无关。不传表示不修改。 |
++| support_user_active_join | boolean | false | 【是否支持用户主动入会】 是否允许用户在微信支付内主动开通这张会员卡。不传表示不修改当前设置，不会因为创建时的默认值 true 重新打开已关闭的用户主动入会。改为 true 时，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通，会员权益、回调地址、商家法务协议必须已填写或在本次补齐；改为 false 时，用户不能在微信支付内主动开通，只能由商家通过导入等方式开通，已填写的会员权益、回调地址、商家法务协议会保留，不会被清空。 |
++| purchase_membership | boolean | false | 【是否为付费会员】 标记这张会员卡是否为付费会员。不传表示不修改当前设置。本字段仅作标记，改为 true 不要求填写付费会员价格和跳转信息。 |
+ ## 应答参数
+ 
+ 200 OK
+@@ -81,21 +85,21 @@
+ | card_type | string | true | 【会员卡类型】 支持付费、普通、储值 3 种类型。目前仅支持普通会员卡，填写付费和储值类型时会返回错误。<br>可选取值<br><ul><li>`PURCHASE`:  付费</li><li>`NORMAL`:  普通</li><li>`BALANCE`:  储值</li></ul> |
+ | card_title | string(10) | true | 【卡名称】 1.可用于展示在卡面的名称 2.支持最长10个中文字 3.支持中文字、英文字符、标点 |
+ | card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制 |
+-| card_picture_url | string(256) | true | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。 |
+-| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code；（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code 2、会员卡code分配模式若为“系统分配”，不支持修改为“商家分配”。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
++| card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
++| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
+ | code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
+ | code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
+ | code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
+ | code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+-| benefits | string(32) | true | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
+-| notify_url | string(256) | true | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
++| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
++| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+ | need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false） |
+ | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。 |
+ | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
+-| legal_agreement | string(20480) | true | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。 |
++| legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
+-| valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
+ | valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+@@ -112,7 +116,7 @@
+ | purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
+ | purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
+ | purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| user_information | object | false | 【用户开卡信息】 要求用户在开通会员卡时必须填写的信息。若用户不填写则不允许开通会员卡。 |
++| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
+ | user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
+ | user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
+ | user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
+@@ -121,6 +125,8 @@
+ | state | string | true | 【状态】 会员卡状态信息<br>可选取值<br><ul><li>`CARD_EFFECTIVE`:  生效中</li><li>`CARD_INVALID`:  已失效</li></ul> |
+ | create_time | string | true | 【创建时间】 创建会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | modify_time | string | true | 【更新时间】 更新会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| support_user_active_join | boolean | false | 【是否支持用户主动入会】 true 表示允许用户在微信支付内主动开通这张会员卡，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；false 表示用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
++| purchase_membership | boolean | false | 【是否为付费会员】 true 表示该会员卡是付费会员，false 表示不是。 |
+ ## 错误码
+ 
+ 以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
+@@ -163,6 +169,7 @@
+ | 400 | PARAM\_ERROR | 积分跳转 AppID 或路径为空 | 请填写积分跳转所需的AppID和页面路径 |
+ | 400 | PARAM\_ERROR | 储值跳转 AppID 或路径为空 | 请填写储值跳转所需的AppID和页面路径 |
+ | 400 | PARAM\_ERROR | 付费跳转 AppID 或路径为空 | 请填写付费跳转所需的AppID和页面路径 |
++| 400 | PARAM\_ERROR | 修改后是否支持用户主动入会为 true 时，会员权益、回调地址、商家法务协议必须已填写或在本次补齐 | 请补齐会员权益、回调地址、商家法务协议；若不需要用户在微信支付内主动开通，请将是否支持用户主动入会设为 false |
+ | 400 | INVALID\_REQUEST | 商家未开通商家名片会员功能 | 请联系运营为该商家开通商家名片会员功能 |
+ 
+ 请求示例
+@@ -238,7 +245,9 @@
+   },
+   "state" : "CARD_EFFECTIVE",
+   "create_time" : "2020-05-20T13:29:35.120+08:00",
+-  "modify_time" : "2020-05-20T13:29:35.120+08:00"
++  "modify_time" : "2020-05-20T13:29:35.120+08:00",
++  "support_user_active_join" : true,
++  "purchase_membership" : false
+ }
+ 
+ ```
+```
+
+### 投放计划配置指引
+- ID: `4016111064`
+- 路径: 摇一摇有优惠 > 附录
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016111064.md
+- 更新时间变更: 2026-06-30 09:41:15 -> 2026-11-10 07:21:18
+- 本地文件: `pages/4016111064.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.06.30
++>更新时间：2026.11.10
+ 
+ 针对服务商模式可通过以下三种方式进行投放计划的配置
+ 
+@@ -33,9 +33,9 @@
+ | 价格批次 | 是 | 否 | 商品券优惠批次展示规则：<br>1、选择项，默认展示商品券下的可选优惠，包括优惠价和特价（力度+ 门槛）、券名称、券ID、券库存。<br>2、区分状态：单独失效和到期的不展示，其他展示。<br>3、对于展示的优惠批次，若关联批次券code数量不足，小于10000的特价批次置灰，提示库存不足，需大于10000。<br>选择批次时的校验规则：<br>1、券开始可用，当前系统时间>=批次生效时间<br>2、仅支持核销方式为“线上小程序核销”、“微信支付付款码核销”、“APP核销”的批次 |
+ | 投放用户 | 是 | 否 | 当前仅支持“智能通投”，基于用户在微信支付的消费偏好进行投放。 |
+ | 投放计划名称 | 否 | 是 | 不超过 11 个中文字符或者 22 个英文字符，该名称会在活动页面对外展示，建议与商品券名称一致。 |
+-| 投放时间<br>-开始时间<br>-结束时间 | 否 | 是 | 1、投放计划的开始时间需晚于当前时间；<br>2、投放计划的持续时间不得少于 5 天；<br>3、投放计划的开始时间需晚于批次的开始时间（ `available_begin_time`）<br>4、商品券会随批次结束时间到期而直接失效，因此投放计划的结束时间需早于批次时间，保证用户不会在活动期间领取到一张立即过期的券。调用【[查询商品券指定批次](https://pay.weixin.qq.com/doc/v3/partner/4015781542.md)】接口可查询到批次配置的 `coupon_available_period`（券可核销时间）信息。<br>- 情况1: 若商品券配置了 `wait_days_after_receive`（领券后需等待N天生效）和 `available_days`（券生效后N天内可用），则投放计划的结束时间最长可配置为【 `available_end_time`（批次结束时间）- `wait_days_after_receive`（领券后需等待N天生效）- `available_days`（券生效后N天内可用） -1 】。<br>  <br>- 情况2: 若商品券没有配置了 `wait_days_after_receive`（领券后需等待N天生效）和 `available_days`（券生效后N天内可用），则投放计划的结束时间最长可配置为【 `available_end_time`（批次结束时间） -1】。 |
++| 投放时间<br>-开始时间<br>-结束时间 | 否 | 是 | 1、投放计划的开始时间需晚于当前时间；<br>2、投放计划的持续时间不得少于 5 天；<br>3、投放计划的开始时间需晚于批次的开始时间（ `available_begin_time`）<br>4、商品券会随批次结束时间到期而直接失效，因此投放计划的结束时间需早于批次时间，保证用户不会在活动期间领取到一张立即过期的券。调用【[查询商品券指定批次](https://pay.weixin.qq.com/doc/v3/partner/4015781542.md)】接口可查询到批次配置的 `coupon_available_period`（券可核销时间）信息。<br>- 情况1: 若商品券配置了 `wait_days_after_receive`（领券后需等待N天生效）和 `available_days`（券生效后N天内可用），则投放计划的结束时间最长可配置为【 `available_end_time`（批次结束时间）- `wait_days_after_receive`（领券后需等待N天生效）- `available_days`（券生效后N天内可用） -1 】。<br>  <br>- 情况2: 若商品券没有配置了 `wait_days_after_receive`（领券后需等待N天生效）和 `available_days`（券生效后N天内可用），则投放计划的结束时间最长可配置为【 `available_end_time`（批次结束时间） -1】。<br>  <br>- 情况3: 若商品券只配置了 `wait_days_after_receive`（领券后需等待N天生效）则投放计划的结束时间最长可配置为【 `available_end_time`（批次结束时间）- `wait_days_after_receive`（领券后需等待N天生效） -1 】。<br>  <br>- 情况4: 若商品券配置了 `available_days`（券生效后N天内可用），则投放计划的结束时间最长可配置为【 `available_end_time`（批次结束时间）- `available_days`（券生效后N天内可用） -1 】。 |
+ | 投放限领 | 是 |  | 目前提供两种限领方式：<br>- 使用批次限领（默认）：将投放批次剩余的所有库存，单日领取上限、单用户领取上限按批次配置信息进行限领。<br>  <br>- 自定义限领：可自定义“投放库存”、“单日领取上限”、“单用户领取上限”进行限领 |
+-| -投放库存 | 是 | 是 | 1、投放批次可用库存需 >=10000<br>2、投放数量需 >= 10000，并<= 券批次剩余库存 |
++| -投放库存 | 是 | 是 | 1、投放批次可用库存需 >=10000<br>2、投放总库存数量需 >= 10000，并<= 券批次剩余库存 |
+ | -单日领取上限 | 是 | 是 | 需<=券批次最大发放数 |
+ | -单用户领取上限 | 否 | 是 | 需<=券批次单用户领取上限 |
+ | 营销标签 | 否 | 是 | 选择运营标签（N 选 1）：<br>枚举值及释义：<br>全网低价：商品价格是所有销售渠道中最低的。<br>新品特惠：新上市的商品（3个月内），价格优惠，至少和其他渠道一样便宜。<br>招牌限量：招牌为商家的最出名、卖的最好、最有特色、最好口碑的有代表性的商品。<br>爆款返场：已上架过的活动，曝光转化效果好（领取率、领取量水位线待定），再次返场。<br>省钱套餐：套餐类、优惠券类组合特惠。<br>全场立减：平台类商家的全场通用立减。<br>节日特惠：在特定节日或购物节期间提供的特别优惠。<br>限时特惠：在规定的时间段内的特别特惠。<br>出行立减：打车、单车、电单车等出行服务立减。 |
+@@ -111,23 +111,20 @@
+ 
+ 
+ ```mermaid
+-%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
+ stateDiagram-v2
+-    direction LR
+-    state "创建成功[1]" as S1
+-    state "投放中[2]" as S2
+-    state "投放暂停[3]" as S3
+-    state "已过期[4]" as S4
+-    state "已终止[5]" as S5
+-
+-    [*] --> S1: 创建活动
+-    S1 --> S2: 审核通过
+-    S2 --> S3: 库存用尽
+-    S1 --> S4: 活动已过期
+-    S2 --> S4: 活动已过期
+-    S3 --> S2: 补仓库存
+-    S3 --> S5: 终止活动
+-    S3 --> S4: 活动已过期
+-    S2 --> S5: 活动终止
+-    S5 --> [*]
++  state "创建成功[1]" as S0
++  state "投放中[2]" as S1
++  state "投放暂停[3]" as S2
++  state "已过期[4]" as S3
++  state "已终止[5]" as S4
++  [*] --> S0 : 创建活动
++  S0 --> S1 : 审核通过
++  S1 --> S2 : 库存用尽
++  S1 --> S3 : 活动已过期
++  S2 --> S1 : 补仓库存
++  S2 --> S4 : 终止活动
++  S0 --> S3 : 活动已过期
++  S2 --> S3 : 活动已过期
++  S1 --> S4 : 活动终止
++  S4 --> [*]
+ ```
+```
+
+### 开发指引
+- ID: `4016628135`
+- 路径: 品牌门店
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016628135.md
+- 更新时间变更: 2026-06-10 07:28:01 -> 2026-11-11 03:58:05
+- 本地文件: `pages/4016628135.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.06.10
++>更新时间：2026.11.11
+ 
+ ## 1、整体业务开发流程概览
+ 
+@@ -8,32 +8,27 @@
+ | 1 | 创建门店 | 调用「[创建品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783183.md)」API | 商家创建新门店时，首先调用此接口获得系统分配的storeid，作为后续流程识别门店的唯一标识。 |
+ | 2 | 查询门店审核状态 | 调用「[查询品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783153.md)」API | 1、微信侧采用机审+人审的方式进行审核，机审不确定时将会进入人审，机审效率较高预计在 1天内完成，人审预计在 7天内容完成。<br>2、审核通过门店将立即生效，若审核驳回，将返回驳回原因，请调用「[更新品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783158.md)」API更新信息。 |
+ | 3 | 更新品牌门店信息 | 调用「[更新品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783158.md)」API | 若门店生效后，希望更新修改信息，可调用此接口执行，更新信息将不会影响门店的生效状态。 |
+-| 4 | 绑定收款商户号 | 调用「[绑定收款商户号](https://pay.weixin.qq.com/doc/v3/partner/4015783177.md)」API | 此步骤选做，如需建立商户号和门店的关联则需调用此接口，仅支持绑定品牌下已有商户号，请先前往品牌经营平台绑定收款商户号。 |
+-| 5 | 解绑收款商户号 | 调用「[解绑收款商户号](https://pay.weixin.qq.com/doc/v3/partner/4015783188.md)」API | 此步骤选做，如需解除商户号和门店的关联则调用此接口。 |
+-| 6 | 删除品牌门店 | 调用「[删除品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783113.md)」API | 若门店已关闭，请使用此接口删除。 |
++| 4 | 删除品牌门店 | 调用「[删除品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783113.md)」API | 若门店已关闭，请使用此接口删除。 |
+ | 若品牌方需要在品牌经营平台上管理品牌门店，可参考：[品牌经营平台管理品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4016689827.md) | 若品牌方需要在品牌经营平台上管理品牌门店，可参考：[品牌经营平台管理品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4016689827.md) | 若品牌方需要在品牌经营平台上管理品牌门店，可参考：[品牌经营平台管理品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4016689827.md) | 若品牌方需要在品牌经营平台上管理品牌门店，可参考：[品牌经营平台管理品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4016689827.md) |
+ 
+ ## 2、品牌门店状态流转图
+ 
+ ```mermaid
+-%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
+ stateDiagram-v2
+-    direction LR
+-    state "门店创建中-审核中[1]" as S1
+-    state "门店创建中-审核驳回[2]" as S2
+-    state "门店营业中[3]" as S3
+-    state "门店营业中-审核中[1]" as S4
+-    state "门店营业中-审核驳回[2]" as S5
+-
+-    [*] --> S1
+-    S1 --> S2: 门店信息审核驳回
+-    S1 --> S3: 门店信息审核通过
+-    S3 --> S4: 更新修改门店信息
+-    S4 --> S5: 门店信息审核驳回
+-    S3 --> [*]: 删除门店
+-    S2 --> S1: 修改信息重新提交
+-    S4 --> S3: 门店信息审核通过
+-    S5 --> S4: 修改信息重新提交
++  state "门店创建中-审核中[1]" as S0
++  state "门店创建中-审核驳回[2]" as S1
++  state "门店营业中[3]" as S2
++  state "门店营业中-审核中[1]" as S3
++  state "门店营业中-审核驳回[2]" as S4
++  [*] --> S0
++  S0 --> S1 : 门店信息审核驳回
++  S0 --> S2 : 门店信息审核通过
++  S2 --> S3 : 更新修改门店信息
++  S3 --> S4 : 门店信息审核驳回
++  S2 --> [*] : 删除门店
++  S1 --> S0 : 修改信息重新提交
++  S3 --> S2 : 门店信息审核通过
++  S4 --> S3 : 修改信息重新提交
+ ```
+ 
+ 1、品牌门店有【门店状态】、【审核状态】两个状态字段，分别查询门店的生效状态和门店信息的审核状态。
+```
 
 ## 附录：所有页面清单
 
 <details>
-<summary>点击查看全部 910 个页面</summary>
+<summary>点击查看全部 908 个页面</summary>
 
 | 序号 | 标题（链接） | ID | 更新时间 | 完整路径 |
 |------|-------------|----|----------|----------|
@@ -529,10 +1054,10 @@
 | 451 | [开发指引](pages/4015274639.md) | `4015274639` | 2026-10-12 03:08:03 | 商家名片会员 |
 | 452 | [常见问题](pages/4017418554.md) | `4017418554` | 2026-01-30 07:18:54 | 商家名片会员 |
 | 453 | [图片上传](pages/4015900513.md) | `4015900513` | 2025-11-14 07:32:05 | 商家名片会员 > API列表 |
-| 454 | [创建会员卡模板](pages/4015336970.md) | `4015336970` | 2026-11-04 07:43:44 | 商家名片会员 > API列表 > 会员卡模板管理 |
-| 455 | [查询会员卡模板列表](pages/4015336976.md) | `4015336976` | 2025-08-01 02:53:26 | 商家名片会员 > API列表 > 会员卡模板管理 |
-| 456 | [查询会员卡模板信息](pages/4015336974.md) | `4015336974` | 2025-08-01 02:53:26 | 商家名片会员 > API列表 > 会员卡模板管理 |
-| 457 | [修改会员卡模板信息](pages/4015336977.md) | `4015336977` | 2025-08-01 02:53:26 | 商家名片会员 > API列表 > 会员卡模板管理 |
+| 454 | [创建会员卡模板](pages/4015336970.md) | `4015336970` | 2026-11-11 06:32:15 | 商家名片会员 > API列表 > 会员卡模板管理 |
+| 455 | [查询会员卡模板列表](pages/4015336976.md) | `4015336976` | 2026-11-11 06:30:44 | 商家名片会员 > API列表 > 会员卡模板管理 |
+| 456 | [查询会员卡模板信息](pages/4015336974.md) | `4015336974` | 2026-11-11 06:34:35 | 商家名片会员 > API列表 > 会员卡模板管理 |
+| 457 | [修改会员卡模板信息](pages/4015336977.md) | `4015336977` | 2026-11-11 06:35:06 | 商家名片会员 > API列表 > 会员卡模板管理 |
 | 458 | [作废会员卡模板](pages/4015336972.md) | `4015336972` | 2025-08-01 02:53:26 | 商家名片会员 > API列表 > 会员卡模板管理 |
 | 459 | [查询用户会员卡信息](pages/4015336980.md) | `4015336980` | 2025-07-25 03:00:22 | 商家名片会员 > API列表 > 用户会员卡管理 |
 | 460 | [查询用户在品牌下所有会员卡](pages/4015336984.md) | `4015336984` | 2025-07-25 03:00:22 | 商家名片会员 > API列表 > 用户会员卡管理 |
@@ -556,7 +1081,7 @@
 | 478 | [设置投放计划回调地址](pages/4016184598.md) | `4016184598` | 2025-09-27 11:07:12 | 摇一摇有优惠 > API列表 > 投放计划 |
 | 479 | [投放计划状态变更通知](pages/4016168699.md) | `4016168699` | 2026-03-23 07:44:52 | 摇一摇有优惠 > API列表 > 投放计划 |
 | 480 | [投放计划功能介绍](pages/4016402231.md) | `4016402231` | 2026-06-10 07:28:14 | 摇一摇有优惠 > 附录 |
-| 481 | [投放计划配置指引](pages/4016111064.md) | `4016111064` | 2026-06-30 09:41:15 | 摇一摇有优惠 > 附录 |
+| 481 | [投放计划配置指引](pages/4016111064.md) | `4016111064` | 2026-11-10 07:21:18 | 摇一摇有优惠 > 附录 |
 | 482 | [品牌信息用户端展示规则](pages/4016110939.md) | `4016110939` | 2025-11-07 03:08:03 | 摇一摇有优惠 > 附录 |
 | 483 | [权限申请](pages/4015788437.md) | `4015788437` | 2026-04-08 02:20:15 | 摇一摇有优惠 > 附录 |
 | 484 | [运营规则](pages/4017294537.md) | `4017294537` | 2026-01-20 09:27:40 | 摇一摇有优惠 > 附录 |
@@ -653,7 +1178,7 @@
 | 575 | [【多次优惠-单品-满减券】API请求示例](pages/4016756286.md) | `4016756286` | 2025-12-04 08:01:18 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
 | 576 | [【多次优惠-单品-兑换券】API请求示例](pages/4016756287.md) | `4016756287` | 2025-12-04 08:01:50 | 商品券（多次优惠） > 附录 > API请求示例-创建商品券 |
 | 577 | [产品介绍](pages/4016628074.md) | `4016628074` | 2025-11-19 02:54:10 | 品牌门店 |
-| 578 | [开发指引](pages/4016628135.md) | `4016628135` | 2026-06-10 07:28:01 | 品牌门店 |
+| 578 | [开发指引](pages/4016628135.md) | `4016628135` | 2026-11-11 03:58:05 | 品牌门店 |
 | 579 | [常见问题](pages/4016705104.md) | `4016705104` | 2025-11-27 04:06:48 | 品牌门店 |
 | 580 | [创建品牌门店](pages/4015783183.md) | `4015783183` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
 | 581 | [查询品牌门店](pages/4015783153.md) | `4015783153` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
@@ -662,329 +1187,327 @@
 | 584 | [删除品牌门店](pages/4015783113.md) | `4015783113` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
 | 585 | [暂停门店营业](pages/4016756671.md) | `4016756671` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
 | 586 | [恢复门店营业](pages/4016756672.md) | `4016756672` | 2025-12-16 02:56:33 | 品牌门店 > API列表 |
-| 587 | [绑定收款商户号](pages/4015783177.md) | `4015783177` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 588 | [解绑收款商户号](pages/4015783188.md) | `4015783188` | 2025-12-02 11:35:44 | 品牌门店 > API列表 |
-| 589 | [品牌经营平台管理品牌门店](pages/4016689827.md) | `4016689827` | 2025-11-25 10:04:14 | 品牌门店 > 附录 |
-| 590 | [获得品牌已授权且在生效中的产品权限信息](pages/4017410365.md) | `4017410365` | 2026-01-29 09:12:34 | 品牌服务商授权 > API列表 |
-| 591 | [产品介绍](pages/4012072620.md) | `4012072620` | 2024-07-23 08:51:32 | 连锁品牌分账 |
-| 592 | [开发接入准备](pages/4012072625.md) | `4012072625` | 2026-05-19 09:30:42 | 连锁品牌分账 |
-| 593 | [开发指引](pages/4012072637.md) | `4012072637` | 2026-06-09 09:46:07 | 连锁品牌分账 |
-| 594 | [业务示例代码](pages/4015871675.md) | `4015871675` | 2026-06-09 09:46:50 | 连锁品牌分账 |
-| 595 | [常见问题](pages/4015981574.md) | `4015981574` | 2026-02-06 03:12:47 | 连锁品牌分账 |
-| 596 | [请求分账](pages/4012692975.md) | `4012692975` | 2025-09-29 03:46:37 | 连锁品牌分账 > API列表 |
-| 597 | [查询分账结果](pages/4012467002.md) | `4012467002` | 2025-09-29 03:45:52 | 连锁品牌分账 > API列表 |
-| 598 | [请求分账回退](pages/4012467097.md) | `4012467097` | 2025-09-29 03:43:29 | 连锁品牌分账 > API列表 |
-| 599 | [查询分账回退结果](pages/4012467011.md) | `4012467011` | 2025-09-29 03:43:57 | 连锁品牌分账 > API列表 |
-| 600 | [解冻剩余资金](pages/4012467016.md) | `4012467016` | 2025-09-29 03:43:07 | 连锁品牌分账 > API列表 |
-| 601 | [查询订单剩余待分金额](pages/4012467021.md) | `4012467021` | 2025-09-29 03:42:34 | 连锁品牌分账 > API列表 |
-| 602 | [查询最大分账比例](pages/4012467022.md) | `4012467022` | 2025-09-29 03:42:11 | 连锁品牌分账 > API列表 |
-| 603 | [添加分账接收方](pages/4012467100.md) | `4012467100` | 2025-09-29 03:41:51 | 连锁品牌分账 > API列表 |
-| 604 | [删除分账接收方](pages/4012467103.md) | `4012467103` | 2025-09-29 02:38:34 | 连锁品牌分账 > API列表 |
-| 605 | [分账动账通知](pages/4012075400.md) | `4012075400` | 2025-02-19 03:56:03 | 连锁品牌分账 > API列表 |
-| 606 | [申请分账账单](pages/4012715572.md) | `4012715572` | 2025-09-29 02:37:48 | 连锁品牌分账 > API列表 |
-| 607 | [下载账单](pages/4012076073.md) | `4012076073` | 2024-10-30 06:42:53 | 连锁品牌分账 > API列表 |
-| 608 | [分账失败处理指引](pages/4015504918.md) | `4015504918` | 2025-07-04 03:08:09 | 连锁品牌分账 > 附录 |
-| 609 | [清关报关（V2）](pages/4012851220.md) | `4012851220` | 2025-04-25 07:53:42 | 清关报关（V2） |
-| 610 | [产品介绍](pages/4012072827.md) | `4012072827` | 2025-08-25 10:00:14 | 消费者投诉2.0 |
-| 611 | [开发接入准备](pages/4012072844.md) | `4012072844` | 2026-05-19 09:30:57 | 消费者投诉2.0 |
-| 612 | [开发指引](pages/4012072858.md) | `4012072858` | 2026-10-20 03:51:53 | 消费者投诉2.0 |
-| 613 | [业务示例代码](pages/4015933338.md) | `4015933338` | 2026-06-09 09:46:01 | 消费者投诉2.0 |
-| 614 | [接入易错点](pages/4054257738.md) | `4054257738` | 2026-10-30 14:13:17 | 消费者投诉2.0 |
-| 615 | [常见问题](pages/4016111688.md) | `4016111688` | 2026-11-05 09:31:00 | 消费者投诉2.0 |
-| 616 | [查询投诉单列表](pages/4012691285.md) | `4012691285` | 2025-09-02 02:28:31 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
-| 617 | [查询投诉单详情](pages/4012691648.md) | `4012691648` | 2025-08-28 02:43:42 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
-| 618 | [查询投诉单协商历史](pages/4012691802.md) | `4012691802` | 2025-08-28 02:43:30 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
-| 619 | [投诉通知回调](pages/4012076174.md) | `4012076174` | 2025-02-19 03:56:03 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 620 | [创建投诉通知回调地址](pages/4012458106.md) | `4012458106` | 2025-08-28 02:43:28 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 621 | [查询投诉通知回调地址](pages/4012459065.md) | `4012459065` | 2025-08-28 02:43:23 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 622 | [更新投诉通知回调地址](pages/4012459287.md) | `4012459287` | 2025-08-28 02:43:25 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 623 | [删除投诉通知回调地址](pages/4012460474.md) | `4012460474` | 2025-08-28 02:43:21 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
-| 624 | [回复用户](pages/4012467213.md) | `4012467213` | 2025-09-01 02:27:29 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 625 | [反馈处理完成](pages/4012467217.md) | `4012467217` | 2025-09-01 02:25:00 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 626 | [更新退款审批结果](pages/4012467218.md) | `4012467218` | 2025-09-01 02:24:26 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 627 | [回复需要即时服务的投诉单](pages/4017151726.md) | `4017151726` | 2026-01-22 08:02:14 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
-| 628 | [图片上传接口](pages/4012467222.md) | `4012467222` | 2025-09-01 02:10:00 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
-| 629 | [图片请求接口](pages/4012467223.md) | `4012467223` | 2025-09-02 02:43:19 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
-| 630 | [产品介绍](pages/4015792553.md) | `4015792553` | 2025-11-28 08:19:11 | 微信电子发票 |
-| 631 | [开发接入准备](pages/4015792554.md) | `4015792554` | 2026-10-20 10:23:12 | 微信电子发票 |
-| 632 | [开发指引](pages/4015792556.md) | `4015792556` | 2026-07-27 08:21:58 | 微信电子发票 |
-| 633 | [业务示例代码](pages/4016078358.md) | `4016078358` | 2026-06-10 07:28:02 | 微信电子发票 |
-| 634 | [常见问题](pages/4016960715.md) | `4016960715` | 2026-08-05 06:11:58 | 微信电子发票 |
-| 635 | [获取开通服务商电子发票能力邀请链接](pages/4015941495.md) | `4015941495` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 636 | [获取邀请开通的商户信息](pages/4015941524.md) | `4015941524` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 637 | [检查子商户开票功能状态](pages/4015792561.md) | `4015792561` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 638 | [创建电子发票卡券模板](pages/4015792562.md) | `4015792562` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 639 | [配置开发选项](pages/4015792563.md) | `4015792563` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 640 | [获取用户抬头填写链接](pages/4015770776.md) | `4015770776` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 641 | [获取用户填写抬头信息](pages/4015784260.md) | `4015784260` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 642 | [开具通用行业电子发票](pages/4015792574.md) | `4015792574` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 643 | [开具不动产租赁行业电子发票](pages/4015941740.md) | `4015941740` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 644 | [开具成品油行业电子发票](pages/4016760559.md) | `4016760559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 645 | [开具旅客运输行业电子发票](pages/4025863376.md) | `4025863376` | 2026-07-17 03:57:13 | 微信电子发票 > API列表 |
-| 646 | [冲红电子发票](pages/4015792575.md) | `4015792575` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 647 | [查询电子发票](pages/4015792567.md) | `4015792567` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 648 | [获取发票下载信息](pages/4015792576.md) | `4015792576` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 649 | [下载发票文件](pages/4015792569.md) | `4015792569` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 650 | [上传电子发票文件](pages/4015792580.md) | `4015792580` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 651 | [将电子发票插入微信用户卡包](pages/4015792579.md) | `4015792579` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 652 | [用户发票抬头填写完成通知](pages/4015792559.md) | `4015792559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 653 | [发票开具成功通知](pages/4015792570.md) | `4015792570` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 654 | [发票插入用户卡包成功通知](pages/4015792578.md) | `4015792578` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 655 | [发票冲红成功通知](pages/4015792571.md) | `4015792571` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 656 | [发票卡券作废通知](pages/4015792560.md) | `4015792560` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 657 | [成品油单位转换公式](pages/4016730844.md) | `4016730844` | 2026-07-27 06:19:53 | 微信电子发票 > 附录 |
-| 658 | [产品介绍](pages/4012062365.md) | `4012062365` | 2024-10-16 07:11:49 | 特约商户进件 |
-| 659 | [开发接入准备](pages/4012062375.md) | `4012062375` | 2026-10-20 10:21:17 | 特约商户进件 |
-| 660 | [开发指引](pages/4012062379.md) | `4012062379` | 2026-06-09 09:45:48 | 特约商户进件 |
-| 661 | [常见问题](pages/4016058480.md) | `4016058480` | 2026-08-05 06:17:02 | 特约商户进件 |
-| 662 | [提交申请单](pages/4012719997.md) | `4012719997` | 2025-03-26 06:58:27 | 特约商户进件 > API列表 |
-| 663 | [申请单号查询申请状态](pages/4012697052.md) | `4012697052` | 2025-03-24 04:07:15 | 特约商户进件 > API列表 |
-| 664 | [业务申请编号查询申请状态](pages/4012697168.md) | `4012697168` | 2025-03-24 04:07:17 | 特约商户进件 > API列表 |
-| 665 | [修改结算账户](pages/4012761102.md) | `4012761102` | 2025-01-22 01:35:52 | 特约商户进件 > API列表 |
-| 666 | [查询结算账户](pages/4012761113.md) | `4012761113` | 2025-01-21 03:41:29 | 特约商户进件 > API列表 |
-| 667 | [查询结算账户修改申请状态](pages/4012761120.md) | `4012761120` | 2025-01-21 03:41:31 | 特约商户进件 > API列表 |
-| 668 | [文件上传](pages/4012760490.md) | `4012760490` | 2026-05-09 07:01:44 | 特约商户进件 > API列表 |
-| 669 | [视频上传](pages/4012761084.md) | `4012761084` | 2024-11-18 09:25:56 | 特约商户进件 > API列表 |
-| 670 | [产品介绍](pages/4012064820.md) | `4012064820` | 2024-10-24 08:22:24 | 商户开户意愿确认 |
-| 671 | [开发接入准备](pages/4012064824.md) | `4012064824` | 2026-10-22 11:09:03 | 商户开户意愿确认 |
-| 672 | [开发指引](pages/4012064832.md) | `4012064832` | 2026-10-20 07:56:31 | 商户开户意愿确认 |
-| 673 | [常见问题](pages/4016644196.md) | `4016644196` | 2026-01-16 03:48:52 | 商户开户意愿确认 |
-| 674 | [提交申请单](pages/4012722388.md) | `4012722388` | 2025-01-09 03:10:33 | 商户开户意愿确认 > API列表 |
-| 675 | [撤销申请单](pages/4012697627.md) | `4012697627` | 2024-12-04 02:03:31 | 商户开户意愿确认 > API列表 |
-| 676 | [查询申请单审核结果](pages/4012697715.md) | `4012697715` | 2024-11-04 07:59:30 | 商户开户意愿确认 > API列表 |
-| 677 | [获取商户开户意愿确认状态](pages/4012467549.md) | `4012467549` | 2024-10-24 09:20:46 | 商户开户意愿确认 > API列表 |
-| 678 | [图片上传](pages/4012760509.md) | `4012760509` | 2024-11-18 09:25:43 | 商户开户意愿确认 > API列表 |
-| 679 | [产品介绍](pages/4012064844.md) | `4012064844` | 2026-03-10 07:23:55 | 商户平台处置通知 |
-| 680 | [开发接入准备](pages/4012064851.md) | `4012064851` | 2026-05-19 09:33:15 | 商户平台处置通知 |
-| 681 | [开发指引](pages/4012064853.md) | `4012064853` | 2026-10-20 08:03:31 | 商户平台处置通知 |
-| 682 | [业务示例代码](pages/4015949382.md) | `4015949382` | 2025-09-03 03:01:42 | 商户平台处置通知 |
-| 683 | [查询商户违规通知回调地址](pages/4012471327.md) | `4012471327` | 2025-08-28 09:27:26 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 684 | [修改商户违规通知回调地址](pages/4012471330.md) | `4012471330` | 2025-08-28 09:27:19 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 685 | [创建商户违规通知回调地址](pages/4012471333.md) | `4012471333` | 2025-08-28 09:27:12 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 686 | [删除商户违规通知回调地址](pages/4012471334.md) | `4012471334` | 2025-08-28 09:27:05 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 687 | [商户平台处置记录回调通知](pages/4012079216.md) | `4012079216` | 2025-02-19 03:56:03 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
-| 688 | [产品介绍](pages/4012064898.md) | `4012064898` | 2026-05-25 07:06:33 | 不活跃商户身份核实 |
-| 689 | [开发接入准备](pages/4012064902.md) | `4012064902` | 2026-05-19 09:33:57 | 不活跃商户身份核实 |
-| 690 | [开发指引](pages/4012064909.md) | `4012064909` | 2026-06-09 09:45:41 | 不活跃商户身份核实 |
-| 691 | [常见问题](pages/4012064915.md) | `4012064915` | 2024-07-24 08:05:05 | 不活跃商户身份核实 |
-| 692 | [发起不活跃商户身份核实](pages/4012471357.md) | `4012471357` | 2025-08-08 07:33:04 | 不活跃商户身份核实 > API列表 |
-| 693 | [查询不活跃商户身份核实结果](pages/4012471359.md) | `4012471359` | 2025-08-08 08:00:48 | 不活跃商户身份核实 > API列表 |
-| 694 | [关键概念](pages/4012064904.md) | `4012064904` | 2024-10-25 02:37:34 | 不活跃商户身份核实 > 附录 |
-| 695 | [产品介绍](pages/4012165270.md) | `4012165270` | 2026-10-20 08:13:40 | 商户被管控能力及原因查询 |
-| 696 | [查询子商户管控情况](pages/4012803072.md) | `4012803072` | 2025-09-26 09:24:32 | 商户被管控能力及原因查询 > API列表 |
-| 697 | [产品介绍](pages/4016022264.md) | `4016022264` | 2025-09-17 04:03:07 | 合作伙伴订阅 |
-| 698 | [开发指引](pages/4016022266.md) | `4016022266` | 2025-09-16 03:35:57 | 合作伙伴订阅 |
-| 699 | [常见问题](pages/4016550707.md) | `4016550707` | 2026-08-05 06:17:27 | 合作伙伴订阅 |
-| 700 | [证书密钥概览](pages/4025464285.md) | `4025464285` | 2026-07-21 04:03:55 | 证书密钥概览 |
-| 701 | [产品介绍](pages/4057926576.md) | `4057926576` | 2026-11-09 10:05:28 | 商户API证书 |
-| 702 | [常见问题](pages/4058384718.md) | `4058384718` | 2026-11-10 03:03:30 | 商户API证书 |
-| 703 | [产品介绍](pages/4012925323.md) | `4012925323` | 2026-05-20 03:21:30 | 微信支付公钥 |
-| 704 | [接入易错点](pages/4054257740.md) | `4054257740` | 2026-10-30 13:18:21 | 微信支付公钥 |
-| 705 | [常见问题](pages/4013038589.md) | `4013038589` | 2025-03-04 07:15:22 | 微信支付公钥 |
-| 706 | [商户签名验签／加解密测试](pages/4015139289.md) | `4015139289` | 2026-04-08 03:50:21 | 微信支付公钥 > API列表 |
-| 707 | [回调接口](pages/4019605946.md) | `4019605946` | 2026-04-10 08:15:23 | 微信支付公钥 > API列表 |
-| 708 | [如何从平台证书切换成微信支付公钥](pages/4012925289.md) | `4012925289` | 2024-12-12 02:59:29 | 微信支付公钥 > 附录 |
-| 709 | [如何从微信支付公钥切换成平台证书](pages/4015419376.md) | `4015419376` | 2026-03-17 09:45:27 | 微信支付公钥 > 附录 |
-| 710 | [产品介绍](pages/4012073044.md) | `4012073044` | 2026-05-21 07:25:38 | 平台证书 |
-| 711 | [接入易错点](pages/4054257739.md) | `4054257739` | 2026-11-05 08:10:05 | 平台证书 |
-| 712 | [常见问题](pages/4012073263.md) | `4012073263` | 2024-11-29 09:45:35 | 平台证书 |
-| 713 | [下载平台证书](pages/4012715700.md) | `4012715700` | 2024-10-15 08:45:31 | 平台证书 > API列表 |
-| 714 | [平台证书更换操作指引](pages/4012073146.md) | `4012073146` | 2024-12-04 06:35:09 | 平台证书 > 附录 |
-| 715 | [产品介绍](pages/4057926638.md) | `4057926638` | 2026-11-09 10:05:53 | APIv3密钥 |
-| 716 | [产品介绍](pages/4012086891.md) | `4012086891` | 2026-10-20 10:21:01 | 平台收付通-电商交易解决方案 |
-| 717 | [开发接入准备](pages/4012086921.md) | `4012086921` | 2026-10-20 10:20:57 | 平台收付通-电商交易解决方案 |
-| 718 | [消费者投诉2.0](pages/4016312079.md) | `4016312079` | 2026-07-16 03:40:54 | 平台收付通-电商交易解决方案 |
-| 719 | [开发指引](pages/4012087137.md) | `4012087137` | 2026-06-16 07:46:00 | 平台收付通-电商交易解决方案 > 商户进件 |
-| 720 | [常见问题](pages/4012525423.md) | `4012525423` | 2026-05-26 08:53:06 | 平台收付通-电商交易解决方案 > 商户进件 |
-| 721 | [提交申请单](pages/4012713017.md) | `4012713017` | 2025-02-28 12:07:34 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 722 | [通过业务申请编号查询申请状态](pages/4012691376.md) | `4012691376` | 2024-11-28 06:22:29 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 723 | [通过申请单ID查询申请状态](pages/4012691469.md) | `4012691469` | 2024-11-28 06:22:27 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 724 | [修改结算账户](pages/4012761138.md) | `4012761138` | 2026-01-14 06:27:19 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 725 | [查询结算账户](pages/4012761142.md) | `4012761142` | 2026-01-14 06:27:41 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 726 | [查询结算账户修改申请状态](pages/4012761169.md) | `4012761169` | 2025-01-21 03:41:31 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 727 | [文件上传](pages/4012760432.md) | `4012760432` | 2026-05-09 07:02:14 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
-| 728 | [产品介绍](pages/4018153750.md) | `4018153750` | 2026-06-11 07:25:17 | 平台收付通-电商交易解决方案 > 商户注销 |
-| 729 | [商户注销资格校验](pages/4016420099.md) | `4016420099` | 2025-11-05 09:41:04 | 平台收付通-电商交易解决方案 > 商户注销 > 注销预校验 > API列表 |
-| 730 | [提交注销提现申请](pages/4013892756.md) | `4013892756` | 2025-03-13 04:54:44 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
-| 731 | [商户申请单号查询申请单状态](pages/4013892759.md) | `4013892759` | 2025-09-26 02:25:46 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
-| 732 | [微信支付申请单号查询申请单状态](pages/4013892765.md) | `4013892765` | 2025-09-26 02:25:56 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
-| 733 | [常见问题](pages/4015943239.md) | `4015943239` | 2025-11-07 06:48:10 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） |
-| 734 | [提交注销申请单](pages/4012476217.md) | `4012476217` | 2025-02-17 10:16:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
-| 735 | [查询注销单状态](pages/4012476223.md) | `4012476223` | 2024-11-05 02:04:20 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
-| 736 | [图片上传](pages/4012691710.md) | `4012691710` | 2024-11-05 02:05:52 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 图片上传 |
-| 737 | [提交已注销商户号可用余额提现申请单](pages/4012488950.md) | `4012488950` | 2025-01-09 03:10:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
-| 738 | [商户提现申请单号查询提现申请单状态](pages/4012476164.md) | `4012476164` | 2024-11-05 02:15:27 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
-| 739 | [微信支付提现申请单号查询提现申请单状态](pages/4012778400.md) | `4012778400` | 2024-11-05 02:16:19 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
-| 740 | [查询指定主体子商户列表](pages/4033742105.md) | `4033742105` | 2026-08-19 02:04:07 | 平台收付通-电商交易解决方案 > 商户注销 > 商户查询 > API列表 |
-| 741 | [开发指引](pages/4012088031.md) | `4012088031` | 2026-06-10 07:28:44 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
-| 742 | [常见问题](pages/4012525474.md) | `4012525474` | 2026-05-09 08:54:23 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
-| 743 | [APP下单](pages/4012714669.md) | `4012714669` | 2024-10-24 03:39:28 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
-| 744 | [APP调起支付](pages/4012090168.md) | `4012090168` | 2025-02-20 03:00:52 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
-| 745 | [JSAPI下单](pages/4012714678.md) | `4012714678` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
-| 746 | [JSAPI调起支付](pages/4012090156.md) | `4012090156` | 2025-02-26 07:08:25 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
-| 747 | [Native下单](pages/4012714902.md) | `4012714902` | 2024-10-24 06:18:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
-| 748 | [Native调起支付](pages/4012090180.md) | `4012090180` | 2025-03-21 07:41:33 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
-| 749 | [小程序下单](pages/4012714911.md) | `4012714911` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
-| 750 | [小程序调起支付](pages/4012090181.md) | `4012090181` | 2025-02-26 07:10:30 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
-| 751 | [H5下单](pages/4012714759.md) | `4012714759` | 2024-10-24 06:27:02 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
-| 752 | [H5调起支付](pages/4012090177.md) | `4012090177` | 2024-12-23 02:14:31 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
-| 753 | [微信支付订单号查询订单](pages/4012760565.md) | `4012760565` | 2025-04-07 01:51:41 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 754 | [微信支付商户订单号查询订单](pages/4012760568.md) | `4012760568` | 2025-04-07 01:51:51 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 755 | [关闭订单](pages/4012760574.md) | `4012760574` | 2025-04-07 01:51:49 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 756 | [支付结果通知](pages/4012090195.md) | `4012090195` | 2025-04-07 01:52:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
-| 757 | [开发指引](pages/4012089542.md) | `4012089542` | 2026-06-10 07:28:43 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
-| 758 | [常见问题](pages/4012525491.md) | `4012525491` | 2026-05-09 08:54:07 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
-| 759 | [合单下单-JSAPI](pages/4012760615.md) | `4012760615` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
-| 760 | [JSAPI调起支付](pages/4012090843.md) | `4012090843` | 2025-02-19 03:55:15 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
-| 761 | [合单下单-APP](pages/4012760622.md) | `4012760622` | 2024-11-14 08:12:11 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
-| 762 | [APP调起支付](pages/4012090949.md) | `4012090949` | 2025-03-28 10:57:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
-| 763 | [合单下单-H5](pages/4012760626.md) | `4012760626` | 2024-11-14 08:12:10 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
-| 764 | [H5调起支付](pages/4012091014.md) | `4012091014` | 2024-10-28 02:58:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
-| 765 | [合单下单-NATIVE](pages/4012760629.md) | `4012760629` | 2024-11-14 08:12:12 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
-| 766 | [Native调起支付](pages/4012091224.md) | `4012091224` | 2024-10-28 02:54:47 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
-| 767 | [合单下单-小程序](pages/4012760633.md) | `4012760633` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
-| 768 | [小程序调起支付](pages/4012091236.md) | `4012091236` | 2025-02-18 11:41:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
-| 769 | [合单查询订单](pages/4012761049.md) | `4012761049` | 2024-10-24 07:08:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
-| 770 | [合单关闭订单](pages/4012761093.md) | `4012761093` | 2024-10-24 07:09:52 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
-| 771 | [支付通知](pages/4012237246.md) | `4012237246` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
-| 772 | [开发指引](pages/4012087888.md) | `4012087888` | 2026-06-10 07:27:51 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
-| 773 | [业务示例代码](pages/4015870957.md) | `4015870957` | 2026-06-09 09:46:47 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
-| 774 | [常见问题](pages/4012525463.md) | `4012525463` | 2026-05-21 07:43:02 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
-| 775 | [请求分账](pages/4012691594.md) | `4012691594` | 2025-09-29 06:45:52 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 776 | [查询分账结果](pages/4012477734.md) | `4012477734` | 2025-09-29 02:09:30 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 777 | [请求分账回退](pages/4012477737.md) | `4012477737` | 2025-09-29 02:06:15 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 778 | [查询分账回退结果](pages/4012477740.md) | `4012477740` | 2025-09-29 02:04:34 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 779 | [解冻剩余资金](pages/4012477745.md) | `4012477745` | 2025-09-29 02:03:23 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 780 | [查询订单剩余待分金额](pages/4012477751.md) | `4012477751` | 2025-09-29 02:02:25 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 781 | [添加分账接收方](pages/4012477758.md) | `4012477758` | 2025-09-29 02:01:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 782 | [删除分账接收方](pages/4012477759.md) | `4012477759` | 2025-09-29 02:00:58 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 783 | [分账动账通知](pages/4012116672.md) | `4012116672` | 2025-02-19 03:56:03 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
-| 784 | [分账失败处理指引](pages/4015504955.md) | `4015504955` | 2025-07-04 03:08:08 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > 附录 |
-| 785 | [业务示例代码](pages/4015593692.md) | `4015593692` | 2026-06-10 07:27:50 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
-| 786 | [常见问题](pages/4015942503.md) | `4015942503` | 2026-01-22 06:48:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
-| 787 | [请求补差](pages/4012477631.md) | `4012477631` | 2024-11-04 11:30:10 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
-| 788 | [请求补差回退](pages/4012477636.md) | `4012477636` | 2024-11-04 11:30:36 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
-| 789 | [取消补差](pages/4012477639.md) | `4012477639` | 2024-10-24 08:47:04 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
-| 790 | [业务示例代码](pages/4015217874.md) | `4015217874` | 2026-06-10 07:27:49 | 平台收付通-电商交易解决方案 > 交易退款 |
-| 791 | [申请退款](pages/4012476892.md) | `4012476892` | 2024-11-04 11:33:40 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 792 | [查询单笔退款（按微信支付退款单号）](pages/4012476908.md) | `4012476908` | 2024-11-04 11:36:44 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 793 | [查询单笔退款（按商户退款单号）](pages/4012476911.md) | `4012476911` | 2024-11-04 11:36:11 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 794 | [退款结果通知](pages/4012124635.md) | `4012124635` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 795 | [查询垫付回补结果](pages/4012476916.md) | `4012476916` | 2024-11-04 11:40:17 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 796 | [垫付退款回补](pages/4012476927.md) | `4012476927` | 2024-11-04 11:41:31 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 797 | [发起异常退款](pages/4015181616.md) | `4015181616` | 2025-06-06 08:23:46 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
-| 798 | [常见问题](pages/4016644075.md) | `4016644075` | 2025-11-21 03:07:14 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 |
-| 799 | [查询二级商户账户实时余额](pages/4012476690.md) | `4012476690` | 2024-11-04 11:47:34 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 800 | [查询二级商户账户日终余额](pages/4012476693.md) | `4012476693` | 2024-11-04 11:47:25 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 801 | [查询平台账户实时余额](pages/4012476700.md) | `4012476700` | 2024-11-04 11:46:09 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 802 | [查询平台账户日终余额](pages/4012476702.md) | `4012476702` | 2024-11-04 11:46:15 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
-| 803 | [业务示例代码](pages/4019899593.md) | `4019899593` | 2026-06-10 07:27:45 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
-| 804 | [常见问题](pages/4014075940.md) | `4014075940` | 2026-06-29 01:57:55 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
-| 805 | [二级商户预约提现](pages/4012476652.md) | `4012476652` | 2024-12-19 07:33:30 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 806 | [二级商户查询预约提现状态（根据商户预约提现单号查询）](pages/4012476656.md) | `4012476656` | 2024-12-19 07:33:26 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 807 | [二级商户查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476665.md) | `4012476665` | 2024-12-19 07:33:24 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 808 | [平台预约提现](pages/4012476670.md) | `4012476670` | 2024-12-19 07:33:21 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 809 | [平台查询预约提现状态（根据商户预约提现单号查询）](pages/4012476672.md) | `4012476672` | 2024-12-19 07:33:18 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 810 | [平台查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476674.md) | `4012476674` | 2024-12-19 07:33:16 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 811 | [二级商户按日终余额预约提现](pages/4013328143.md) | `4013328143` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 812 | [查询二级商户按日终余额预约提现状态](pages/4013328163.md) | `4013328163` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 813 | [按日下载提现异常文件](pages/4012476678.md) | `4012476678` | 2024-12-19 07:11:13 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 814 | [商户提现状态变更通知](pages/4013049135.md) | `4013049135` | 2025-02-24 09:49:47 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
-| 815 | [业务示例代码](pages/4016062108.md) | `4016062108` | 2025-12-04 01:55:05 | 平台收付通-电商交易解决方案 > 账单下载 |
-| 816 | [申请交易账单](pages/4012760667.md) | `4012760667` | 2025-04-07 01:51:03 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 817 | [申请资金账单](pages/4012760672.md) | `4012760672` | 2025-04-07 01:50:55 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 818 | [申请分账账单](pages/4012761131.md) | `4012761131` | 2025-01-20 08:06:16 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 819 | [下载账单](pages/4012124894.md) | `4012124894` | 2025-04-16 09:44:14 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 820 | [申请二级商户资金账单](pages/4012760697.md) | `4012760697` | 2024-10-23 08:14:36 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 821 | [下载单个子商户/二级商户资金账单](pages/4014314390.md) | `4014314390` | 2025-04-16 03:21:56 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
-| 822 | [业务示例代码](pages/4015593257.md) | `4015593257` | 2026-06-10 07:27:44 | 平台收付通-电商交易解决方案 > 跨境付款 |
-| 823 | [查询订单剩余可出境余额](pages/4012476109.md) | `4012476109` | 2024-11-05 02:17:34 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 824 | [申请资金出境](pages/4012476113.md) | `4012476113` | 2024-11-05 02:22:26 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 825 | [查询出境结果](pages/4012476127.md) | `4012476127` | 2024-11-05 02:23:59 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 826 | [获取购付汇账单文件下载链接](pages/4012476132.md) | `4012476132` | 2024-11-05 02:32:27 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
-| 827 | [提交申请单](pages/4014090649.md) | `4014090649` | 2025-03-31 06:45:54 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 828 | [撤销申请单](pages/4014090672.md) | `4014090672` | 2025-03-31 06:45:49 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 829 | [查询申请单状态-使用业务单号](pages/4014090667.md) | `4014090667` | 2025-03-31 06:45:50 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 830 | [查询申请单状态-使用申请单号](pages/4014090655.md) | `4014090655` | 2025-03-31 06:45:51 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
-| 831 | [APIv3概述](pages/4012081673.md) | `4012081673` | 2024-11-21 08:19:57 | Optional > 开发须知 |
-| 832 | [总述-APIv3如何签名和验签](pages/4012365870.md) | `4012365870` | 2024-11-21 10:50:08 | Optional > 开发须知 |
-| 833 | [基本规则](pages/4012081726.md) | `4012081726` | 2024-07-25 02:06:07 | Optional > 开发须知 > 接口规则说明 |
-| 834 | [HTTP状态码](pages/4012081727.md) | `4012081727` | 2024-07-25 02:07:36 | Optional > 开发须知 > 接口规则说明 |
-| 835 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-10-13 03:52:59 | Optional > 开发须知 > 开发参数申请和配置 |
-| 836 | [mchid与appid申请](pages/4012081990.md) | `4012081990` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 837 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 838 | [配置APIv3密钥](pages/4012081991.md) | `4012081991` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 839 | [品牌经营API开发必要参数说明](pages/4015981654.md) | `4015981654` | 2025-12-15 01:50:19 | Optional > 开发须知 > 开发参数申请和配置 |
-| 840 | [平台员工权限管理](pages/4013080349.md) | `4013080349` | 2025-09-19 01:36:32 | Optional > 开发须知 > 开发参数申请和配置 |
-| 841 | [申请商户API证书](pages/4012081992.md) | `4012081992` | 2025-10-28 03:01:36 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
-| 842 | [如何更换商户API证书？](pages/4013058943.md) | `4013058943` | 2024-11-20 03:18:41 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
-| 843 | [请求参数里带Path参数（路径参数），如何计算签名](pages/4012365862.md) | `4012365862` | 2025-02-18 08:09:32 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 844 | [请求参数里带Body参数(包体参数），如何计算签名](pages/4012365864.md) | `4012365864` | 2025-02-18 09:53:43 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 845 | [请求参数里有Query（查询参数），如何计算签名](pages/4012365865.md) | `4012365865` | 2025-02-18 09:53:41 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 846 | [图片上传接口，如何计算签名](pages/4012365863.md) | `4012365863` | 2025-03-25 03:03:49 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
-| 847 | [APP调起支付签名](pages/4012365868.md) | `4012365868` | 2025-03-26 09:28:08 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
-| 848 | [JSAPI调起支付签名](pages/4012365867.md) | `4012365867` | 2025-03-26 09:28:07 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
-| 849 | [小程序调起支付签名](pages/4012365869.md) | `4012365869` | 2025-03-26 09:28:05 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
-| 850 | [如何使用微信支付公钥验签](pages/4013059017.md) | `4013059017` | 2024-11-20 06:55:05 | Optional > 开发须知 > 如何验签 |
-| 851 | [如何使用平台证书验签名](pages/4013059030.md) | `4013059030` | 2024-11-29 09:43:48 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
-| 852 | [如何使用签名/验签工具](pages/4012365880.md) | `4012365880` | 2024-12-27 04:05:13 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
-| 853 | [如何使用微信支付公钥加密敏感字段](pages/4013059044.md) | `4013059044` | 2025-03-19 08:49:11 | Optional > 开发须知 > 如何加解密敏感字段 |
-| 854 | [如何使用平台证书加密敏感字段](pages/4013059053.md) | `4013059053` | 2025-03-19 08:49:03 | Optional > 开发须知 > 如何加解密敏感字段 |
-| 855 | [如何使用API证书解密敏感字段](pages/4013059060.md) | `4013059060` | 2024-11-20 03:29:55 | Optional > 开发须知 > 如何加解密敏感字段 |
-| 856 | [如何解密回调报文和平台证书](pages/4012082320.md) | `4012082320` | 2024-11-29 08:22:52 | Optional > 开发须知 > 如何解密微信支付回调报文 |
-| 857 | [报错：HTTP header缺少微信支付平台证书序列号(Wechatpay-Serial)](pages/4012365874.md) | `4012365874` | 2024-11-19 09:07:14 | Optional > 开发须知 > 常见问题 |
-| 858 | [报错：Http头Authorization值格式错误，请参考《微信支付商户REST API签名规则》或者“Authorization不合法”](pages/4012365872.md) | `4012365872` | 2026-01-23 03:31:55 | Optional > 开发须知 > 常见问题 |
-| 859 | [报错：商户证书序列号有误。请使用签名私钥匹配的证书序列号](pages/4012365873.md) | `4012365873` | 2024-12-12 03:12:16 | Optional > 开发须知 > 常见问题 |
-| 860 | [报错：状态码401或者“错误的签名，验签失败”或者“签名错误，请检查后再试”](pages/4012365875.md) | `4012365875` | 2024-12-12 03:12:14 | Optional > 开发须知 > 常见问题 |
-| 861 | [调起支付报错：支付验证签名失败](pages/4012365876.md) | `4012365876` | 2025-03-26 09:28:04 | Optional > 开发须知 > 常见问题 |
-| 862 | [使用Java加载密钥时，抛出异常InvalidKeyException: Illegal key size](pages/4013059103.md) | `4013059103` | 2024-11-20 03:37:11 | Optional > 开发须知 > 常见问题 |
-| 863 | [使用Java解密时，抛出异常AEADBadTagException: Tag mismatch](pages/4013059153.md) | `4013059153` | 2024-11-20 03:38:02 | Optional > 开发须知 > 常见问题 |
-| 864 | [请求返回{"code":"PARAM_ERROR","message":"平台证书序列号Wechatpay-Serial错误"}](pages/4013059161.md) | `4013059161` | 2024-11-20 03:38:49 | Optional > 开发须知 > 常见问题 |
-| 865 | [为什么微信支付的回调缺少签名的几个HTTP头？](pages/4013059166.md) | `4013059166` | 2024-11-20 03:39:20 | Optional > 开发须知 > 常见问题 |
-| 866 | [如何在程序中加载商户API证书私钥](pages/4013059175.md) | `4013059175` | 2025-12-25 06:37:41 | Optional > 开发须知 > 常见问题 |
-| 867 | [为什么请求返回401 Unauthorized？](pages/4012082324.md) | `4012082324` | 2024-11-25 08:53:06 | Optional > 开发须知 > 常见问题 |
-| 868 | [验证微信支付响应的签名报错：签名验证失败](pages/4016241895.md) | `4016241895` | 2025-10-14 06:39:36 | Optional > 开发须知 > 常见问题 |
-| 869 | [调用接口报错：“平台私钥解密失败”](pages/4016913182.md) | `4016913182` | 2025-12-19 02:59:24 | Optional > 开发须知 > 常见问题 |
-| 870 | [跨城冗灾升级指引](pages/4012082567.md) | `4012082567` | 2025-03-21 07:37:49 | Optional > 最佳实践 |
-| 871 | [支付回调和查单实现指引](pages/4012082568.md) | `4012082568` | 2026-10-13 09:08:37 | Optional > 最佳实践 |
-| 872 | [专线商户Notify升级指引](pages/4012082569.md) | `4012082569` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
-| 873 | [回调通知注意事项](pages/4012082570.md) | `4012082570` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
-| 874 | [最佳安全实践](pages/4012082456.md) | `4012082456` | 2024-11-27 09:15:00 | Optional > 最佳实践 > API安全最佳实践 |
-| 875 | [安全漏洞checklist](pages/4013059657.md) | `4013059657` | 2024-11-27 09:14:52 | Optional > 最佳实践 > API安全最佳实践 |
-| 876 | [系统漏洞检测及修复](pages/4013059668.md) | `4013059668` | 2025-03-21 07:40:38 | Optional > 最佳实践 > API安全最佳实践 |
-| 877 | [Web漏洞检测及修复](pages/4013059740.md) | `4013059740` | 2025-03-21 08:53:52 | Optional > 最佳实践 > API安全最佳实践 |
-| 878 | [最新安全漏洞及修复](pages/4013059970.md) | `4013059970` | 2024-11-27 09:14:33 | Optional > 最佳实践 > API安全最佳实践 |
-| 879 | [密钥泄漏修复指引](pages/4012082455.md) | `4012082455` | 2024-12-24 01:54:38 | Optional > 最佳实践 > API安全最佳实践 |
-| 880 | [国家商用密码简介](pages/4012082627.md) | `4012082627` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
-| 881 | [获取国家商用密码证书和密钥](pages/4012082628.md) | `4012082628` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
-| 882 | [APIv3接口使用国家商用密码指引](pages/4012082629.md) | `4012082629` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
-| 883 | [开户银行全称对照表](pages/4012082812.md) | `4012082812` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 884 | [开户银行对照表](pages/4012082813.md) | `4012082813` | 2025-02-19 07:30:19 | Optional > 对照表 |
-| 885 | [银行类型对照表](pages/4012082814.md) | `4012082814` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 886 | [省市区编号对照表](pages/4012082815.md) | `4012082815` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 887 | [优惠费率活动对照表](pages/4012082816.md) | `4012082816` | 2024-12-26 08:48:22 | Optional > 对照表 |
-| 888 | [跨境电商二级商户费率对照表](pages/4012082817.md) | `4012082817` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 889 | [商户行业编码](pages/4012082818.md) | `4012082818` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 890 | [特殊行业ID对照表](pages/4012082819.md) | `4012082819` | 2024-07-25 03:24:06 | Optional > 对照表 |
-| 891 | [接入模式](pages/4012081931.md) | `4012081931` | 2026-06-01 06:16:40 | Optional > 名词表 |
-| 892 | [支付产品](pages/4012081932.md) | `4012081932` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 893 | [业务平台](pages/4012081933.md) | `4012081933` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 894 | [业务系统](pages/4012081934.md) | `4012081934` | 2024-07-25 02:23:51 | Optional > 名词表 |
-| 895 | [参数说明](pages/4012081935.md) | `4012081935` | 2026-10-13 09:47:01 | Optional > 名词表 |
-| 896 | [常见问题](pages/4016183684.md) | `4016183684` | 2026-08-05 06:15:10 | Optional > 名词表 |
-| 897 | [微信支付链路界面与交互规范](pages/4020527499.md) | `4020527499` | 2026-05-19 02:15:32 | Optional > 服务运营规范 |
-| 898 | [Postman调试工具](pages/4012083114.md) | `4012083114` | 2024-11-29 09:45:15 | Optional > 开发工具 |
-| 899 | [平台证书下载工具](pages/4012083115.md) | `4012083115` | 2024-11-27 09:13:57 | Optional > 开发工具 |
-| 900 | [验签工具](pages/4012083116.md) | `4012083116` | 2025-01-03 07:02:48 | Optional > 开发工具 |
-| 901 | [产品介绍](pages/4012083118.md) | `4012083118` | 2025-03-21 07:39:41 | Optional > 网络云排查 |
-| 902 | [网络问题排查指南](pages/4012083119.md) | `4012083119` | 2025-03-21 07:39:03 | Optional > 网络云排查 |
-| 903 | [常见问题](pages/4012083120.md) | `4012083120` | 2024-07-25 03:43:58 | Optional > 网络云排查 |
-| 904 | [产品介绍](pages/4012083122.md) | `4012083122` | 2024-07-25 03:43:58 | Optional > 安全医生 |
-| 905 | [诊断链接绑定指引](pages/4012083123.md) | `4012083123` | 2024-07-25 03:43:58 | Optional > 安全医生 |
-| 906 | [安全联系人设置指引](pages/4012083124.md) | `4012083124` | 2024-07-25 03:43:58 | Optional > 安全医生 |
-| 907 | [SDK概述](pages/4012083109.md) | `4012083109` | 2026-04-24 09:22:07 | Optional > SDK |
-| 908 | [使用 Java SDK](pages/4012083111.md) | `4012083111` | 2025-05-29 03:32:06 | Optional > SDK |
-| 909 | [使用 PHP SDK](pages/4012083112.md) | `4012083112` | 2025-05-29 03:32:04 | Optional > SDK |
-| 910 | [使用 Go SDK](pages/4012083113.md) | `4012083113` | 2025-05-29 03:36:58 | Optional > SDK |
+| 587 | [品牌经营平台管理品牌门店](pages/4016689827.md) | `4016689827` | 2025-11-25 10:04:14 | 品牌门店 > 附录 |
+| 588 | [获得品牌已授权且在生效中的产品权限信息](pages/4017410365.md) | `4017410365` | 2026-01-29 09:12:34 | 品牌服务商授权 > API列表 |
+| 589 | [产品介绍](pages/4012072620.md) | `4012072620` | 2024-07-23 08:51:32 | 连锁品牌分账 |
+| 590 | [开发接入准备](pages/4012072625.md) | `4012072625` | 2026-05-19 09:30:42 | 连锁品牌分账 |
+| 591 | [开发指引](pages/4012072637.md) | `4012072637` | 2026-06-09 09:46:07 | 连锁品牌分账 |
+| 592 | [业务示例代码](pages/4015871675.md) | `4015871675` | 2026-06-09 09:46:50 | 连锁品牌分账 |
+| 593 | [常见问题](pages/4015981574.md) | `4015981574` | 2026-02-06 03:12:47 | 连锁品牌分账 |
+| 594 | [请求分账](pages/4012692975.md) | `4012692975` | 2025-09-29 03:46:37 | 连锁品牌分账 > API列表 |
+| 595 | [查询分账结果](pages/4012467002.md) | `4012467002` | 2025-09-29 03:45:52 | 连锁品牌分账 > API列表 |
+| 596 | [请求分账回退](pages/4012467097.md) | `4012467097` | 2025-09-29 03:43:29 | 连锁品牌分账 > API列表 |
+| 597 | [查询分账回退结果](pages/4012467011.md) | `4012467011` | 2025-09-29 03:43:57 | 连锁品牌分账 > API列表 |
+| 598 | [解冻剩余资金](pages/4012467016.md) | `4012467016` | 2025-09-29 03:43:07 | 连锁品牌分账 > API列表 |
+| 599 | [查询订单剩余待分金额](pages/4012467021.md) | `4012467021` | 2025-09-29 03:42:34 | 连锁品牌分账 > API列表 |
+| 600 | [查询最大分账比例](pages/4012467022.md) | `4012467022` | 2025-09-29 03:42:11 | 连锁品牌分账 > API列表 |
+| 601 | [添加分账接收方](pages/4012467100.md) | `4012467100` | 2025-09-29 03:41:51 | 连锁品牌分账 > API列表 |
+| 602 | [删除分账接收方](pages/4012467103.md) | `4012467103` | 2025-09-29 02:38:34 | 连锁品牌分账 > API列表 |
+| 603 | [分账动账通知](pages/4012075400.md) | `4012075400` | 2025-02-19 03:56:03 | 连锁品牌分账 > API列表 |
+| 604 | [申请分账账单](pages/4012715572.md) | `4012715572` | 2025-09-29 02:37:48 | 连锁品牌分账 > API列表 |
+| 605 | [下载账单](pages/4012076073.md) | `4012076073` | 2024-10-30 06:42:53 | 连锁品牌分账 > API列表 |
+| 606 | [分账失败处理指引](pages/4015504918.md) | `4015504918` | 2025-07-04 03:08:09 | 连锁品牌分账 > 附录 |
+| 607 | [清关报关（V2）](pages/4012851220.md) | `4012851220` | 2025-04-25 07:53:42 | 清关报关（V2） |
+| 608 | [产品介绍](pages/4012072827.md) | `4012072827` | 2025-08-25 10:00:14 | 消费者投诉2.0 |
+| 609 | [开发接入准备](pages/4012072844.md) | `4012072844` | 2026-05-19 09:30:57 | 消费者投诉2.0 |
+| 610 | [开发指引](pages/4012072858.md) | `4012072858` | 2026-10-20 03:51:53 | 消费者投诉2.0 |
+| 611 | [业务示例代码](pages/4015933338.md) | `4015933338` | 2026-06-09 09:46:01 | 消费者投诉2.0 |
+| 612 | [接入易错点](pages/4054257738.md) | `4054257738` | 2026-10-30 14:13:17 | 消费者投诉2.0 |
+| 613 | [常见问题](pages/4016111688.md) | `4016111688` | 2026-11-05 09:31:00 | 消费者投诉2.0 |
+| 614 | [查询投诉单列表](pages/4012691285.md) | `4012691285` | 2025-09-02 02:28:31 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
+| 615 | [查询投诉单详情](pages/4012691648.md) | `4012691648` | 2025-08-28 02:43:42 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
+| 616 | [查询投诉单协商历史](pages/4012691802.md) | `4012691802` | 2025-08-28 02:43:30 | 消费者投诉2.0 > API列表 > 主动查询投诉信息 |
+| 617 | [投诉通知回调](pages/4012076174.md) | `4012076174` | 2025-02-19 03:56:03 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 618 | [创建投诉通知回调地址](pages/4012458106.md) | `4012458106` | 2025-08-28 02:43:28 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 619 | [查询投诉通知回调地址](pages/4012459065.md) | `4012459065` | 2025-08-28 02:43:23 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 620 | [更新投诉通知回调地址](pages/4012459287.md) | `4012459287` | 2025-08-28 02:43:25 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 621 | [删除投诉通知回调地址](pages/4012460474.md) | `4012460474` | 2025-08-28 02:43:21 | 消费者投诉2.0 > API列表 > 实时获取投诉信息 |
+| 622 | [回复用户](pages/4012467213.md) | `4012467213` | 2025-09-01 02:27:29 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 623 | [反馈处理完成](pages/4012467217.md) | `4012467217` | 2025-09-01 02:25:00 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 624 | [更新退款审批结果](pages/4012467218.md) | `4012467218` | 2025-09-01 02:24:26 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 625 | [回复需要即时服务的投诉单](pages/4017151726.md) | `4017151726` | 2026-01-22 08:02:14 | 消费者投诉2.0 > API列表 > 商户处理用户投诉 |
+| 626 | [图片上传接口](pages/4012467222.md) | `4012467222` | 2025-09-01 02:10:00 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
+| 627 | [图片请求接口](pages/4012467223.md) | `4012467223` | 2025-09-02 02:43:19 | 消费者投诉2.0 > API列表 > 商户反馈图片 |
+| 628 | [产品介绍](pages/4015792553.md) | `4015792553` | 2025-11-28 08:19:11 | 微信电子发票 |
+| 629 | [开发接入准备](pages/4015792554.md) | `4015792554` | 2026-10-20 10:23:12 | 微信电子发票 |
+| 630 | [开发指引](pages/4015792556.md) | `4015792556` | 2026-07-27 08:21:58 | 微信电子发票 |
+| 631 | [业务示例代码](pages/4016078358.md) | `4016078358` | 2026-06-10 07:28:02 | 微信电子发票 |
+| 632 | [常见问题](pages/4016960715.md) | `4016960715` | 2026-08-05 06:11:58 | 微信电子发票 |
+| 633 | [获取开通服务商电子发票能力邀请链接](pages/4015941495.md) | `4015941495` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 634 | [获取邀请开通的商户信息](pages/4015941524.md) | `4015941524` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 635 | [检查子商户开票功能状态](pages/4015792561.md) | `4015792561` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 636 | [创建电子发票卡券模板](pages/4015792562.md) | `4015792562` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 637 | [配置开发选项](pages/4015792563.md) | `4015792563` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 638 | [获取用户抬头填写链接](pages/4015770776.md) | `4015770776` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 639 | [获取用户填写抬头信息](pages/4015784260.md) | `4015784260` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 640 | [开具通用行业电子发票](pages/4015792574.md) | `4015792574` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 641 | [开具不动产租赁行业电子发票](pages/4015941740.md) | `4015941740` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 642 | [开具成品油行业电子发票](pages/4016760559.md) | `4016760559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 643 | [开具旅客运输行业电子发票](pages/4025863376.md) | `4025863376` | 2026-07-17 03:57:13 | 微信电子发票 > API列表 |
+| 644 | [冲红电子发票](pages/4015792575.md) | `4015792575` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 645 | [查询电子发票](pages/4015792567.md) | `4015792567` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 646 | [获取发票下载信息](pages/4015792576.md) | `4015792576` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 647 | [下载发票文件](pages/4015792569.md) | `4015792569` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 648 | [上传电子发票文件](pages/4015792580.md) | `4015792580` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 649 | [将电子发票插入微信用户卡包](pages/4015792579.md) | `4015792579` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 650 | [用户发票抬头填写完成通知](pages/4015792559.md) | `4015792559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 651 | [发票开具成功通知](pages/4015792570.md) | `4015792570` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 652 | [发票插入用户卡包成功通知](pages/4015792578.md) | `4015792578` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 653 | [发票冲红成功通知](pages/4015792571.md) | `4015792571` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 654 | [发票卡券作废通知](pages/4015792560.md) | `4015792560` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 655 | [成品油单位转换公式](pages/4016730844.md) | `4016730844` | 2026-07-27 06:19:53 | 微信电子发票 > 附录 |
+| 656 | [产品介绍](pages/4012062365.md) | `4012062365` | 2024-10-16 07:11:49 | 特约商户进件 |
+| 657 | [开发接入准备](pages/4012062375.md) | `4012062375` | 2026-10-20 10:21:17 | 特约商户进件 |
+| 658 | [开发指引](pages/4012062379.md) | `4012062379` | 2026-06-09 09:45:48 | 特约商户进件 |
+| 659 | [常见问题](pages/4016058480.md) | `4016058480` | 2026-08-05 06:17:02 | 特约商户进件 |
+| 660 | [提交申请单](pages/4012719997.md) | `4012719997` | 2025-03-26 06:58:27 | 特约商户进件 > API列表 |
+| 661 | [申请单号查询申请状态](pages/4012697052.md) | `4012697052` | 2025-03-24 04:07:15 | 特约商户进件 > API列表 |
+| 662 | [业务申请编号查询申请状态](pages/4012697168.md) | `4012697168` | 2025-03-24 04:07:17 | 特约商户进件 > API列表 |
+| 663 | [修改结算账户](pages/4012761102.md) | `4012761102` | 2025-01-22 01:35:52 | 特约商户进件 > API列表 |
+| 664 | [查询结算账户](pages/4012761113.md) | `4012761113` | 2025-01-21 03:41:29 | 特约商户进件 > API列表 |
+| 665 | [查询结算账户修改申请状态](pages/4012761120.md) | `4012761120` | 2025-01-21 03:41:31 | 特约商户进件 > API列表 |
+| 666 | [文件上传](pages/4012760490.md) | `4012760490` | 2026-05-09 07:01:44 | 特约商户进件 > API列表 |
+| 667 | [视频上传](pages/4012761084.md) | `4012761084` | 2024-11-18 09:25:56 | 特约商户进件 > API列表 |
+| 668 | [产品介绍](pages/4012064820.md) | `4012064820` | 2024-10-24 08:22:24 | 商户开户意愿确认 |
+| 669 | [开发接入准备](pages/4012064824.md) | `4012064824` | 2026-10-22 11:09:03 | 商户开户意愿确认 |
+| 670 | [开发指引](pages/4012064832.md) | `4012064832` | 2026-10-20 07:56:31 | 商户开户意愿确认 |
+| 671 | [常见问题](pages/4016644196.md) | `4016644196` | 2026-01-16 03:48:52 | 商户开户意愿确认 |
+| 672 | [提交申请单](pages/4012722388.md) | `4012722388` | 2025-01-09 03:10:33 | 商户开户意愿确认 > API列表 |
+| 673 | [撤销申请单](pages/4012697627.md) | `4012697627` | 2024-12-04 02:03:31 | 商户开户意愿确认 > API列表 |
+| 674 | [查询申请单审核结果](pages/4012697715.md) | `4012697715` | 2024-11-04 07:59:30 | 商户开户意愿确认 > API列表 |
+| 675 | [获取商户开户意愿确认状态](pages/4012467549.md) | `4012467549` | 2024-10-24 09:20:46 | 商户开户意愿确认 > API列表 |
+| 676 | [图片上传](pages/4012760509.md) | `4012760509` | 2024-11-18 09:25:43 | 商户开户意愿确认 > API列表 |
+| 677 | [产品介绍](pages/4012064844.md) | `4012064844` | 2026-03-10 07:23:55 | 商户平台处置通知 |
+| 678 | [开发接入准备](pages/4012064851.md) | `4012064851` | 2026-05-19 09:33:15 | 商户平台处置通知 |
+| 679 | [开发指引](pages/4012064853.md) | `4012064853` | 2026-10-20 08:03:31 | 商户平台处置通知 |
+| 680 | [业务示例代码](pages/4015949382.md) | `4015949382` | 2025-09-03 03:01:42 | 商户平台处置通知 |
+| 681 | [查询商户违规通知回调地址](pages/4012471327.md) | `4012471327` | 2025-08-28 09:27:26 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 682 | [修改商户违规通知回调地址](pages/4012471330.md) | `4012471330` | 2025-08-28 09:27:19 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 683 | [创建商户违规通知回调地址](pages/4012471333.md) | `4012471333` | 2025-08-28 09:27:12 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 684 | [删除商户违规通知回调地址](pages/4012471334.md) | `4012471334` | 2025-08-28 09:27:05 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 685 | [商户平台处置记录回调通知](pages/4012079216.md) | `4012079216` | 2025-02-19 03:56:03 | 商户平台处置通知 > API列表 > 商户违规通知回调 |
+| 686 | [产品介绍](pages/4012064898.md) | `4012064898` | 2026-05-25 07:06:33 | 不活跃商户身份核实 |
+| 687 | [开发接入准备](pages/4012064902.md) | `4012064902` | 2026-05-19 09:33:57 | 不活跃商户身份核实 |
+| 688 | [开发指引](pages/4012064909.md) | `4012064909` | 2026-06-09 09:45:41 | 不活跃商户身份核实 |
+| 689 | [常见问题](pages/4012064915.md) | `4012064915` | 2024-07-24 08:05:05 | 不活跃商户身份核实 |
+| 690 | [发起不活跃商户身份核实](pages/4012471357.md) | `4012471357` | 2025-08-08 07:33:04 | 不活跃商户身份核实 > API列表 |
+| 691 | [查询不活跃商户身份核实结果](pages/4012471359.md) | `4012471359` | 2025-08-08 08:00:48 | 不活跃商户身份核实 > API列表 |
+| 692 | [关键概念](pages/4012064904.md) | `4012064904` | 2024-10-25 02:37:34 | 不活跃商户身份核实 > 附录 |
+| 693 | [产品介绍](pages/4012165270.md) | `4012165270` | 2026-10-20 08:13:40 | 商户被管控能力及原因查询 |
+| 694 | [查询子商户管控情况](pages/4012803072.md) | `4012803072` | 2025-09-26 09:24:32 | 商户被管控能力及原因查询 > API列表 |
+| 695 | [产品介绍](pages/4016022264.md) | `4016022264` | 2025-09-17 04:03:07 | 合作伙伴订阅 |
+| 696 | [开发指引](pages/4016022266.md) | `4016022266` | 2025-09-16 03:35:57 | 合作伙伴订阅 |
+| 697 | [常见问题](pages/4016550707.md) | `4016550707` | 2026-08-05 06:17:27 | 合作伙伴订阅 |
+| 698 | [证书密钥概览](pages/4025464285.md) | `4025464285` | 2026-07-21 04:03:55 | 证书密钥概览 |
+| 699 | [产品介绍](pages/4057926576.md) | `4057926576` | 2026-11-09 10:05:28 | 商户API证书 |
+| 700 | [常见问题](pages/4058384718.md) | `4058384718` | 2026-11-10 03:03:30 | 商户API证书 |
+| 701 | [产品介绍](pages/4012925323.md) | `4012925323` | 2026-05-20 03:21:30 | 微信支付公钥 |
+| 702 | [接入易错点](pages/4054257740.md) | `4054257740` | 2026-10-30 13:18:21 | 微信支付公钥 |
+| 703 | [常见问题](pages/4013038589.md) | `4013038589` | 2025-03-04 07:15:22 | 微信支付公钥 |
+| 704 | [商户签名验签／加解密测试](pages/4015139289.md) | `4015139289` | 2026-04-08 03:50:21 | 微信支付公钥 > API列表 |
+| 705 | [回调接口](pages/4019605946.md) | `4019605946` | 2026-04-10 08:15:23 | 微信支付公钥 > API列表 |
+| 706 | [如何从平台证书切换成微信支付公钥](pages/4012925289.md) | `4012925289` | 2024-12-12 02:59:29 | 微信支付公钥 > 附录 |
+| 707 | [如何从微信支付公钥切换成平台证书](pages/4015419376.md) | `4015419376` | 2026-03-17 09:45:27 | 微信支付公钥 > 附录 |
+| 708 | [产品介绍](pages/4012073044.md) | `4012073044` | 2026-05-21 07:25:38 | 平台证书 |
+| 709 | [接入易错点](pages/4054257739.md) | `4054257739` | 2026-11-05 08:10:05 | 平台证书 |
+| 710 | [常见问题](pages/4012073263.md) | `4012073263` | 2024-11-29 09:45:35 | 平台证书 |
+| 711 | [下载平台证书](pages/4012715700.md) | `4012715700` | 2024-10-15 08:45:31 | 平台证书 > API列表 |
+| 712 | [平台证书更换操作指引](pages/4012073146.md) | `4012073146` | 2024-12-04 06:35:09 | 平台证书 > 附录 |
+| 713 | [产品介绍](pages/4057926638.md) | `4057926638` | 2026-11-09 10:05:53 | APIv3密钥 |
+| 714 | [产品介绍](pages/4012086891.md) | `4012086891` | 2026-10-20 10:21:01 | 平台收付通-电商交易解决方案 |
+| 715 | [开发接入准备](pages/4012086921.md) | `4012086921` | 2026-10-20 10:20:57 | 平台收付通-电商交易解决方案 |
+| 716 | [消费者投诉2.0](pages/4016312079.md) | `4016312079` | 2026-07-16 03:40:54 | 平台收付通-电商交易解决方案 |
+| 717 | [开发指引](pages/4012087137.md) | `4012087137` | 2026-06-16 07:46:00 | 平台收付通-电商交易解决方案 > 商户进件 |
+| 718 | [常见问题](pages/4012525423.md) | `4012525423` | 2026-05-26 08:53:06 | 平台收付通-电商交易解决方案 > 商户进件 |
+| 719 | [提交申请单](pages/4012713017.md) | `4012713017` | 2025-02-28 12:07:34 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 720 | [通过业务申请编号查询申请状态](pages/4012691376.md) | `4012691376` | 2024-11-28 06:22:29 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 721 | [通过申请单ID查询申请状态](pages/4012691469.md) | `4012691469` | 2024-11-28 06:22:27 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 722 | [修改结算账户](pages/4012761138.md) | `4012761138` | 2026-01-14 06:27:19 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 723 | [查询结算账户](pages/4012761142.md) | `4012761142` | 2026-01-14 06:27:41 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 724 | [查询结算账户修改申请状态](pages/4012761169.md) | `4012761169` | 2025-01-21 03:41:31 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 725 | [文件上传](pages/4012760432.md) | `4012760432` | 2026-05-09 07:02:14 | 平台收付通-电商交易解决方案 > 商户进件 > API列表 |
+| 726 | [产品介绍](pages/4018153750.md) | `4018153750` | 2026-06-11 07:25:17 | 平台收付通-电商交易解决方案 > 商户注销 |
+| 727 | [商户注销资格校验](pages/4016420099.md) | `4016420099` | 2025-11-05 09:41:04 | 平台收付通-电商交易解决方案 > 商户注销 > 注销预校验 > API列表 |
+| 728 | [提交注销提现申请](pages/4013892756.md) | `4013892756` | 2025-03-13 04:54:44 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
+| 729 | [商户申请单号查询申请单状态](pages/4013892759.md) | `4013892759` | 2025-09-26 02:25:46 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
+| 730 | [微信支付申请单号查询申请单状态](pages/4013892765.md) | `4013892765` | 2025-09-26 02:25:56 | 平台收付通-电商交易解决方案 > 商户注销 > 注销提现（新流程） > API列表 |
+| 731 | [常见问题](pages/4015943239.md) | `4015943239` | 2025-11-07 06:48:10 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） |
+| 732 | [提交注销申请单](pages/4012476217.md) | `4012476217` | 2025-02-17 10:16:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
+| 733 | [查询注销单状态](pages/4012476223.md) | `4012476223` | 2024-11-05 02:04:20 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 注销申请单 |
+| 734 | [图片上传](pages/4012691710.md) | `4012691710` | 2024-11-05 02:05:52 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销申请 > 图片上传 |
+| 735 | [提交已注销商户号可用余额提现申请单](pages/4012488950.md) | `4012488950` | 2025-01-09 03:10:34 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
+| 736 | [商户提现申请单号查询提现申请单状态](pages/4012476164.md) | `4012476164` | 2024-11-05 02:15:27 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
+| 737 | [微信支付提现申请单号查询提现申请单状态](pages/4012778400.md) | `4012778400` | 2024-11-05 02:16:19 | 平台收付通-电商交易解决方案 > 商户注销 > 注销申请与提现（旧流程） > 注销后提现 > API列表 |
+| 738 | [查询指定主体子商户列表](pages/4033742105.md) | `4033742105` | 2026-08-19 02:04:07 | 平台收付通-电商交易解决方案 > 商户注销 > 商户查询 > API列表 |
+| 739 | [开发指引](pages/4012088031.md) | `4012088031` | 2026-06-10 07:28:44 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
+| 740 | [常见问题](pages/4012525474.md) | `4012525474` | 2026-05-09 08:54:23 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 |
+| 741 | [APP下单](pages/4012714669.md) | `4012714669` | 2024-10-24 03:39:28 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
+| 742 | [APP调起支付](pages/4012090168.md) | `4012090168` | 2025-02-20 03:00:52 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > APP支付 |
+| 743 | [JSAPI下单](pages/4012714678.md) | `4012714678` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
+| 744 | [JSAPI调起支付](pages/4012090156.md) | `4012090156` | 2025-02-26 07:08:25 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > JSAPI支付 |
+| 745 | [Native下单](pages/4012714902.md) | `4012714902` | 2024-10-24 06:18:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
+| 746 | [Native调起支付](pages/4012090180.md) | `4012090180` | 2025-03-21 07:41:33 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > Native支付 |
+| 747 | [小程序下单](pages/4012714911.md) | `4012714911` | 2024-10-24 03:49:34 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
+| 748 | [小程序调起支付](pages/4012090181.md) | `4012090181` | 2025-02-26 07:10:30 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 小程序支付 |
+| 749 | [H5下单](pages/4012714759.md) | `4012714759` | 2024-10-24 06:27:02 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
+| 750 | [H5调起支付](pages/4012090177.md) | `4012090177` | 2024-12-23 02:14:31 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > H5支付 |
+| 751 | [微信支付订单号查询订单](pages/4012760565.md) | `4012760565` | 2025-04-07 01:51:41 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 752 | [微信支付商户订单号查询订单](pages/4012760568.md) | `4012760568` | 2025-04-07 01:51:51 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 753 | [关闭订单](pages/4012760574.md) | `4012760574` | 2025-04-07 01:51:49 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 754 | [支付结果通知](pages/4012090195.md) | `4012090195` | 2025-04-07 01:52:18 | 平台收付通-电商交易解决方案 > 支付下单 > 普通支付 > API列表 > 公共API |
+| 755 | [开发指引](pages/4012089542.md) | `4012089542` | 2026-06-10 07:28:43 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
+| 756 | [常见问题](pages/4012525491.md) | `4012525491` | 2026-05-09 08:54:07 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 |
+| 757 | [合单下单-JSAPI](pages/4012760615.md) | `4012760615` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
+| 758 | [JSAPI调起支付](pages/4012090843.md) | `4012090843` | 2025-02-19 03:55:15 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > JSAPI合单支付 |
+| 759 | [合单下单-APP](pages/4012760622.md) | `4012760622` | 2024-11-14 08:12:11 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
+| 760 | [APP调起支付](pages/4012090949.md) | `4012090949` | 2025-03-28 10:57:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > APP合单支付 |
+| 761 | [合单下单-H5](pages/4012760626.md) | `4012760626` | 2024-11-14 08:12:10 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
+| 762 | [H5调起支付](pages/4012091014.md) | `4012091014` | 2024-10-28 02:58:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > H5合单支付 |
+| 763 | [合单下单-NATIVE](pages/4012760629.md) | `4012760629` | 2024-11-14 08:12:12 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
+| 764 | [Native调起支付](pages/4012091224.md) | `4012091224` | 2024-10-28 02:54:47 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > Native合单支付 |
+| 765 | [合单下单-小程序](pages/4012760633.md) | `4012760633` | 2024-11-14 08:12:09 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
+| 766 | [小程序调起支付](pages/4012091236.md) | `4012091236` | 2025-02-18 11:41:37 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 小程序合单支付 |
+| 767 | [合单查询订单](pages/4012761049.md) | `4012761049` | 2024-10-24 07:08:30 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
+| 768 | [合单关闭订单](pages/4012761093.md) | `4012761093` | 2024-10-24 07:09:52 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
+| 769 | [支付通知](pages/4012237246.md) | `4012237246` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 支付下单 > 合单支付 > API列表 > 公共API |
+| 770 | [开发指引](pages/4012087888.md) | `4012087888` | 2026-06-10 07:27:51 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
+| 771 | [业务示例代码](pages/4015870957.md) | `4015870957` | 2026-06-09 09:46:47 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
+| 772 | [常见问题](pages/4012525463.md) | `4012525463` | 2026-05-21 07:43:02 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 |
+| 773 | [请求分账](pages/4012691594.md) | `4012691594` | 2025-09-29 06:45:52 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 774 | [查询分账结果](pages/4012477734.md) | `4012477734` | 2025-09-29 02:09:30 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 775 | [请求分账回退](pages/4012477737.md) | `4012477737` | 2025-09-29 02:06:15 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 776 | [查询分账回退结果](pages/4012477740.md) | `4012477740` | 2025-09-29 02:04:34 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 777 | [解冻剩余资金](pages/4012477745.md) | `4012477745` | 2025-09-29 02:03:23 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 778 | [查询订单剩余待分金额](pages/4012477751.md) | `4012477751` | 2025-09-29 02:02:25 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 779 | [添加分账接收方](pages/4012477758.md) | `4012477758` | 2025-09-29 02:01:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 780 | [删除分账接收方](pages/4012477759.md) | `4012477759` | 2025-09-29 02:00:58 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 781 | [分账动账通知](pages/4012116672.md) | `4012116672` | 2025-02-19 03:56:03 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > API列表 |
+| 782 | [分账失败处理指引](pages/4015504955.md) | `4015504955` | 2025-07-04 03:08:08 | 平台收付通-电商交易解决方案 > 补差与分账 > 分账 > 附录 |
+| 783 | [业务示例代码](pages/4015593692.md) | `4015593692` | 2026-06-10 07:27:50 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
+| 784 | [常见问题](pages/4015942503.md) | `4015942503` | 2026-01-22 06:48:53 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 |
+| 785 | [请求补差](pages/4012477631.md) | `4012477631` | 2024-11-04 11:30:10 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
+| 786 | [请求补差回退](pages/4012477636.md) | `4012477636` | 2024-11-04 11:30:36 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
+| 787 | [取消补差](pages/4012477639.md) | `4012477639` | 2024-10-24 08:47:04 | 平台收付通-电商交易解决方案 > 补差与分账 > 补差 > API列表 |
+| 788 | [业务示例代码](pages/4015217874.md) | `4015217874` | 2026-06-10 07:27:49 | 平台收付通-电商交易解决方案 > 交易退款 |
+| 789 | [申请退款](pages/4012476892.md) | `4012476892` | 2024-11-04 11:33:40 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 790 | [查询单笔退款（按微信支付退款单号）](pages/4012476908.md) | `4012476908` | 2024-11-04 11:36:44 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 791 | [查询单笔退款（按商户退款单号）](pages/4012476911.md) | `4012476911` | 2024-11-04 11:36:11 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 792 | [退款结果通知](pages/4012124635.md) | `4012124635` | 2024-11-18 09:25:58 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 793 | [查询垫付回补结果](pages/4012476916.md) | `4012476916` | 2024-11-04 11:40:17 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 794 | [垫付退款回补](pages/4012476927.md) | `4012476927` | 2024-11-04 11:41:31 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 795 | [发起异常退款](pages/4015181616.md) | `4015181616` | 2025-06-06 08:23:46 | 平台收付通-电商交易解决方案 > 交易退款 > API列表 |
+| 796 | [常见问题](pages/4016644075.md) | `4016644075` | 2025-11-21 03:07:14 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 |
+| 797 | [查询二级商户账户实时余额](pages/4012476690.md) | `4012476690` | 2024-11-04 11:47:34 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 798 | [查询二级商户账户日终余额](pages/4012476693.md) | `4012476693` | 2024-11-04 11:47:25 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 799 | [查询平台账户实时余额](pages/4012476700.md) | `4012476700` | 2024-11-04 11:46:09 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 800 | [查询平台账户日终余额](pages/4012476702.md) | `4012476702` | 2024-11-04 11:46:15 | 平台收付通-电商交易解决方案 > 账户资金管理 > 余额查询 > API列表 |
+| 801 | [业务示例代码](pages/4019899593.md) | `4019899593` | 2026-06-10 07:27:45 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
+| 802 | [常见问题](pages/4014075940.md) | `4014075940` | 2026-06-29 01:57:55 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 |
+| 803 | [二级商户预约提现](pages/4012476652.md) | `4012476652` | 2024-12-19 07:33:30 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 804 | [二级商户查询预约提现状态（根据商户预约提现单号查询）](pages/4012476656.md) | `4012476656` | 2024-12-19 07:33:26 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 805 | [二级商户查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476665.md) | `4012476665` | 2024-12-19 07:33:24 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 806 | [平台预约提现](pages/4012476670.md) | `4012476670` | 2024-12-19 07:33:21 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 807 | [平台查询预约提现状态（根据商户预约提现单号查询）](pages/4012476672.md) | `4012476672` | 2024-12-19 07:33:18 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 808 | [平台查询预约提现状态（根据微信支付预约提现单号查询）](pages/4012476674.md) | `4012476674` | 2024-12-19 07:33:16 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 809 | [二级商户按日终余额预约提现](pages/4013328143.md) | `4013328143` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 810 | [查询二级商户按日终余额预约提现状态](pages/4013328163.md) | `4013328163` | 2024-12-19 08:08:05 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 811 | [按日下载提现异常文件](pages/4012476678.md) | `4012476678` | 2024-12-19 07:11:13 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 812 | [商户提现状态变更通知](pages/4013049135.md) | `4013049135` | 2025-02-24 09:49:47 | 平台收付通-电商交易解决方案 > 账户资金管理 > 商户提现 > API列表 |
+| 813 | [业务示例代码](pages/4016062108.md) | `4016062108` | 2025-12-04 01:55:05 | 平台收付通-电商交易解决方案 > 账单下载 |
+| 814 | [申请交易账单](pages/4012760667.md) | `4012760667` | 2025-04-07 01:51:03 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 815 | [申请资金账单](pages/4012760672.md) | `4012760672` | 2025-04-07 01:50:55 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 816 | [申请分账账单](pages/4012761131.md) | `4012761131` | 2025-01-20 08:06:16 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 817 | [下载账单](pages/4012124894.md) | `4012124894` | 2025-04-16 09:44:14 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 818 | [申请二级商户资金账单](pages/4012760697.md) | `4012760697` | 2024-10-23 08:14:36 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 819 | [下载单个子商户/二级商户资金账单](pages/4014314390.md) | `4014314390` | 2025-04-16 03:21:56 | 平台收付通-电商交易解决方案 > 账单下载 > API列表 |
+| 820 | [业务示例代码](pages/4015593257.md) | `4015593257` | 2026-06-10 07:27:44 | 平台收付通-电商交易解决方案 > 跨境付款 |
+| 821 | [查询订单剩余可出境余额](pages/4012476109.md) | `4012476109` | 2024-11-05 02:17:34 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 822 | [申请资金出境](pages/4012476113.md) | `4012476113` | 2024-11-05 02:22:26 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 823 | [查询出境结果](pages/4012476127.md) | `4012476127` | 2024-11-05 02:23:59 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 824 | [获取购付汇账单文件下载链接](pages/4012476132.md) | `4012476132` | 2024-11-05 02:32:27 | 平台收付通-电商交易解决方案 > 跨境付款 > API列表 |
+| 825 | [提交申请单](pages/4014090649.md) | `4014090649` | 2025-03-31 06:45:54 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 826 | [撤销申请单](pages/4014090672.md) | `4014090672` | 2025-03-31 06:45:49 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 827 | [查询申请单状态-使用业务单号](pages/4014090667.md) | `4014090667` | 2025-03-31 06:45:50 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 828 | [查询申请单状态-使用申请单号](pages/4014090655.md) | `4014090655` | 2025-03-31 06:45:51 | 平台收付通-电商交易解决方案 > 修改主体信息 > API列表 |
+| 829 | [APIv3概述](pages/4012081673.md) | `4012081673` | 2024-11-21 08:19:57 | Optional > 开发须知 |
+| 830 | [总述-APIv3如何签名和验签](pages/4012365870.md) | `4012365870` | 2024-11-21 10:50:08 | Optional > 开发须知 |
+| 831 | [基本规则](pages/4012081726.md) | `4012081726` | 2024-07-25 02:06:07 | Optional > 开发须知 > 接口规则说明 |
+| 832 | [HTTP状态码](pages/4012081727.md) | `4012081727` | 2024-07-25 02:07:36 | Optional > 开发须知 > 接口规则说明 |
+| 833 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-10-13 03:52:59 | Optional > 开发须知 > 开发参数申请和配置 |
+| 834 | [mchid与appid申请](pages/4012081990.md) | `4012081990` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 835 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 836 | [配置APIv3密钥](pages/4012081991.md) | `4012081991` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 837 | [品牌经营API开发必要参数说明](pages/4015981654.md) | `4015981654` | 2025-12-15 01:50:19 | Optional > 开发须知 > 开发参数申请和配置 |
+| 838 | [平台员工权限管理](pages/4013080349.md) | `4013080349` | 2025-09-19 01:36:32 | Optional > 开发须知 > 开发参数申请和配置 |
+| 839 | [申请商户API证书](pages/4012081992.md) | `4012081992` | 2025-10-28 03:01:36 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
+| 840 | [如何更换商户API证书？](pages/4013058943.md) | `4013058943` | 2024-11-20 03:18:41 | Optional > 开发须知 > 开发参数申请和配置 > 商户API证书管理 |
+| 841 | [请求参数里带Path参数（路径参数），如何计算签名](pages/4012365862.md) | `4012365862` | 2025-02-18 08:09:32 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 842 | [请求参数里带Body参数(包体参数），如何计算签名](pages/4012365864.md) | `4012365864` | 2025-02-18 09:53:43 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 843 | [请求参数里有Query（查询参数），如何计算签名](pages/4012365865.md) | `4012365865` | 2025-02-18 09:53:41 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 844 | [图片上传接口，如何计算签名](pages/4012365863.md) | `4012365863` | 2025-03-25 03:03:49 | Optional > 开发须知 > 如何签名 > 如何构造接口请求签名 |
+| 845 | [APP调起支付签名](pages/4012365868.md) | `4012365868` | 2025-03-26 09:28:08 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
+| 846 | [JSAPI调起支付签名](pages/4012365867.md) | `4012365867` | 2025-03-26 09:28:07 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
+| 847 | [小程序调起支付签名](pages/4012365869.md) | `4012365869` | 2025-03-26 09:28:05 | Optional > 开发须知 > 如何签名 > 如何构造调起支付签名 |
+| 848 | [如何使用微信支付公钥验签](pages/4013059017.md) | `4013059017` | 2024-11-20 06:55:05 | Optional > 开发须知 > 如何验签 |
+| 849 | [如何使用平台证书验签名](pages/4013059030.md) | `4013059030` | 2024-11-29 09:43:48 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
+| 850 | [如何使用签名/验签工具](pages/4012365880.md) | `4012365880` | 2024-12-27 04:05:13 | Optional > 开发须知 > 如何验签 > 如何使用平台证书验签 |
+| 851 | [如何使用微信支付公钥加密敏感字段](pages/4013059044.md) | `4013059044` | 2025-03-19 08:49:11 | Optional > 开发须知 > 如何加解密敏感字段 |
+| 852 | [如何使用平台证书加密敏感字段](pages/4013059053.md) | `4013059053` | 2025-03-19 08:49:03 | Optional > 开发须知 > 如何加解密敏感字段 |
+| 853 | [如何使用API证书解密敏感字段](pages/4013059060.md) | `4013059060` | 2024-11-20 03:29:55 | Optional > 开发须知 > 如何加解密敏感字段 |
+| 854 | [如何解密回调报文和平台证书](pages/4012082320.md) | `4012082320` | 2024-11-29 08:22:52 | Optional > 开发须知 > 如何解密微信支付回调报文 |
+| 855 | [报错：HTTP header缺少微信支付平台证书序列号(Wechatpay-Serial)](pages/4012365874.md) | `4012365874` | 2024-11-19 09:07:14 | Optional > 开发须知 > 常见问题 |
+| 856 | [报错：Http头Authorization值格式错误，请参考《微信支付商户REST API签名规则》或者“Authorization不合法”](pages/4012365872.md) | `4012365872` | 2026-01-23 03:31:55 | Optional > 开发须知 > 常见问题 |
+| 857 | [报错：商户证书序列号有误。请使用签名私钥匹配的证书序列号](pages/4012365873.md) | `4012365873` | 2024-12-12 03:12:16 | Optional > 开发须知 > 常见问题 |
+| 858 | [报错：状态码401或者“错误的签名，验签失败”或者“签名错误，请检查后再试”](pages/4012365875.md) | `4012365875` | 2024-12-12 03:12:14 | Optional > 开发须知 > 常见问题 |
+| 859 | [调起支付报错：支付验证签名失败](pages/4012365876.md) | `4012365876` | 2025-03-26 09:28:04 | Optional > 开发须知 > 常见问题 |
+| 860 | [使用Java加载密钥时，抛出异常InvalidKeyException: Illegal key size](pages/4013059103.md) | `4013059103` | 2024-11-20 03:37:11 | Optional > 开发须知 > 常见问题 |
+| 861 | [使用Java解密时，抛出异常AEADBadTagException: Tag mismatch](pages/4013059153.md) | `4013059153` | 2024-11-20 03:38:02 | Optional > 开发须知 > 常见问题 |
+| 862 | [请求返回{"code":"PARAM_ERROR","message":"平台证书序列号Wechatpay-Serial错误"}](pages/4013059161.md) | `4013059161` | 2024-11-20 03:38:49 | Optional > 开发须知 > 常见问题 |
+| 863 | [为什么微信支付的回调缺少签名的几个HTTP头？](pages/4013059166.md) | `4013059166` | 2024-11-20 03:39:20 | Optional > 开发须知 > 常见问题 |
+| 864 | [如何在程序中加载商户API证书私钥](pages/4013059175.md) | `4013059175` | 2025-12-25 06:37:41 | Optional > 开发须知 > 常见问题 |
+| 865 | [为什么请求返回401 Unauthorized？](pages/4012082324.md) | `4012082324` | 2024-11-25 08:53:06 | Optional > 开发须知 > 常见问题 |
+| 866 | [验证微信支付响应的签名报错：签名验证失败](pages/4016241895.md) | `4016241895` | 2025-10-14 06:39:36 | Optional > 开发须知 > 常见问题 |
+| 867 | [调用接口报错：“平台私钥解密失败”](pages/4016913182.md) | `4016913182` | 2025-12-19 02:59:24 | Optional > 开发须知 > 常见问题 |
+| 868 | [跨城冗灾升级指引](pages/4012082567.md) | `4012082567` | 2025-03-21 07:37:49 | Optional > 最佳实践 |
+| 869 | [支付回调和查单实现指引](pages/4012082568.md) | `4012082568` | 2026-10-13 09:08:37 | Optional > 最佳实践 |
+| 870 | [专线商户Notify升级指引](pages/4012082569.md) | `4012082569` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
+| 871 | [回调通知注意事项](pages/4012082570.md) | `4012082570` | 2024-07-25 03:04:49 | Optional > 最佳实践 |
+| 872 | [最佳安全实践](pages/4012082456.md) | `4012082456` | 2024-11-27 09:15:00 | Optional > 最佳实践 > API安全最佳实践 |
+| 873 | [安全漏洞checklist](pages/4013059657.md) | `4013059657` | 2024-11-27 09:14:52 | Optional > 最佳实践 > API安全最佳实践 |
+| 874 | [系统漏洞检测及修复](pages/4013059668.md) | `4013059668` | 2025-03-21 07:40:38 | Optional > 最佳实践 > API安全最佳实践 |
+| 875 | [Web漏洞检测及修复](pages/4013059740.md) | `4013059740` | 2025-03-21 08:53:52 | Optional > 最佳实践 > API安全最佳实践 |
+| 876 | [最新安全漏洞及修复](pages/4013059970.md) | `4013059970` | 2024-11-27 09:14:33 | Optional > 最佳实践 > API安全最佳实践 |
+| 877 | [密钥泄漏修复指引](pages/4012082455.md) | `4012082455` | 2024-12-24 01:54:38 | Optional > 最佳实践 > API安全最佳实践 |
+| 878 | [国家商用密码简介](pages/4012082627.md) | `4012082627` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
+| 879 | [获取国家商用密码证书和密钥](pages/4012082628.md) | `4012082628` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
+| 880 | [APIv3接口使用国家商用密码指引](pages/4012082629.md) | `4012082629` | 2024-07-25 03:09:50 | Optional > 国家商用密码接入指南 |
+| 881 | [开户银行全称对照表](pages/4012082812.md) | `4012082812` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 882 | [开户银行对照表](pages/4012082813.md) | `4012082813` | 2025-02-19 07:30:19 | Optional > 对照表 |
+| 883 | [银行类型对照表](pages/4012082814.md) | `4012082814` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 884 | [省市区编号对照表](pages/4012082815.md) | `4012082815` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 885 | [优惠费率活动对照表](pages/4012082816.md) | `4012082816` | 2024-12-26 08:48:22 | Optional > 对照表 |
+| 886 | [跨境电商二级商户费率对照表](pages/4012082817.md) | `4012082817` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 887 | [商户行业编码](pages/4012082818.md) | `4012082818` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 888 | [特殊行业ID对照表](pages/4012082819.md) | `4012082819` | 2024-07-25 03:24:06 | Optional > 对照表 |
+| 889 | [接入模式](pages/4012081931.md) | `4012081931` | 2026-06-01 06:16:40 | Optional > 名词表 |
+| 890 | [支付产品](pages/4012081932.md) | `4012081932` | 2024-07-25 02:23:51 | Optional > 名词表 |
+| 891 | [业务平台](pages/4012081933.md) | `4012081933` | 2024-07-25 02:23:51 | Optional > 名词表 |
+| 892 | [业务系统](pages/4012081934.md) | `4012081934` | 2024-07-25 02:23:51 | Optional > 名词表 |
+| 893 | [参数说明](pages/4012081935.md) | `4012081935` | 2026-10-13 09:47:01 | Optional > 名词表 |
+| 894 | [常见问题](pages/4016183684.md) | `4016183684` | 2026-08-05 06:15:10 | Optional > 名词表 |
+| 895 | [微信支付链路界面与交互规范](pages/4020527499.md) | `4020527499` | 2026-05-19 02:15:32 | Optional > 服务运营规范 |
+| 896 | [Postman调试工具](pages/4012083114.md) | `4012083114` | 2024-11-29 09:45:15 | Optional > 开发工具 |
+| 897 | [平台证书下载工具](pages/4012083115.md) | `4012083115` | 2024-11-27 09:13:57 | Optional > 开发工具 |
+| 898 | [验签工具](pages/4012083116.md) | `4012083116` | 2025-01-03 07:02:48 | Optional > 开发工具 |
+| 899 | [产品介绍](pages/4012083118.md) | `4012083118` | 2025-03-21 07:39:41 | Optional > 网络云排查 |
+| 900 | [网络问题排查指南](pages/4012083119.md) | `4012083119` | 2025-03-21 07:39:03 | Optional > 网络云排查 |
+| 901 | [常见问题](pages/4012083120.md) | `4012083120` | 2024-07-25 03:43:58 | Optional > 网络云排查 |
+| 902 | [产品介绍](pages/4012083122.md) | `4012083122` | 2024-07-25 03:43:58 | Optional > 安全医生 |
+| 903 | [诊断链接绑定指引](pages/4012083123.md) | `4012083123` | 2024-07-25 03:43:58 | Optional > 安全医生 |
+| 904 | [安全联系人设置指引](pages/4012083124.md) | `4012083124` | 2024-07-25 03:43:58 | Optional > 安全医生 |
+| 905 | [SDK概述](pages/4012083109.md) | `4012083109` | 2026-04-24 09:22:07 | Optional > SDK |
+| 906 | [使用 Java SDK](pages/4012083111.md) | `4012083111` | 2025-05-29 03:32:06 | Optional > SDK |
+| 907 | [使用 PHP SDK](pages/4012083112.md) | `4012083112` | 2025-05-29 03:32:04 | Optional > SDK |
+| 908 | [使用 Go SDK](pages/4012083113.md) | `4012083113` | 2025-05-29 03:36:58 | Optional > SDK |
 
 </details>

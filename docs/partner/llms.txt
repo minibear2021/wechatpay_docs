@@ -1,4 +1,4 @@
->更新时间：2026.11.10
+>更新时间：2026.11.11
 
 # 微信支付合作伙伴平台文档中心
 
@@ -809,8 +809,6 @@
 - [删除品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4015783113.md)
 - [暂停门店营业](https://pay.weixin.qq.com/doc/v3/partner/4016756671.md)
 - [恢复门店营业](https://pay.weixin.qq.com/doc/v3/partner/4016756672.md)
-- [绑定收款商户号](https://pay.weixin.qq.com/doc/v3/partner/4015783177.md)
-- [解绑收款商户号](https://pay.weixin.qq.com/doc/v3/partner/4015783188.md)
 ### 附录
 - [品牌经营平台管理品牌门店](https://pay.weixin.qq.com/doc/v3/partner/4016689827.md)
 ## 品牌服务商授权

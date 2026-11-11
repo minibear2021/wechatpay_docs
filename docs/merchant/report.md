@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20261110_075014
+**生成时间**: 20261111_071748
 **文档总数**: 561
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
 ## 变更概览
 
-- 新增: 3 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
 - 修改: 0 个页面
-- 成功拉取: 3 个页面
+- 成功拉取: 0 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,54 +20,12 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.09
-+>更新时间：2026.11.10
+->更新时间：2026.11.10
++>更新时间：2026.11.11
  
  # 微信支付商户平台文档中心
  
-@@ -633,6 +633,9 @@
- - [图片请求接口](https://pay.weixin.qq.com/doc/v3/merchant/4012467251.md)
- ## 证书密钥概览
- - [证书密钥概览](https://pay.weixin.qq.com/doc/v3/merchant/4024350132.md)
-+## 商户API证书
-+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4057921652.md)
-+- [常见问题](https://pay.weixin.qq.com/doc/v3/merchant/4058384702.md)
- ## 微信支付公钥
- > 微信支付公钥可用于验证微信支付应答与回调消息的真实性与完整性，防止伪造与篡改，同时可对敏感信息进行加解密，保障交易与数据安全。商户在 API 安全页面申请下载，一次申请永久有效。
- 
-@@ -655,6 +658,8 @@
- - [下载平台证书](https://pay.weixin.qq.com/doc/v3/merchant/4012551764.md)
- ### 附录
- - [平台证书更换操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4012068829.md)
-+## APIv3密钥
-+- [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4057926232.md)
- 
- ## Optional
- ### 开发须知
 ```
-
-## 新增页面
-
-### 产品介绍
-- ID: `4057921652`
-- 路径: 商户API证书
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4057921652.md
-- 更新时间: 2026-11-09 10:05:02
-- 本地文件: `pages/4057921652.md`
-
-### 常见问题
-- ID: `4058384702`
-- 路径: 商户API证书
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4058384702.md
-- 更新时间: 2026-11-10 03:02:53
-- 本地文件: `pages/4058384702.md`
-
-### 产品介绍
-- ID: `4057926232`
-- 路径: APIv3密钥
-- URL: https://pay.weixin.qq.com/doc/v3/merchant/4057926232.md
-- 更新时间: 2026-11-09 10:06:23
-- 本地文件: `pages/4057926232.md`
 
 ## 附录：所有页面清单
 
