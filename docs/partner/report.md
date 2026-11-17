@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261116_072434
+**生成时间**: 20261117_083652
 **文档总数**: 908
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 0 个页面
+- 修改: 5 个页面
+- 成功拉取: 5 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,11 +20,201 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.13
-+>更新时间：2026.11.16
+->更新时间：2026.11.16
++>更新时间：2026.11.17
  
  # 微信支付合作伙伴平台文档中心
  
+```
+
+## 修改页面
+
+### 开具通用行业电子发票
+- ID: `4015792574`
+- 路径: 微信电子发票 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015792574.md
+- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:57
+- 本地文件: `pages/4015792574.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.12.03
++>更新时间：2026.11.05
+ 
+ 商户完成收款后，调用本接口开具通用行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。
+ 
+@@ -67,8 +67,8 @@
+ | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
+ | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+ | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+-| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
+-| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
++| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
++| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
+ ## 应答参数
+ 
+ 无应答包体
+```
+
+### 开具不动产租赁行业电子发票
+- ID: `4015941740`
+- 路径: 微信电子发票 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015941740.md
+- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:56
+- 本地文件: `pages/4015941740.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.12.03
++>更新时间：2026.11.05
+ 
+ 商户完成收款后，调用本接口开具不动产租赁行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。
+ 
+@@ -48,7 +48,7 @@
+ | fapiao_information | object | true | 【需要开具的数电发票信息】 需要开具的不动产租赁特定行业数电发票信息 |
+ | fapiao_information.fapiao_id | string(32) | true | 【商户发票单号】 商户发票单号，唯一标识一张要开具的发票。只能是字母、数字、中划线-、下划线\_、竖线&#124;、星号\*这些英文半角字符，且该单号在每个商户下必须唯一<br>当申请单下发票状态status为‘ISSUE\_FAILED’-发票开具已失败/‘REVERSED’-发票已冲红时，可以更换fapiao\_id重新开票。1个fapiao\_apply\_id下最多支持5个fapiao\_id |
+ | fapiao_information.total_amount | integer | true | 【总价税合计】 总价税合计，所有发票行单行金额合计的累加，展示在发票的价税合计处，单位：分 注意：所有发票的总价税合计之和不能超过交易的总金额 |
+-| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息，单张发票的发票行不能超过8行 |
++| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息 |
+ | fapiao_information.items.tax_code | string(32) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码。可自行指定符合税务部门规定的货物或应税劳务、服务编码；当税收分类编码为3040502020102000000 个人出租住房时，销售方（纳税人）必须为个体工商户或自然人。个体工商户指的是税局【登记注册类型】为个体工商户。因乐企当前预检不支持个人或者个人工商户接入，暂时不支持个人出租房业务 |
+ | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
+ | fapiao_information.items.specification | string(20) | false | 【规格型号】 规格型号，展示在发票中间的规格型号列 |
+@@ -76,8 +76,8 @@
+ | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
+ | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+ | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+-| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
+-| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
++| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
++| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
+ ## 应答参数
+ 
+ 无应答包体
+```
+
+### 开具成品油行业电子发票
+- ID: `4016760559`
+- 路径: 微信电子发票 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016760559.md
+- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:57
+- 本地文件: `pages/4016760559.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.12.03
++>更新时间：2026.11.05
+ 
+ 商户完成收款后，调用本接口开具成品油行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。  注意：本接口成功返回仅代表开票请求已被受理，当开票完成时，微信支付会根据商户配置的回调地址进行回调通知，商户也可以通过【查询电子发票】接口获取开票结果及开票信息。蓝字发票开具失败时，可以通过更换fapiao\_information.fapiao\_id，重新填写发票信息进行重试。每个申请单可至多重试4次。
+ 
+@@ -46,7 +46,7 @@
+ | fapiao_information | object | true | 【需要开具的数电发票信息】 需要开具的成品油行业数电发票信息 |
+ | fapiao_information.fapiao_id | string(32) | true | 【商户发票单号】 商户发票单号，唯一标识一张要开具的发票。只能是字母、数字、中划线-、下划线\_、竖线&#124;、星号\*这些英文半角字符，且该单号在每个商户下必须唯一<br>当申请单下发票状态status为‘ISSUE\_FAILED’-发票开具已失败/‘REVERSED’-发票已冲红时，可以更换fapiao\_id重新开票。1个fapiao\_apply\_id下最多支持5个fapiao\_id |
+ | fapiao_information.total_amount | integer | true | 【总价税合计】 总价税合计，所有发票行单行金额合计的累加，展示在发票的价税合计处，单位：分 注意：所有发票的总价税合计之和不能超过交易的总金额 |
+-| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息，单张发票的发票行不能超过8行 |
++| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息 |
+ | fapiao_information.items.tax_code | string(32) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码。可自行指定符合税务部门规定的货物或应税劳务、服务编码。成品油业务仅支持10701010开头的税收分类编码。<br>服务税收分类编码为1070101020100000000航空煤油成品油发票的、1070101040200000000燃料油定点直供发票的、1070101050200000000石脑油定点直供发票的，均须单独开具，不得相互混开或与其他发票混开。 |
+ | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
+ | fapiao_information.items.specification | string(20) | false | 【规格型号】 规格型号，展示在发票中间的规格型号列 |
+@@ -56,7 +56,7 @@
+ | fapiao_information.items.tax_rate | integer | true | 【税率】 税率，单位为万分之一，如1300代表13%。<br>现在支持的税率为0、1%、1.5%、3%、5%、6%、9%、10%、11%、13%、16%、17% |
+ | fapiao_information.items.discount | boolean | true | 【是否折扣行】 指定该发票行是否折扣行，折扣行必须是被折扣行的下一行 |
+ | fapiao_information.items.preferential_policy_code | integer | false | 【优惠政策标识】 优惠政策标识。1:简易征收; 2:稀土产品; 3:免税; 4:不征税; 5:先征后退; 6:100%先征后退; 7:50%先征后退; 8:按3%简易征收; 9:按5%简易征收; 10:按5%简易征收减按1.5%计征; 11:即征即退30%; 12:即征即退50%; 13:即征即退70%; 14:即征即退100%; 15:超税负3%即征即退; 16:超税负8%即征即退; 17:超税负12%即征即退; 18:超税负6%即征即退 |
+-| fapiao_information.items.refined_oil_information | object | false | 【成品油行业额外信息】 成品油行业额外信息 |
++| fapiao_information.items.refined_oil_information | object | false | 【成品油行业额外信息】 当开票商户，经主管税务机关核定行业性质为成品油经销企业时，成品油行业额外信息必填 |
+ | fapiao_information.items.refined_oil_information.station | string(100) | true | 【成品油站点】 成品油交易的站点 |
+ | fapiao_information.items.refined_oil_information.trade_time | string(32) | true | 【交易时间】 完成此次交易时，使用油枪加油的操作时间。遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE |
+ | fapiao_information.items.refined_oil_information.gun_number | string(10) | true | 【加油枪号码】 成品油交易对应的加油枪号码 |
+@@ -69,8 +69,8 @@
+ | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
+ | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+ | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+-| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
+-| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
++| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
++| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
+ ## 应答参数
+ 
+ 无应答包体
+```
+
+### 开具旅客运输行业电子发票
+- ID: `4025863376`
+- 路径: 微信电子发票 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4025863376.md
+- 更新时间变更: 2026-07-17 03:57:13 -> 2026-11-05 12:26:58
+- 本地文件: `pages/4025863376.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2026.07.17
++>更新时间：2026.11.05
+ 
+ 商户完成收款后，调用本接口开具旅客运输行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。
+ 
+@@ -48,7 +48,7 @@
+ | fapiao_information | object | true | 【需要开具的数电发票信息】 需要开具的旅客运输行业数电发票信息 |
+ | fapiao_information.fapiao_id | string(32) | true | 【商户发票单号】 商户发票单号，唯一标识一张要开具的发票。只能是字母、数字、中划线-、下划线\_、竖线&#124;、星号\*这些英文半角字符，且该单号在每个商户下必须唯一<br>当申请单下发票状态status为‘ISSUE\_FAILED’-发票开具已失败/‘REVERSED’-发票已冲红时，可以更换fapiao\_id重新开票。1个fapiao\_apply\_id下最多支持5个fapiao\_id |
+ | fapiao_information.total_amount | integer | true | 【总价税合计】 总价税合计，所有发票行单行金额合计的累加，展示在发票的价税合计处，单位：分 注意：所有发票的总价税合计之和不能超过交易的总金额 |
+-| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息，单张发票的发票行不能超过8行 |
++| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息 |
+ | fapiao_information.items.tax_code | string(19) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码。可自行指定符合税务部门规定的货物或应税劳务、服务编码。旅客运输业务仅支持301开头的税收分类编码 |
+ | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
+ | fapiao_information.items.specification | string(20) | false | 【规格型号】 规格型号，展示在发票中间的规格型号列 |
+@@ -76,8 +76,8 @@
+ | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
+ | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+ | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
+-| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
+-| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
++| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
++| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
+ ## 应答参数
+ 
+ 无应答包体
+```
+
+### 查询电子发票
+- ID: `4015792567`
+- 路径: 微信电子发票 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015792567.md
+- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:55
+- 本地文件: `pages/4015792567.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.12.03
++>更新时间：2026.11.05
+ 
+ 商户调用[【开具电子发票】](https://pay.weixin.qq.com/doc/v3/partner/4015792574.md)接口或[【冲红电子发票】](https://pay.weixin.qq.com/doc/v3/partner/4015792575.md)接口或[【将电子发票插入微信用户卡包】](https://pay.weixin.qq.com/doc/v3/partner/4015792579.md)接口成功后，应调用本接口查询电子发票开具/冲红/插卡结果，并获取已开具/冲红/插卡的电子发票信息。
+ 
+@@ -84,7 +84,7 @@
+ | fapiao_information.buyer_information.fapiao_bill_type | string | false | 【开具的发票类型】 用户选择提交开具发票的类型<br>可选取值<br><ul><li>`COMM_FAPIAO`:  增值税普通发票</li><li>`VAT_FAPIAO`:  增值税专用发票</li></ul> |
+ | fapiao_information.buyer_information.user_apply_message | string(100) | false | 【留言信息】 用户申请开票时提交的留言信息 |
+ | fapiao_information.extra_information | object | true | 【附加信息】 附加信息 |
+-| fapiao_information.extra_information.drawer | string(20) | true | 【开票人】 数电发票模式下，为脱敏后的开票人名称，格式为：除最后一个字外其它字用\*填充的姓名+空格+身份证后四位 |
++| fapiao_information.extra_information.drawer | string | true | 【开票人】 数电发票模式下，为脱敏后的开票人名称，格式为：除最后一个字外其它字用\*填充的姓名+空格+身份证后四位 |
+ | fapiao_information.items | array[object] | false | 【发票行信息】 发票行信息 |
+ | fapiao_information.items.tax_code | string(32) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码 |
+ | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
+@@ -98,7 +98,7 @@
+ | fapiao_information.items.tax_rate | integer | true | 【税率】 税率，单位为万分之一，如1300代表13% |
+ | fapiao_information.items.tax_prefer_mark | string | false | 【税收优惠政策标识】 税收优惠政策标识<br>可选取值<br><ul><li>`NO_FAVORABLE`:  无优惠</li><li>`OUTSIDE_VAT`:  不征税</li><li>`VAT_EXEMPT`:  免税</li><li>`NORMAL_ZERO_RATED`:  普通零税率</li><li>`EXPORT_ZERO_RATED`:  出口零税率</li></ul> |
+ | fapiao_information.items.discount | boolean | true | 【是否折扣行】 指定该发票行是否折扣行，折扣行必须是被折扣行的下一行 |
+-| fapiao_information.remark | string(200) | false | 【备注信息】 备注信息 |
++| fapiao_information.remark | string | false | 【备注信息】 备注信息 |
+ | fapiao_information.fapiao_error_code | string(32) | false | 【开票失败错误码】 开票失败时存在：<br>业务异常(BIZ\_ERROR) - 需要根据错误提示解决处理后，重新申请开票<br>参数异常(PARAM\_ERROR) - 需要根据错误提示修改请求参数后，重新申请开票 |
+ | fapiao_information.fapiao_error_message | string(256) | false | 【开票失败原因】 开票失败时存在 |
+ ## 错误码
 ```
 
 ## 附录：所有页面清单
@@ -673,12 +863,12 @@
 | 637 | [配置开发选项](pages/4015792563.md) | `4015792563` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
 | 638 | [获取用户抬头填写链接](pages/4015770776.md) | `4015770776` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
 | 639 | [获取用户填写抬头信息](pages/4015784260.md) | `4015784260` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 640 | [开具通用行业电子发票](pages/4015792574.md) | `4015792574` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 641 | [开具不动产租赁行业电子发票](pages/4015941740.md) | `4015941740` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 642 | [开具成品油行业电子发票](pages/4016760559.md) | `4016760559` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 643 | [开具旅客运输行业电子发票](pages/4025863376.md) | `4025863376` | 2026-07-17 03:57:13 | 微信电子发票 > API列表 |
+| 640 | [开具通用行业电子发票](pages/4015792574.md) | `4015792574` | 2026-11-05 12:26:57 | 微信电子发票 > API列表 |
+| 641 | [开具不动产租赁行业电子发票](pages/4015941740.md) | `4015941740` | 2026-11-05 12:26:56 | 微信电子发票 > API列表 |
+| 642 | [开具成品油行业电子发票](pages/4016760559.md) | `4016760559` | 2026-11-05 12:26:57 | 微信电子发票 > API列表 |
+| 643 | [开具旅客运输行业电子发票](pages/4025863376.md) | `4025863376` | 2026-11-05 12:26:58 | 微信电子发票 > API列表 |
 | 644 | [冲红电子发票](pages/4015792575.md) | `4015792575` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
-| 645 | [查询电子发票](pages/4015792567.md) | `4015792567` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
+| 645 | [查询电子发票](pages/4015792567.md) | `4015792567` | 2026-11-05 12:26:55 | 微信电子发票 > API列表 |
 | 646 | [获取发票下载信息](pages/4015792576.md) | `4015792576` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
 | 647 | [下载发票文件](pages/4015792569.md) | `4015792569` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
 | 648 | [上传电子发票文件](pages/4015792580.md) | `4015792580` | 2025-12-03 02:09:53 | 微信电子发票 > API列表 |
