@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261117_083652
+**生成时间**: 20261118_080002
 **文档总数**: 908
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 5 个页面
-- 成功拉取: 5 个页面
+- 修改: 4 个页面
+- 成功拉取: 4 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,8 +20,8 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.16
-+>更新时间：2026.11.17
+->更新时间：2026.11.17
++>更新时间：2026.11.18
  
  # 微信支付合作伙伴平台文档中心
  
@@ -29,192 +29,260 @@
 
 ## 修改页面
 
-### 开具通用行业电子发票
-- ID: `4015792574`
-- 路径: 微信电子发票 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015792574.md
-- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:57
-- 本地文件: `pages/4015792574.md`
+### 产品介绍
+- ID: `4016433410`
+- 路径: 品牌入驻
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016433410.md
+- 更新时间变更: 2026-04-02 14:46:39 -> 2026-11-06 09:13:06
+- 本地文件: `pages/4016433410.md`
 
 ```diff
 --- old.md
 +++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2025.12.03
-+>更新时间：2026.11.05
+@@ -1,8 +1,57 @@
+->更新时间：2026.04.02
++>更新时间：2026.11.06
  
- 商户完成收款后，调用本接口开具通用行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。
+-品牌入驻是开启品牌经营的第一步。服务商可通过API代品牌开号，也可通过品牌经营平台代商家开号，在进行服务商和品牌的授权绑定流程。界面端开号流程如下，商家可访问[微信支付品牌经营平台](https://pay.weixin.qq.com/xdc/brandhomeweb/brand/home#/)，点击「我要注册品牌」，或直接访问[微信支付品牌经营平台](https://pay.weixin.qq.com/xdc/apply4brandweb/apply-brand#/apply-auth)开启注册流程。
++品牌入驻是开启品牌经营的第一步。品牌入驻有两种方式：
++
++- 服务商通过API接口代品牌开号
++
++- 品牌方通过品牌经营平台开号，再进行服务商和品牌的授权绑定流程。
  
-@@ -67,8 +67,8 @@
- | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
- | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
- | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
--| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
--| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
-+| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
-+| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
- ## 应答参数
  
- 无应答包体
++# 方式1、服务商通过API接口代品牌开号
++
++注：当前仅支持主体类型为企业或个体户的商户。
++
++如该商户有商标，则需提供商标注册证等资料
++
++所需材料参见提交入驻申请（本次更新，免提交经营场景图片）
++
++预计审核时间T+1
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a1394ad122ad8b6cf8a6041fed48a43d.png)
++
++
++
++## 情况1：服务商代开的是收单关系的子商户号
++
++可在API中可直接输入有收单关系的子商户号，无需品牌主体信息与超管信息。如该子商户号在商户平台的超管信息完整，品牌在资料完成审核后（包含机器审核或人工审核）直接开通，对应超管将会收到一则通知（无需操作）
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/15e3c1f70700e82038e10ccae0f02df5.png)
++
++## 情况2: 服务商代开的子商户号，没有收单关系。
++
++无需输入商户号，需输入品牌主体信息与品牌超管信息。品牌在资料完成审核后（包含机器审核或人工审核），会返回一个二维码，供品牌超管确认。
++
++情况2-1：品牌超管信息 = 同主体的法人，超管扫描二维码后，需确认授权
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/695c35ea615a12b89c4f290c485da236.png)
++
++情况2-2：品牌超管信息 不是 同主体的法人，超管扫描二维码后，先确认授权；
++
++之后需进行主体验证（提供以下三种方式）![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/c1c8d96886fe287e6f443102f1500fdb.png)
++
++注：本次新增了验证方式：二维码可由同主体任意管理员扫码确认即可，如果当前用户已经是一个管理员了，则可直接登录确认（需选择当前主体的商户号）
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/edce6d88ff4a44817c327b041910d7a2.png)
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/a6f3ed42a140b33c8aa176f6c0180d70.png)
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/12abf832a0e34447f688eb24c4e87c86.png)
++
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/b7e198c63ca828defff2efaad9a74912.png)
++
++# 方式2、品牌方通过品牌经营平台开号
++
++界面端开号流程如下，品牌方可访问[微信支付品牌经营平台](https://pay.weixin.qq.com/xdc/brandhomeweb/brand/home#/)，点击「我要注册品牌」，或直接访问[微信支付品牌经营平台](https://pay.weixin.qq.com/xdc/apply4brandweb/apply-brand#/apply-auth)开启注册流程。
+ 
+ ## 步骤1、管理员扫码
+ 
 ```
 
-### 开具不动产租赁行业电子发票
-- ID: `4015941740`
-- 路径: 微信电子发票 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015941740.md
-- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:56
-- 本地文件: `pages/4015941740.md`
+### 提交入驻申请
+- ID: `4016249989`
+- 路径: 品牌入驻 > API列表
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016249989.md
+- 更新时间变更: 2025-10-23 06:29:49 -> 2026-10-27 03:41:46
+- 本地文件: `pages/4016249989.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2025.12.03
-+>更新时间：2026.11.05
+->更新时间：2025.10.23
++>更新时间：2026.10.27
  
- 商户完成收款后，调用本接口开具不动产租赁行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。
+ 服务商（银行、支付机构、电商平台不可用）使用该接口提交商家资料，帮助商家入驻成为微信支付的品牌商家。
  
-@@ -48,7 +48,7 @@
- | fapiao_information | object | true | 【需要开具的数电发票信息】 需要开具的不动产租赁特定行业数电发票信息 |
- | fapiao_information.fapiao_id | string(32) | true | 【商户发票单号】 商户发票单号，唯一标识一张要开具的发票。只能是字母、数字、中划线-、下划线\_、竖线&#124;、星号\*这些英文半角字符，且该单号在每个商户下必须唯一<br>当申请单下发票状态status为‘ISSUE\_FAILED’-发票开具已失败/‘REVERSED’-发票已冲红时，可以更换fapiao\_id重新开票。1个fapiao\_apply\_id下最多支持5个fapiao\_id |
- | fapiao_information.total_amount | integer | true | 【总价税合计】 总价税合计，所有发票行单行金额合计的累加，展示在发票的价税合计处，单位：分 注意：所有发票的总价税合计之和不能超过交易的总金额 |
--| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息，单张发票的发票行不能超过8行 |
-+| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息 |
- | fapiao_information.items.tax_code | string(32) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码。可自行指定符合税务部门规定的货物或应税劳务、服务编码；当税收分类编码为3040502020102000000 个人出租住房时，销售方（纳税人）必须为个体工商户或自然人。个体工商户指的是税局【登记注册类型】为个体工商户。因乐企当前预检不支持个人或者个人工商户接入，暂时不支持个人出租房业务 |
- | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
- | fapiao_information.items.specification | string(20) | false | 【规格型号】 规格型号，展示在发票中间的规格型号列 |
-@@ -76,8 +76,8 @@
- | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
- | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
- | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
--| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
--| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
-+| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
-+| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
+@@ -38,11 +38,11 @@
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+ | business_code | string(128) | true | 【业务申请编号】 1、只能由数字、字母或下划线组成；<br>2、服务商自定义的商户唯一编号；<br>3、每个编号对应一个申请单；<br>4、若申请被驳回，可填写相同的“业务申请编号”，即可覆盖修改原申请信息。 |
+-| admin_info | object | true | 【管理员信息】 提交申请单时需填写品牌管理员的个人信息。品牌管理员是负责品牌经营的管理人员，后续将承担权限分配、功能使用等关键管理责任。 |
++| admin_info | object | false | 【管理员信息】 提交申请单时需填写品牌管理员的个人信息。品牌管理员是负责品牌经营的管理人员，后续将承担权限分配、功能使用等关键管理责任。<br>如果提交的商户号是有收单关系的子商户号，品牌主体信息与超管信息无需填写（将复用商户号的，如商户号的超管信息不齐全，请先去商户平台补充） |
+ | admin_info.admin_name | string(1024) | true | 【管理员姓名】 1、长度为2-50个字符；<br>2、前后不能有空格、制表符、换行符；<br>3、支持填写数字、英文字母、汉字及部分特殊字符，但完整内容不能只包含数字、部分特殊字符；<br>4、允许使用的部分特殊字符有：<br><ul><li>英文标点： ``. ( )  - _ — ~ ! @ # % ^ & * + ` = { } &#124; : ' " < > ? [ ] \ ; , /``</li><li>中文标点： `。 ？ ！ ， 、 ； ： “ ” ‘ ' （ ） 《 》 〈 〉 【 】 『 』 「 」 ﹃ ﹄ 〔 〕 … ～ ﹏`</li><li>货币符号： `￥ $ €`</li><li>其他符号： `· ‧`</li></ul><br>5、该字段需要使用微信支付公钥加密（推荐），请参考 [获取微信支付公钥ID说明](https://pay.weixin.qq.com/doc/v3/partner/4013038589.md#Q%3A-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%85%AC%E9%92%A5ID%3F) 以及 [微信支付公钥加密敏感信息指引](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)，也可以使用微信支付平台证书公钥加密，参考 [获取平台证书序列号](https://pay.weixin.qq.com/doc/v3/partner/4013059181.md)、 [平台证书加密敏感信息指引](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)。 |
+ | admin_info.id_doc_type | string | true | 【管理员证件类型】 不支持护照和外国人居住证类型<br>可选取值<br><ul><li>`IDENTIFICATION_TYPE_MAINLAND_ID_CARD`:  中国大陆居民-身份证</li><li>`IDENTIFICATION_TYPE_HONGKONG`:  中国香港居民--来往内地通行证</li><li>`IDENTIFICATION_TYPE_MACAO`:  中国澳门居民--来往内地通行证</li><li>`IDENTIFICATION_TYPE_TAIWAN`:  中国台湾居民--来往大陆通行证</li><li>`IDENTIFICATION_TYPE_HONGKONG_MACAO_RESIDENT`:  港澳居民居住证</li><li>`IDENTIFICATION_TYPE_TAIWAN_RESIDENT`:  台湾居民居住证</li></ul> |
+ | admin_info.id_card_number | string(1024) | true | 【管理员证件号】 1、可传身份证、来往内地通行证、来往大陆通行证等证件号码，号码规范如下：<br><ul><li>身份证（限中国大陆居民）：17位数字+1位数字&#124;X；</li><li>中国香港居民--来往内地通行证：H/h开头+8或10位数字/字母；</li><li>中国澳门居民--来往内地通行证：M/m开头+8或10位数字/字母；</li><li>中国台湾居民--来往大陆通行证：8位数字或10位数字；</li><li>台湾居民居住证/港澳居民居住证：17位数字+1位数字&#124;X；</li></ul><br>2、经营管理员授权确认时，校验微信号绑定的银行卡实名信息，是否与该证件号码一致；<br>3、该字段需要使用微信支付公钥加密（推荐），请参考 [获取微信支付公钥ID说明](https://pay.weixin.qq.com/doc/v3/partner/4013038589.md#Q%3A-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%85%AC%E9%92%A5ID%3F) 以及 [微信支付公钥加密敏感信息指引](https://pay.weixin.qq.com/doc/v3/partner/4013059044.md)，也可以使用微信支付平台证书公钥加密，参考 [获取平台证书序列号](https://pay.weixin.qq.com/doc/v3/partner/4013059181.md)、 [平台证书加密敏感信息指引](https://pay.weixin.qq.com/doc/v3/partner/4013059053.md)。 |
+-| subject_info | object | true | 【主体信息】 请提交品牌所属企业的主体信息，包括主体名称、主体类型和统一社会信用代码。 |
++| subject_info | object | false | 【主体信息】 请提交品牌所属企业的主体信息，包括主体名称、主体类型和统一社会信用代码。<br>如果提交的商户号是有收单关系的子商户号，品牌主体信息与超管信息无需填写（将复用商户号的，如商户号的超管信息不齐全，请先去商户平台补充） |
+ | subject_info.subject_type | string | true | 【主体类型】 1、主体类型需与营业执照/登记证书上一致，可参考 [选择主体指引](https://kf.qq.com/faq/180910IBZVnQ180910naQ77b.html)；<br>2、只支持企业和个体户类型，其他暂不支持。<br>可选取值<br><ul><li>`SUBJECT_TYPE_ENTERPRISE`:  （企业）营业执照上的主体类型一般为有限公司、有限责任公司</li><li>`SUBJECT_TYPE_INDIVIDUAL`:  （个体户）营业执照上的主体类型一般为个体户、个体工商户、个体经营</li></ul> |
+ | subject_info.subject_name | string(50) | true | 【主体名称】 1、入驻商家主体的名称；<br>2、长度限制不超过50个字符。 |
+ | subject_info.unified_social_credit_code | string(20) | true | 【统一社会信用代码】 1、入驻商家主体的统一社会信用代码；<br>2、长度限制为18个字符，由数字和大写英文字母组成。 |
+@@ -50,7 +50,7 @@
+ | brand_basic_info.brand_name | string(30) | true | 【品牌名称】 商户申请的品牌名称，长度限制30字符以内 |
+ | brand_basic_info.brand_logo | string | true | 【品牌Logo】 1、商家申请的品牌Logo；<br>2、支持上传jpg、png格式，最大支持2MB；<br>3、要求上传尺寸不小于200px \* 200px，不大于300px \* 300px，图片宽高比1:1；<br>4、需上传1张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。 |
+ | trademark | object | true | 【品牌商标资料】 商标相关资料，包括是否有商标、商标注册证、授权书或无商标时的经营证明，用于品牌合法性验证。 |
+-| trademark.trademark_exists | string | true | 【有无商标】 1、若使用的品牌名称或logo，已被注册为商标，则需选择有商标并上传相应的商标注册证信息；<br>2、若选择无商标，则不可使用已注册的商标作为品牌名称或 logo，并需提供证明材料，证明品牌名称命名与企业名称、经营场景（门店、小程序、网页等）对应；<br>可选取值<br><ul><li>`TRADEMARK_EXISTS`:  有商标</li><li>`TRADEMARK_NONE`:  无商标</li></ul> |
++| trademark.trademark_exists | string | true | 【有无商标】 1、若使用的品牌名称或logo，已被注册为商标，则需选择有商标并上传相应的商标注册证信息；<br>2、若选择无商标，则不可使用已注册的商标作为品牌名称或 logo；<br>可选取值<br><ul><li>`TRADEMARK_EXISTS`:  有商标</li><li>`TRADEMARK_NONE`:  无商标</li></ul> |
+ | trademark.trademark_registration_certificate | object | false | 【商标注册证】 商标注册证相关信息，有商标时必填 |
+ | trademark.trademark_registration_certificate.certificate | string | false | 【商标注册证】 1、若选择有商标，请参考 [示例](https://kf.qq.com/faq/250716E32IfY250716aIVviA.html) 上传Logo商标注册证的图片；<br>2、支持上传png、jpg格式，最大2MB；<br>3、请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：该字段仅支持单张图片，不可与 certificate\_list 同时填写。自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。新接入服务商请使用 certificate\_list 字段，支持多张图片传入。 |
+ | trademark.trademark_registration_certificate.name | string(50) | true | 【商标名称】 1、商标注册时登记的名称，可前往 [商标备案网](http://wcjs.sbj.cnipa.gov.cn/) 查询；<br>2、支持输入中文、英文、数字特殊字符；<br>3、限制50个字符； |
+@@ -58,7 +58,7 @@
+ | trademark.trademark_registration_certificate.valid_begin_time | string(20) | false | 【商标有效期开始时间】 1、商标注册证上的有效期开始时间；<br>2、格式要求为： `YYYY-MM-DD`，不支持其他格式。<br>注意：自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。 |
+ | trademark.trademark_registration_certificate.valid_end_time | string(20) | true | 【商标有效期结束时间】 1、商标注册证上的有效期截止时间；<br>2、有效期结束时间必须晚于当前提交申请时间，否则提交将被拒绝；<br>3、格式要求：请按照标准格式 `YYYY-MM-DD` 填写（如 `2025-12-31`），月份和日期为两位数字，必须为合法日期。 |
+ | trademark.trademark_registration_certificate.international_class | string(5) | true | 【商标国际分类】 1、请填写商标注册证上的商标国际分类，具体类别参考 [商标分类表](https://baike.baidu.com/item/%E5%95%86%E6%A0%87%E5%88%86%E7%B1%BB%E8%A1%A8/9204053)；<br>2、取值范围为1-45，只支持数字，不支持字母、符号、小数等。 |
+-| trademark.trademark_registration_certificate.holder | string(50) | true | 【商标注册人】 1、需填写商标注册证上的注册人名称；<br>2、支持中文、英文、数字、括号，限制50个字符；<br>3、如果与主体名称不一致，需上传“商标许可使用授权书”。 |
++| trademark.trademark_registration_certificate.holder | string(128) | true | 【商标注册人】 1、需填写商标注册证上的注册人名称；<br>2、长度为2-128个字符；<br>3、前后不能有空格、制表符、换行符；<br>4、不能仅含数字、特殊字符，必须至少包含一个英文字母或汉字；<br>5、仅支持数字、英文字母、汉字及特殊字符（如括号、标点等），不支持 Emoji 与不可见控制字符；<br>6、如果与主体名称不一致，需上传“商标许可使用授权书”。 |
+ | trademark.trademark_registration_certificate.license | string | false | 【商标许可使用授权书】 1、商标注册人为当前主体提供的授权书，商标注册人与主体名称不一致时需填写；<br>2、支持上传png、jpg格式，最大2MB；<br>3、请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：该字段仅支持单张图片，不可与 license\_list 同时填写。自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。新接入服务商请使用 license\_list 字段，支持多张图片传入。 |
+ | trademark.trademark_registration_certificate.authorization_begin_time | string(20) | false | 【商标授权有效期开始时间】 1、授权书上的有效期起始时间，商标注册人与主体名称不一致时需填写；<br>2、格式要求为： `YYYY-MM-DD`，不支持其他格式。<br>注意：自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。 |
+ | trademark.trademark_registration_certificate.authorization_end_time | string(20) | false | 【商标授权有效期结束时间】 1、授权书上的有效期截止时间，商标注册人与主体名称不一致时需填写；<br>2、有效期结束时间必须晚于当前提交申请时间，否则提交将被拒绝；<br>3、格式要求：<br><ul><li>日期填写规范：请按照标准格式 `YYYY-MM-DD` 填写（如 `2025-12-31`），月份和日期为两位数字，必须为合法日期；</li><li>有效期限制：授权有效期不得超过商标有效期。</li></ul> |
+@@ -71,14 +71,15 @@
+ | trademark.logo_trademark_registration_certificate.valid_begin_time | string(20) | false | 【Logo商标有效期开始时间】 1、Logo商标注册证上的有效期起始时间；<br>2、格式要求为： `YYYY-MM-DD`，不支持其他格式。<br>注意：自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。 |
+ | trademark.logo_trademark_registration_certificate.valid_end_time | string(20) | true | 【Logo商标有效期结束时间】 1、Logo商标注册证上的有效期截止时间；<br>2、有效期结束时间必须晚于当前提交申请时间，否则提交将被拒绝；<br>3、格式要求：请按照标准格式 `YYYY-MM-DD` 填写（如 `2025-12-31`），月份和日期为两位数字，必须为合法日期。 |
+ | trademark.logo_trademark_registration_certificate.international_class | string(5) | true | 【Logo商标国际分类】 1、若有上传Logo商标注册证，请填写商标注册证上的商标国际分类，具体类别参考 [商标分类表](https://baike.baidu.com/item/%E5%95%86%E6%A0%87%E5%88%86%E7%B1%BB%E8%A1%A8/9204053)；<br>2、取值范围为1-45，只支持数字，不支持字母、符号、小数等。 |
+-| trademark.logo_trademark_registration_certificate.holder | string(50) | true | 【Logo商标注册人】 1、需填写Logo商标注册证上的注册人名称；<br>2、支持中文、英文、数字、中英文括号，限制50个字符；<br>3、如果商标注册人与主体名称不一致，需上传“Logo商标许可使用授权书”。 |
++| trademark.logo_trademark_registration_certificate.holder | string(128) | true | 【Logo商标注册人】 1、需填写Logo商标注册证上的注册人名称；<br>2、长度为2-128个字符；<br>3、前后不能有空格、制表符、换行符；<br>4、不能仅含数字、特殊字符，必须至少包含一个英文字母或汉字；<br>5、仅支持数字、英文字母、汉字及特殊字符（如括号、标点等），不支持 Emoji 与不可见控制字符；<br>6、如果商标注册人与主体名称不一致，需上传“Logo商标许可使用授权书”。 |
+ | trademark.logo_trademark_registration_certificate.license | string | false | 【Logo商标许可使用授权书】 1、商标注册人为当前主体提供的授权书，商标注册人与主体名称不一致时需填写；<br>2、支持上传png、jpg格式，最大2MB；<br>3、请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：该字段仅支持单张图片，不可与 license\_list 同时填写。自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。新接入服务商请使用 license\_list 字段，支持多张图片传入。 |
+ | trademark.logo_trademark_registration_certificate.authorization_begin_time | string(20) | false | 【Logo商标授权有效期开始时间】 1、Logo商标授权书上的有效期起始时间，商标注册人与主体名称不一致时需填写；<br>2、格式要求为： `YYYY-MM-DD`，不支持其他格式。<br>注意：自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。 |
+ | trademark.logo_trademark_registration_certificate.authorization_end_time | string(20) | false | 【Logo商标授权有效期结束时间】 1、Logo商标授权书上的有效期截止时间，商标注册人与主体名称不一致时需填写；<br>2、有效期结束时间必须晚于当前提交申请时间，否则提交将被拒绝；<br>3、格式要求：<br><ul><li>日期填写规范：请按照标准格式 `YYYY-MM-DD` 填写（如 `2025-12-31`），月份和日期为两位数字，必须为合法日期；</li><li>有效期限制：授权有效期不得超过商标有效期。</li></ul> |
+ | trademark.logo_trademark_registration_certificate.certificate_list | array[string] | false | 【Logo商标注册证列表】 1、若品牌Logo已注册商标，请参考 [示例](https://kf.qq.com/faq/250716E32IfY250716aIVviA.html) 上传Logo商标注册证的图片；<br>2、支持上传png、jpg格式，最大2MB；<br>3、可上传1-5张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：不可与 certificate 同时填写。 |
+ | trademark.logo_trademark_registration_certificate.license_list | array[string] | false | 【Logo商标许可使用授权书列表】 1、商标注册人为当前主体提供的授权书列表，商标注册人与主体名称不一致时需填写；<br>2、支持上传png、jpg格式，最大2MB；<br>3、可上传1-5张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：不可与 license 同时填写。 |
+-| trademark.no_trademark_addition_prove | string | false | 【无商标额外证明材料】 选择无商标时，不可使用已注册商标作为品牌名称和Logo，需提供证明材料，证明品牌名称命名与企业名称、经营场景（门店、小程序、网页等）对应；<br>1、请上传可以体现品牌经营场景的图片材料，如店铺门头照、点餐/购物/下单小程序截图、公司官网截图、APP 页面截图等，平台将审核品牌名称与经营场景的对应性；<br>2、支持上传png、jpg格式，最大2MB；<br>3、可上传1张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：该字段仅支持单张图片，不可与 no\_trademark\_addition\_prove\_list 同时填写。自 2026 年 4 月 15 日起，该字段不再对新增服务商开放；存量已接入服务商可继续正常使用。新接入服务商请使用 no\_trademark\_addition\_prove\_list 字段，支持多张图片传入。 |
+-| trademark.no_trademark_addition_prove_list | array[string] | false | 【无商标额外证明材料列表】 选择无商标时，不可使用已注册商标作为品牌名称和Logo，需提供证明材料列表，证明品牌名称命名与企业名称、经营场景（门店、小程序、网页等）对应；<br>1、请上传可以体现品牌经营场景的图片材料，如店铺门头照、点餐/购物/下单小程序截图、公司官网截图、APP 页面截图等；<br>2、支持上传png、jpg格式，最大2MB；<br>3、可上传1-5张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：不可与 no\_trademark\_addition\_prove 同时填写。 |
++| trademark.no_trademark_addition_prove | string | false | 【无商标额外证明材料】 自 2026 年 11 月 1 日起，本字段无需传递；如服务商仍传入，平台不做校验、不予保存。<br>1、请上传可以体现品牌经营场景的图片材料，如店铺门头照、点餐/购物/下单小程序截图、公司官网截图、APP 页面截图等，平台将审核品牌名称与经营场景的对应性；<br>2、支持上传png、jpg格式，最大2MB；<br>3、可上传1张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：该字段仅支持单张图片，不可与 no\_trademark\_addition\_prove\_list 同时填写。 |
++| trademark.no_trademark_addition_prove_list | array[string] | false | 【无商标额外证明材料列表】 自 2026 年 11 月 1 日起，本字段无需传递；如服务商仍传入，平台不做校验、不予保存。<br>1、请上传可以体现品牌经营场景的图片材料，如店铺门头照、点餐/购物/下单小程序截图、公司官网截图、APP 页面截图等；<br>2、支持上传png、jpg格式，最大2MB；<br>3、可上传1-5张图片，请填写通过 [图片上传API](https://pay.weixin.qq.com/doc/v3/partner/4016276333.md) 预先上传图片生成好的MediaID。<br>注意：不可与 no\_trademark\_addition\_prove 同时填写。 |
++| sub_mchid | string | false | 【子商户号】 商户号仅支持企业或个体户主体；<br>仅支持填有收单关系的子商户号，填写后无需填写主体信息和超管信息；<br>若同时填写子商户号和主体信息或超管信息，需保证信息与商户号上的一致。 |
  ## 应答参数
  
- 无应答包体
+ 200 OK
 ```
 
-### 开具成品油行业电子发票
-- ID: `4016760559`
-- 路径: 微信电子发票 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4016760559.md
-- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:57
-- 本地文件: `pages/4016760559.md`
+### 作废会员卡模板
+- ID: `4015336972`
+- 路径: 商家名片会员 > API列表 > 会员卡模板管理
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015336972.md
+- 更新时间变更: 2025-08-01 02:53:26 -> 2026-11-17 08:49:38
+- 本地文件: `pages/4015336972.md`
 
 ```diff
 --- old.md
 +++ new.md
 @@ -1,4 +1,4 @@
-->更新时间：2025.12.03
-+>更新时间：2026.11.05
+->更新时间：2025.08.01
++>更新时间：2026.11.17
  
- 商户完成收款后，调用本接口开具成品油行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。  注意：本接口成功返回仅代表开票请求已被受理，当开票完成时，微信支付会根据商户配置的回调地址进行回调通知，商户也可以通过【查询电子发票】接口获取开票结果及开票信息。蓝字发票开具失败时，可以通过更换fapiao\_information.fapiao\_id，重新填写发票信息进行重试。每个申请单可至多重试4次。
+ 商家可调用此 API 作废会员卡模板。
  
-@@ -46,7 +46,7 @@
- | fapiao_information | object | true | 【需要开具的数电发票信息】 需要开具的成品油行业数电发票信息 |
- | fapiao_information.fapiao_id | string(32) | true | 【商户发票单号】 商户发票单号，唯一标识一张要开具的发票。只能是字母、数字、中划线-、下划线\_、竖线&#124;、星号\*这些英文半角字符，且该单号在每个商户下必须唯一<br>当申请单下发票状态status为‘ISSUE\_FAILED’-发票开具已失败/‘REVERSED’-发票已冲红时，可以更换fapiao\_id重新开票。1个fapiao\_apply\_id下最多支持5个fapiao\_id |
- | fapiao_information.total_amount | integer | true | 【总价税合计】 总价税合计，所有发票行单行金额合计的累加，展示在发票的价税合计处，单位：分 注意：所有发票的总价税合计之和不能超过交易的总金额 |
--| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息，单张发票的发票行不能超过8行 |
-+| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息 |
- | fapiao_information.items.tax_code | string(32) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码。可自行指定符合税务部门规定的货物或应税劳务、服务编码。成品油业务仅支持10701010开头的税收分类编码。<br>服务税收分类编码为1070101020100000000航空煤油成品油发票的、1070101040200000000燃料油定点直供发票的、1070101050200000000石脑油定点直供发票的，均须单独开具，不得相互混开或与其他发票混开。 |
- | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
- | fapiao_information.items.specification | string(20) | false | 【规格型号】 规格型号，展示在发票中间的规格型号列 |
-@@ -56,7 +56,7 @@
- | fapiao_information.items.tax_rate | integer | true | 【税率】 税率，单位为万分之一，如1300代表13%。<br>现在支持的税率为0、1%、1.5%、3%、5%、6%、9%、10%、11%、13%、16%、17% |
- | fapiao_information.items.discount | boolean | true | 【是否折扣行】 指定该发票行是否折扣行，折扣行必须是被折扣行的下一行 |
- | fapiao_information.items.preferential_policy_code | integer | false | 【优惠政策标识】 优惠政策标识。1:简易征收; 2:稀土产品; 3:免税; 4:不征税; 5:先征后退; 6:100%先征后退; 7:50%先征后退; 8:按3%简易征收; 9:按5%简易征收; 10:按5%简易征收减按1.5%计征; 11:即征即退30%; 12:即征即退50%; 13:即征即退70%; 14:即征即退100%; 15:超税负3%即征即退; 16:超税负8%即征即退; 17:超税负12%即征即退; 18:超税负6%即征即退 |
--| fapiao_information.items.refined_oil_information | object | false | 【成品油行业额外信息】 成品油行业额外信息 |
-+| fapiao_information.items.refined_oil_information | object | false | 【成品油行业额外信息】 当开票商户，经主管税务机关核定行业性质为成品油经销企业时，成品油行业额外信息必填 |
- | fapiao_information.items.refined_oil_information.station | string(100) | true | 【成品油站点】 成品油交易的站点 |
- | fapiao_information.items.refined_oil_information.trade_time | string(32) | true | 【交易时间】 完成此次交易时，使用油枪加油的操作时间。遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE |
- | fapiao_information.items.refined_oil_information.gun_number | string(10) | true | 【加油枪号码】 成品油交易对应的加油枪号码 |
-@@ -69,8 +69,8 @@
- | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
- | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
- | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
--| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
--| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
-+| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
-+| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
- ## 应答参数
+@@ -17,7 +17,7 @@
  
- 无应答包体
-```
-
-### 开具旅客运输行业电子发票
-- ID: `4025863376`
-- 路径: 微信电子发票 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4025863376.md
-- 更新时间变更: 2026-07-17 03:57:13 -> 2026-11-05 12:26:58
-- 本地文件: `pages/4025863376.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2026.07.17
-+>更新时间：2026.11.05
+ 　　　　　【备域名】https://api2.mch.weixin.qq.com 使用该域名将访问异地的接入点，指引[点击查看](https://pay.weixin.qq.com/doc/v3/merchant/4012075113.md)
  
- 商户完成收款后，调用本接口开具旅客运输行业电子发票并插入微信用户的卡包。请求的交易信息必须真实存在。
+-接口限频：10/秒（商户号维度）
++接口限频：100/秒（商户号维度）
  
-@@ -48,7 +48,7 @@
- | fapiao_information | object | true | 【需要开具的数电发票信息】 需要开具的旅客运输行业数电发票信息 |
- | fapiao_information.fapiao_id | string(32) | true | 【商户发票单号】 商户发票单号，唯一标识一张要开具的发票。只能是字母、数字、中划线-、下划线\_、竖线&#124;、星号\*这些英文半角字符，且该单号在每个商户下必须唯一<br>当申请单下发票状态status为‘ISSUE\_FAILED’-发票开具已失败/‘REVERSED’-发票已冲红时，可以更换fapiao\_id重新开票。1个fapiao\_apply\_id下最多支持5个fapiao\_id |
- | fapiao_information.total_amount | integer | true | 【总价税合计】 总价税合计，所有发票行单行金额合计的累加，展示在发票的价税合计处，单位：分 注意：所有发票的总价税合计之和不能超过交易的总金额 |
--| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息，单张发票的发票行不能超过8行 |
-+| fapiao_information.items | array[object] | true | 【发票行信息】 发票行信息 |
- | fapiao_information.items.tax_code | string(19) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码。可自行指定符合税务部门规定的货物或应税劳务、服务编码。旅客运输业务仅支持301开头的税收分类编码 |
- | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
- | fapiao_information.items.specification | string(20) | false | 【规格型号】 规格型号，展示在发票中间的规格型号列 |
-@@ -76,8 +76,8 @@
- | fapiao_information.transaction_information.pay_channel | string | true | 【支付渠道】 发票对应交易所属的交易渠道<br>可选取值<br><ul><li>`WECHAT_PAY`:  微信支付</li></ul> |
- | fapiao_information.transaction_information.transaction_id | string(64) | false | 【支付订单号】 发票对应交易的支付订单号，支付系统生成的订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
- | fapiao_information.transaction_information.out_trade_no | string(64) | false | 【支付商户订单号】 发票对应交易的商户订单号，商户系统内部订单号。微信支付交易渠道时，支付订单号、支付商户订单号必须传递其中一个参数 |
--| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的交易金额，单位：分 |
--| fapiao_information.remark | string | false | 【发票备注】 发票备注 |
-+| fapiao_information.transaction_information.amount | integer | true | 【交易金额】 发票对应交易信息的下单金额，单位：分 |
-+| fapiao_information.remark | string(255) | false | 【发票备注】 发票备注 |
- ## 应答参数
+ ## 请求参数
  
- 无应答包体
-```
-
-### 查询电子发票
-- ID: `4015792567`
-- 路径: 微信电子发票 > API列表
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4015792567.md
-- 更新时间变更: 2025-12-03 02:09:53 -> 2026-11-05 12:26:55
-- 本地文件: `pages/4015792567.md`
-
-```diff
---- old.md
-+++ new.md
-@@ -1,4 +1,4 @@
-->更新时间：2025.12.03
-+>更新时间：2026.11.05
- 
- 商户调用[【开具电子发票】](https://pay.weixin.qq.com/doc/v3/partner/4015792574.md)接口或[【冲红电子发票】](https://pay.weixin.qq.com/doc/v3/partner/4015792575.md)接口或[【将电子发票插入微信用户卡包】](https://pay.weixin.qq.com/doc/v3/partner/4015792579.md)接口成功后，应调用本接口查询电子发票开具/冲红/插卡结果，并获取已开具/冲红/插卡的电子发票信息。
- 
-@@ -84,7 +84,7 @@
- | fapiao_information.buyer_information.fapiao_bill_type | string | false | 【开具的发票类型】 用户选择提交开具发票的类型<br>可选取值<br><ul><li>`COMM_FAPIAO`:  增值税普通发票</li><li>`VAT_FAPIAO`:  增值税专用发票</li></ul> |
- | fapiao_information.buyer_information.user_apply_message | string(100) | false | 【留言信息】 用户申请开票时提交的留言信息 |
- | fapiao_information.extra_information | object | true | 【附加信息】 附加信息 |
--| fapiao_information.extra_information.drawer | string(20) | true | 【开票人】 数电发票模式下，为脱敏后的开票人名称，格式为：除最后一个字外其它字用\*填充的姓名+空格+身份证后四位 |
-+| fapiao_information.extra_information.drawer | string | true | 【开票人】 数电发票模式下，为脱敏后的开票人名称，格式为：除最后一个字外其它字用\*填充的姓名+空格+身份证后四位 |
- | fapiao_information.items | array[object] | false | 【发票行信息】 发票行信息 |
- | fapiao_information.items.tax_code | string(32) | true | 【税局侧规定的货物或应税劳务、服务税收分类编码】 税局侧规定的货物或应税劳务、服务税收分类编码 |
- | fapiao_information.items.goods_name | string(128) | true | 【货物或应税劳务、服务名称】 由商户自定义的货物或应税劳务、服务名称 |
-@@ -98,7 +98,7 @@
- | fapiao_information.items.tax_rate | integer | true | 【税率】 税率，单位为万分之一，如1300代表13% |
- | fapiao_information.items.tax_prefer_mark | string | false | 【税收优惠政策标识】 税收优惠政策标识<br>可选取值<br><ul><li>`NO_FAVORABLE`:  无优惠</li><li>`OUTSIDE_VAT`:  不征税</li><li>`VAT_EXEMPT`:  免税</li><li>`NORMAL_ZERO_RATED`:  普通零税率</li><li>`EXPORT_ZERO_RATED`:  出口零税率</li></ul> |
- | fapiao_information.items.discount | boolean | true | 【是否折扣行】 指定该发票行是否折扣行，折扣行必须是被折扣行的下一行 |
--| fapiao_information.remark | string(200) | false | 【备注信息】 备注信息 |
-+| fapiao_information.remark | string | false | 【备注信息】 备注信息 |
- | fapiao_information.fapiao_error_code | string(32) | false | 【开票失败错误码】 开票失败时存在：<br>业务异常(BIZ\_ERROR) - 需要根据错误提示解决处理后，重新申请开票<br>参数异常(PARAM\_ERROR) - 需要根据错误提示修改请求参数后，重新申请开票 |
- | fapiao_information.fapiao_error_message | string(256) | false | 【开票失败原因】 开票失败时存在 |
+@@ -48,21 +48,21 @@
+ | card_type | string | true | 【会员卡类型】 支持付费、普通、储值 3 种类型。目前仅支持普通会员卡，填写付费和储值类型时会返回错误。<br>可选取值<br><ul><li>`PURCHASE`:  付费</li><li>`NORMAL`:  普通</li><li>`BALANCE`:  储值</li></ul> |
+ | card_title | string(10) | true | 【卡名称】 1.可用于展示在卡面的名称 2.支持最长10个中文字 3.支持中文字、英文字符、标点 |
+ | card_color | string(7) | true | 【卡背景颜色】 用于卡片正面设计的RGB颜色编码，仅支持十六进制 |
+-| card_picture_url | string(256) | true | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。 |
+-| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code；（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code 2、会员卡code分配模式若为“系统分配”，不支持修改为“商家分配”。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
++| card_picture_url | string(256) | false | 【卡图片】 商家自定义会员卡背景图。仅支持通过图片上传API接口获取的图片URL地址。支持JPG/JPEG/PNG格式，建议尺寸716px\*320px，且图片小于1M。查看以下链接后传入： [图片要求示例](https://gtimg.wechatpay.cn/resource/xres/img/202507/7eae51fbdbed8090d41528eda795676e_2733x716.png)， [图片上传API指引](https://pay.weixin.qq.com/doc/v3/partner/4012759802.md)。不传时没有默认卡图。 |
++| code_mode | string | true | 【会员卡code分配类型】 1、会员卡code是会员在一个会员卡模板下唯一身份标识，平台支持2种分配类型：<br>（1）SYSTEM\_ALLOCATE 微信支付系统分配，用户领取会员卡时从微信系统分配24位数字作为会员code，并在「用户开通会员卡」事件通知中返回；<br>（2）MERCHANT\_ALLOCATE 商家分配，商家同步会员开通结果时传入，用户开卡成功或失败都以商家传入的code作为会员卡code。选择商家分配模式时，开通事件通知中不返回 `user_card_code`。<br>2、会员卡创建后，code分配模式不支持修改。<br>可选取值<br><ul><li>`SYSTEM_ALLOCATE`:  系统分配</li><li>`MERCHANT_ALLOCATE`:  商家分配</li></ul> |
+ | code_type | string | true | 【会员码展示类型】 会员码支持不展示码/二维码／条形码／二维码＋条形码/跳转商家小程序5种设置。<br>可选取值<br><ul><li>`NONE_CODE`:  不显示任何码型</li><li>`BAR_CODE`:  条形码</li><li>`QR_CODE`:  二维码</li><li>`BAR_CODE_AND_QR_CODE`:  条形码和二维码</li><li>`JUMP_MINI_PROGRAM`:  跳转商家小程序</li></ul> |
+ | code_jump_information | object | false | 【会员码跳转信息】 会员码跳转的小程序信息，当会员码展示类型为跳转商家小程序时必填。 |
+ | code_jump_information.jump_appid | string(32) | false | 【会员码跳转AppID】 会员码跳转的小程序AppID |
+ | code_jump_information.jump_path | string(128) | false | 【会员码跳转路径】 会员码跳转的小程序路径 |
+-| benefits | string(32) | true | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。 |
+-| notify_url | string(256) | true | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。 |
++| benefits | string(32) | false | 【会员权益】 会员权益是指平台、品牌或服务机构为付费会员（或等级会员）提供的专属优惠、服务或特权。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
++| notify_url | string(256) | false | 【回调地址】 商家接收开卡成功回调通知的地址，需按照 [notify\_url填写注意事项](https://pay.weixin.qq.com/doc/v3/partner/4012082570.md#1.-notify_url%E5%A1%AB%E5%86%99%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9) 规范填写。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | need_pinned | boolean | false | 【是否置顶】 置顶卡是界面中的一种特殊展示模块，通过人工设置，使其固定在内容列表的顶部位置，确保用户优先看到。默认为false。同一个品牌下允许存在多张置顶卡，按照更新时间倒序排序。 |
+ | need_display_level | boolean | false | 【是否展示会员等级】 是否在会员卡面向用户展示等级信息，默认不展示（false） |
+ | init_level | string(10) | false | 【会员初始等级】 展示字段，商家可以自定义填写内容。如果选择了展示会员等级，必填 `init_level`，作为新用户开卡后的初始等级。如因商家业务规则需要变更某会员等级，可通过更新用户会员卡接口更新等级信息。 |
+ | service_phone | string(32) | false | 【服务电话】 展示在会员卡详情内，建议填写商家固定电话 |
+-| legal_agreement | string(20480) | true | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。 |
++| legal_agreement | string(20480) | false | 【商家法务协议】 指用户与商家之间签订的具有法律效力的合同文件，旨在明确双方在交易、服务提供、权利义务等方面的规则，以保障交易安全、规范商业行为，并在纠纷发生时提供法律依据。不支持链接跳转，支持使用 `\n` 代表换行，只支持纯文本展示。支持用户主动入会时必填。若该值不为空，则会返回该字段。 |
+ | valid_date_information | object | true | 【会员卡有效期】 会员卡有效期 |
+-| valid_date_information.type | string | false | 【有效期类型】 1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
++| valid_date_information.type | string | true | 【有效期类型】 传入会员卡有效期时必填。1.该有效期为会员卡激活后的有效期 2.支持绝对有效期&相对有效期设置 3.绝对有效期：固定过期时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 4.相对有效期：用户激活后x天后有效，x为天数。最多支持10,957天（30年） 5.永久有效 6.过期后卡状态变为“已过期” 7.过期后不再出现服务项，且无法给用户发送会员服务消息通知<br>可选取值<br><ul><li>`FIX_TIME_RANGE`:  必填available\_begin\_time和available\_end\_time，会员卡在此时间\[available\_begin\_time, available\_end\_time)范围内有效</li><li>`FIX_TERM`:  必填available\_day\_after\_receive，会员卡在用户领取之后available\_day\_after\_receive天内有效</li><li>`PERMANENT`:  会员卡激活后永久有效</li></ul> |
+ | valid_date_information.available_begin_time | string | false | 【有效期开始时间】 type为FIX\_TIME\_RANGE时专用， 表示有效期开始时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_end_time | string | false | 【有效期结束时间】 type为FIX\_TIME\_RANGE时专用，表示有效期结束时间。需需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | valid_date_information.available_day_after_receive | integer | false | 【领取后N天内有效】 type为FIX\_TERM时专用，表示领取后N个自然天内有效。最长不超过30年（10958 天） |
+@@ -79,7 +79,7 @@
+ | purchase_information.price | integer | false | 【付费会员价格】 指用户为获取特定商家提供的会员权益而需支付的费用金额。（单位：分） |
+ | purchase_information.jump_appid | string(32) | false | 【付费会员跳转AppID】 用户购买付费会员时跳转的付费会员的AppID |
+ | purchase_information.jump_path | string(128) | false | 【付费会员跳转路径】 用户购买付费会员时购买跳转的路径 |
+-| user_information | object | false | 【用户开卡信息】 要求用户在开通会员卡时必须填写的信息。若用户不填写则不允许开通会员卡。 |
++| user_information | object | false | 【用户开卡信息】 用户开通会员卡时可填写的信息。用户可以选择不填写，不影响开通会员卡；用户填写的内容会在开卡回调中返回给商家。 |
+ | user_information.common_field_list | array[string] | false | 【平台提供的通用开卡信息字段】 平台提供的通用开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。<br>可选取值<br><ul><li>`USER_FORM_FLAG_SEX`:  用户开卡时需填写性别，字段内容可选男或女。</li><li>`USER_FORM_FLAG_NAME`:  用户开卡时需填写姓名</li><li>`USER_FORM_FLAG_BIRTHDAY`:  用户开卡时需填写生日，字段内容需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准的 `full-date` 格式：yyyy-MM-DD，表示年月日。年份必须为 4 位数，月份和日期不足两位时需补零。 示例：2015-05-20。</li><li>`USER_FORM_FLAG_ADDRESS`:  用户开卡时需填写地址</li><li>`USER_FORM_FLAG_EMAIL`:  用户开卡时需填写邮箱，字段内容需为合法邮箱。</li><li>`USER_FORM_FLAG_CITY`:  用户开卡时需填写城市，字段格式需为："省份,城市"，第一项省份，第二项城市，用英文逗号分隔。</li></ul> |
+ | user_information.custom_field_list | array[object] | false | 【商家自定义的开卡信息字段】 商家自定义的开卡信息字段。若商户在会员卡模板中设置该值，则查询结果中会返回给商户。当前最多只允许传入1项。 |
+ | user_information.custom_field_list.type | string | false | 【字段类型】 选择所需的字段类型<br>可选取值<br><ul><li>`CHECK_BOX`:  用户可从商家提供的选项中选择多项</li><li>`RADIO`:  用户可从商家提供的选项中选择一项</li></ul> |
+@@ -88,6 +88,8 @@
+ | state | string | true | 【状态】 会员卡状态信息<br>可选取值<br><ul><li>`CARD_EFFECTIVE`:  生效中</li><li>`CARD_INVALID`:  已失效</li></ul> |
+ | create_time | string | true | 【创建时间】 创建会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
+ | modify_time | string | true | 【更新时间】 更新会员卡的时间，需遵循 [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339) 标准格式：yyyy-MM-DDTHH:mm:ss+TIMEZONE。yyyy-MM-DD 表示年月日；T 字符用于分隔日期和时间部分；HH:mm:ss 表示具体的时分秒；TIMEZONE 表示时区（例如，+08:00 对应东八区时间，即北京时间）。示例：2015-05-20T13:29:35+08:00 表示北京时间2015年5月20日13点29分35秒。 |
++| support_user_active_join | boolean | false | 【是否支持用户主动入会】 true 表示允许用户在微信支付内主动开通这张会员卡，用户可以通过商家名片、支付相关入会入口，以及商家小程序或 H5 的入会流程填写开卡信息并开通；false 表示用户不能在微信支付内主动开通，只能由商家通过导入等方式开通。 |
++| purchase_membership | boolean | false | 【是否为付费会员】 true 表示该会员卡是付费会员，false 表示不是。 |
  ## 错误码
+ 
+ 以下是本接口返回的错误码列表。详细错误码规则，请参考[微信支付接口规则-错误码和错误提示](https://pay.weixin.qq.com/doc/v3/partner/4012081726.md#%E9%94%99%E8%AF%AF%E7%A0%81%E5%92%8C%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA)
+@@ -174,7 +176,9 @@
+   },
+   "state" : "CARD_EFFECTIVE",
+   "create_time" : "2020-05-20T13:29:35.120+08:00",
+-  "modify_time" : "2020-05-20T13:29:35.120+08:00"
++  "modify_time" : "2020-05-20T13:29:35.120+08:00",
++  "support_user_active_join" : true,
++  "purchase_membership" : false
+ }
+ 
+ ```
+```
+
+### 小程序拉起品牌会员入会组件
+- ID: `4015273633`
+- 路径: 商家名片会员 > API列表 > 用户开通会员卡
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4015273633.md
+- 更新时间变更: 2025-06-24 06:51:53 -> 2026-11-17 08:50:18
+- 本地文件: `pages/4015273633.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,8 +1,6 @@
+->更新时间：2025.06.24
++>更新时间：2026.11.17
+ 
+ 服务商通过[品牌入会组件预授权接口](https://pay.weixin.qq.com/doc/v3/partner/4015336986.md)获取授权的必要参数token后，可在小程序内使用微信支付提供的小程序方法调起品牌会员入会组件，引导用户完成入会流程。
+-
+-如果要在该组件中展示优惠券，促进用户的点击转化行为，需要接入[「创建品牌会员发券活动」](https://pay.weixin.qq.com/doc/v3/partner/4016464918.md)接口创建发券活动，活动创建后将取最新的有效活动设置的优惠券展示在此组件内。 如果不需要在改组件中展示优惠券，可不用调用创建品牌会员发券接口，这样组件上就不会展示优惠券。
+ 
+ 
+ 
+@@ -78,7 +76,7 @@
+ | 参数名 | 类型 | 必填 | 描述 |
+ | --- |  --- | --- | --- |
+ | extraData | Object | true | 【业务参数】回传商家小程序的业务数据 |
+-| extraData.errcode | number | true | 【错误码】表示入会流程是否成功，非 0 表示有异常，枚举值如下：<br>`0`：开通成功<br>`1`：暂不加入<br>`2`：在开通 loading 的时候退出了入会组件<br>`3`：开通失败 |
++| extraData.errcode | number | true | 【错误码】表示入会流程是否成功，非 0 表示有异常，枚举值如下：<br>`0`：开通成功<br>`1`：暂不加入<br>`2`：在开通 loading 的时候退出了入会组件<br>`3`：开通未完成，开通结果请以 [查询用户会员卡信息](https://pay.weixin.qq.com/doc/v3/partner/4015336980.md) 接口返回的查询结果为准 |
+ | extraData.msg | string(256) | true | 【状态描述】状态描述 |
+ | extraData.data | Object | false | 【详细信息】详细信息，当errcode为0时才返回；反之，则不返回。 |
+ | extraData.data.hasJoinCardMember | boolean | true | 【用户是否入会成功】表示用户入会是否成功 |
 ```
 
 ## 附录：所有页面清单
@@ -648,10 +716,10 @@
 | 422 | [开通广告展示](pages/4012473794.md) | `4012473794` | 2024-11-18 09:25:55 | 点金计划 > API列表 |
 | 423 | [关闭广告展示](pages/4012473781.md) | `4012473781` | 2024-11-18 09:25:47 | 点金计划 > API列表 |
 | 424 | [小程序左上角返回键管理](pages/4012072514.md) | `4012072514` | 2025-02-19 07:20:53 | 点金计划 > API列表 |
-| 425 | [产品介绍](pages/4016433410.md) | `4016433410` | 2026-04-02 14:46:39 | 品牌入驻 |
+| 425 | [产品介绍](pages/4016433410.md) | `4016433410` | 2026-11-06 09:13:06 | 品牌入驻 |
 | 426 | [开发指引](pages/4016985537.md) | `4016985537` | 2026-10-20 08:20:32 | 品牌入驻 |
 | 427 | [常见问题](pages/4017027854.md) | `4017027854` | 2026-01-04 03:49:11 | 品牌入驻 |
-| 428 | [提交入驻申请](pages/4016249989.md) | `4016249989` | 2025-10-23 06:29:49 | 品牌入驻 > API列表 |
+| 428 | [提交入驻申请](pages/4016249989.md) | `4016249989` | 2026-10-27 03:41:46 | 品牌入驻 > API列表 |
 | 429 | [根据业务申请编号查询申请状态](pages/4016257694.md) | `4016257694` | 2025-10-23 06:29:49 | 品牌入驻 > API列表 |
 | 430 | [根据申请单ID查询申请状态](pages/4016257685.md) | `4016257685` | 2025-10-23 06:29:49 | 品牌入驻 > API列表 |
 | 431 | [撤销申请](pages/4016257700.md) | `4016257700` | 2025-10-23 06:29:49 | 品牌入驻 > API列表 |
@@ -681,13 +749,13 @@
 | 455 | [查询会员卡模板列表](pages/4015336976.md) | `4015336976` | 2026-11-11 06:30:44 | 商家名片会员 > API列表 > 会员卡模板管理 |
 | 456 | [查询会员卡模板信息](pages/4015336974.md) | `4015336974` | 2026-11-11 06:34:35 | 商家名片会员 > API列表 > 会员卡模板管理 |
 | 457 | [修改会员卡模板信息](pages/4015336977.md) | `4015336977` | 2026-11-11 06:35:06 | 商家名片会员 > API列表 > 会员卡模板管理 |
-| 458 | [作废会员卡模板](pages/4015336972.md) | `4015336972` | 2025-08-01 02:53:26 | 商家名片会员 > API列表 > 会员卡模板管理 |
+| 458 | [作废会员卡模板](pages/4015336972.md) | `4015336972` | 2026-11-17 08:49:38 | 商家名片会员 > API列表 > 会员卡模板管理 |
 | 459 | [查询用户会员卡信息](pages/4015336980.md) | `4015336980` | 2025-07-25 03:00:22 | 商家名片会员 > API列表 > 用户会员卡管理 |
 | 460 | [查询用户在品牌下所有会员卡](pages/4015336984.md) | `4015336984` | 2025-07-25 03:00:22 | 商家名片会员 > API列表 > 用户会员卡管理 |
 | 461 | [修改用户会员卡信息](pages/4015336985.md) | `4015336985` | 2025-07-25 03:00:22 | 商家名片会员 > API列表 > 用户会员卡管理 |
 | 462 | [作废用户会员卡](pages/4015336983.md) | `4015336983` | 2025-07-25 03:00:22 | 商家名片会员 > API列表 > 用户会员卡管理 |
 | 463 | [品牌会员入会组件预授权](pages/4015336986.md) | `4015336986` | 2025-11-19 04:10:23 | 商家名片会员 > API列表 > 用户开通会员卡 |
-| 464 | [小程序拉起品牌会员入会组件](pages/4015273633.md) | `4015273633` | 2025-06-24 06:51:53 | 商家名片会员 > API列表 > 用户开通会员卡 |
+| 464 | [小程序拉起品牌会员入会组件](pages/4015273633.md) | `4015273633` | 2026-11-17 08:50:18 | 商家名片会员 > API列表 > 用户开通会员卡 |
 | 465 | [H5拉起品牌会员入会组件](pages/4015331476.md) | `4015331476` | 2025-12-23 08:54:29 | 商家名片会员 > API列表 > 用户开通会员卡 |
 | 466 | [根据OPENID导入用户会员卡](pages/4015336981.md) | `4015336981` | 2025-06-22 08:21:27 | 商家名片会员 > API列表 > 商家同步会员身份 |
 | 467 | [同步会员开通结果](pages/4015336979.md) | `4015336979` | 2025-06-22 08:22:08 | 商家名片会员 > API列表 > 商家同步会员身份 |
