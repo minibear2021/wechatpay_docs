@@ -1,5 +1,5 @@
 {
-  "totalNodes": 908,
+  "totalNodes": 928,
   "docType": "partner",
   "docTypeName": "合作伙伴",
   "nodes": [
@@ -179,6 +179,13 @@
       "fullPath": "JSAPI支付 > 附录"
     },
     {
+      "docId": "4061594127",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594127.md",
+      "updateTime": "1795002256",
+      "fullPath": "JSAPI支付 > 附录"
+    },
+    {
       "docId": "4013080227",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080227.md",
@@ -316,6 +323,13 @@
       "title": "OpenSDK接入指南",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013369798.md",
       "updateTime": "1735123699",
+      "fullPath": "APP支付 > 附录"
+    },
+    {
+      "docId": "4061593819",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061593819.md",
+      "updateTime": "1795002177",
       "fullPath": "APP支付 > 附录"
     },
     {
@@ -473,6 +487,13 @@
       "fullPath": "H5支付 > 附录"
     },
     {
+      "docId": "4061594125",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594125.md",
+      "updateTime": "1795002247",
+      "fullPath": "H5支付 > 附录"
+    },
+    {
       "docId": "4012076267",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012076267.md",
@@ -603,6 +624,13 @@
       "title": "管理商户号绑定的APPID账号",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013352075.md",
       "updateTime": "1734938508",
+      "fullPath": "Native支付 > 附录"
+    },
+    {
+      "docId": "4061594129",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594129.md",
+      "updateTime": "1795002261",
       "fullPath": "Native支付 > 附录"
     },
     {
@@ -739,6 +767,13 @@
       "fullPath": "小程序支付 > 附录"
     },
     {
+      "docId": "4061594135",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594135.md",
+      "updateTime": "1795002283",
+      "fullPath": "小程序支付 > 附录"
+    },
+    {
       "docId": "4012079332",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012079332.md",
@@ -865,6 +900,13 @@
       "fullPath": "JSAPI合单支付 > 附录"
     },
     {
+      "docId": "4061594126",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594126.md",
+      "updateTime": "1794973035",
+      "fullPath": "JSAPI合单支付 > 附录"
+    },
+    {
       "docId": "4012079331",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012079331.md",
@@ -977,6 +1019,13 @@
       "fullPath": "APP合单支付 > API列表"
     },
     {
+      "docId": "4061594122",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594122.md",
+      "updateTime": "1794973085",
+      "fullPath": "APP合单支付 > 附录"
+    },
+    {
       "docId": "4013462080",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013462080.md",
@@ -1082,6 +1131,13 @@
       "fullPath": "H5合单支付 > API列表"
     },
     {
+      "docId": "4061594124",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594124.md",
+      "updateTime": "1794973127",
+      "fullPath": "H5合单支付 > 附录"
+    },
+    {
       "docId": "4012079333",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012079333.md",
@@ -1185,6 +1241,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013462389.md",
       "updateTime": "1737009618",
       "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4061594128",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594128.md",
+      "updateTime": "1794972977",
+      "fullPath": "Native合单支付 > 附录"
     },
     {
       "docId": "4012079334",
@@ -1297,6 +1360,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013462614.md",
       "updateTime": "1737009598",
       "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4061594134",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594134.md",
+      "updateTime": "1794972622",
+      "fullPath": "小程序合单支付 > 附录"
     },
     {
       "docId": "4016824698",
@@ -1418,6 +1488,13 @@
       "fullPath": "医保支付（服务商模式） > 附录"
     },
     {
+      "docId": "4061594132",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594132.md",
+      "updateTime": "1795002274",
+      "fullPath": "医保支付（服务商模式） > 附录"
+    },
+    {
       "docId": "4018300086",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4018300086.md",
@@ -1534,6 +1611,13 @@
       "title": "测试及环境切换",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4021774021.md",
       "updateTime": "1781168302",
+      "fullPath": "医保支付（间连模式） > 附录"
+    },
+    {
+      "docId": "4061594133",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594133.md",
+      "updateTime": "1795002278",
       "fullPath": "医保支付（间连模式） > 附录"
     },
     {
@@ -1670,6 +1754,13 @@
       "fullPath": "订单退款 > 附录"
     },
     {
+      "docId": "4061594136",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594136.md",
+      "updateTime": "1795002287",
+      "fullPath": "订单退款 > 附录"
+    },
+    {
       "docId": "4013080592",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080592.md",
@@ -1751,6 +1842,13 @@
       "title": "平台下载账单操作指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080601.md",
       "updateTime": "1732609271",
+      "fullPath": "下载账单 > 附录"
+    },
+    {
+      "docId": "4061594130",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594130.md",
+      "updateTime": "1795002264",
       "fullPath": "下载账单 > 附录"
     },
     {
@@ -1877,6 +1975,13 @@
       "title": "分账失败处理指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4015504885.md",
       "updateTime": "1751598491",
+      "fullPath": "分账 > 附录"
+    },
+    {
+      "docId": "4061594131",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594131.md",
+      "updateTime": "1794972720",
       "fullPath": "分账 > 附录"
     },
     {
@@ -2216,6 +2321,13 @@
       "fullPath": "微信支付分 > 附录"
     },
     {
+      "docId": "4061594137",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594137.md",
+      "updateTime": "1795002291",
+      "fullPath": "微信支付分 > 附录"
+    },
+    {
       "docId": "4013163663",
       "title": "总览",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013163663.md",
@@ -2403,6 +2515,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012760554.md",
       "updateTime": "1743990596",
       "fullPath": "微信支付分停车服务 > API列表 > 退款"
+    },
+    {
+      "docId": "4061594138",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594138.md",
+      "updateTime": "1794972431",
+      "fullPath": "微信支付分停车服务 > 附录"
     },
     {
       "docId": "4012851209",
@@ -2823,6 +2942,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4012474127.md",
       "updateTime": "1732775020",
       "fullPath": "智慧商圈 > API列表"
+    },
+    {
+      "docId": "4061594141",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594141.md",
+      "updateTime": "1794972369",
+      "fullPath": "智慧商圈 > 附录"
     },
     {
       "docId": "4012076036",
@@ -5569,6 +5695,13 @@
       "fullPath": "平台收付通-电商交易解决方案 > 交易退款 > API列表"
     },
     {
+      "docId": "4061594120",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594120.md",
+      "updateTime": "1794973227",
+      "fullPath": "平台收付通-电商交易解决方案 > 交易退款 > 附录"
+    },
+    {
       "docId": "4016644075",
       "title": "常见问题",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4016644075.md",
@@ -5735,6 +5868,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4014314390.md",
       "updateTime": "1744773716",
       "fullPath": "平台收付通-电商交易解决方案 > 账单下载 > API列表"
+    },
+    {
+      "docId": "4061594121",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4061594121.md",
+      "updateTime": "1794973208",
+      "fullPath": "平台收付通-电商交易解决方案 > 账单下载 > 附录"
     },
     {
       "docId": "4015593257",

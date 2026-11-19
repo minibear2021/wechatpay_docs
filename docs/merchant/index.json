@@ -1,5 +1,5 @@
 {
-  "totalNodes": 561,
+  "totalNodes": 577,
   "docType": "merchant",
   "docTypeName": "直连商户",
   "nodes": [
@@ -193,6 +193,13 @@
       "fullPath": "JSAPI支付 > 附录"
     },
     {
+      "docId": "4061594148",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594148.md",
+      "updateTime": "1795002313",
+      "fullPath": "JSAPI支付 > 附录"
+    },
+    {
       "docId": "4013070158",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013070158.md",
@@ -344,6 +351,13 @@
       "title": "各主体可申请的基础支付权限列表",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4015477838.md",
       "updateTime": "1751532702",
+      "fullPath": "APP支付 > 附录"
+    },
+    {
+      "docId": "4061593820",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061593820.md",
+      "updateTime": "1795002300",
       "fullPath": "APP支付 > 附录"
     },
     {
@@ -515,6 +529,13 @@
       "fullPath": "H5支付 > 附录"
     },
     {
+      "docId": "4061594146",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594146.md",
+      "updateTime": "1795002306",
+      "fullPath": "H5支付 > 附录"
+    },
+    {
       "docId": "4012791874",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791874.md",
@@ -659,6 +680,13 @@
       "title": "申请Native支付权限指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012791875.md",
       "updateTime": "1752739648",
+      "fullPath": "Native支付 > 附录"
+    },
+    {
+      "docId": "4061594150",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594150.md",
+      "updateTime": "1795002318",
       "fullPath": "Native支付 > 附录"
     },
     {
@@ -809,6 +837,13 @@
       "fullPath": "小程序支付 > 附录"
     },
     {
+      "docId": "4061594155",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594155.md",
+      "updateTime": "1795002334",
+      "fullPath": "小程序支付 > 附录"
+    },
+    {
       "docId": "4012077221",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077221.md",
@@ -935,6 +970,13 @@
       "fullPath": "JSAPI合单支付 > 附录"
     },
     {
+      "docId": "4061594147",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594147.md",
+      "updateTime": "1795002310",
+      "fullPath": "JSAPI合单支付 > 附录"
+    },
+    {
       "docId": "4012077215",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077215.md",
@@ -1052,6 +1094,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md",
       "updateTime": "1734507743",
       "fullPath": "APP合单支付 > API列表"
+    },
+    {
+      "docId": "4061594142",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594142.md",
+      "updateTime": "1794973192",
+      "fullPath": "APP合单支付 > 附录"
     },
     {
       "docId": "4013421104",
@@ -1173,6 +1222,13 @@
       "fullPath": "H5合单支付 > API列表"
     },
     {
+      "docId": "4061594145",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594145.md",
+      "updateTime": "1794972350",
+      "fullPath": "H5合单支付 > 附录"
+    },
+    {
       "docId": "4012077545",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012077545.md",
@@ -1283,6 +1339,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421368.md",
       "updateTime": "1736392777",
       "fullPath": "Native合单支付 > API列表"
+    },
+    {
+      "docId": "4061594149",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594149.md",
+      "updateTime": "1794972190",
+      "fullPath": "Native合单支付 > 附录"
     },
     {
       "docId": "4012077589",
@@ -1402,6 +1465,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md",
       "updateTime": "1736392763",
       "fullPath": "小程序合单支付 > API列表"
+    },
+    {
+      "docId": "4061594154",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594154.md",
+      "updateTime": "1794971716",
+      "fullPath": "小程序合单支付 > 附录"
     },
     {
       "docId": "4035576700",
@@ -1558,6 +1628,13 @@
       "fullPath": "医保支付 > 附录"
     },
     {
+      "docId": "4061594153",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594153.md",
+      "updateTime": "1795002329",
+      "fullPath": "医保支付 > 附录"
+    },
+    {
       "docId": "4026275563",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4026275563.md",
@@ -1677,6 +1754,13 @@
       "fullPath": "订单退款 > 附录"
     },
     {
+      "docId": "4061594156",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594156.md",
+      "updateTime": "1794971454",
+      "fullPath": "订单退款 > 附录"
+    },
+    {
       "docId": "4013071215",
       "title": "产品介绍",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071215.md",
@@ -1751,6 +1835,13 @@
       "title": "下载账单操作指引",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4013071252.md",
       "updateTime": "1732529033",
+      "fullPath": "下载账单 > 附录"
+    },
+    {
+      "docId": "4061594151",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594151.md",
+      "updateTime": "1795002322",
       "fullPath": "下载账单 > 附录"
     },
     {
@@ -2419,6 +2510,13 @@
       "fullPath": "微信支付分 > 附录"
     },
     {
+      "docId": "4061594157",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594157.md",
+      "updateTime": "1795002341",
+      "fullPath": "微信支付分 > 附录"
+    },
+    {
       "docId": "4012587259",
       "title": "二轮电动车充电桩",
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012587259.md",
@@ -2599,6 +2697,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012557161.md",
       "updateTime": "1736392787",
       "fullPath": "微信支付分停车服务 > API列表 > 退款"
+    },
+    {
+      "docId": "4061594158",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594158.md",
+      "updateTime": "1794970123",
+      "fullPath": "微信支付分停车服务 > 附录"
     },
     {
       "docId": "4012647471",
@@ -3019,6 +3124,13 @@
       "url": "https://pay.weixin.qq.com/doc/v3/merchant/4012535502.md",
       "updateTime": "1732691983",
       "fullPath": "智慧商圈 > API列表"
+    },
+    {
+      "docId": "4061594159",
+      "title": "开发接入检查用例",
+      "url": "https://pay.weixin.qq.com/doc/v3/merchant/4061594159.md",
+      "updateTime": "1794970099",
+      "fullPath": "智慧商圈 > 附录"
     },
     {
       "docId": "4012061135",

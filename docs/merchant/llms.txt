@@ -1,4 +1,4 @@
->更新时间：2026.11.12
+>更新时间：2026.11.18
 
 # 微信支付商户平台文档中心
 
@@ -50,6 +50,7 @@
 - [配置JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/merchant/4013287088.md)
 - [申请JSAPI支付权限指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791854.md)
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015420731.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594148.md)
 ## APP支付
 > APP 支付为商户提供移动端 APP 内的微信支付能力，用户在商户 APP 中唤起微信完成支付后返回该应用，适用于电商、游戏、生活服务等各类独立 APP 的支付场景。
 
@@ -77,6 +78,7 @@
 - [OpenSDK接入指南](https://pay.weixin.qq.com/doc/v3/merchant/4013289321.md)
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013289251.md)
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015477838.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061593820.md)
 ## H5支付
 > H5 支付为商户提供在手机浏览器网页（非微信客户端内部浏览器）中使用微信支付收款的能力，用户在浏览器发起支付时会跳转到微信内，支付后可返回浏览器中商户的H5页面。
 
@@ -106,6 +108,7 @@
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015616699.md)
 - [申请H5支付权限指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791841.md)
 - [获取用户ip指引](https://pay.weixin.qq.com/doc/v3/merchant/4018677409.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594146.md)
 ## Native支付
 > Native 支付，商户通过接口生成支付二维码，用户使用微信扫码即可完成付款，适用于门店、线下商超、自助设备等线下场景，接入简单、稳定高效，是线下商户主流收款方式之一。
 
@@ -132,6 +135,7 @@
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013287246.md)
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015616698.md)
 - [申请Native支付权限指引](https://pay.weixin.qq.com/doc/v3/merchant/4012791875.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594150.md)
 ## 小程序支付
 > 小程序支付提供了让用户在微信小程序内进行支付的能力，小程序内调起支付无需跳转页面，支付体验流畅，适用于小程序电商、餐饮、本地生活等场景，提升转化与复购。
 
@@ -158,6 +162,7 @@
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013287504.md)
 - [申请JSAPI支付权限指引(小程序支付场景)](https://pay.weixin.qq.com/doc/v3/merchant/4012791895.md)
 - [各主体可申请的基础支付权限列表](https://pay.weixin.qq.com/doc/v3/merchant/4015459054.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594155.md)
 ## JSAPI合单支付
 > JSAPI合单支付，提供商户在微信客户端内部浏览器网页中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用JSAPI支付）整合为一个订单进行收款的能力。
 
@@ -181,6 +186,7 @@
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421294.md)
 ### 附录
 - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/merchant/4013426141.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594147.md)
 ## APP合单支付
 > APP合单支付，提供商户在自己的APP中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用APP支付）整合为一个订单进行收款的能力。
 
@@ -202,6 +208,8 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556692.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4012556748.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4012085923.md)
+### 附录
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594142.md)
 ## H5合单支付
 > H5合单支付，提供商户在手机浏览器网页（非微信客户端内部浏览器）中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用H5支付）整合为一个订单进行收款的能力。
 
@@ -223,6 +231,8 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421176.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421185.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421189.md)
+### 附录
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594145.md)
 ## Native合单支付
 > Native合单支付，提供商户在PC端网页浏览器中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用Native支付）整合为一个订单进行收款的能力。
 
@@ -243,6 +253,8 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421361.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421365.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421368.md)
+### 附录
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594149.md)
 ## 小程序合单支付
 > 小程序合单支付，提供商户在微信小程序中实现将多个商户的订单（普通商户模式只支持2-10笔订单，单笔收款请使用小程序支付）整合为一个订单进行收款的能力。
 
@@ -264,6 +276,8 @@
 - [申请交易账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421450.md)
 - [申请资金账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421456.md)
 - [下载账单](https://pay.weixin.qq.com/doc/v3/merchant/4013421461.md)
+### 附录
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594154.md)
 ## AI支付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4035576700.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4035576711.md)
@@ -296,6 +310,7 @@
 - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/merchant/4016975471.md)
 - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/merchant/4021595091.md)
 - [测试及环境切换](https://pay.weixin.qq.com/doc/v3/merchant/4021773498.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594153.md)
 ## 医保一码付
 - [产品介绍](https://pay.weixin.qq.com/doc/v3/merchant/4026275563.md)
 - [开发接入准备](https://pay.weixin.qq.com/doc/v3/merchant/4026276029.md)
@@ -320,6 +335,7 @@
 - [退款结果通知](https://pay.weixin.qq.com/doc/v3/merchant/4013071196.md)
 ### 附录
 - [微信支付退款最佳实践](https://pay.weixin.qq.com/doc/v3/merchant/4014959631.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594156.md)
 ## 下载账单
 > 下载账单提供交易、资金、退款、分账等多维度对账文件，支持按时间筛选获取明细，用于财务核对、结算审计与数据归档，帮助商户清晰管理资金流水，提升账务处理效率与透明度。
 
@@ -336,6 +352,7 @@
 - [交易账单详细说明](https://pay.weixin.qq.com/doc/v3/merchant/4013071246.md)
 - [资金账单详细说明](https://pay.weixin.qq.com/doc/v3/merchant/4013071249.md)
 - [下载账单操作指引](https://pay.weixin.qq.com/doc/v3/merchant/4013071252.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594151.md)
 ## 分账
 > 分账是商户用于交易资金分配的工具，支持将资金分给合作伙伴、员工、用户等分润方。资金先冻结，可实时或延时分账，单笔最多分 50 次、每次可分 50 方，支持商户或个人账户接收，需设置最大分账比例，全程免手续费。
 
@@ -456,6 +473,7 @@
 - [支付分权限申请邮件模板](https://pay.weixin.qq.com/doc/v3/merchant/4012587233.md)
 - [测试微信号配置指引](https://pay.weixin.qq.com/doc/v3/merchant/4012587248.md)
 - [微信支付分权限类问题排查指南](https://pay.weixin.qq.com/doc/v3/merchant/4018398339.md)
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594157.md)
 #### post_payments(后付费项目)字段传参说明
 - [二轮电动车充电桩](https://pay.weixin.qq.com/doc/v3/merchant/4012587259.md)
 - [充电宝](https://pay.weixin.qq.com/doc/v3/merchant/4012587281.md)
@@ -492,6 +510,8 @@
 - [退款申请](https://pay.weixin.qq.com/doc/v3/merchant/4012557131.md)
 - [退款结果通知](https://pay.weixin.qq.com/doc/v3/merchant/4012083103.md)
 - [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/merchant/4012557161.md)
+### 附录
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594158.md)
 ## 现金红包（V2）
 > 现金红包是微信支付提供的营销工具，商户可以通过公众号或者服务通知向用户发放现金红包。用户领取红包后，资金到达用户微信支付零钱账户；若用户未领取， 资金将会在24小时后退回商户的微信支付账户中。适用于拉新、促活、福利发放等场景。
 
@@ -583,6 +603,8 @@
 - [商圈会员积分服务授权查询](https://pay.weixin.qq.com/doc/v3/merchant/4012534848.md)
 - [商圈会员待积分状态查询](https://pay.weixin.qq.com/doc/v3/merchant/4012534994.md)
 - [商圈会员停车状态同步](https://pay.weixin.qq.com/doc/v3/merchant/4012535502.md)
+### 附录
+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/merchant/4061594159.md)
 ## 支付即服务
 > 用户完成微信支付后，自动展示服务入口，快速连接售后、客服等场景。缩短服务路径，提升用户体验与服务效率，降低商户客服成本，适用于零售、餐饮、生活服务等多行业售后链路。
 
