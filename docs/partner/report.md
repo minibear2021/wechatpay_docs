@@ -1,16 +1,16 @@
 # 微信支付文档更新报告 - 合作伙伴
 
 **文档类型**: 合作伙伴 (partner)
-**生成时间**: 20261119_080510
+**生成时间**: 20261120_075107
 **文档总数**: 928
 **数据来源**: https://pay.weixin.qq.com/doc/v3/partner/llms.txt
 
 ## 变更概览
 
-- 新增: 20 个页面
+- 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 20 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,322 +20,50 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.18
-+>更新时间：2026.11.19
+->更新时间：2026.11.19
++>更新时间：2026.11.20
  
  # 微信支付合作伙伴平台文档中心
  
-@@ -48,6 +48,7 @@
- ### 附录
- - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013335081.md)
- - [配置JSAPI支付授权目录](https://pay.weixin.qq.com/doc/v3/partner/4013335127.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594127.md)
- ## APP支付
- > APP 支付为商户提供移动端 APP 内的微信支付能力，用户在商户 APP 中唤起微信完成支付后返回该应用，适用于电商、游戏、生活服务等各类独立 APP 的支付场景。
- 
-@@ -73,6 +74,7 @@
- ### 附录
- - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013357894.md)
- - [OpenSDK接入指南](https://pay.weixin.qq.com/doc/v3/partner/4013369798.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061593819.md)
- ## H5支付
- > H5 支付为商户提供在手机浏览器网页（非微信客户端内部浏览器）中使用微信支付收款的能力，用户在浏览器发起支付时会跳转到微信内，支付后可返回浏览器中商户的H5页面。
- 
-@@ -100,6 +102,7 @@
- - [配置H5支付域名](https://pay.weixin.qq.com/doc/v3/partner/4013336019.md)
- - [H5收银台适老化字体规范](https://pay.weixin.qq.com/doc/v3/partner/4013358769.md)
- - [获取用户ip指引](https://pay.weixin.qq.com/doc/v3/partner/4018675960.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594125.md)
- ## Native支付
- > Native 支付，商户通过接口生成支付二维码，用户使用微信扫码即可完成付款，适用于门店、线下商超、自助设备等线下场景，接入简单、稳定高效，是线下商户主流收款方式之一。
- 
-@@ -124,6 +127,7 @@
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012085877.md)
- ### 附录
- - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013352075.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594129.md)
- ## 小程序支付
- > 小程序支付提供了让用户在微信小程序内进行支付的能力，小程序内调起支付无需跳转页面，支付体验流畅，适用于小程序电商、餐饮、本地生活等场景，提升转化与复购。
- 
-@@ -148,6 +152,7 @@
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012085803.md)
- ### 附录
- - [管理商户号绑定的APPID账号](https://pay.weixin.qq.com/doc/v3/partner/4013352070.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594135.md)
- ## JSAPI合单支付
- > 服务商模式JSAPI合单支付，提供服务商在微信浏览器网页中实现将多个子商户的订单整合为一个订单进行收款的能力。
- 
-@@ -171,6 +176,7 @@
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462207.md)
- ### 附录
- - [合单支付-商户号绑定APPID操作说明](https://pay.weixin.qq.com/doc/v3/partner/4013462628.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594126.md)
- ## APP合单支付
- > 服务商模式APP合单支付，提供服务商在自己的APP中实现将多个子商户的订单整合为一个订单进行收款的能力。
- 
-@@ -191,6 +197,8 @@
- - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4012760228.md)
- - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760229.md)
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012231933.md)
-+### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594122.md)
- ## H5合单支付
- > 服务商模式H5合单支付，提供服务商在移动客户端浏览器网页（非微信客户端内部浏览器）中实现将多个子商户的订单整合为一个订单进行收款的能力。
- 
-@@ -210,6 +218,8 @@
- - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462129.md)
- - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462134.md)
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462137.md)
-+### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594124.md)
- ## Native合单支付
- > 服务商模式Native合单支付，提供服务商在PC端网页浏览器中实现将多个子商户的订单整合为一个订单进行收款的能力。
- 
-@@ -229,6 +239,8 @@
- - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462343.md)
- - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462358.md)
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462389.md)
-+### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594128.md)
- ## 小程序合单支付
- > 服务商模式小程序合单支付，提供服务商在微信小程序中实现将多个子商户的订单整合为一个订单进行收款的能力。
- 
-@@ -249,6 +261,8 @@
- - [申请所有/单个子商户交易账单](https://pay.weixin.qq.com/doc/v3/partner/4013462604.md)
- - [申请服务商资金账单](https://pay.weixin.qq.com/doc/v3/partner/4013462607.md)
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4013462614.md)
-+### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594134.md)
- ## 医保支付（服务商模式）
- > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
- 
-@@ -274,6 +288,7 @@
- - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/partner/4016970670.md)
- - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/partner/4021595914.md)
- - [测试及环境切换](https://pay.weixin.qq.com/doc/v3/partner/4021773695.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594132.md)
- ## 医保支付（间连模式）
- > 医保支付支持用户在微信激活医保电子凭证后，直接完成挂号、门诊缴费等费用的线上医保支付，无需前往线下窗口排队，有助于提高医疗医保服务效率，改善医患关系，为用户提供更便捷流畅的就医体验。
- 
-@@ -299,6 +314,7 @@
- - [接入医保亲情付指引](https://pay.weixin.qq.com/doc/v3/partner/4018300091.md)
- - [UI规范与页面说明](https://pay.weixin.qq.com/doc/v3/partner/4021595913.md)
- - [测试及环境切换](https://pay.weixin.qq.com/doc/v3/partner/4021774021.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594133.md)
- ## 医保一码付
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4027117103.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4027117104.md)
-@@ -325,6 +341,7 @@
- ### 附录
- - [退款操作指引](https://pay.weixin.qq.com/doc/v3/partner/4013080632.md)
- - [微信支付退款最佳实践](https://pay.weixin.qq.com/doc/v3/partner/4014960215.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594136.md)
- ## 下载账单
- > 下载账单提供交易、资金、退款、分账等多维度对账文件，支持按时间筛选获取明细，用于财务核对、结算审计与数据归档，帮助商户清晰管理资金流水，提升账务处理效率与透明度。
- 
-@@ -342,6 +359,7 @@
- - [交易账单详细说明](https://pay.weixin.qq.com/doc/v3/partner/4013080599.md)
- - [资金账单详细说明](https://pay.weixin.qq.com/doc/v3/partner/4013080600.md)
- - [平台下载账单操作指引](https://pay.weixin.qq.com/doc/v3/partner/4013080601.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594130.md)
- ## 分账
- > 分账是商户用于交易资金分配的工具，支持将资金分给合作伙伴、员工、用户等分润方。资金先冻结，可实时或延时分账，单笔最多分 50 次、每次可分 50 方，支持商户或个人账户接收，需设置最大分账比例，全程免手续费。
- 
-@@ -365,6 +383,7 @@
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012075366.md)
- ### 附录
- - [分账失败处理指引](https://pay.weixin.qq.com/doc/v3/partner/4015504885.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594131.md)
- ## 停车缴费服务
- - [产品介绍](https://pay.weixin.qq.com/doc/v3/partner/4019514964.md)
- - [开发接入准备](https://pay.weixin.qq.com/doc/v3/partner/4019515014.md)
-@@ -426,6 +445,7 @@
- - [支付分权限申请邮件模板](https://pay.weixin.qq.com/doc/v3/partner/4012586142.md)
- - [测试微信号配置指引](https://pay.weixin.qq.com/doc/v3/partner/4012586141.md)
- - [服务ID新增绑定邮件流程](https://pay.weixin.qq.com/doc/v3/partner/4012624851.md)
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594137.md)
- #### post_payments(后付费项目)字段传参说明
- - [总览](https://pay.weixin.qq.com/doc/v3/partner/4013163663.md)
- - [二轮电动车充电桩](https://pay.weixin.qq.com/doc/v3/partner/4012586150.md)
-@@ -463,6 +483,8 @@
- - [退款申请](https://pay.weixin.qq.com/doc/v3/partner/4012760545.md)
- - [退款结果通知](https://pay.weixin.qq.com/doc/v3/partner/4012086319.md)
- - [查询单笔退款（通过商户退款单号）](https://pay.weixin.qq.com/doc/v3/partner/4012760554.md)
-+### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594138.md)
- ## 现金红包（V2）
- > 现金红包是微信支付提供的营销工具，商户可以通过公众号或者服务通知向用户发放现金红包。用户领取红包后，资金到达用户微信支付零钱账户；若用户未领取， 资金将会在24小时后退回商户的微信支付账户中。适用于拉新、促活、福利发放等场景。
- 
-@@ -554,6 +576,8 @@
- - [商圈会员积分服务授权查询](https://pay.weixin.qq.com/doc/v3/partner/4012474135.md)
- - [商圈会员待积分状态查询](https://pay.weixin.qq.com/doc/v3/partner/4012474129.md)
- - [商圈会员停车状态同步](https://pay.weixin.qq.com/doc/v3/partner/4012474127.md)
-+### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594141.md)
- ## 支付即服务
- > 用户完成微信支付后，自动展示服务入口，快速连接售后、客服等场景。缩短服务路径，提升用户体验与服务效率，降低商户客服成本，适用于零售、餐饮、生活服务等多行业售后链路。
- 
-@@ -1130,6 +1154,8 @@
- - [查询垫付回补结果](https://pay.weixin.qq.com/doc/v3/partner/4012476916.md)
- - [垫付退款回补](https://pay.weixin.qq.com/doc/v3/partner/4012476927.md)
- - [发起异常退款](https://pay.weixin.qq.com/doc/v3/partner/4015181616.md)
-+#### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594120.md)
- ### 账户资金管理
- #### 余额查询
- - [常见问题](https://pay.weixin.qq.com/doc/v3/partner/4016644075.md)
-@@ -1163,6 +1189,8 @@
- - [下载账单](https://pay.weixin.qq.com/doc/v3/partner/4012124894.md)
- - [申请二级商户资金账单](https://pay.weixin.qq.com/doc/v3/partner/4012760697.md)
- - [下载单个子商户/二级商户资金账单](https://pay.weixin.qq.com/doc/v3/partner/4014314390.md)
-+#### 附录
-+- [开发接入检查用例](https://pay.weixin.qq.com/doc/v3/partner/4061594121.md)
- ### 跨境付款
- > 跨境付款依托境内收付通，解决境内平台向境外供应商结算需求，支持多币种汇兑、全球分发、海关一键推单。手续费率可由平台或二级商户承担，提供合规出境、快速结算、报关一体化服务。
- 
 ```
 
-## 新增页面
+## 修改页面
 
-### 开发接入检查用例
-- ID: `4061594127`
-- 路径: JSAPI支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594127.md
-- 更新时间: 2026-11-18 11:44:16
-- 本地文件: `pages/4061594127.md`
+### 管理商户号绑定的APPID账号
+- ID: `4016329059`
+- 路径: Optional > 开发须知 > 开发参数申请和配置
+- URL: https://pay.weixin.qq.com/doc/v3/partner/4016329059.md
+- 更新时间变更: 2025-10-28 03:00:48 -> 2026-11-20 02:33:32
+- 本地文件: `pages/4016329059.md`
 
-### 开发接入检查用例
-- ID: `4061593819`
-- 路径: APP支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061593819.md
-- 更新时间: 2026-11-18 11:42:57
-- 本地文件: `pages/4061593819.md`
-
-### 开发接入检查用例
-- ID: `4061594125`
-- 路径: H5支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594125.md
-- 更新时间: 2026-11-18 11:44:07
-- 本地文件: `pages/4061594125.md`
-
-### 开发接入检查用例
-- ID: `4061594129`
-- 路径: Native支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594129.md
-- 更新时间: 2026-11-18 11:44:21
-- 本地文件: `pages/4061594129.md`
-
-### 开发接入检查用例
-- ID: `4061594135`
-- 路径: 小程序支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594135.md
-- 更新时间: 2026-11-18 11:44:43
-- 本地文件: `pages/4061594135.md`
-
-### 开发接入检查用例
-- ID: `4061594126`
-- 路径: JSAPI合单支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594126.md
-- 更新时间: 2026-11-18 03:37:15
-- 本地文件: `pages/4061594126.md`
-
-### 开发接入检查用例
-- ID: `4061594122`
-- 路径: APP合单支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594122.md
-- 更新时间: 2026-11-18 03:38:05
-- 本地文件: `pages/4061594122.md`
-
-### 开发接入检查用例
-- ID: `4061594124`
-- 路径: H5合单支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594124.md
-- 更新时间: 2026-11-18 03:38:47
-- 本地文件: `pages/4061594124.md`
-
-### 开发接入检查用例
-- ID: `4061594128`
-- 路径: Native合单支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594128.md
-- 更新时间: 2026-11-18 03:36:17
-- 本地文件: `pages/4061594128.md`
-
-### 开发接入检查用例
-- ID: `4061594134`
-- 路径: 小程序合单支付 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594134.md
-- 更新时间: 2026-11-18 03:30:22
-- 本地文件: `pages/4061594134.md`
-
-### 开发接入检查用例
-- ID: `4061594132`
-- 路径: 医保支付（服务商模式） > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594132.md
-- 更新时间: 2026-11-18 11:44:34
-- 本地文件: `pages/4061594132.md`
-
-### 开发接入检查用例
-- ID: `4061594133`
-- 路径: 医保支付（间连模式） > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594133.md
-- 更新时间: 2026-11-18 11:44:38
-- 本地文件: `pages/4061594133.md`
-
-### 开发接入检查用例
-- ID: `4061594136`
-- 路径: 订单退款 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594136.md
-- 更新时间: 2026-11-18 11:44:47
-- 本地文件: `pages/4061594136.md`
-
-### 开发接入检查用例
-- ID: `4061594130`
-- 路径: 下载账单 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594130.md
-- 更新时间: 2026-11-18 11:44:24
-- 本地文件: `pages/4061594130.md`
-
-### 开发接入检查用例
-- ID: `4061594131`
-- 路径: 分账 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594131.md
-- 更新时间: 2026-11-18 03:32:00
-- 本地文件: `pages/4061594131.md`
-
-### 开发接入检查用例
-- ID: `4061594137`
-- 路径: 微信支付分 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594137.md
-- 更新时间: 2026-11-18 11:44:51
-- 本地文件: `pages/4061594137.md`
-
-### 开发接入检查用例
-- ID: `4061594138`
-- 路径: 微信支付分停车服务 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594138.md
-- 更新时间: 2026-11-18 03:27:11
-- 本地文件: `pages/4061594138.md`
-
-### 开发接入检查用例
-- ID: `4061594141`
-- 路径: 智慧商圈 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594141.md
-- 更新时间: 2026-11-18 03:26:09
-- 本地文件: `pages/4061594141.md`
-
-### 开发接入检查用例
-- ID: `4061594120`
-- 路径: 平台收付通-电商交易解决方案 > 交易退款 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594120.md
-- 更新时间: 2026-11-18 03:40:27
-- 本地文件: `pages/4061594120.md`
-
-### 开发接入检查用例
-- ID: `4061594121`
-- 路径: 平台收付通-电商交易解决方案 > 账单下载 > 附录
-- URL: https://pay.weixin.qq.com/doc/v3/partner/4061594121.md
-- 更新时间: 2026-11-18 03:40:08
-- 本地文件: `pages/4061594121.md`
+```diff
+--- old.md
++++ new.md
+@@ -1,4 +1,4 @@
+->更新时间：2025.10.28
++>更新时间：2026.11.20
+ 
+ ## 1、查询商户号绑定的APPID账号
+ 
+@@ -79,7 +79,7 @@
+ - 授权绑定申请发起后，商户需要[登录对应平台确认授权绑定的商户号](https://pay.weixin.qq.com/doc/v3/partner/4016329059.md#2.3%E3%80%81%E7%99%BB%E5%BD%95%E5%AF%B9%E5%BA%94%E5%B9%B3%E5%8F%B0%E7%A1%AE%E8%AE%A4%E6%8E%88%E6%9D%83%E7%BB%91%E5%AE%9A%E7%9A%84%E5%95%86%E6%88%B7%E5%8F%B7)。
+ 
+ 
+-| 步骤一：登录服务商平台，点击“产品中心 \> AppID账号管理 > +关联AppID” | 步骤二：进入新增授权页面，填写AppID，<br>阅读并勾选《微信支付商户号与APPID授权协议》，<br>点击“提交”，发起授权绑定申请。 |
++| 步骤一：登录服务商平台，点击“产品中心 \> AppID账号管理 > +关联AppID” | 步骤二：进入新增授权页面，填写AppID，阅读并勾选《微信支付商户号与APPID授权协议》，<br>点击“提交”，发起授权绑定申请。 |
+ | --- | --- |
+ | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/6bcd64885646fd3dfa96dc79543c0fa0.png) | ![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/9d5631540740a78a29b5d663d947ddc3.png) |
+ 
+@@ -114,7 +114,7 @@
+ 
+ ##### 主体不一致
+ 
+-- 若AppID账号主体与子商户号或服务商均主体一致，服务商可通过以下路径登录[服务商平台](https://pay.weixin.qq.com/partner/public/home)操作绑定：【合作伙伴功能 > 商户基础服务 > 开发参数配置 > 找到对应子商户号点击“开发配置”\> 特约商户APPID配置】，点击“APPID配置入口”，在新增授权页面填写AppID后提交授权绑定申请；
++- 若AppID账号主体与子商户号或服务商均主体不一致，服务商可通过以下路径登录[服务商平台](https://pay.weixin.qq.com/partner/public/home)操作绑定：【合作伙伴功能 > 商户基础服务 > 开发参数配置 > 找到对应子商户号点击“开发配置”\> 特约商户APPID配置】，点击“APPID配置入口”，在新增授权页面填写AppID后提交授权绑定申请；
+ 
+ - 子商户登录[商户平台](https://pay.weixin.qq.com/)，点击“产品中心-APPID授权管理-服务商为我关联的APPID账号-选择服务商-找到APPID-去确认”，确认并签署《微信支付联合营运承诺函》与《微信支付商户号与APPID授权协议》；
+ 
+```
 
 ## 附录：所有页面清单
 
@@ -1198,7 +926,7 @@
 | 852 | [HTTP状态码](pages/4012081727.md) | `4012081727` | 2024-07-25 02:07:36 | Optional > 开发须知 > 接口规则说明 |
 | 853 | [开发必要参数说明](pages/4013080340.md) | `4013080340` | 2026-10-13 03:52:59 | Optional > 开发须知 > 开发参数申请和配置 |
 | 854 | [mchid与appid申请](pages/4012081990.md) | `4012081990` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
-| 855 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
+| 855 | [管理商户号绑定的APPID账号](pages/4016329059.md) | `4016329059` | 2026-11-20 02:33:32 | Optional > 开发须知 > 开发参数申请和配置 |
 | 856 | [配置APIv3密钥](pages/4012081991.md) | `4012081991` | 2025-10-28 03:00:48 | Optional > 开发须知 > 开发参数申请和配置 |
 | 857 | [品牌经营API开发必要参数说明](pages/4015981654.md) | `4015981654` | 2025-12-15 01:50:19 | Optional > 开发须知 > 开发参数申请和配置 |
 | 858 | [平台员工权限管理](pages/4013080349.md) | `4013080349` | 2025-09-19 01:36:32 | Optional > 开发须知 > 开发参数申请和配置 |
