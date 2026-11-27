@@ -1687,7 +1687,7 @@
       "docId": "4013080623",
       "title": "开发指引",
       "url": "https://pay.weixin.qq.com/doc/v3/partner/4013080623.md",
-      "updateTime": "1791896868",
+      "updateTime": "1795761903",
       "fullPath": "订单退款"
     },
     {
@@ -4862,67 +4862,39 @@
       "fullPath": "商户开户意愿确认 > API列表"
     },
     {
-      "docId": "4012064844",
+      "docId": "4016022264",
       "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064844.md",
-      "updateTime": "1773127435",
-      "fullPath": "商户平台处置通知"
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016022264.md",
+      "updateTime": "1758081787",
+      "fullPath": "合作伙伴订阅"
     },
     {
-      "docId": "4012064851",
-      "title": "开发接入准备",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064851.md",
-      "updateTime": "1779183195",
-      "fullPath": "商户平台处置通知"
-    },
-    {
-      "docId": "4012064853",
+      "docId": "4016022266",
       "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064853.md",
-      "updateTime": "1792483411",
-      "fullPath": "商户平台处置通知"
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016022266.md",
+      "updateTime": "1757993757",
+      "fullPath": "合作伙伴订阅"
     },
     {
-      "docId": "4015949382",
-      "title": "业务示例代码",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4015949382.md",
-      "updateTime": "1756868502",
-      "fullPath": "商户平台处置通知"
+      "docId": "4016550707",
+      "title": "常见问题",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016550707.md",
+      "updateTime": "1785910647",
+      "fullPath": "合作伙伴订阅"
     },
     {
-      "docId": "4012471327",
-      "title": "查询商户违规通知回调地址",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471327.md",
-      "updateTime": "1756373246",
-      "fullPath": "商户平台处置通知 > API列表 > 商户违规通知回调"
+      "docId": "4012165270",
+      "title": "产品介绍",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012165270.md",
+      "updateTime": "1792484020",
+      "fullPath": "商户被管控能力及原因查询"
     },
     {
-      "docId": "4012471330",
-      "title": "修改商户违规通知回调地址",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471330.md",
-      "updateTime": "1756373239",
-      "fullPath": "商户平台处置通知 > API列表 > 商户违规通知回调"
-    },
-    {
-      "docId": "4012471333",
-      "title": "创建商户违规通知回调地址",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471333.md",
-      "updateTime": "1756373232",
-      "fullPath": "商户平台处置通知 > API列表 > 商户违规通知回调"
-    },
-    {
-      "docId": "4012471334",
-      "title": "删除商户违规通知回调地址",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471334.md",
-      "updateTime": "1756373225",
-      "fullPath": "商户平台处置通知 > API列表 > 商户违规通知回调"
-    },
-    {
-      "docId": "4012079216",
-      "title": "商户平台处置记录回调通知",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012079216.md",
-      "updateTime": "1739937363",
-      "fullPath": "商户平台处置通知 > API列表 > 商户违规通知回调"
+      "docId": "4012803072",
+      "title": "查询子商户管控情况",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012803072.md",
+      "updateTime": "1795157962",
+      "fullPath": "商户被管控能力及原因查询 > API列表"
     },
     {
       "docId": "4012064898",
@@ -4974,39 +4946,67 @@
       "fullPath": "不活跃商户身份核实 > 附录"
     },
     {
-      "docId": "4012165270",
+      "docId": "4012064844",
       "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012165270.md",
-      "updateTime": "1792484020",
-      "fullPath": "商户被管控能力及原因查询"
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064844.md",
+      "updateTime": "1773127435",
+      "fullPath": "商户平台处置通知（下线中）"
     },
     {
-      "docId": "4012803072",
-      "title": "查询子商户管控情况",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012803072.md",
-      "updateTime": "1795157962",
-      "fullPath": "商户被管控能力及原因查询 > API列表"
+      "docId": "4012064851",
+      "title": "开发接入准备",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064851.md",
+      "updateTime": "1779183195",
+      "fullPath": "商户平台处置通知（下线中）"
     },
     {
-      "docId": "4016022264",
-      "title": "产品介绍",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016022264.md",
-      "updateTime": "1758081787",
-      "fullPath": "合作伙伴订阅"
-    },
-    {
-      "docId": "4016022266",
+      "docId": "4012064853",
       "title": "开发指引",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016022266.md",
-      "updateTime": "1757993757",
-      "fullPath": "合作伙伴订阅"
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012064853.md",
+      "updateTime": "1792483411",
+      "fullPath": "商户平台处置通知（下线中）"
     },
     {
-      "docId": "4016550707",
-      "title": "常见问题",
-      "url": "https://pay.weixin.qq.com/doc/v3/partner/4016550707.md",
-      "updateTime": "1785910647",
-      "fullPath": "合作伙伴订阅"
+      "docId": "4015949382",
+      "title": "业务示例代码",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4015949382.md",
+      "updateTime": "1756868502",
+      "fullPath": "商户平台处置通知（下线中）"
+    },
+    {
+      "docId": "4012471327",
+      "title": "查询商户违规通知回调地址",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471327.md",
+      "updateTime": "1756373246",
+      "fullPath": "商户平台处置通知（下线中） > API列表 > 商户违规通知回调"
+    },
+    {
+      "docId": "4012471330",
+      "title": "修改商户违规通知回调地址",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471330.md",
+      "updateTime": "1756373239",
+      "fullPath": "商户平台处置通知（下线中） > API列表 > 商户违规通知回调"
+    },
+    {
+      "docId": "4012471333",
+      "title": "创建商户违规通知回调地址",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471333.md",
+      "updateTime": "1756373232",
+      "fullPath": "商户平台处置通知（下线中） > API列表 > 商户违规通知回调"
+    },
+    {
+      "docId": "4012471334",
+      "title": "删除商户违规通知回调地址",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012471334.md",
+      "updateTime": "1756373225",
+      "fullPath": "商户平台处置通知（下线中） > API列表 > 商户违规通知回调"
+    },
+    {
+      "docId": "4012079216",
+      "title": "商户平台处置记录回调通知",
+      "url": "https://pay.weixin.qq.com/doc/v3/partner/4012079216.md",
+      "updateTime": "1739937363",
+      "fullPath": "商户平台处置通知（下线中） > API列表 > 商户违规通知回调"
     },
     {
       "docId": "4025464285",

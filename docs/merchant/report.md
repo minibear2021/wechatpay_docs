@@ -1,7 +1,7 @@
 # 微信支付文档更新报告 - 直连商户
 
 **文档类型**: 直连商户 (merchant)
-**生成时间**: 20261126_085841
+**生成时间**: 20261127_091122
 **文档总数**: 577
 **数据来源**: https://pay.weixin.qq.com/doc/v3/merchant/llms.txt
 
@@ -9,8 +9,8 @@
 
 - 新增: 0 个页面
 - 删除: 0 个页面
-- 修改: 0 个页面
-- 成功拉取: 0 个页面
+- 修改: 1 个页面
+- 成功拉取: 1 个页面
 - 拉取失败: 0 个页面
 - llms.txt 变更: 是
 
@@ -20,11 +20,192 @@
 --- llms_old.txt
 +++ llms.txt
 @@ -1,4 +1,4 @@
-->更新时间：2026.11.23
-+>更新时间：2026.11.26
+->更新时间：2026.11.26
++>更新时间：2026.11.27
  
  # 微信支付商户平台文档中心
  
+```
+
+## 修改页面
+
+### 开发指引
+- ID: `4013071031`
+- 路径: 订单退款
+- URL: https://pay.weixin.qq.com/doc/v3/merchant/4013071031.md
+- 更新时间变更: 2026-10-13 13:03:06 -> 2026-11-27 06:42:44
+- 本地文件: `pages/4013071031.md`
+
+```diff
+--- old.md
++++ new.md
+@@ -1,10 +1,10 @@
+->更新时间：2026.10.13
++>更新时间：2026.11.27
+ 
+ ## 1、整体业务开发流程概览
+ 
+ 若存在退款需求，商户需先调用[查询订单状态](https://pay.weixin.qq.com/doc/v3/merchant/4013070356.md)接口以确认订单支付状态为已支付成功，随后调用[申请退款API](https://pay.weixin.qq.com/doc/v3/merchant/4013071036.md)创建退款单后，可通过[查询单笔退款信息](https://pay.weixin.qq.com/doc/v3/merchant/4013071041.md)或[退款回调通知](https://pay.weixin.qq.com/doc/v3/merchant/4013071196.md)以确认最终的退款结果。若退款状态为退款异常，则需调用[发起异常退款API](https://pay.weixin.qq.com/doc/v3/merchant/4013071193.md)进行退款操作。
+ 
+-![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/31cc8e49c144a0d4f111260aa4c4e86d.png)
++![](https://gtimg.wechatpay.cn/resource/xres/mmpaydoc/static/img/333781917c2b642d231e9b78076777db.png)
+ 
+ ## 2、详细步骤说明
+ 
+@@ -14,14 +14,13 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-
+-        actor User as 用户
+-        participant Mch as 商户系统
+-        participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
+-
+-        User->>Mch: 用户申请退款
+-        Mch->>WxPay: 查询订单信息
+-        WxPay-->>Mch: 获取订单信息
++  autonumber
++  actor p0 as 用户
++  participant p1 as 商户系统
++  participant p2 as 微信支付系统
++  p0->>p1: 用户申请退款
++  p1->>p2: 查询订单信息
++  p2-->>p1: 获取订单信息
+ ```
+ 
+ ### 2.2、申请退款
+@@ -47,16 +46,15 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-
+-        actor User as 用户
+-        participant Mch as 商户系统
+-        participant WxPay@{ type: actor, xwattType: secondaryActor } as 微信支付系统
+-
+-        User->>Mch: 用户申请退款
+-        Mch->>Mch: 生成商户退款单号
+-        Mch->>WxPay: 申请退款
+-        WxPay->>WxPay: 生成微信支付退款单号
+-        WxPay-->>Mch: 返回退款受理信息
++  autonumber
++  actor p0 as 用户
++  participant p1 as 商户系统
++  participant p2 as 微信支付系统
++  p0->>p1: 用户申请退款
++  p1->>p1: 生成商户退款单号
++  p1->>p2: 申请退款
++  p2->>p2: 生成微信支付退款单号
++  p2-->>p1: 退款受理信息
+ ```
+ 
+ 申请退款接口需要注意的参数：
+@@ -75,26 +73,22 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-%% xwatt: autonumber ea
+-autonumber
+-        actor User as 用户
+-        participant P2 as 微信客户端
+-        participant Mch as 商户系统
+-        participant WxPay as 微信支付系统
+-
+-        alt 退款回调通知
+-            WxPay->>Mch: 异步通知商户退款结果
+-            Mch->>Mch: 保存退款通知
+-            Mch-->>WxPay: 返回告知接收成功处理
+-            WxPay-->>P2: 返回退款结果，并微信消息提醒
+-        end
+-
+-        alt 查询退款单状态（未收到退款回调通知）
+-            Mch->>WxPay: 调用查询单笔退款API接口，查询退款结果
+-            WxPay-->>Mch: 返回退款结果
+-        end
+-
+-        Mch-->>User: 展示退款结果
++  autonumber
++  actor p0 as 用户
++  participant p1 as 商户系统
++  participant p2 as 微信支付系统
++  participant p3 as 微信客户端
++  alt 退款回调通知
++    p2->>p1: 异步通知商户退款结果
++    p1->>p1: 保存退款通知
++    p1-->>p2: 告知接收成功处理
++    p2-->>p3: 返回退款结果，并微信消息提醒
++  end
++  alt 查询退款单状态：未收到退款回调通知
++    p1->>p2: 调用查询单笔退款API接口，查询退款结果
++    p2-->>p1: 退款结果
++  end
++  p1-->>p0: 展示退款结果
+ ```
+ 
+ 退款状态：
+@@ -121,19 +115,16 @@
+ 
+ ```mermaid
+ sequenceDiagram
+-        %% xwatt: autonumber ea
+-        autonumber
+-        actor User as 用户
+-        participant Mch as 商户系统
+-        participant WxPay as 微信支付系统
+-
+-        alt 若需退款至用户其他银行卡
+-            Mch->>User: 向用户收集接收退款的银行卡信息
+-            User-->>Mch: 向商户提供接收退款的银行卡信息
+-        end
+-
+-        Mch->>WxPay: 请求发起异常退款
+-        WxPay-->>Mch: 返回受理退款信息
++  autonumber
++  actor p0 as 用户
++  participant p1 as 商户系统
++  participant p2 as 微信支付系统
++  alt 若需退款至用户其他银行卡
++    p1->>p0: 向用户收集接收退款的银行卡信息
++    p0-->>p1: 向商户提供接收退款的银行卡信息
++  end
++  p1->>p2: 请求发起异常退款
++  p2-->>p1: 受理退款信息
+ ```
+ 
+ 发起异常退款关键参数：
+@@ -145,21 +136,18 @@
+ ## 3、退款单状态流转图
+ 
+ ```mermaid
+-%%{init: {'themeVariables':{'edgeLabelBackground':'#ffffff'}}}%%
+ stateDiagram-v2
+-    direction LR
+-    state "status:PROCESSING (退款处理中)" as S2
+-    state "status:CLOSED(退款关闭)" as S3
+-    state "status:SUCCESS(退款成功)" as S4
+-    state "status:ABNORMAL (退款异常)" as S5
+-
+-    [*] --> S2: 支付成功，调用申请退款API
+-    S2 --> S4: 退款成功
+-    S2 --> S5: 支付账户异常导致无法正常退回
+-    S2 --> S3: 退款受理超7天账户资金不足
+-    S4 --> [*]
+-    S5 --> S4: 调用发起异常退款API成功后或在商户平台手动处理退款成功后
+-    S3 --> [*]
++  state "status:PROCESSING (退款处理中)" as S0
++  state "status:CLOSED (退款关闭)" as S1
++  state "status:SUCCESS (退款成功)" as S2
++  state "status:ABNORMAL (退款异常)" as S3
++  [*] --> S0 : 支付成功，调用申请退款API
++  S0 --> S2 : 退款成功
++  S0 --> S3 : 支付账户异常导致无法正常退回
++  S0 --> S1 : 退款受理超7天账户资金不足
++  S3 --> S2 : 调用发起异常退款API成功后或在商户平台手动处理退款成功后
++  S2 --> [*]
++  S1 --> [*]
+ ```
+ 
+ 退款单状态流转说明
 ```
 
 ## 附录：所有页面清单
@@ -275,7 +456,7 @@
 | 239 | [申请一码付权限](pages/4026292912.md) | `4026292912` | 2026-07-22 08:48:05 | 医保一码付 > 附录 |
 | 240 | [测试信息准备和验收注意事项](pages/4026303367.md) | `4026303367` | 2026-07-22 08:47:51 | 医保一码付 > 附录 |
 | 241 | [产品介绍](pages/4013071001.md) | `4013071001` | 2025-06-27 09:49:14 | 订单退款 |
-| 242 | [开发指引](pages/4013071031.md) | `4013071031` | 2026-10-13 13:03:06 | 订单退款 |
+| 242 | [开发指引](pages/4013071031.md) | `4013071031` | 2026-11-27 06:42:44 | 订单退款 |
 | 243 | [接入易错点](pages/4054257701.md) | `4054257701` | 2026-10-30 13:09:40 | 订单退款 |
 | 244 | [常见问题](pages/4013071200.md) | `4013071200` | 2026-08-05 09:21:08 | 订单退款 |
 | 245 | [业务示例代码](pages/4015217336.md) | `4015217336` | 2026-10-23 03:48:00 | 订单退款 |
